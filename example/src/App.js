@@ -1,10 +1,15 @@
 import React from 'react'
 
-import { ExampleComponent } from 'ui-components'
+import { Button } from 'ui-components'
 import 'ui-components/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return(
+    <>
+      <Button theme='primary' label="Primary Button" icon={{nameIcon:'delete'}}/>
+      <Button theme='secondary' label="Secondary button" icon={{nameIcon:'edit', reverse: true}}/>
+    </>
+    )
 }
 
 export default App

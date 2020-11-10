@@ -1,6 +1,4 @@
-import React from 'react'
-import styles from './styles.module.css'
+import './index.css'
+import { Button } from './components/atoms/Button'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export { Button }
