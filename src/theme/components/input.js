@@ -1,4 +1,6 @@
 export const Input = {
   bgfield: 'var(--bgFieldInput)',
-  brField: 'var(--brFieldInput)'
+  bgfieldFocus: 'var(--bgFieldInputFocus)',
+  brField: 'var(--brFieldInput)',
+  colorBrBottom: 'var(--colorbrBottom)'
 }

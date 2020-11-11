@@ -33,16 +33,17 @@ const template = (args) => <Button {...args} />
 
 export const ButtonDefault = template.bind({})
 ButtonDefault.storyName = 'Button'
+
 export const ButtonDefaultWithIconLeft = template.bind({})
 ButtonDefaultWithIconLeft.storyName = 'Button icon left'
 ButtonDefaultWithIconLeft.args = {
   icon: {
-    nameIcon: 'edit'
+    nameIcon: 'accessibility'
   }
 }
 
 export const ButtonDefaultWithIconRight = template.bind({})
-ButtonDefaultWithIconRight.storyName = 'Button icon left'
+ButtonDefaultWithIconRight.storyName = 'Button icon rigth'
 ButtonDefaultWithIconRight.args = {
   icon: {
     nameIcon: 'edit',
