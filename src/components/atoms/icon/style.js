@@ -1,11 +1,20 @@
 import styled from 'styled-components'
 
-export const IconStyled = styled.svg((props) => {
-  const theme = props.theme
+export const IconStyled = styled.i((props) => {
   return {
-    fill: theme.colorText,
-    transition: 'fill 0.5s ease',
-    width: '20px',
-    height: '20px'
+    color: props.theme.tectColor,
+    fontFamily: 'Material Icons',
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+    fontSize: '24px',
+    lineHeight: 1,
+    letterSpacing: 'normal',
+    textTransform: 'none',
+    display: 'inline-block',
+    whiteSpace: 'nowrap',
+    wordWrap: 'normal',
+    direction: 'ltr',
+    '-webkit-font-feature-settings': 'liga',
+    '-webkit-font-smoothing': 'antialiased'
   }
 })

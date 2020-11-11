@@ -23,9 +23,6 @@ export const ButtonStyled = styled.button((props) => {
     ':hover': {
       backgroundColor: theme.hoverBgColor,
       color: theme.hoverTextColor
-    },
-    ':hover svg': {
-      fill: theme.hoverTextColor
     }
   }
 })

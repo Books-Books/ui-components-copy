@@ -1,7 +1,9 @@
 import { buttonDefault } from './components/button'
+import { Input } from './components/input'
 
 const shareStyles = {
-  buttonDefault
+  buttonDefault,
+  Input
 }
 
 export const GlobalThemes = {

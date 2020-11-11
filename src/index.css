@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v67/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+
 html {
   font-family: Roboto;
 }
@@ -23,4 +31,8 @@ html {
   --paddingBtn: .5rem;
   --marginBtn: 5px;
   --borderRadius: 5px;
+
+  /* input variables */
+  --bgFieldInput: #f5f5f5;
+  --brFieldInput: 4px 4px 0 0;
 }
