@@ -1,3 +1,4 @@
 export * from './Button'
 export * from './icon'
-export * from './Input'
+export * from './InputField'
+export * from './InputControl'

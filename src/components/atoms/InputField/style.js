@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
-export const InputField = styled.div((props) => {
+export const InputCont = styled.div((props) => {
   const theme = props.theme
-  console.log('theme', theme)
   return {
     height: '56px',
     borderRadius: theme.Input.brField,
@@ -11,9 +10,11 @@ export const InputField = styled.div((props) => {
     boxSizing: 'border-box',
     overflow: 'hidden',
     willChange: 'opacity,transform,color',
+    borderBottom: `1px solid ${theme.Input.colorBrBottom}`,
     backgroundColor: theme.Input.bgfield,
     margin: '10px',
     '&.active': {
+      backgroundColor: theme.Input.bgfieldFocus,
       label: {
         transform: 'translateY(-106%) scale(0.75)',
         color: theme.bgColor
@@ -43,14 +44,19 @@ export const InputStyled = styled.input((props) => {
     padding: '20px 16px 6px',
     transition: 'opacity 150ms cubic-bezier(0.4, 0, 0.2, 1)',
     border: 'none',
-    borderBottom: '1px solid rgba(0,0,0,.42)',
+    borderBottom: `1px solid ${theme.Input.colorBrBottom}`,
     borderRadius: 0,
+    opacity: '0.4',
     background: 'none',
     '-webkit-appearance': 'none',
     '-moz-appearance': 'none',
     appearance: 'none',
     ':hover': {
       borderBottomColor: theme.bgColor
+    },
+    ':focus': {
+      outline: 'none',
+      opacity: 1
     }
   }
 })

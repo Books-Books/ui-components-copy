@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { InputField, InputStyled, LabelStyle } from './style'
+import { InputCont, InputStyled, LabelStyle } from './style'
 import { ThemeProvider } from 'styled-components'
 import { GlobalThemes } from '../../../theme/index'
 
-export const Input = ({ theme, type, label }) => {
+export const InputField = ({ theme, type, label }) => {
   const SelectTheme = GlobalThemes[theme]
   const [isFocus, setIsFocus] = useState(false)
   const [value, setValue] = useState('')
@@ -18,7 +18,7 @@ export const Input = ({ theme, type, label }) => {
   }
   return (
     <ThemeProvider theme={SelectTheme}>
-      <InputField className={isFocus || value !== '' ? 'active' : ''}>
+      <InputCont className={isFocus || value !== '' ? 'active' : ''}>
         <InputStyled
           type={type}
           value={value}
@@ -27,7 +27,7 @@ export const Input = ({ theme, type, label }) => {
           onChange={handleChange}
         />
         <LabelStyle> {label} </LabelStyle>
-      </InputField>
+      </InputCont>
     </ThemeProvider>
   )
 }

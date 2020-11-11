@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const IconStyled = styled.i((props) => {
   return {
-    color: props.theme.tectColor,
+    color: props.theme.colorText,
     fontFamily: 'Material Icons',
     fontWeight: 'normal',
     fontStyle: 'normal',
-    fontSize: '24px',
+    fontSize: '15px',
     lineHeight: 1,
     letterSpacing: 'normal',
     textTransform: 'none',
