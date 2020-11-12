@@ -2,7 +2,7 @@ import React from 'react'
 import { InputField } from './index'
 
 export default {
-  title: 'Atoms/Inputs',
+  title: 'Atoms/Input Field',
   component: InputField,
   argTypes: {
     label: {

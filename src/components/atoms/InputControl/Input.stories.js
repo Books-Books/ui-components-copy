@@ -3,7 +3,7 @@ import React from 'react'
 import { InputControl } from './'
 
 export default {
-  title: 'Atoms/Inputs',
+  title: 'Atoms/Inputs Control',
   component: InputControl,
   argTypes: {
     label: {
