@@ -24,6 +24,9 @@ html {
   --secondaryLightColor: #5996f3;
   --secondaryTextColor: #fafafa;
 
+  --bgColorGood:#00b02e;
+  --bgColorWrong:#b00020;
+
   /* button variables */
   --minWidthSizeBtn: 200px;
   --minHeightSizeBtn: 2rem;
@@ -37,5 +40,14 @@ html {
   --bgFieldInputFocus: rgba(199, 195, 195, 70%);
   --brFieldInput: 4px 4px 0 0;
   --colorbrBottom: rgba(0,0,0,.42);
+    /* label */
+  --textSizeLabel: 0.875rem;
+  --textlhLabel: 0.25rem;
+  --textweightLabel: 400;
+  --textspacingLabel: 0.0178571429em;
+  --textColorLabel: rgba(0,0,0,.87);
+
+    /* bg color input */
+  --bgColorInputNoCheck: #757575;
 
 }

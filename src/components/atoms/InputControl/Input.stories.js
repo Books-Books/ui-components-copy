@@ -3,18 +3,9 @@ import React from 'react'
 import { InputControl } from './'
 
 export default {
-  title: 'Atoms/Inputs/Inputs Control',
+  title: 'Atoms/Inputs',
   component: InputControl,
   argTypes: {
-    theme: {
-      control: { type: 'select', options: ['primary', 'secondary'] },
-      defaultValue: 'primary',
-      description: 'Aqui se puede escoger entre "primary" y "secondary" ',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'primary' }
-      }
-    },
     label: {
       control: 'text',
       defaultValue: 'Label'
@@ -26,10 +17,12 @@ export default {
         type: { summary: 'string' },
         defaultValue: { summary: 'radio' }
       }
-    }
+    },
+    onChange: { action: 'change' }
   }
 }
 
 const template = (args) => <InputControl {...args} />
 
 export const InputCheckbox = template.bind({})
+InputCheckbox.storyName = 'Input Control'

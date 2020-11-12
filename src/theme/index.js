@@ -13,6 +13,8 @@ export const GlobalThemes = {
     colorText: 'var(--primaryTextColor)',
     hoverBgColor: 'var(--primaryLightColor)',
     hoverTextColor: 'var(--primaryDarkColor)',
+    bgColorGood: 'var(--bgColorGood)',
+    bgColorWrong: 'var(--bgColorWrong)',
     ...shareStyles
   },
   secondary: {
@@ -21,6 +23,8 @@ export const GlobalThemes = {
     colorText: 'var(--secondaryTextColor)',
     hoverBgColor: 'var(--secondaryLightColor)',
     hoverTextColor: 'var(--secondaryDarkColor)',
+    bgColorGood: 'var(--bgColorGood)',
+    bgColorWrong: 'var(--bgColorWrong)',
     ...shareStyles
   }
 }

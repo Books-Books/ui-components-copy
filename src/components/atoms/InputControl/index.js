@@ -1,7 +1,7 @@
+import _uniqueId from 'lodash/uniqueId'
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { Icon } from '../icon'
-import _uniqueId from 'lodash/uniqueId'
 import {
   InputCont,
   CheckCont,
@@ -12,10 +12,9 @@ import {
 } from './style'
 import { GlobalThemes } from '../../../theme/index'
 
-export const InputControl = ({ theme, type, ...args }) => {
+export const InputControl = ({ type, label, ...args }) => {
   const [check, setCheck] = useState(false)
-  const SelectTheme = GlobalThemes[theme]
-  console.log('InputControl -> SelectTheme', SelectTheme)
+  const SelectTheme = GlobalThemes.primary
   const id = _uniqueId('ui-')
   return (
     <ThemeProvider theme={SelectTheme}>
@@ -40,7 +39,7 @@ export const InputControl = ({ theme, type, ...args }) => {
             )}
           </CheckBg>
         </CheckCont>
-        <CheckLabel className='c-inputControl_label'>Item 1</CheckLabel>
+        <CheckLabel className='c-inputControl_label'>{label}</CheckLabel>
       </InputCont>
     </ThemeProvider>
   )

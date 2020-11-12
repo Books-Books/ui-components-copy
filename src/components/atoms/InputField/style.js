@@ -13,13 +13,13 @@ export const InputCont = styled.div((props) => {
     borderBottom: `1px solid ${theme.Input.colorBrBottom}`,
     backgroundColor: theme.Input.bgfield,
     margin: '10px',
-    '&.active': {
+    '&.is-active': {
       backgroundColor: theme.Input.bgfieldFocus,
-      label: {
+      [`${LabelStyle}:not([inputmode="file"])`]: {
         transform: 'translateY(-106%) scale(0.75)',
         color: theme.bgColor
       },
-      "input[type='text']": {
+      '&': {
         borderBottom: `2px solid ${theme.bgColor}`
       }
     }

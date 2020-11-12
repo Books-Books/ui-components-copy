@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const InputStyled = styled.input((props) => {
+export const InputStyled = styled.input(() => {
   return {
     position: 'absolute',
     margin: 0,
@@ -11,17 +11,18 @@ export const InputStyled = styled.input((props) => {
 })
 
 export const InputCont = styled.label((props) => {
+  const theme = props.theme
   const styles = {
     fontFamuly: 'inherit',
     '-moz-osx-font-smoothing': 'grayscale',
     '-webkit-font-smoothing': 'antialiased',
-    fontSize: '0.875rem',
-    lineHeight: '1.25rem',
-    fontWeight: 400,
-    letterSpacing: '0.0178571429em',
+    fontSize: theme.Input.textSizeLabel,
+    lineHeight: theme.Input.textlhLabel,
+    fontWeight: theme.Input.textweightLabel,
+    letterSpacing: theme.Input.textspacingLabel,
     textDecoration: 'inherit',
     textTransform: 'inherit',
-    color: 'rgba(0,0,0,.87)',
+    color: theme.Input.textColorLabel,
     display: 'inline-flex',
     alignItems: 'center',
     verticalAlign: 'middle'
@@ -57,7 +58,6 @@ export const CheckCont = styled.div((props) => {
     }
     Object.assign(styles, radioStyles)
   }
-
   return styles
 })
 
@@ -84,7 +84,7 @@ export const CheckBg = styled.div((props) => {
     boxSizing: 'border-box',
     width: '18px',
     height: '18px',
-    border: '2px solid currentColor',
+    border: `2px solid ${theme.bgColor}`,
     borderRadius: '2px',
     backgroundColor: 'transparent',
     pointerEvents: 'none',
@@ -97,7 +97,7 @@ export const CheckBg = styled.div((props) => {
         ' opacity 180ms 0ms cubic-bezier(0, 0, 0.2, 1),transform 180ms 0ms cubic-bezier(0, 0, 0.2, 1)'
     },
     [`${InputStyled}:not(:checked):not(:indeterminate)~ &`]: {
-      borderColor: '#757575',
+      borderColor: theme.Input.bgColorInputNoCheck,
       backgroundColor: 'transparent'
     },
     [`${InputStyled}:checked~ &`]: {
@@ -129,8 +129,8 @@ export const CheckBg = styled.div((props) => {
       borderRadius: '50%',
       pointerEvents: 'none',
       zIndex: '1',
-      backgroundColor: '#6200ee',
-      borderColor: '#6200ee',
+      backgroundColor: theme.bgColor,
+      borderColor: theme.bgColor,
       padding: 0,
       display: 'flex',
       position: 'absolute',
@@ -151,6 +151,7 @@ export const CheckBg = styled.div((props) => {
 })
 
 export const CheckTrack = styled.div((props) => {
+  const theme = props.theme
   return {
     boxSizing: 'border-box',
     width: '32px',
@@ -158,8 +159,8 @@ export const CheckTrack = styled.div((props) => {
     border: '1px solid',
     borderRadius: '7px',
     opacity: '.54',
-    backgroundColor: '#6200ee',
-    borderColor: '#6200ee',
+    backgroundColor: theme.hoverBgColor,
+    borderColor: theme.bgColor,
     transition:
       'opacity 90ms cubic-bezier(0.4, 0, 0.2, 1),background-color 90ms cubic-bezier(0.4, 0, 0.2, 1),border-color 90ms cubic-bezier(0.4, 0, 0.2, 1)'
   }
