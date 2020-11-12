@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button,  InputField, InputControl } from 'ui-components'
+import { Button,  InputField, InputControl, InputAction } from 'ui-components'
 import 'ui-components/dist/index.css'
 
 const App = () => {
@@ -13,10 +13,12 @@ const App = () => {
       <InputField label="Password" type="password"/>
       <InputField label="email" type="email"/>
       <InputControl label="check 1"  type="checkbox"/>
-      <InputControl label="check 2"  type="checkbox" theme="secondary" />
-      <InputControl label="check 1"  type="radio" theme="secondary" name="name_1"/>
-      <InputControl label="radio 1"  type="radio" theme="secondary" name="name_1"/>
+      <InputControl label="check 2"  type="checkbox" />
+      <InputControl label="check 1"  type="radio" name="name_1"/>
+      <InputControl label="radio 1"  type="radio" name="name_1"/>
       <InputControl label="Toggle"  type="toggle"name="name_1"/>
+      <InputAction icon="upload" label="Upload file" theme="secondary" type="file" />
+      <InputAction icon="upload" label="Upload file" theme="primary" type="file" />
     </>
     )
 }
