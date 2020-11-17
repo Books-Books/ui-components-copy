@@ -1,11 +1,8 @@
 import _uniqueId from 'lodash/uniqueId'
 import React, { useState } from 'react'
-import { InputCont, InputStyled, LabelStyle } from './style'
-import { ThemeProvider } from 'styled-components'
-import { GlobalThemes } from '../../../theme/index'
+import css from './InputField.module.css'
 
 export const InputField = ({ type, label, ...args }) => {
-  const SelectTheme = GlobalThemes.primary
   const id = _uniqueId('ui-')
   const [isFocus, setIsFocus] = useState(false)
   const [value, setValue] = useState('')
@@ -21,25 +18,25 @@ export const InputField = ({ type, label, ...args }) => {
   }
 
   return (
-    <ThemeProvider theme={SelectTheme}>
-      <InputCont
-        inputMode={type}
-        className={isFocus || value !== '' ? 'is-active' : ''}
-        {...args}
-      >
-        <InputStyled
-          type={type}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          id={id}
-        />
-        {type !== 'date' && (
-          <LabelStyle htmlFor={id} inputMode={type}>
-            {label}
-          </LabelStyle>
-        )}
-      </InputCont>
-    </ThemeProvider>
+    <label
+      inputMode={type}
+      className={css.InputCont}
+      data-status={isFocus || value !== '' ? 'active' : false}
+      {...args}
+    >
+      <input
+        className={css.InputStyled}
+        type={type}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        id={id}
+      />
+      {type !== 'date' && (
+        <label className={css.LabelStyle} htmlFor={id} inputMode={type}>
+          {label}
+        </label>
+      )}
+    </label>
   )
 }

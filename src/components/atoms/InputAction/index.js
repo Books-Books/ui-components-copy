@@ -1,18 +1,10 @@
 import _uniqueId from 'lodash/uniqueId'
-import React, { useState } from 'react'
-import { ThemeProvider } from 'styled-components'
-import { GlobalThemes } from '../../../theme/index'
+import React, { Fragment, useState } from 'react'
 import { Icon } from '../icon'
-import {
-  InputActionStyled,
-  LabelStyled,
-  SpanStyled,
-  TextFileName
-} from './style'
+import css from './InputAction.module.css'
 
-export const InputAction = ({ type, theme, label, icon, ...args }) => {
+export const InputAction = ({ type, styled, label, icon, ...args }) => {
   const [Value, SetValue] = useState('')
-  const SelectTheme = GlobalThemes[theme]
   const id = _uniqueId('ui-')
 
   function handleChage({ target }) {
@@ -32,22 +24,23 @@ export const InputAction = ({ type, theme, label, icon, ...args }) => {
   }
 
   return (
-    <ThemeProvider theme={SelectTheme}>
-      <LabelStyled htmlFor={id}>
-        <InputActionStyled
+    <Fragment>
+      <label className={css.LabelStyled} htmlFor={id} styled={styled}>
+        <input
+          className={css.InputAction}
           type={type}
           id={id}
           onInput={handleChage}
           {...args}
         />
         <Icon nameIcon={icon} />
-        <SpanStyled>{label}</SpanStyled>
-      </LabelStyled>
+        <span>{label}</span>
+      </label>
       {Value !== '' && (
-        <TextFileName bgColor={type === 'color' ? Value : ''}>
+        <p style={type === 'color' ? `background-color:${Value}` : ''}>
           {Value}
-        </TextFileName>
+        </p>
       )}
-    </ThemeProvider>
+    </Fragment>
   )
 }

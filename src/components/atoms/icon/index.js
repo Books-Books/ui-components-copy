@@ -1,6 +1,7 @@
 import React from 'react'
-import { IconStyled } from './style'
+
+import css from './Icon.module.css'
 
 export const Icon = ({ nameIcon }) => {
-  return <IconStyled>{nameIcon}</IconStyled>
+  return <i className={css.Icon}>{nameIcon}</i>
 }

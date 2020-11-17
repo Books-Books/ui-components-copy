@@ -4,7 +4,7 @@ export default {
   title: 'Atoms/Input Action',
   component: InputAction,
   argTypes: {
-    theme: {
+    styled: {
       control: { type: 'select', options: ['primary', 'secondary'] },
       defaultValue: 'primary',
       description: 'Aqui se puede escoger entre "primary" y "secondary" ',

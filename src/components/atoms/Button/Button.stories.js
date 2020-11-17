@@ -6,7 +6,7 @@ export default {
   component: Button,
   argTypes: {
     onClick: { action: 'clicked', table: { disable: true } },
-    theme: {
+    styled: {
       control: { type: 'select', options: ['primary', 'secondary'] },
       defaultValue: 'primary',
       description: 'Aqui se puede escoger entre "primary" y "secondary" ',
@@ -35,18 +35,7 @@ export const ButtonDefault = template.bind({})
 ButtonDefault.storyName = 'Button'
 
 export const ButtonDefaultWithIconLeft = template.bind({})
-ButtonDefaultWithIconLeft.storyName = 'Button icon left'
+ButtonDefaultWithIconLeft.storyName = 'Button with icon '
 ButtonDefaultWithIconLeft.args = {
-  icon: {
-    nameIcon: 'accessibility'
-  }
-}
-
-export const ButtonDefaultWithIconRight = template.bind({})
-ButtonDefaultWithIconRight.storyName = 'Button icon rigth'
-ButtonDefaultWithIconRight.args = {
-  icon: {
-    nameIcon: 'edit',
-    reverse: true
-  }
+  icon: 'accessibility'
 }

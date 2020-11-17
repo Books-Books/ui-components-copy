@@ -6,8 +6,8 @@ import 'ui-components/dist/index.css'
 const App = () => {
   return(
     <>
-      <Button theme='primary' label="Primary Button" icon={{nameIcon:'accessibility'}}/>
-      <Button theme='secondary' label="Secondary button" icon={{nameIcon:'account_balance_wallet', reverse: true}}/>
+      <Button styled='primary' label="Primary Button" icon='accessibility'/>
+      <Button styled='secondary' label="Secondary button" icon='account_balance_wallet'/>
       <InputField label="Nombre" type="text"/>
       <InputField label="Edad" type="number"/>
       <InputField label="Password" type="password"/>

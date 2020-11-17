@@ -27,12 +27,12 @@ html {
   --bgColorWrong:#b00020;
 
   /* button variables */
-  --minWidthSizeBtn: 200px;
+  --minWidthSizeBtn: 64px;
   --minHeightSizeBtn: 2rem;
-  --fontSizeButton: 1rem;
-  --paddingBtn: .5rem;
+  --fontSizeButton: .875rem;
+  --paddingBtn: 0 8px 0 8px;
   --marginBtn: 5px;
-  --borderRadius: 5px;
+  --borderRadiusBtn: 4px;
   --shadowSize: 0px 0px 5px;
 
   /* input variables */
