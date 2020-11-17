@@ -14,16 +14,15 @@ html {
 
 :root{
   /* Base Color */
-  --primaryDarkColor: #320b86;
+  --primaryColorDark: #320b86;
   --primaryColor: #673ab7;
-  --primaryLightColor: #9a67ea;
-  --primaryTextColor: #fafafa;
-
-  --secondaryDarkColor: #003f8f;
+  --primaryColorLight: #9a67ea;
+  
+  --secondaryColorDark: #003f8f;
   --secondaryColor: #0069c0;
-  --secondaryLightColor: #5996f3;
-  --secondaryTextColor: #fafafa;
-
+  --secondaryColorLight: #5996f3;
+  --textColor: #fafafa;
+  
   --bgColorGood:#00b02e;
   --bgColorWrong:#b00020;
 
@@ -34,6 +33,7 @@ html {
   --paddingBtn: .5rem;
   --marginBtn: 5px;
   --borderRadius: 5px;
+  --shadowSize: 0px 0px 5px;
 
   /* input variables */
   --bgFieldInput: rgba(199, 195, 195, 20%);
