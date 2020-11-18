@@ -1,7 +1,7 @@
-import React from 'react'
-import css from './Card.module.css'
-import { Button } from '../Button/index'
 import PropTypes from 'prop-types'
+import React from 'react'
+import { Button } from '../Button/index'
+import css from './Card.module.css'
 
 function Card({ width, image, content, supportingText, buttons }) {
   return (
