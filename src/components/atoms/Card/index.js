@@ -1,32 +1,32 @@
 import React from 'react'
-import './style.css'
+import css from './Card.module.css'
 import { Button } from '../Button/index'
 import PropTypes from 'prop-types'
 
-function Card({ image, content, supportingText, buttons }) {
+function Card({ width, image, content, supportingText, buttons }) {
   return (
-    <div className={`'c-card'`}>
+    <div className={css['c-card']} style={{ width: width }}>
       {image.state ? (
-        <figure className={`"c-card-image"`}>
+        <figure className={css['c-card-image']}>
           <img src={image.url} alt={image.alt} />
         </figure>
       ) : (
         <></>
       )}
-      <div className={`"c-card-container"`}>
+      <div className={css['c-card-container']}>
         <div className={`"c-card-container-title"`}>
           <h3>{content.title}</h3>
-          <p>{content.text}</p>
+          <p className={css['u-text']}>{content.text}</p>
         </div>
         <div>
-          <p>{supportingText}</p>
+          <p className={css['u-text']}>{supportingText}</p>
         </div>
         {buttons.state ? (
           <div className={`"c-card-container-buttons"`}>
-            <Button label={buttons.first.label} theme={buttons.first.theme} />
+            <Button label={buttons.first.label} styled={buttons.first.theme} />
             <Button
               label={buttons.secundary.label}
-              theme={buttons.secundary.theme}
+              styled={buttons.secundary.theme}
             />
           </div>
         ) : (
@@ -38,6 +38,7 @@ function Card({ image, content, supportingText, buttons }) {
 }
 
 Card.propTypes = {
+  width: PropTypes.string,
   image: PropTypes.object,
   content: PropTypes.object,
   supportingText: PropTypes.string,
@@ -45,6 +46,7 @@ Card.propTypes = {
 }
 
 Card.defaultProps = {
+  width: '300px',
   image: {
     state: false
   },

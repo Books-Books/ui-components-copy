@@ -1,5 +1,5 @@
 import React from 'react'
-import Card  from './index'
+import Card from './index'
 
 export default {
   title: 'Atoms/Cards',
@@ -16,8 +16,22 @@ baseCard.args = {
   }
 }
 
-export const fullCard = Template.bind({})
-fullCard.args = {
+export const imageCard = Template.bind({})
+imageCard.args = {
+  image: {
+    state: true,
+    url: 'https://via.placeholder.com/300',
+    alt: 'image'
+  },
+  content: {
+    title: 'Card Title',
+    text: 'Secondary Text'
+  }
+}
+
+export const supporText = Template.bind({})
+supporText.args = {
+  width: '350px',
   image: {
     state: true,
     url: 'https://via.placeholder.com/300',
@@ -27,7 +41,24 @@ fullCard.args = {
     title: 'Card Title',
     text: 'Secondary Text'
   },
-  supportingText: 'https://via.placeholder.com/300',
+  supportingText:
+    'Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
+}
+
+export const fullCard = Template.bind({})
+fullCard.args = {
+  width: '350px',
+  image: {
+    state: true,
+    url: 'https://via.placeholder.com/300',
+    alt: 'image'
+  },
+  content: {
+    title: 'Card Title',
+    text: 'Secondary Text'
+  },
+  supportingText:
+    'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
   buttons: {
     state: true,
     first: {
