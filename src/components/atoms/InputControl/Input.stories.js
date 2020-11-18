@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { InputControl } from './'
 
 export default {

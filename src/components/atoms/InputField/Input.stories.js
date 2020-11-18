@@ -7,7 +7,14 @@ export default {
   argTypes: {
     label: {
       control: 'text',
-      defaultValue: 'Label'
+      description: 'Aqui va el texto de ayuda del input',
+      defaultValue: 'Label',
+      table: {
+        type: {
+          summary: 'string'
+        },
+        defaultValue: { summary: 'Label' }
+      }
     },
     type: {
       control: {

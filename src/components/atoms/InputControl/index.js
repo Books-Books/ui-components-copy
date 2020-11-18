@@ -1,4 +1,5 @@
 import _uniqueId from 'lodash/uniqueId'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { Icon } from '../icon'
 import css from './InputControl.module.css'
@@ -29,4 +30,17 @@ export const InputControl = ({ type, label, ...args }) => {
       <label className={css.CheckLabel}>{label}</label>
     </label>
   )
+}
+
+InputControl.propTypes = {
+  type: PropTypes.oneOf(['radio', 'checkbox', 'toggle']),
+  icon: PropTypes.object,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func
+}
+
+InputControl.defaultProps = {
+  label: 'select',
+  type: 'radio',
+  onClick: undefined
 }

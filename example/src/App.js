@@ -1,12 +1,12 @@
 import React from 'react'
-
-import { Button,  InputField, InputControl, InputAction } from 'ui-components'
+import { Button, InputAction, InputControl, InputField, Select } from 'ui-components'
 import 'ui-components/dist/index.css'
+
 
 const App = () => {
   return(
     <>
-      <Button styled='primary' label="Primary Button" icon='accessibility'/>
+      <Button />
       <Button styled='secondary' label="Secondary button" icon='account_balance_wallet'/>
       <InputField label="Nombre" type="text"/>
       <InputField label="Edad" type="number"/>
@@ -19,6 +19,7 @@ const App = () => {
       <InputControl label="Toggle"  type="toggle"name="name_1"/>
       <InputAction icon="upload" label="Upload file" theme="secondary" type="file" />
       <InputAction icon="upload" label="Upload file" theme="primary" type="file" />
+      <Select options={['name', 'value']} name="foo"></Select>
     </>
     )
 }

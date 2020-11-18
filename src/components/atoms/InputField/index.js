@@ -1,4 +1,5 @@
 import _uniqueId from 'lodash/uniqueId'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import css from './InputField.module.css'
 
@@ -39,4 +40,14 @@ export const InputField = ({ type, label, ...args }) => {
       )}
     </label>
   )
+}
+
+InputField.propTypes = {
+  type: PropTypes.oneOf(['text', 'email', 'password', 'date']),
+  label: PropTypes.string.isRequired
+}
+
+InputField.defaultProps = {
+  label: 'Label',
+  type: 'text'
 }

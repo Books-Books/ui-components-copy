@@ -1,9 +1,7 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Icon } from '../icon'
-
 import css from './Button.module.css'
-
-console.log('css', css)
 
 export const Button = ({ styled, label, icon, ...args }) => {
   return (
@@ -12,4 +10,17 @@ export const Button = ({ styled, label, icon, ...args }) => {
       <span>{label}</span>
     </button>
   )
+}
+
+Button.propTypes = {
+  styled: PropTypes.oneOf(['primary', 'secondary']),
+  icon: PropTypes.object,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func
+}
+
+Button.defaultProps = {
+  label: 'Button',
+  styled: 'primary',
+  onClick: undefined
 }

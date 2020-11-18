@@ -1,4 +1,5 @@
 import _uniqueId from 'lodash/uniqueId'
+import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
 import { Icon } from '../icon'
 import css from './InputAction.module.css'
@@ -43,4 +44,18 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
       )}
     </Fragment>
   )
+}
+InputAction.propTypes = {
+  styled: PropTypes.oneOf(['primary', 'secondary']),
+  type: PropTypes.oneOf(['file', 'color']),
+  icon: PropTypes.object,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func
+}
+
+InputAction.defaultProps = {
+  label: 'select',
+  styled: 'primary',
+  type: 'file',
+  onClick: undefined
 }
