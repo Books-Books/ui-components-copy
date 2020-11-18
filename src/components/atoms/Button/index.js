@@ -2,6 +2,7 @@ import React from 'react'
 import { Icon } from '../icon'
 
 import css from './Button.module.css'
+
 console.log('css', css)
 
 export const Button = ({ styled, label, icon, ...args }) => {

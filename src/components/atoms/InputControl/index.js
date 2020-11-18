@@ -23,9 +23,7 @@ export const InputControl = ({ type, label, ...args }) => {
           inputMode={type}
           onClick={() => setCheck(!check)}
         >
-          {type !== 'toggle' && (
-            <Icon className='c-inputControl_icon' nameIcon='check' />
-          )}
+          {type !== 'toggle' && <Icon nameIcon='check' />}
         </div>
       </div>
       <label className={css.CheckLabel}>{label}</label>
