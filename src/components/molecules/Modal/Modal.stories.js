@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from './index'
 
 export default {
-  title: 'atoms/Modal',
+  title: 'Molecules/Modal',
   component: Modal
 }
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Button } from '../Button/index'
+import { Button } from '../../atoms/Button/index'
 import css from './Card.module.css'
 
 function Card({ width, image, content, supportingText, buttons }) {

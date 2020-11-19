@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { Button } from '../Button/index'
-import css from './Modal.module.css'
 import PropTypes from 'prop-types'
-import { Icon } from '../icon/index'
+import React, { useState } from 'react'
+import { Button } from '../../atoms/Button/index'
+import { Icon } from '../../atoms/icon/index'
+import css from './Modal.module.css'
 
 function Modal({ children, dataButton, title, text }) {
   const [getModal, setModal] = useState(false)
