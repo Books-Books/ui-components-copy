@@ -55,9 +55,6 @@
     z-index: 1;
     height: 48px
 }
-.TabsBtn[data-state = 'active'] .TabsBtnIndicatorContent {
-    opacity: 1;
-}
 .TabsBtnContent {
     position: relative;
     display: flex;
@@ -94,5 +91,10 @@
     border-top-style: solid;
     border-top-width: 2px;
     border-color: var(--primaryColor);
-    transition: 250ms transform cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 250ms opacity cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.TabsBtn[aria-selected="true"] .TabsBtnIndicatorContent {
+    opacity: 1;
 }

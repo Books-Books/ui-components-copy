@@ -1,4 +1,5 @@
 import * as React from 'react'
+import css from './Tabs.module.css'
 
 export const Tabs = React.forwardRef(function Tabs(props, ref) {
   const {
@@ -83,9 +84,10 @@ export const Tabs = React.forwardRef(function Tabs(props, ref) {
   }
 
   return (
-    <Component ref={ref} {...other}>
+    <Component className={css.TabsCont} ref={ref} {...other}>
       <div ref={tabsRef}>
         <div
+          className={css.TabsArea}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
           aria-orientation={orientation === 'vertical' ? 'vertical' : null}

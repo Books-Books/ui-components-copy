@@ -52,15 +52,12 @@ export const Tab = React.forwardRef(function Tab(props, ref) {
       tabIndex={selected ? 0 : -1}
       {...other}
     >
-      <span className='mdc-tab__content'>
-        <Icon aria-hidden='true' nameIcon='clock' />{' '}
-        <span className='mdc-tab__text-label'>{label}</span>{' '}
+      <span className={css.TabsBtnContent}>
+        <Icon aria-hidden='true' nameIcon='lock' />{' '}
+        <span className={css.TabsBtnContentLabel}>{label}</span>{' '}
       </span>
-      <span className='mdc-tab-indicator'>
-        <span
-          className='mdc-tab-indicator__content
-            mdc-tab-indicator__content--underline'
-        />
+      <span className={css.TabsBtnIndicator}>
+        <span className={css.TabsBtnIndicatorContent} />
       </span>
     </button>
   )
