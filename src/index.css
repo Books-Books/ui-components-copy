@@ -64,4 +64,8 @@ html {
     --borderAside: #ddd;
     --overlayAside: black;
     --backgroundAside: #fff;
+    /*dropable*/
+    --boxDropable: rgba(129, 129, 129, 0.52);
+    --maxWidthDropable: 500px;
+    --colorBorderDropable: #ddd ;
 }
