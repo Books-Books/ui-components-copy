@@ -1,0 +1,21 @@
+.TabsBar{
+    width: 100%;
+}
+.TabsScroll {
+    overflow-y: hidden;
+}
+
+.TabsArea {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+    margin-bottom: 0;
+    display: flex;
+}
+
+.TabsContent {
+    position: relative;
+    display: flex;
+    flex: 1 0 auto;
+    transform: none;
+    will-change: transform;
+}
