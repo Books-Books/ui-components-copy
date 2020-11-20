@@ -18,8 +18,9 @@
     cursor: pointer;
 }
 .TextFileName {
-    text-align: 'center',;    padding: '.5rem';
+    text-align: center;   
     box-shadow: var(--shadowSize) var(--primaryColorLight);
+    padding: .5rem;
 }
 .LabelStyled[styled='primary']{
     background-color: var(--primaryColor);

@@ -14,7 +14,7 @@ export const Button = ({ styled, label, icon, ...args }) => {
 
 Button.propTypes = {
   styled: PropTypes.oneOf(['primary', 'secondary']),
-  icon: PropTypes.object,
+  icon: PropTypes.string,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func
 }

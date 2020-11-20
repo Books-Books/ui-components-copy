@@ -8,7 +8,8 @@ export const Tab = React.forwardRef(function Tab(props, ref) {
     className,
     disabled = false,
     fullWidth,
-    icon,
+    nameIcon,
+    positionIcon,
     indicator,
     label,
     onChange,
@@ -52,8 +53,8 @@ export const Tab = React.forwardRef(function Tab(props, ref) {
       tabIndex={selected ? 0 : -1}
       {...other}
     >
-      <span className={css.TabsBtnContent}>
-        <Icon aria-hidden='true' nameIcon='lock' />{' '}
+      <span className={css.TabsBtnContent} position-icon={positionIcon}>
+        <Icon aria-hidden='true' nameIcon={nameIcon} />{' '}
         <span className={css.TabsBtnContentLabel}>{label}</span>{' '}
       </span>
       <span className={css.TabsBtnIndicator}>

@@ -1,5 +1,5 @@
 import React from 'react'
-import AsideNav from './index'
+import { AsideNav } from './index'
 
 export default {
   title: 'Molecules/AsideNav',

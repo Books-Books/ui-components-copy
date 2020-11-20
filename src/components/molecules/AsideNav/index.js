@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import React, { Fragment, useState } from 'react'
 import { Button } from '../../atoms/Button/index'
 import { Icon } from '../../atoms/icon/index'
 import css from './AsideNav.module.css'
 
-function AsideNav({ children, dataButton, content }) {
+export const AsideNav = ({ children, dataButton, content }) => {
   const [getStateAside, setStateAside] = useState(false)
   function stateAside(elementModal, elementOverlay) {
     if (getStateAside) {
@@ -23,7 +23,7 @@ function AsideNav({ children, dataButton, content }) {
     stateAside($aside, $overlay)
   }
   return children ? (
-    <>
+    <Fragment>
       <div className={css['c-overlay']} id='overlay' />
       <div className={css['c-side']} id='aside'>
         <Icon
@@ -38,9 +38,9 @@ function AsideNav({ children, dataButton, content }) {
         styled={dataButton.styled}
         onClick={handleAside}
       />
-    </>
+    </Fragment>
   ) : (
-    <>
+    <Fragment>
       <div className={css['c-overlay']} id='overlay' />
       <div className={css['c-side']} id='aside'>
         <Icon
@@ -62,7 +62,7 @@ function AsideNav({ children, dataButton, content }) {
         styled={dataButton.styled}
         onClick={handleAside}
       />
-    </>
+    </Fragment>
   )
 }
 
@@ -82,5 +82,3 @@ AsideNav.defaultProps = {
     list: ['Options']
   }
 }
-
-export default AsideNav

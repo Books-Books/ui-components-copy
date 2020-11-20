@@ -4,7 +4,7 @@ import { Button } from '../../atoms/Button/index'
 import { Icon } from '../../atoms/icon/index'
 import css from './Modal.module.css'
 
-function Modal({ children, dataButton, title, text }) {
+export const Modal = ({ children, dataButton, title, text }) => {
   const [getModal, setModal] = useState(false)
   function stateModal(elementModal, elementOverlay) {
     if (getModal) {
@@ -78,5 +78,3 @@ Modal.defaultProps = {
   text:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!'
 }
-
-export default Modal

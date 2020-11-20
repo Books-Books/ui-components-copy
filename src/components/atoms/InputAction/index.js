@@ -38,7 +38,10 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
         <span>{label}</span>
       </label>
       {Value !== '' && (
-        <p style={type === 'color' ? `background-color:${Value}` : ''}>
+        <p
+          className={css.TextFileName}
+          style={type === 'color' ? { backgroundColor: Value } : {}}
+        >
           {Value}
         </p>
       )}
@@ -48,7 +51,7 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
 InputAction.propTypes = {
   styled: PropTypes.oneOf(['primary', 'secondary']),
   type: PropTypes.oneOf(['file', 'color']),
-  icon: PropTypes.object,
+  icon: PropTypes.string,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func
 }

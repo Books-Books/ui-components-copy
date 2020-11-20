@@ -10,5 +10,6 @@ const Template = (args) => <Tab {...args} />
 
 export const TabDefault = Template.bind({})
 TabDefault.args = {
-  label: 'Tab 1'
+  label: 'Tab 1',
+  nameIcon: 'lock'
 }

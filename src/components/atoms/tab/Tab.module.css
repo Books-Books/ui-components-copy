@@ -13,11 +13,12 @@
     position: relative;
     display: flex;
     flex: 1 0 auto;
+    align-items: center;
     justify-content: center;
     box-sizing: border-box;
     margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border: none;
     outline: none;
     background: none;
@@ -26,34 +27,7 @@
     cursor: pointer;
     -webkit-appearance: none;
     z-index: 1;
-    font-family: Roboto, sans-serif;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-size: .875rem;
-    line-height: 2.25rem;
-    font-weight: 500;
-    letter-spacing: .0892857143em;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding-right: 24px;
-    padding-left: 24px;
-    position: relative;
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: center;
-    box-sizing: border-box;
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    border: none;
-    outline: none;
-    background: none;
-    text-align: center;
-    white-space: nowrap;
-    cursor: pointer;
-    -webkit-appearance: none;
-    z-index: 1;
-    height: 48px
+    min-height: 48px
 }
 .TabsBtnContent {
     position: relative;
@@ -69,7 +43,7 @@
 }
 .TabsBtnContentLabel{
     padding-left: 8px;
-    padding-right: 0;
+    padding-right: 8px;
 }
 .TabsBtnIndicator {
     display: flex;
@@ -94,7 +68,19 @@
     transition: 250ms opacity cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
+.TabsBtn[aria-selected="true"] {
+    color:var(--primaryColor)
+}
 .TabsBtn[aria-selected="true"] .TabsBtnIndicatorContent {
     opacity: 1;
+}
+.TabsBtn[aria-selected="true"] .TabsBtnContent i {
+    color: var(--primaryColor);
+}
+
+.TabsBtnContent[position-icon="top"]{
+    flex-direction: column;
+}
+.TabsBtnContent[position-icon="right"]{
+    flex-direction: row-reverse;
 }

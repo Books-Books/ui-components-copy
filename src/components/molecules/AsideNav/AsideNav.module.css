@@ -2,8 +2,8 @@
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: 1px solid var(--borderAside);
   height: 100vh;
-  max-width: 500px;
-  width: 100%;
+  max-width: 80%;
+  width: 500px;
   position: fixed;
   top: 0px;
   right: -548px;

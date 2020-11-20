@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Button } from '../../atoms/Button/index'
 import css from './Card.module.css'
 
-function Card({ width, image, content, supportingText, buttons }) {
+export const Card = ({ width, image, content, supportingText, buttons }) => {
   return (
     <div className={css['c-card']} style={{ width: width }}>
       {image.state ? (
@@ -30,7 +30,7 @@ function Card({ width, image, content, supportingText, buttons }) {
             />
           </div>
         ) : (
-          <></>
+          <Fragment />
         )}
       </div>
     </div>
@@ -46,7 +46,7 @@ Card.propTypes = {
 }
 
 Card.defaultProps = {
-  width: '300px',
+  width: '100%',
   image: {
     state: false
   },
@@ -58,5 +58,3 @@ Card.defaultProps = {
     state: false
   }
 }
-
-export default Card

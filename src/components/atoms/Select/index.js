@@ -8,8 +8,8 @@ export const Select = ({ placeholder, options, ...args }) => {
   const name = _uniqueId('ui-name-')
   return (
     <label className={css.SelectWrapper} {...args}>
-      <select name={name} className={css.SelectStyle}>
-        <option selected disabled>
+      <select defaultValue='' name={name} className={css.SelectStyle}>
+        <option disabled value=''>
           {placeholder}
         </option>
         {options.map((elem, i) => (

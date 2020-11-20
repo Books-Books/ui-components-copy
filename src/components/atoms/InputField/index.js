@@ -43,7 +43,7 @@ export const InputField = ({ type, label, ...args }) => {
 }
 
 InputField.propTypes = {
-  type: PropTypes.oneOf(['text', 'email', 'password', 'date']),
+  type: PropTypes.oneOf(['text', 'email', 'password', 'date', 'number']),
   label: PropTypes.string.isRequired
 }
 
