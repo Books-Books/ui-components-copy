@@ -20,7 +20,6 @@
     transform: translateY(-86%) scale(0.75);
     color: var(--primaryColor)
 }
-  
 .InputStyled{
     font-family: inherit;
     -moz-osx-font-smoothing: grayscale;
@@ -54,7 +53,7 @@
     outline: none;
     opacity: 1
 }
-  
+
 .LabelStyle{
     font-family: inherit;
     -moz-osx-font-smoothing: grayscale;
@@ -81,4 +80,32 @@
     transform: translateY(-50%);
     pointer-events: none;
 }
-  
+.input-error{
+    border-bottom: 2px solid red;
+}
+
+.input-error:hover{
+    border-bottom: 2px solid red;
+}
+
+.InputCont[data-status='active'] .LabelStyle[state-input="Error"]{
+    transform: translateY(-86%) scale(0.75);
+    color: red;
+}
+
+.input-succes {
+    border-bottom: 2px solid green;
+}
+
+.input-succes:hover{
+    border-bottom: 2px solid green;
+}
+
+.InputCont[data-status='active'] .LabelStyle[state-input="Succes"]{
+    transform: translateY(-86%) scale(0.75);
+    color: green;
+}
+
+.deactive-border{
+    border: none !important;
+}
