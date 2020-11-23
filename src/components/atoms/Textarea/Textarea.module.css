@@ -1,0 +1,9 @@
+.TextareaCont{
+    border: 1px solid var(--colorBorderCard);
+    box-shadow: var(--boxCard);
+    border-radius: 5px;
+    padding: 10px;
+    resize: none;
+    max-width: 250px;
+    width: 100%;
+}
