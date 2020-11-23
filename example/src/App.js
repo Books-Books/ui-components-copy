@@ -124,6 +124,17 @@ const App = () => {
           </Textarea>
         </div>
       </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Textarea counter</h1>
+        <div className={css.content}>
+          <Textarea
+            placeholder="Escribe aquí"
+            rows="10"
+            maxWords="10"
+            >
+          </Textarea>
+        </div>
+      </div>
     </div>
     )
 }

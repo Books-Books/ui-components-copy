@@ -12,4 +12,6 @@ export default {
 const template = (args) => <Textarea {...args} />
 
 export const TextareaDefault = template.bind({})
-
+TextareaDefault.args = {
+    maxWords: 10
+}
