@@ -1,10 +1,11 @@
 import React from 'react'
-import { AsideNav, Button, Card, InputAction, InputControl, InputField, Modal, PanelTabs, Select } from 'ui-components'
+import { AsideNav, Dropable, Button, Card, InputAction, InputControl, InputField, Modal, PanelTabs, Select } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
 
 const App = () => {
+  // console.log(Dropable)
   return(
     <div className={css.main}>
       <div className={css.item}>
@@ -111,6 +112,36 @@ const App = () => {
             content={{ title: 'Card Title', text: 'Secondary Text' }}
             supportingText= 'Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
             buttons={{ state: true, first: { label: 'Action 1', theme: 'primary' }, secundary: { label: 'Action 2', theme: 'primary' } }}
+          />
+        </div>
+      </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Dropable</h1>
+        <div className={css.content}>
+          <Dropable
+            width="300px"
+            content={
+              [
+                {
+                  title: 'Example 1',
+                  text:
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, ',
+                  dataIcon: 'filter_drama'
+                },
+                {
+                  title: 'Example 2',
+                  text:
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, ',
+                  dataIcon: 'place'
+                },
+                {
+                  title: 'Example 3',
+                  text:
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, ',
+                  dataIcon: 'whatshot'
+                }
+              ]
+            }
           />
         </div>
       </div>

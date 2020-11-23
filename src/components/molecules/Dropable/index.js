@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import css from './Dropable.module.css'
 import { DropableItem } from '../../atoms/DropableItem/index'
 
-export function Dropable({ content, width, backgroundColor, color }) {
+export const Dropable = ({ content, width, backgroundColor, color }) => {
   const [getStateList, setStateList] = useState(null)
   const style = {
     backgroundColor: backgroundColor,

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Icon } from '../icon/index'
 import PropTypes from 'prop-types'
 import css from './DropableItem.module.css'
 
 export function DropableItem({ item, index, ...props }) {
   return (
-    <>
+    <Fragment>
       <div
         className={css['c-collapsible-container-header']}
         data-element={`body${index}`}
@@ -17,7 +17,7 @@ export function DropableItem({ item, index, ...props }) {
       <div className={css['c-collapsible-container-body']} id={`body${index}`}>
         <p>{item.text}</p>
       </div>
-    </>
+    </Fragment>
   )
 }
 
