@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
-import React, { Fragment, useState } from 'react'
+import React, { createRef, Fragment, useState } from 'react'
 import { Button } from '../../atoms/Button/index'
 import { Icon } from '../../atoms/icon/index'
 import css from './AsideNav.module.css'
 
 export const AsideNav = ({ children, dataButton, content }) => {
   const [getStateAside, setStateAside] = useState(false)
+  const RefModal = createRef()
+  const RefOverlay = createRef()
   function stateAside(elementModal, elementOverlay) {
     if (getStateAside) {
       elementModal.classList.remove(css['aside--active'])
@@ -18,44 +20,31 @@ export const AsideNav = ({ children, dataButton, content }) => {
     }
   }
   function handleAside() {
-    const $aside = document.querySelector('#aside')
-    const $overlay = document.querySelector('#overlay')
+    const $aside = RefModal.current
+    const $overlay = RefOverlay.current
     stateAside($aside, $overlay)
   }
-  return children ? (
+  return (
     <Fragment>
-      <div className={css['c-overlay']} id='overlay' />
-      <div className={css['c-side']} id='aside'>
+      <div ref={RefOverlay} className={css['c-overlay']} id='overlay' />
+      <div ref={RefModal} className={css['c-side']} id='aside'>
         <Icon
           nameIcon='close'
           onClick={handleAside}
           style={{ cursor: 'pointer' }}
         />
-        {children}
-      </div>
-      <Button
-        label={dataButton.label}
-        styled={dataButton.styled}
-        onClick={handleAside}
-      />
-    </Fragment>
-  ) : (
-    <Fragment>
-      <div className={css['c-overlay']} id='overlay' />
-      <div className={css['c-side']} id='aside'>
-        <Icon
-          nameIcon='close'
-          onClick={handleAside}
-          style={{ cursor: 'pointer' }}
-        />
-        <h2>{content.title}</h2>
-        <ul className={css['c-side-nav']}>
-          {content.list.map((item, index) => (
-            <li className={css['c-side-nav-item']} key={index}>
-              {item}
-            </li>
-          ))}
-        </ul>
+        {children || (
+          <Fragment>
+            <h2>{content.title}</h2>
+            <ul className={css['c-side-nav']}>
+              {content.list.map((item, index) => (
+                <li className={css['c-side-nav-item']} key={index}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Fragment>
+        )}
       </div>
       <Button
         label={dataButton.label}
