@@ -36,3 +36,15 @@ InputText.storyName = 'Input Field'
 InputText.args = {
   type: 'text'
 }
+
+export const InputError = template.bind({})
+InputError.args = {
+  type: 'text',
+  styledInput: 'Error'
+}
+
+export const InputSucces = template.bind({})
+InputSucces.args = {
+  type: 'text',
+  styledInput: 'Succes'
+}
