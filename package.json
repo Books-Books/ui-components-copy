@@ -1,6 +1,6 @@
 {
   "name": "ui-components",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Made with create-react-library",
   "author": "",
   "license": "MIT",
@@ -26,17 +26,16 @@
     "build-storybook": "build-storybook --no-dll"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "styled-components": "^5.2.1"
+    "react": "^16.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
-    "@storybook/addon-a11y": "^6.0.28",
-    "@storybook/addon-actions": "^6.0.28",
-    "@storybook/addon-essentials": "^6.0.28",
-    "@storybook/addon-links": "^6.0.28",
+    "@storybook/addon-a11y": "^6.1.0",
+    "@storybook/addon-actions": "^6.1.0",
+    "@storybook/addon-essentials": "^6.1.0",
+    "@storybook/addon-links": "^6.1.0",
     "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.0.28",
+    "@storybook/react": "^6.1.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.1.0",
     "cross-env": "^7.0.2",
@@ -57,11 +56,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^17.0.1",
-    "react-scripts": "^3.4.1",
-    "styled-components": "^5.2.1"
+    "react-scripts": "^3.4.1"
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {}
+  ]
 }

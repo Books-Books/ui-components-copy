@@ -1,0 +1,67 @@
+/* Reset Select */
+.SelectStyle {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background-image: none;
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 2.4em;
+    line-height: 3;
+    background: var(--bgFieldInput);
+    overflow: hidden;
+    border-radius: .25em;
+    flex: 1;
+    padding:0 0.5em ;
+    color: inherit;
+    cursor: pointer;
+  }
+  /* Remove IE arrow */
+.SelectStyle::-ms-expand {
+    display: none;
+}
+/* Arrow */
+.SelectAfter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 0.5em;
+    background: var(--primaryColor);
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.SelectAfter i{
+    color: var(--textColor);
+    font-size: 2.1rem;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Transition */
+.SelectStyle:hover ~ div i {
+    color: var(--primaryColorLight);
+}
+.SelectStyle:hover ~ div {
+    background-color: var(--primaryColorDark);
+}
+.SelectWrapper{
+    position: relative;
+    display: flex;
+    box-shadow: inset 0px -1px var(--primaryColorLight);
+}
+.SelectWrapper:hover{
+    box-shadow: inset 0px -3px var(--primaryColorLight);
+}

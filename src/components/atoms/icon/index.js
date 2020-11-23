@@ -1,12 +1,10 @@
 import React from 'react'
-import { IconStyled } from './style'
-import { useSelectIcon } from './iconHook'
+import css from './Icon.module.css'
 
-export const Icon = ({ nameIcon }) => {
-  const pathString = useSelectIcon(nameIcon)
+export const Icon = ({ nameIcon, ...args }) => {
   return (
-    <IconStyled viewBox='0 0 24 24'>
-      <path d={pathString} />
-    </IconStyled>
+    <i className={css.Icon} {...args}>
+      {nameIcon}
+    </i>
   )
 }

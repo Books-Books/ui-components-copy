@@ -1,17 +1,26 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import { ButtonStyled } from './style'
-import { ThemeProvider } from 'styled-components'
-import { GlobalThemes } from '../../../theme/index'
 import { Icon } from '../icon'
+import css from './Button.module.css'
 
-export const Button = ({ theme, label, icon, ...args }) => {
-  const SelectTheme = GlobalThemes[theme]
+export const Button = ({ styled, label, icon, ...args }) => {
   return (
-    <ThemeProvider theme={SelectTheme}>
-      <ButtonStyled reverse={icon?.reverse} {...args}>
-        {icon && <Icon {...icon} />}
-        <span>{label}</span>
-      </ButtonStyled>
-    </ThemeProvider>
+    <button className={css.ButtonBase} styled={styled} {...args}>
+      {icon && <Icon nameIcon={icon} />}
+      <span>{label}</span>
+    </button>
   )
+}
+
+Button.propTypes = {
+  styled: PropTypes.oneOf(['primary', 'secondary']),
+  icon: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func
+}
+
+Button.defaultProps = {
+  label: 'Button',
+  styled: 'primary',
+  onClick: undefined
 }

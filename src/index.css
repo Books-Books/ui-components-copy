@@ -1,26 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v67/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+
 html {
   font-family: Roboto;
 }
 
 :root{
   /* Base Color */
-  --primaryDarkColor: #320b86;
+  --primaryColorDark: #320b86;
   --primaryColor: #673ab7;
-  --primaryLightColor: #9a67ea;
-  --primaryTextColor: #fafafa;
-
-  --secondaryDarkColor: #003f8f;
+  --primaryColorLight: #9a67ea;
+  
+  --secondaryColorDark: #003f8f;
   --secondaryColor: #0069c0;
-  --secondaryLightColor: #5996f3;
-  --secondaryTextColor: #fafafa;
+  --secondaryColorLight: #5996f3;
+  --textColor: #fafafa;
+  
+  --bgColorGood:#00b02e;
+  --bgColorWrong:#b00020;
 
   /* button variables */
-  --minWidthSizeBtn: 200px;
+  --minWidthSizeBtn: 64px;
   --minHeightSizeBtn: 2rem;
-  --fontSizeButton: 1rem;
-  --paddingBtn: .5rem;
+  --fontSizeButton: .875rem;
+  --paddingBtn: 0 8px 0 8px;
   --marginBtn: 5px;
-  --borderRadius: 5px;
+  --borderRadiusBtn: 4px;
+  --shadowSize: 0px 0px 5px;
+
+  /* input variables */
+  --bgFieldInput: rgba(199, 195, 195, 20%);
+  --bgFieldInputFocus: rgba(199, 195, 195, 70%);
+  --brFieldInput: 4px 4px 0 0;
+  --colorbrBottom: rgba(0,0,0,.42);
+    /* label */
+  --textSizeLabel: 0.875rem;
+  --textlhLabel: 0.25rem;
+  --textweightLabel: 400;
+  --textspacingLabel: 0.0178571429em;
+  --textColorLabel: rgba(0,0,0,.87);
+
+    /* bg color input */
+  --bgColorInputNoCheck: #757575;
+
+    /*card*/
+    --colorBorderCard: #e0e0e0;
+    --boxCard: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0,0,0,.12);
+    --colorTextCard: #8c8c8c;
+
+    /* modal*/
+    --backgroundModal: #fff;
+    --boxModal: 5px 3px 11px 0px #8d8989;
+    --colorOverlay: black;
+    --maxWidthModal: 600px;
+    /*aside nav*/
+    --borderAside: #ddd;
+    --overlayAside: black;
+    --backgroundAside: #fff;
+    /*dropable*/
+    --boxDropable: rgba(129, 129, 129, 0.52);
+    --maxWidthDropable: 500px;
+    --colorBorderDropable: #ddd ;
 }
