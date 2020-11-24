@@ -1,5 +1,5 @@
 import React from 'react'
-import { AsideNav, Button, Card, Carrousel, Dropable, InputAction, InputControl, InputField, Modal, PanelTabs, Select, TabPanel, Textarea } from 'ui-components'
+import { AsideNav, Button, Card, Carrousel, Dropable, InputAction, InputControl, InputField, Modal, PanelTabs, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
@@ -241,6 +241,19 @@ const App = () => {
             </Carrousel>
           </div>
         </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Tooltip</h1>
+        <div className={css.content}>
+        <Tooltip label="Primary">
+          <Button styled='primary' label="Button">
+          </Button>
+        </Tooltip>
+        <Tooltip label="Secondary">
+          <Button styled='secondary' label="Button">
+          </Button>
+        </Tooltip>
+        </div>
+      </div>
     </div>
     )
 }

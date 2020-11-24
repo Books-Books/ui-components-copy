@@ -8,6 +8,7 @@ export * from './Select'
 export * from './tab'
 export * from './Textarea'
 export * from './DropableItem'
+export * from './Tooltip'
 
 
 
