@@ -1,5 +1,5 @@
 import React from 'react'
-import { AsideNav, Dropable, Button, Card, InputAction, InputControl, InputField, Modal, PanelTabs, Select } from 'ui-components'
+import { AsideNav, Dropable, Button, Card, InputAction, InputControl, InputField, Modal, PanelTabs, Select, Textarea } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
@@ -65,16 +65,16 @@ const App = () => {
       <div className={css.item}>
         <h1 className={css.title}>Modal</h1>
         <div className={css.content}>
-          <Modal 
-            dataButton={{ label: 'Modal', styled: 'primary' }} 
-            title='Modal' 
+          <Modal
+            dataButton={{ label: 'Modal', styled: 'primary' }}
+            title='Modal'
             text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!' />
         </div>
       </div>
       <div className={css.item}>
         <h1 className={css.title}>Side nav</h1>
         <div className={css.content}>
-          <AsideNav  
+          <AsideNav
             dataButton={{ label: 'Side nav', styled: 'primary' }}
             content={{ title: 'Aside Nav', list: ['List 1', 'List 2', 'List3']}}/>
         </div>
@@ -88,8 +88,8 @@ const App = () => {
       <div className={css.item}>
         <h1 className={css.title}>Card Image</h1>
         <div className={css.content}>
-          <Card 
-            image={{ state: true, url: 'https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg?cs=srgb&dl=pexels-pixabay-290470.jpg&fm=jpg', alt: 'image' }} 
+          <Card
+            image={{ state: true, url: 'https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg?cs=srgb&dl=pexels-pixabay-290470.jpg&fm=jpg', alt: 'image' }}
             content={{ title: 'Card Title', text: 'Secondary Text' }}
           />
         </div>
@@ -97,7 +97,7 @@ const App = () => {
       <div className={css.item}>
         <h1 className={css.title}>Card with Image and Text</h1>
         <div className={css.content}>
-          <Card 
+          <Card
             image={{ state: true, url: 'https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg?cs=srgb&dl=pexels-pixabay-290470.jpg&fm=jpg', alt: 'image' }}
             content={{ title: 'Card Title', text: 'Secondary Text' }}
             supportingText= 'Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
@@ -107,7 +107,7 @@ const App = () => {
       <div className={css.item}>
         <h1 className={css.title}>Card with Image, Text and action</h1>
         <div className={css.content}>
-          <Card 
+          <Card
             image={{ state: true, url: 'https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg?cs=srgb&dl=pexels-pixabay-290470.jpg&fm=jpg', alt: 'image' }}
             content={{ title: 'Card Title', text: 'Secondary Text' }}
             supportingText= 'Greyhound divisively hello coldly wonderfully marginally far upon excluding.'
@@ -143,6 +143,29 @@ const App = () => {
               ]
             }
           />
+        </div>
+      </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Textarea</h1>
+        <div className={css.content}>
+            <Textarea
+              placeholder="Escribe aquí..."
+              rows="10"
+            >
+
+            </Textarea>
+        </div>
+      </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Textarea count</h1>
+        <div className={css.content}>
+            <Textarea
+              placeholder="Escribe aquí..."
+              rows="10"
+              maxWords="15"
+            >
+
+            </Textarea>
         </div>
       </div>
     </div>

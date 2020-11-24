@@ -6,4 +6,8 @@ export * from './InputField'
 export * from './panel'
 export * from './Select'
 export * from './tab'
+export * from './Textarea'
+export * from './DropableItem'
+
+
 

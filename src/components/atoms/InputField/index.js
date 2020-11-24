@@ -1,13 +1,44 @@
 import _uniqueId from 'lodash/uniqueId'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import css from './InputField.module.css'
 
-export const InputField = ({ type, label, ...args }) => {
+export const InputField = ({ type, label, styledInput, ...args }) => {
   const id = _uniqueId('ui-')
   const [isFocus, setIsFocus] = useState(false)
   const [value, setValue] = useState('')
+  const [getStateInput, setStateInput] = useState('')
 
+  useEffect(() => {
+    function addClass(element, nameClass) {
+      element.classList.add(css[nameClass])
+    }
+    function validateInput(content, input, label) {
+      if (getStateInput) {
+        if (getStateInput === 'Error') {
+          addClass(content, 'deactive-border')
+          addClass(input, 'input-error')
+          addClass(label, 'label-error')
+        }
+        if (getStateInput === 'Succes') {
+          addClass(content, 'deactive-border')
+          addClass(input, 'input-succes')
+          addClass(label, 'label-succes')
+        }
+      } else {
+        console.log('default')
+      }
+    }
+
+    function initInput() {
+      setStateInput(styledInput)
+      const $content = document.querySelector(`#contentLabel${id}`)
+      const $input = document.querySelector(`#${id}`)
+      const $label = document.querySelector(`#label-${id}`)
+      validateInput($content, $input, $label)
+    }
+    initInput()
+  })
   function handleChange({ target }) {
     setValue(target.value)
   }
@@ -23,6 +54,8 @@ export const InputField = ({ type, label, ...args }) => {
       inputMode={type}
       className={css.InputCont}
       data-status={isFocus || value !== '' ? 'active' : false}
+      id={`contentLabel${id}`}
+      state-input={styledInput}
       {...args}
     >
       <input
@@ -34,7 +67,13 @@ export const InputField = ({ type, label, ...args }) => {
         id={id}
       />
       {type !== 'date' && (
-        <label className={css.LabelStyle} htmlFor={id} inputMode={type}>
+        <label
+          className={css.LabelStyle}
+          htmlFor={id}
+          inputMode={type}
+          id={`label-${id}`}
+          state-input={styledInput}
+        >
           {label}
         </label>
       )}
@@ -44,7 +83,8 @@ export const InputField = ({ type, label, ...args }) => {
 
 InputField.propTypes = {
   type: PropTypes.oneOf(['text', 'email', 'password', 'date', 'number']),
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  styledInput: PropTypes.string
 }
 
 InputField.defaultProps = {
