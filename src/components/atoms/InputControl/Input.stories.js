@@ -25,3 +25,13 @@ const template = (args) => <InputControl {...args} />
 
 export const InputCheckbox = template.bind({})
 InputCheckbox.storyName = 'Input Control'
+
+export const InputCheckboxError = template.bind({})
+InputCheckboxError.args = {
+  stateInput: 'Error'
+}
+
+export const InputCheckboxSucces = template.bind({})
+InputCheckboxSucces.args = {
+  stateInput: 'Succes'
+}

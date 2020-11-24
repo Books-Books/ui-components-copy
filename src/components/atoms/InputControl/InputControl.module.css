@@ -147,3 +147,23 @@
     transform: translateX(20px)
 }
 
+/* input error */
+.input-error{
+    border-color: var(--coloErrorInput);
+}
+
+.InputStyled[data-state="Error"]:checked ~ .CheckBg{
+    border-color: var(--coloErrorInput);
+    background-color: var(--coloErrorInput);
+}
+
+/* input succes */
+
+.input-succes{
+    border-color: var(--coloSuccesInput);
+}
+
+.InputStyled[data-state="Succes"]:checked ~ .CheckBg{
+    border-color: var(--coloSuccesInput);
+    background-color: var(--coloSuccesInput);
+}
