@@ -11,10 +11,13 @@
     resize: none;
     max-width: 250px;
     width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
 }
 .CountCont{
     max-width: max-content;
     padding: 5px;
     display: block;
     text-align: right;
+    font-size: .8rem;
 }
