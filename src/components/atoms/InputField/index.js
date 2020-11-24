@@ -2,8 +2,9 @@ import _uniqueId from 'lodash/uniqueId'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import css from './InputField.module.css'
+import { Icon } from '../icon'
 
-export const InputField = ({ type, label, styledInput, ...args }) => {
+export const InputField = ({ type, label, dataIcon, styledInput, ...args }) => {
   const id = _uniqueId('ui-')
   const [isFocus, setIsFocus] = useState(false)
   const [value, setValue] = useState('')
@@ -58,6 +59,11 @@ export const InputField = ({ type, label, styledInput, ...args }) => {
       state-input={styledInput}
       {...args}
     >
+      {dataIcon.state ? (
+        <Icon nameIcon={dataIcon.nameIcon} state-input={styledInput} />
+      ) : (
+        <></>
+      )}
       <input
         className={css.InputStyled}
         type={type}
@@ -84,10 +90,14 @@ export const InputField = ({ type, label, styledInput, ...args }) => {
 InputField.propTypes = {
   type: PropTypes.oneOf(['text', 'email', 'password', 'date', 'number']),
   label: PropTypes.string.isRequired,
+  dataIcon: PropTypes.object,
   styledInput: PropTypes.string
 }
 
 InputField.defaultProps = {
   label: 'Label',
-  type: 'text'
+  type: 'text',
+  dataIcon: {
+    state: false
+  }
 }

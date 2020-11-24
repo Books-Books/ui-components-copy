@@ -4,11 +4,16 @@ import React from 'react'
 import { Icon } from '../icon'
 import css from './Select.module.css'
 
-export const Select = ({ placeholder, options, ...args }) => {
+export const Select = ({ placeholder, stateInput, options, ...args }) => {
   const name = _uniqueId('ui-name-')
   return (
-    <label className={css.SelectWrapper} {...args}>
-      <select defaultValue='' name={name} className={css.SelectStyle}>
+    <label className={css.SelectWrapper} data-state={stateInput} {...args}>
+      <select
+        defaultValue=''
+        name={name}
+        className={css.SelectStyle}
+        data-state={stateInput}
+      >
         <option disabled value=''>
           {placeholder}
         </option>
@@ -18,7 +23,7 @@ export const Select = ({ placeholder, options, ...args }) => {
           </option>
         ))}
       </select>
-      <div className={css.SelectAfter}>
+      <div className={css.SelectAfter} data-state={stateInput}>
         <Icon nameIcon='arrow_drop_down' />
       </div>
     </label>
@@ -27,6 +32,7 @@ export const Select = ({ placeholder, options, ...args }) => {
 
 Select.propTypes = {
   placeholder: PropTypes.string.isRequired,
+  stateInput: PropTypes.string,
   options: PropTypes.array
 }
 

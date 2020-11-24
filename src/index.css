@@ -49,6 +49,8 @@ html {
 
     /* bg color input */
   --bgColorInputNoCheck: #757575;
+  --coloSuccesInput: green;
+  --coloErrorInput: red;
 
     /*card*/
     --colorBorderCard: #e0e0e0;
