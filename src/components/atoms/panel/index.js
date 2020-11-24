@@ -13,7 +13,7 @@ export const TabPanel = (props) => {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <p>{children}</p>}
+      {value === index && <div>{children}</div>}
     </div>
   )
 }

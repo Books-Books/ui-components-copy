@@ -44,6 +44,10 @@ export const Tabs = React.forwardRef(function Tabs(props, ref) {
         : {})
     })
   })
+  console.log(
+    '🚀 ~ file: index.js ~ line 47 ~ children ~ childrenProp',
+    childrenProp
+  )
 
   const handleKeyDown = (event) => {
     const { target } = event
