@@ -1,2 +1,3 @@
-export * from './PanelTabs';
+export * from './Carrousel'
+export * from './PanelTabs'
 

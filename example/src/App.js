@@ -1,5 +1,5 @@
 import React from 'react'
-import { AsideNav, Dropable, Button, Card, InputAction, InputControl, InputField, Modal, PanelTabs, Select, Textarea } from 'ui-components'
+import { AsideNav, Button, Card, Carrousel, Dropable, InputAction, InputControl, InputField, Modal, PanelTabs, Select, TabPanel, Textarea } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
@@ -168,6 +168,79 @@ const App = () => {
             </Textarea>
         </div>
       </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Carrousel</h1>
+        <div className={css.content}>
+          <Carrousel>
+              <TabPanel>
+                <Card
+                  image={{
+                    state: true,
+                    url:
+                      'https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg?cs=srgb&dl=pexels-pixabay-290470.jpg&fm=jpg',
+                    alt: 'image'
+                  }}
+                  content={{ title: 'Card 1', text: 'Secondary Text' }}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Card
+                  image={{
+                    state: true,
+                    url:
+                      'https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?cs=srgb&dl=pexels-pixabay-164634.jpg&fm=jpg',
+                    alt: 'image'
+                  }}
+                  content={{ title: 'Card 2', text: 'Secondary Text' }}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Card
+                  image={{
+                    state: true,
+                    url:
+                      'https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg?cs=srgb&dl=pexels-pixabay-290470.jpg&fm=jpg',
+                    alt: 'image'
+                  }}
+                  content={{ title: 'Card 3', text: 'Secondary Text' }}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Card
+                  image={{
+                    state: true,
+                    url:
+                      'https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?cs=srgb&dl=pexels-pixabay-164634.jpg&fm=jpg',
+                    alt: 'image'
+                  }}
+                  content={{ title: 'Card 4', text: 'Secondary Text' }}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Card
+                  image={{
+                    state: true,
+                    url:
+                      'https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg?cs=srgb&dl=pexels-pixabay-290470.jpg&fm=jpg',
+                    alt: 'image'
+                  }}
+                  content={{ title: 'Card 5', text: 'Secondary Text' }}
+                />
+              </TabPanel>
+              <TabPanel>
+                <Card
+                  image={{
+                    state: true,
+                    url:
+                      'https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?cs=srgb&dl=pexels-pixabay-164634.jpg&fm=jpg',
+                    alt: 'image'
+                  }}
+                  content={{ title: 'Card 6', text: 'Secondary Text' }}
+                />
+              </TabPanel>
+            </Carrousel>
+          </div>
+        </div>
     </div>
     )
 }
