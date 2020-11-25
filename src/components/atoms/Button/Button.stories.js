@@ -39,3 +39,11 @@ ButtonDefaultWithIconLeft.storyName = 'Button with icon '
 ButtonDefaultWithIconLeft.args = {
   icon: 'accessibility'
 }
+
+export const ButtonDefaultIcon = template.bind({})
+ButtonDefaultIcon.storyName = 'Button icon '
+ButtonDefaultIcon.args = {
+  label:"",
+  icon: 'accessibility',
+  styled: "secondary-icon"
+}
