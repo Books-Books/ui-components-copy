@@ -17,14 +17,23 @@ html {
   --primaryColorDark: #320b86;
   --primaryColor: #673ab7;
   --primaryColorLight: #9a67ea;
-  
+
   --secondaryColorDark: #003f8f;
   --secondaryColor: #0069c0;
   --secondaryColorLight: #5996f3;
   --textColor: #fafafa;
-  
+
   --bgColorGood:#00b02e;
   --bgColorWrong:#b00020;
+
+  --bgColorDisabled: rgb(0 0 0 / .12);
+  --textColorDisabled: #919191;
+
+  /*Base  Color outline*/
+  --bgColorOutline: white;
+
+  /*Base  Color outline*/
+  --minSizeBtnIcon: 40px;
 
   /* button variables */
   --minWidthSizeBtn: 64px;

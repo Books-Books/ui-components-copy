@@ -11,8 +11,14 @@ const App = () => {
       <div className={css.item}>
         <h1 className={css.title}>Buttons</h1>
         <div className={css.content}>
-          <Button />
+          <Button label="Button"/>
+          <Button label="Disabled" disabled/>
           <Button styled='secondary' label="Secondary button" icon='account_balance_wallet'/>
+          <Button styled='secondary-outline' label="Secondary outline"/>
+          <Button styled='primary-outline' label="Prymary outline" icon='account_balance_wallet'/>
+          <Button styled='primary-outline' label="Outline disabled" icon='account_balance_wallet' disabled/>
+          <Button styled='primary-icon' icon='account_balance_wallet'/>
+          <Button styled='secondary-icon-outline' icon='favorite'/>
         </div>
       </div>
       <div className={css.item}>

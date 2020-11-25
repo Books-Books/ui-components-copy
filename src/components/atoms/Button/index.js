@@ -7,20 +7,19 @@ export const Button = ({ styled, label, icon, ...args }) => {
   return (
     <button className={css.ButtonBase} styled={styled} {...args}>
       {icon && <Icon nameIcon={icon} />}
-      <span>{label}</span>
+      {label && <span>{label}</span>}
     </button>
   )
 }
 
 Button.propTypes = {
-  styled: PropTypes.oneOf(['primary', 'secondary']),
+  styled: PropTypes.oneOf(['primary', 'secondary', 'primary-outline', 'secondary-outline', 'primary-icon', 'secondary-icon', 'primary-icon-outline', 'secondary-icon-outline']),
   icon: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onClick: PropTypes.func
 }
 
 Button.defaultProps = {
-  label: 'Button',
   styled: 'primary',
   onClick: undefined
 }

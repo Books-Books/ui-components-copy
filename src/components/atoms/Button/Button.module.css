@@ -36,17 +36,64 @@
     margin-left: -4px;
     margin-right: 8px;
 }
-.ButtonBase[styled='primary']{
+.ButtonBase[styled='primary'], .ButtonBase[styled='primary-icon']{
     background-color: var(--primaryColor);
     box-shadow: var(--shadowSize) var(--primaryColorLight);
 }
-.ButtonBase[styled='primary']:hover{
+.ButtonBase[styled='primary']:hover, .ButtonBase[styled='primary-icon']:hover{
         background-color: var(--primaryColorLight);
 }
-.ButtonBase[styled='secondary']{
+.ButtonBase[styled='secondary'], .ButtonBase[styled='secondary-icon']{
     background-color: var(--secondaryColor);
     box-shadow: var(--shadowSize) var(--secondaryColorLight);
 }
-.ButtonBase[styled='secondary']:hover{
+.ButtonBase[styled='secondary']:hover, .ButtonBase[styled='secondary-icon']:hover{
     background-color: var(--secondaryColorLight);
+}
+.ButtonBase[styled='secondary-outline'], .ButtonBase[styled='secondary-icon-outline']{
+    background-color: var(--bgColorOutline);
+    border: 1px solid var(--secondaryColor);
+    color: var(--secondaryColor);
+
+}
+.ButtonBase[styled='secondary-outline']:hover, .ButtonBase[styled='secondary-icon-outline']:hover{
+    background-color: var(--secondaryColorLight);
+    color: var(--textColor);
+    background-color: var(--secondaryColor);
+}
+
+.ButtonBase[styled='primary-outline'], .ButtonBase[styled='primary-icon-outline']{
+    background-color: var(--bgColorOutline);
+    border: 1px solid var(--primaryColor);
+    color: var(--primaryColor);
+
+}
+.ButtonBase[styled='primary-outline']:hover, .ButtonBase[styled='primary-icon-outline']:hover{
+    background-color: var(--primaryColorLight);
+    color: var(--textColor);
+    background-color: var(--primaryColor);
+}
+
+.ButtonBase[styled='primary-icon'], .ButtonBase[styled='secondary-icon'], .ButtonBase[styled='secondary-icon-outline'], .ButtonBase[styled='primary-icon-outline']{
+    min-width: 0;
+    width: var(--minSizeBtnIcon);
+    height: var(--minSizeBtnIcon);
+    border-radius: 50%;
+}
+.ButtonBase[styled='primary-icon'] i, .ButtonBase[styled='secondary-icon']  i, .ButtonBase[styled='secondary-icon-outline'] i, .ButtonBase[styled='primary-icon-outline'] i {
+    margin: 0;
+}
+
+.ButtonBase[disabled]{
+    background-color: var(--bgColorDisabled);
+    pointer-events: none;
+    box-shadow: none;
+    color: var(--textColorDisabled);
+}
+
+
+
+.ButtonBase[styled='primary-outline'][disabled], .ButtonBase[styled='secondary-outline'][disabled], .ButtonBase[styled='secondary-icon-outline'][disabled], .ButtonBase[styled='primary-icon-outline'][disabled]{
+    border-color: var(--bgColorDisabled);
+    background-color: transparent;
 }
