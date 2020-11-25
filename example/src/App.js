@@ -33,8 +33,9 @@ const App = () => {
       <div className={css.item}>
         <h1 className={css.title}>Input Checkbox</h1>
         <div className={css.content}>
-          <InputControl label="check 1"  type="checkbox"/>
-          <InputControl label="check 2"  type="checkbox" />
+          <InputControl label="Check 1"  type="checkbox"/>
+          <InputControl label="Check 2"  type="checkbox" />
+          <InputControl label="Disabled"  type="checkbox" disabled />
         </div>
       </div>
       <div className={css.item}>
