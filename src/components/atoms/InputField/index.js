@@ -1,8 +1,8 @@
 import _uniqueId from 'lodash/uniqueId'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
-import css from './InputField.module.css'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Icon } from '../icon'
+import css from './InputField.module.css'
 
 export const InputField = ({ type, label, dataIcon, styledInput, ...args }) => {
   const id = _uniqueId('ui-')
@@ -62,7 +62,7 @@ export const InputField = ({ type, label, dataIcon, styledInput, ...args }) => {
       {dataIcon.state ? (
         <Icon nameIcon={dataIcon.nameIcon} state-input={styledInput} />
       ) : (
-        <></>
+        <Fragment />
       )}
       <input
         className={css.InputStyled}
