@@ -37,14 +37,44 @@ InputText.args = {
   type: 'text'
 }
 
+export const InputIcon = template.bind({})
+InputIcon.args = {
+  type: 'text',
+  dataIcon: {
+    state: true,
+    nameIcon: 'perm_identity'
+  }
+}
+
 export const InputError = template.bind({})
 InputError.args = {
   type: 'text',
   styledInput: 'Error'
 }
 
+
+export const InputErrorIcon = template.bind({})
+InputErrorIcon.args = {
+  type: 'text',
+  styledInput: 'Error',
+  dataIcon: {
+    state: true,
+    nameIcon: 'close'
+  }
+}
+
 export const InputSucces = template.bind({})
 InputSucces.args = {
   type: 'text',
   styledInput: 'Succes'
+}
+
+export const InputSuccesIcon = template.bind({})
+InputSuccesIcon.args = {
+  type: 'text',
+  styledInput: 'Succes',
+  dataIcon: {
+    state: true,
+    nameIcon: 'done'
+  }
 }
