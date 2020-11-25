@@ -23,15 +23,35 @@ export default {
 
 const template = (args) => <InputControl {...args} />
 
-export const InputCheckbox = template.bind({})
-InputCheckbox.storyName = 'Input Control'
+export const InputRadio = template.bind({})
+InputRadio.storyName = 'Input Control'
 
-export const InputCheckboxError = template.bind({})
-InputCheckboxError.args = {
+export const InputRadioError = template.bind({})
+InputRadioError.args = {
   stateInput: 'Error'
 }
 
-export const InputCheckboxSucces = template.bind({})
-InputCheckboxSucces.args = {
+export const InputRadioSucces = template.bind({})
+InputRadioSucces.args = {
+  stateInput: 'Succes'
+}
+
+export const InputCheckbok = template.bind({})
+InputCheckbok.args = {
+  type: 'checkbox',
+  label: 'Checkbok'
+}
+
+export const InputChecknokError = template.bind({})
+InputChecknokError.args = {
+  type: 'checkbox',
+  label: 'Checkbok',
+  stateInput: 'Error'
+}
+
+export const InputCheckbokSucces = template.bind({})
+InputCheckbokSucces.args = {
+  type: 'checkbox',
+  label: 'Checkbok',
   stateInput: 'Succes'
 }
