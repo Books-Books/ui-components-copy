@@ -1,16 +1,16 @@
 import React from 'react'
-import { Dropable } from './index'
+import { Accordion } from './index'
 
 export default {
-  title: 'Molecules/Dropable',
-  component: Dropable
+  title: 'Molecules/Accordion',
+  component: Accordion
 }
 
-const Template = (args) => <Dropable {...args} />
+const Template = (args) => <Accordion {...args} />
 
-export const baseDropable = Template.bind({})
+export const baseAccordion = Template.bind({})
 
-baseDropable.args = {
+baseAccordion.args = {
   width: '400px',
   content: [
     {
