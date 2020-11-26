@@ -272,12 +272,16 @@ const App = () => {
         </div>
       </div>
       <div className={[css.item, css.full].join(' ')}>
-        <Row flex='true' align-items='center' justify-content='center'>
-          <Col xs='12' sm='6' md='3'></Col>
-          <Col xs='12' sm='6' md='3'></Col>
-          <Col xs='12' sm='6' md='3'></Col>
-          <Col xs='12' sm='6' md='3'></Col>
-        </Row>
+        <h1 className={css.title}>Layout</h1>
+        <div className={css.content}>
+          <Row flex='true' align-items='center' justify-content='center'>
+            <Col xs='12' sm='6' md='3'>Col 1</Col>
+            <Col xs='12' sm='6' md='3'>Col 2</Col>
+            <Col xs='12' sm='6' md='3'>Col 3</Col>
+            <Col xs='12' sm='6' md='3'>Col 4</Col>
+          </Row>
+        </div>
+
       </div>
     </div>
     )
