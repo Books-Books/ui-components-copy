@@ -134,11 +134,7 @@
     border-color: var(--bgColorInputNoCheck);
     background-color: transparent
 }
-.InputStyled[disabled]:not(:checked):not(:indeterminate)~ .CheckBg{
-    border-color: var(--bgColorDisabled);
-    background-color: var(--bgColorDisabled);
-    pointer-events: none;
-}
+
 
 .InputStyled:checked ~ .CheckBg{
     border-color: var(--primaryColor);

@@ -41,8 +41,9 @@ const App = () => {
       <div className={css.item}>
         <h1 className={css.title}>Input Radio</h1>
         <div className={css.content}>
-          <InputControl label="radio 1"  type="radio" name="name_1"/>
-          <InputControl label="radio 2"  type="radio" name="name_1"/>
+          <InputControl label="Radio 1"  type="radio" name="name_1"/>
+          <InputControl label="Radio 2"  type="radio" name="name_1"/>
+          <InputControl label="Disabled"  type="radio" name="name_1" disabled />
         </div>
       </div>
       <div className={css.item}>
