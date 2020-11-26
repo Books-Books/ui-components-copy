@@ -13,7 +13,16 @@ export const Button = ({ styled, label, icon, ...args }) => {
 }
 
 Button.propTypes = {
-  styled: PropTypes.oneOf(['primary', 'secondary', 'primary-outline', 'secondary-outline', 'primary-icon', 'secondary-icon', 'primary-icon-outline', 'secondary-icon-outline']),
+  styled: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'primary-outline',
+    'secondary-outline',
+    'primary-icon',
+    'secondary-icon',
+    'primary-icon-outline',
+    'secondary-icon-outline'
+  ]),
   icon: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func
