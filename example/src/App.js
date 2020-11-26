@@ -1,11 +1,11 @@
 import React from 'react'
-import { AsideNav, Button, Card, Carrousel, Dropable, InputAction, InputControl, InputField, Modal, PanelTabs, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
+import { AsideNav, Button, Card, Carrousel, Accordion, InputAction, InputControl, InputField, Modal, PanelTabs, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
 
 const App = () => {
-  // console.log(Dropable)
+  // console.log(Accordion)
   return(
     <div className={css.main}>
       <div className={css.item}>
@@ -56,7 +56,10 @@ const App = () => {
             <InputAction icon="upload" label="Upload file" styled="secondary" type="file"/>
           </div>
           <div>
-            <InputAction icon="palette" label="Select color" theme="primary" type="color"/>
+            <InputAction icon="palette" label="Select color" styled="primary-outline" type="color"/>
+          </div>
+          <div>
+            <InputAction icon="upload" styled="secondary-icon" type="file"/>
           </div>
           <div>
             <InputAction icon="upload" label="Upload file" styled="secondary" type="file" disabled/>
@@ -129,9 +132,9 @@ const App = () => {
         </div>
       </div>
       <div className={css.item}>
-        <h1 className={css.title}>Dropable</h1>
+        <h1 className={css.title}>Accordion</h1>
         <div className={css.content}>
-          <Dropable
+          <Accordion
             width="300px"
             content={
               [
