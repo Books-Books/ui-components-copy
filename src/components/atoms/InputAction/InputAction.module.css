@@ -1,3 +1,4 @@
+
 .InputAction{
     display: none
 }
@@ -18,7 +19,7 @@
     cursor: pointer;
 }
 .TextFileName {
-    text-align: center;   
+    text-align: center;
     box-shadow: var(--shadowSize) var(--primaryColorLight);
     padding: .5rem;
 }
@@ -35,4 +36,13 @@
 }
 .LabelStyled[styled='secondary']:hover{
     background-color: var(--secondaryColorLight);
+}
+
+/* style disabled*/
+
+.LabelStyled[disabled]{
+    pointer-events: none;
+    background-color: var(--bgColorDisabled);
+    color: var(--textColorDisabled);
+    box-shadow: none;
 }

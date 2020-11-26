@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import css from './Dropable.module.css'
-import { DropableItem } from '../../atoms'
+import { AccordionItem } from '../../atoms'
 
-export const Dropable = ({ content, width, backgroundColor, color }) => {
+export const Accordion = ({ content, width, backgroundColor, color }) => {
   const [getStateList, setStateList] = useState(null)
+  const [getStateIcon, setStateIcon] = useState('')
   const style = {
     backgroundColor: backgroundColor,
     color: color
@@ -20,6 +21,7 @@ export const Dropable = ({ content, width, backgroundColor, color }) => {
     element.classList.forEach((item) => {
       if (item === css.block) {
         addAndRemoveClass(element, false)
+        setStateIcon('expand_less')
       } else {
         addAndRemoveClass(element, true)
       }
@@ -41,6 +43,7 @@ export const Dropable = ({ content, width, backgroundColor, color }) => {
   }
   function handleToggleBody(element) {
     const $bodyElement = document.querySelector(`#${element}`)
+    setStateIcon(element)
     stateList($bodyElement)
   }
   return (
@@ -51,9 +54,12 @@ export const Dropable = ({ content, width, backgroundColor, color }) => {
           key={index}
           style={style}
         >
-          <DropableItem
+          <AccordionItem
             item={item}
             index={index}
+            stateIcon={
+              getStateIcon === `body${index}` ? 'expand_less' : 'expand_more'
+            }
             onClick={() => handleToggleBody(`body${index}`)}
           />
         </li>
@@ -62,14 +68,14 @@ export const Dropable = ({ content, width, backgroundColor, color }) => {
   )
 }
 
-Dropable.propTypes = {
+Accordion.propTypes = {
   content: PropTypes.array,
   backgroundColor: PropTypes.string,
   color: PropTypes.string,
   width: PropTypes.string
 }
 
-Dropable.defaultProps = {
+Accordion.defaultProps = {
   content: [
     {
       title: 'Location',

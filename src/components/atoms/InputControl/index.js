@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Icon } from '../icon'
 import css from './InputControl.module.css'
 
-export const InputControl = ({ type, label, stateInput, ...args }) => {
+export const InputControl = ({ type, label, stateInput, name, ...args }) => {
   const [check, setCheck] = useState(false)
   const [getStateIcon, setStateIcon] = useState('')
   const id = _uniqueId('ui-')
@@ -33,7 +33,7 @@ export const InputControl = ({ type, label, stateInput, ...args }) => {
   })
 
   return (
-    <label htmlFor={id} className={css.InputCont} inputMode={type}>
+    <label htmlFor={id} className={css.InputCont} inputMode={type} {...args}>
       <div className={css.CheckCont} inputMode={type}>
         <input
           className={css.InputStyled}
@@ -42,7 +42,8 @@ export const InputControl = ({ type, label, stateInput, ...args }) => {
           defaultChecked={check}
           type={type === 'toggle' ? 'checkbox' : type}
           id={id}
-          {...args}
+          name={name}
+
         />
         {type === 'toggle' && <div className={css.CheckTrack} />}
         <div
@@ -66,7 +67,8 @@ InputControl.propTypes = {
   stateInput: PropTypes.string,
   icon: PropTypes.object,
   label: PropTypes.string.isRequired,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  name: PropTypes.string
 }
 
 InputControl.defaultProps = {

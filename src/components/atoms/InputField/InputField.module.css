@@ -67,6 +67,7 @@
     opacity: 1
 }
 
+
 .LabelStyle{
     font-family: inherit;
     -moz-osx-font-smoothing: grayscale;
@@ -131,4 +132,10 @@
 
 .deactive-border{
     border: none !important;
+}
+
+/* style disabled */
+.InputCont[disabled] {
+    pointer-events: none;
+    opacity: var(--opacityDisabled);
 }

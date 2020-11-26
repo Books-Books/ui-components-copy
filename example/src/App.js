@@ -28,31 +28,38 @@ const App = () => {
           <InputField label="Edad" type="number"/>
           <InputField label="Password" type="password"/>
           <InputField label="email" type="email"/>
+          <InputField label="Disabled" type="text" disabled/>
         </div>
       </div>
       <div className={css.item}>
         <h1 className={css.title}>Input Checkbox</h1>
         <div className={css.content}>
-          <InputControl label="check 1"  type="checkbox"/>
-          <InputControl label="check 2"  type="checkbox" />
+          <InputControl label="Check 1"  type="checkbox"/>
+          <InputControl label="Check 2"  type="checkbox" />
+          <InputControl label="Disabled"  type="checkbox" disabled />
         </div>
       </div>
       <div className={css.item}>
         <h1 className={css.title}>Input Radio</h1>
         <div className={css.content}>
-          <InputControl label="radio 1"  type="radio" name="name_1"/>
-          <InputControl label="radio 2"  type="radio" name="name_1"/>
+          <InputControl label="Radio 1"  type="radio" name="name_1"/>
+          <InputControl label="Radio 2"  type="radio" name="name_1"/>
+          <InputControl label="Disabled"  type="radio" name="name_1" disabled />
         </div>
       </div>
       <div className={css.item}>
         <h1 className={css.title}>Input Special</h1>
         <div className={css.content}>
           <InputControl label="Toggle"  type="toggle"name="name_1"/>
+          <InputControl label="Toggle disabled"  type="toggle"name="name_1" disabled/>
           <div>
-            <InputAction icon="upload" label="Upload file" theme="secondary" type="file" />
+            <InputAction icon="upload" label="Upload file" styled="secondary" type="file"/>
           </div>
           <div>
-            <InputAction icon="color" label="Select color" theme="primary" type="color" />
+            <InputAction icon="palette" label="Select color" theme="primary" type="color"/>
+          </div>
+          <div>
+            <InputAction icon="upload" label="Upload file" styled="secondary" type="file" disabled/>
           </div>
         </div>
       </div>
