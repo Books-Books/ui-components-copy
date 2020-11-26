@@ -5,6 +5,8 @@ import css from './Carrousel.module.css'
 export const Carrousel = ({ children: childrenProp }) => {
   const [Value, SetValue] = useState(0)
   const refCont = createRef()
+  const refPrev = createRef()
+  const refNext = createRef()
   let childIndex = 0
   function handleClick({ target }) {
     const dataValue = target.dataset.slide
@@ -22,6 +24,15 @@ export const Carrousel = ({ children: childrenProp }) => {
         getValue = contChild.length - 1
       }
       SetValue(getValue)
+    }
+
+    if(getValue === 0){
+      refPrev.current.setAttribute('hidden', 'true')
+    }else if(getValue === contChild.length - 1 ) {
+      refNext.current.setAttribute('hidden', 'true')
+    }else{
+      refPrev.current.removeAttribute('hidden')
+      refNext.current.removeAttribute('hidden')
     }
   }
 
@@ -52,6 +63,9 @@ export const Carrousel = ({ children: childrenProp }) => {
         className={css.carrouselControlPrev}
         data-slide='prev'
         onClick={handleClick}
+        ref={refPrev}
+        hidden
+
       >
         <Icon nameIcon='keyboard_arrow_left' />
       </button>
@@ -59,6 +73,8 @@ export const Carrousel = ({ children: childrenProp }) => {
         className={css.carrouselControlNext}
         data-slide='next'
         onClick={handleClick}
+        ref={refNext}
+
       >
         <Icon nameIcon='keyboard_arrow_right' />
       </button>

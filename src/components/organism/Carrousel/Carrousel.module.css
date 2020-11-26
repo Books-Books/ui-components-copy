@@ -41,6 +41,7 @@
   opacity: 0.5;
   max-height: 50px;
   cursor: pointer;
+  border-radius: 5px;
 }
 .carrouselControlPrev i,
 .carrouselControlNext i{
@@ -70,3 +71,7 @@
     background-size: 100% 100%;
 }
 
+.carrouselControlPrev[hidden],
+.carrouselControlNext[hidden]{
+  display: none;
+}
