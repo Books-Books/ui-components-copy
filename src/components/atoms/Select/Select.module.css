@@ -97,3 +97,16 @@
 .SelectWrapper[data-state="Succes"]:hover{
     box-shadow: inset 0px -3px var(--coloSuccesInput);
 }
+
+.SelectWrapper[disabled]{
+    background-color: var(--bgColorDisabled);
+    pointer-events: none;
+    box-shadow: none;
+    color: var(--textColorDisabled);
+    opacity: var(--opacityDisabled);
+}
+
+.SelectWrapper[disabled] .SelectAfter{
+    background-color: var(--bgColorDisabled);
+    opacity: var(--opacityDisabled);
+}

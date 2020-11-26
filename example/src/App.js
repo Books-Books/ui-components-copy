@@ -5,7 +5,7 @@ import css from './index.module.css'
 
 
 const App = () => {
-  // console.log(Dropable)
+  // console.log(Accordion)
   return(
     <div className={css.main}>
       <div className={css.item}>
@@ -56,7 +56,10 @@ const App = () => {
             <InputAction icon="upload" label="Upload file" styled="secondary" type="file"/>
           </div>
           <div>
-            <InputAction icon="palette" label="Select color" theme="primary" type="color"/>
+            <InputAction icon="palette" label="Select color" styled="primary-outline" type="color"/>
+          </div>
+          <div>
+            <InputAction icon="upload" styled="secondary-icon" type="file"/>
           </div>
           <div>
             <InputAction icon="upload" label="Upload file" styled="secondary" type="file" disabled/>
@@ -67,6 +70,7 @@ const App = () => {
         <h1 className={css.title}>Select</h1>
         <div className={css.content}>
           <Select options={['name', 'value']} name="foo"></Select>
+          <Select options={['name', 'value']} name="foo" disabled></Select>
         </div>
       </div>
       <div className={css.item}>
@@ -129,7 +133,7 @@ const App = () => {
         </div>
       </div>
       <div className={css.item}>
-        <h1 className={css.title}>Dropable</h1>
+        <h1 className={css.title}>Accordion</h1>
         <div className={css.content}>
           <Accordion
             width="300px"
