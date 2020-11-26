@@ -51,11 +51,15 @@ const App = () => {
         <h1 className={css.title}>Input Special</h1>
         <div className={css.content}>
           <InputControl label="Toggle"  type="toggle"name="name_1"/>
+          <InputControl label="Toggle disabled"  type="toggle"name="name_1" disabled/>
           <div>
-            <InputAction icon="upload" label="Upload file" theme="secondary" type="file" />
+            <InputAction icon="upload" label="Upload file" styled="secondary" type="file"/>
           </div>
           <div>
-            <InputAction icon="color" label="Select color" theme="primary" type="color" />
+            <InputAction icon="palette" label="Select color" theme="primary" type="color"/>
+          </div>
+          <div>
+            <InputAction icon="upload" label="Upload file" styled="secondary" type="file" disabled/>
           </div>
         </div>
       </div>

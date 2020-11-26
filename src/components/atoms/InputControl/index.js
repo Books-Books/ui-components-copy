@@ -67,7 +67,8 @@ InputControl.propTypes = {
   stateInput: PropTypes.string,
   icon: PropTypes.object,
   label: PropTypes.string.isRequired,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  name: PropTypes.string
 }
 
 InputControl.defaultProps = {

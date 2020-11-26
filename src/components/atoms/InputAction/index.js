@@ -26,13 +26,12 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
 
   return (
     <Fragment>
-      <label className={css.LabelStyled} htmlFor={id} styled={styled}>
+      <label className={css.LabelStyled} htmlFor={id} styled={styled} {...args}>
         <input
           className={css.InputAction}
           type={type}
           id={id}
           onInput={handleChage}
-          {...args}
         />
         <Icon nameIcon={icon} />
         <span>{label}</span>
