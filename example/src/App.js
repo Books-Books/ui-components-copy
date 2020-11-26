@@ -70,6 +70,7 @@ const App = () => {
         <h1 className={css.title}>Select</h1>
         <div className={css.content}>
           <Select options={['name', 'value']} name="foo"></Select>
+          <Select options={['name', 'value']} name="foo" disabled></Select>
         </div>
       </div>
       <div className={css.item}>
