@@ -1,5 +1,5 @@
 import React from 'react'
-import { AsideNav, Button, Card, Carrousel, Dropable, InputAction, InputControl, InputField, Modal, PanelTabs, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
+import { Accordion, AsideNav, Button, Card, Carrousel, Col, InputAction, InputControl, InputField, Modal, PanelTabs, Row, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
@@ -131,7 +131,7 @@ const App = () => {
       <div className={css.item}>
         <h1 className={css.title}>Dropable</h1>
         <div className={css.content}>
-          <Dropable
+          <Accordion
             width="300px"
             content={
               [
@@ -266,6 +266,14 @@ const App = () => {
           </Button>
         </Tooltip>
         </div>
+      </div>
+      <div className={[css.item, css.full].join(' ')}>
+        <Row flex='true' align-items='center' justify-content='center'>
+          <Col xs='12' sm='6' md='3'></Col>
+          <Col xs='12' sm='6' md='3'></Col>
+          <Col xs='12' sm='6' md='3'></Col>
+          <Col xs='12' sm='6' md='3'></Col>
+        </Row>
       </div>
     </div>
     )
