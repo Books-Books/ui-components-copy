@@ -169,3 +169,13 @@
     border-color: var(--coloSuccesInput);
     background-color: var(--coloSuccesInput);
 }
+
+/* style disabled */
+.InputCont[disabled] {
+    pointer-events: none;
+    opacity: var(--opacityDisabled);
+}
+.InputCont[disabled] .InputStyled:not(:checked):not(:indeterminate)~ .CheckBg{
+    background-color: var(--bgColorDisabled);
+
+}

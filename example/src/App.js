@@ -28,6 +28,7 @@ const App = () => {
           <InputField label="Edad" type="number"/>
           <InputField label="Password" type="password"/>
           <InputField label="email" type="email"/>
+          <InputField label="Disabled" type="text" disabled/>
         </div>
       </div>
       <div className={css.item}>

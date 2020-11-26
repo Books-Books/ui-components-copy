@@ -133,3 +133,9 @@
 .deactive-border{
     border: none !important;
 }
+
+/* style disabled */
+.InputCont[disabled] {
+    pointer-events: none;
+    opacity: var(--opacityDisabled);
+}
