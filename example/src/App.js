@@ -1,5 +1,5 @@
 import React from 'react'
-import { AsideNav, Button, Card, Carrousel, Accordion, InputAction, InputControl, InputField, Modal, PanelTabs, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
+import { Accordion, AsideNav, Button, Card, Carrousel, Col, InputAction, InputControl, InputField, Modal, PanelTabs, Row, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
@@ -270,6 +270,18 @@ const App = () => {
           </Button>
         </Tooltip>
         </div>
+      </div>
+      <div className={[css.item, css.full].join(' ')}>
+        <h1 className={css.title}>Layout</h1>
+        <div className={css.content}>
+          <Row flex='true' align-items='center' justify-content='center'>
+            <Col xs='12' sm='6' md='3'>Col 1</Col>
+            <Col xs='12' sm='6' md='3'>Col 2</Col>
+            <Col xs='12' sm='6' md='3'>Col 3</Col>
+            <Col xs='12' sm='6' md='3'>Col 4</Col>
+          </Row>
+        </div>
+
       </div>
     </div>
     )

@@ -1,9 +1,9 @@
 import _uniqueId from 'lodash/uniqueId'
 import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
+import base from '../../utilities/style/Base.module.css'
 import { Icon } from '../icon'
 import css from './InputAction.module.css'
-import base from '../../utilities/style/Base.module.css'
 
 export const InputAction = ({ type, styled, label, icon, ...args }) => {
   const [Value, SetValue] = useState('')
@@ -27,7 +27,12 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
 
   return (
     <Fragment>
-      <label className={`${base.ColorBase} ${css.LabelStyled}`} htmlFor={id} styled={styled} {...args}>
+      <label
+        className={`${base.ColorBase} ${css.LabelStyled}`}
+        htmlFor={id}
+        styled={styled}
+        {...args}
+      >
         <input
           className={css.InputAction}
           type={type}
@@ -35,7 +40,7 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
           onInput={handleChage}
         />
         <Icon nameIcon={icon} />
-        {label !== "" ? <span>{label}</span>: <Fragment></Fragment>}
+        {label !== '' ? <span>{label}</span> : <Fragment />}
       </label>
       {Value !== '' && (
         <p
