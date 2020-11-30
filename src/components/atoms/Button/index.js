@@ -1,15 +1,18 @@
 import PropTypes from 'prop-types'
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
+import base from '../../utilities/style/Base.module.css'
 import { Icon } from '../icon'
 import css from './Button.module.css'
-import base from '../../utilities/style/Base.module.css'
-
 
 export const Button = ({ styled, label, icon, ...args }) => {
   return (
-    <button className={`${base.ColorBase} ${css.ButtonBase}`} styled={styled} {...args}>
+    <button
+      className={`${base.ColorBase} ${css.ButtonBase}`}
+      styled={styled}
+      {...args}
+    >
       {icon && <Icon nameIcon={icon} />}
-      {label !== "" ? <span>{label}</span>: <Fragment></Fragment>}
+      {label !== '' ? <span>{label}</span> : <Fragment />}
     </button>
   )
 }
