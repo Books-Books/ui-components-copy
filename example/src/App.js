@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion, AsideNav, Button, Card, Carrousel, Col, Dropdown, InputAction, InputControl, InputField, Link, Modal, PanelTabs, Row, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
+import { Accordion, AsideNav, Button, Card, Carrousel, Col, Dropdown, InputAction, InputControl, InputField, Link, Modal, PanelTabs, Row, Select, TabPanel, Text, Textarea, Tooltip } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
@@ -283,6 +283,43 @@ const App = () => {
               <Link label="Esto es un link de ejemplo" href="el_link" target="_blank"/>
         </div>
       </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Typography</h1>
+        <div className={css.content} style={{justifyItems: 'normal'}}>
+              <Text type='h1' label="" text-align='center'>
+                  h1-txt
+              </Text>
+              <Text type='h2'>
+                  h2-txt
+              </Text>
+              <Text type='h3' label="">
+                  h3-txt
+              </Text>
+              <Text type='h4'>
+                  h4-txt
+              </Text>
+              <Text type='h5'text-align='right'>
+                  h5-txt whith ta-r
+              </Text>
+              <Text type='h6' text-align='center'>
+                  h6-txt whith ta-c
+              </Text>
+              <Text type='subtitle'>
+                <b>Subtitle:</b> Lorem ipsum dolor sit amet
+              </Text>
+              <Text type='caption'>
+                <b>Caption:</b> Lorem ipsum dolor sit amet
+              </Text>
+              <Text type='span'>
+                <b>Span:</b> Lorem ipsum dolor sit amet
+              </Text>
+              <Text type='p'>
+                <b>Paragraph:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+              </Text>
+
+        </div>
+      </div>
+
       <div className={[css.item, css.full].join(' ')}>
         <h1 className={css.title}>Layout</h1>
         <div className={css.content}>

@@ -87,4 +87,29 @@ html {
     --txtNavHover: none;
     --borderRadiusNav: .25rem;
     --boxShadowNav: 0px 0px 4px #a5a5a5;
+
+    /* typography */
+
+    --h1FontSize: 6rem;
+    --h1FontWeight: 300;
+
+    --h2FontSize: 3.75rem;
+    --h2FontWeight: 300;
+
+    --h3FontSize: 3rem;
+    --h3FontWeight: 400;
+
+    --h4FontSize: 2.125rem;
+    --h4FontWeight: 400;
+
+    --h5FontSize: 1.5rem;
+    --h5FontWeight: 400;
+
+    --h6FontSize: 1.25rem;
+    --h6FontWeight: 500;
+
+    --textBody: 1rem;
+    --subTitleFz: 0.875rem;
+    --subTitleFw: 500;
+
 }

@@ -9,6 +9,7 @@ export * from './Link'
 export * from './panel'
 export * from './Select'
 export * from './tab'
+export * from './Text'
 export * from './Textarea'
 export * from './Tooltip'
 
