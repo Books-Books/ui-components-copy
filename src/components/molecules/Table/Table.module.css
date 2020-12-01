@@ -1,0 +1,17 @@
+.table{
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 0, 0, .12);
+}
+
+.table-content{
+  border-radius: 8px;
+  border-top: 1px solid rgba(0, 0, 0, .12);
+}
+
+.table-content-item{
+  padding: 1rem;
+}
+
+.body-content:hover{
+  background-color: rgba(0, 0, 0, .04);
+}
