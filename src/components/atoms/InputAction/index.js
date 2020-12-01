@@ -13,13 +13,10 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
     switch (type) {
       case 'file':
         SetValue(target.files[0].name)
-
         break
       case 'color':
         SetValue(target.value)
-
         break
-
       default:
         break
     }

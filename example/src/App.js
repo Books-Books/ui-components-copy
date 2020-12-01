@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion, AsideNav, Button, Card, Carrousel, Col, InputAction, InputControl, InputField, Modal, PanelTabs, Row, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
+import { Accordion, AsideNav, Button, Card, Carrousel, Col, Dropdown, InputAction, InputControl, InputField, Link, Modal, PanelTabs, Row, Select, TabPanel, Textarea, Tooltip } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
@@ -269,6 +269,18 @@ const App = () => {
           <Button styled='secondary' label="Button">
           </Button>
         </Tooltip>
+        </div>
+      </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Dropdown</h1>
+        <div className={css.content}>
+              <Dropdown />
+        </div>
+      </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Link</h1>
+        <div className={css.content}>
+              <Link label="Esto es un link de ejemplo" href="el_link" target="_blank"/>
         </div>
       </div>
       <div className={[css.item, css.full].join(' ')}>
