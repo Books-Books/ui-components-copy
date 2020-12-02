@@ -88,6 +88,8 @@ html {
     --borderRadiusNav: .25rem;
     --boxShadowNav: 0px 0px 4px #a5a5a5;
 
+  /* Multimedia */
+    --widthBtnAudio: 30px;
     /* typography */
 
     --h1FontSize: 6rem;
