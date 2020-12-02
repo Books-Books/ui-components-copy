@@ -1,5 +1,5 @@
 import React from 'react'
-import { Audio } from './Index'
+import { Audio } from './index'
 
 export default {
   title: 'Atoms/Audio',
