@@ -92,6 +92,9 @@ html {
     --widthBtnAudio: 30px;
     /* typography */
 
+    /* table */
+    --colorborderTable: rgba(0, 0, 0, .12);
+    --backgroundHoverTable:rgba(0, 0, 0, .04);
     --h1FontSize: 6rem;
     --h1FontWeight: 300;
 
