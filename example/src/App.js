@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion, AsideNav, Audio, Button, Card, Carrousel, Col, Dropdown, Graphics, InputAction, InputControl, InputField, Link, Modal, PanelTabs, Row, Select, Table, TabPanel, Text, Textarea, Tooltip } from 'ui-components'
+import { Accordion, AsideNav, Button, Card, Carrousel, Col, Dropdown, Graphics, InputAction, InputControl, InputField, Link, Modal, Multimedia, PanelTabs, Row, Select, Table, TabPanel, Text, Textarea, Tooltip } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
@@ -8,12 +8,6 @@ const App = () => {
   // console.log(Accordion)
   return (
     <div className={css.main}>
-      <div className={css.item}>
-        <h1 className={css.title}>Boton audio</h1>
-        <div className={css.content}>
-          <Audio url='https://s3-us-west-2.amazonaws.com/s.cdpn.io/33378/soundcloud-austin-stephens-Auto_Tuned_Native_American_Flute.mp3' />
-        </div>
-      </div>
       <div className={css.item}>
         <h1 className={css.title}>Buttons</h1>
         <div className={css.content}>
@@ -546,6 +540,25 @@ const App = () => {
                 }
               ]
             ]}
+          />
+        </div>
+      </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Multimedia</h1>
+        <div className={css.content}>
+          <Multimedia
+            type='audio'
+            url='https://s3-us-west-2.amazonaws.com/s.cdpn.io/33378/soundcloud-austin-stephens-Auto_Tuned_Native_American_Flute.mp3'
+          />
+          <Multimedia
+            type='audio'
+            url='https://s3-us-west-2.amazonaws.com/s.cdpn.io/33378/soundcloud-austin-stephens-Auto_Tuned_Native_American_Flute.mp3'
+            label='Audio'
+          />
+          <Multimedia
+            type='video'
+            url='https://storage.googleapis.com/cedoc360extencion/a_english_multimedia/a1/module_1/videos/a1m1a-ae_vid_1.mp4'
+            width='280px'
           />
         </div>
       </div>
