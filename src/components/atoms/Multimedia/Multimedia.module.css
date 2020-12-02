@@ -6,14 +6,19 @@
     padding: .5rem;
     outline: none;
     border-radius: 50%;
+    color: #fff;
+}
+
+.c-aud-btn[data-label='string']{
+    border-radius: 18px;
 }
 
 .c-aud-btn-content{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 30px;
-    min-height: 30px;
+    min-width: var(--widthBtnAudio);
+    min-height: var(--widthBtnAudio);
 }
 
 .c-aud-btn:hover{
@@ -26,4 +31,16 @@
     color: var(--textColor);
     margin-bottom: 4px;
     margin-right: 2px;
+}
+
+.c-aud-btn-content[data-label='string'] i{
+    margin-right: 9px;
+}
+
+.c-vid video{
+    outline: none;
+    border: 2px solid var(--primaryColor);
+    box-shadow: var(--shadowSize) var(--primaryColorLight);
+    height: 100%;
+    width: 100%;
 }
