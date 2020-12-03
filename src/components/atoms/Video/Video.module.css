@@ -1,0 +1,27 @@
+.c-vid{
+    position: relative;
+    color: #fff;
+}
+
+.c-vid video{
+    outline: none;
+    border: 2px solid var(--primaryColor);
+    box-shadow: var(--shadowSize) var(--primaryColorLight);
+    height: 100%;
+    width: 100%;
+}
+
+.c-vid-controls{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color: rgb(103, 58, 183, .6);
+    position: absolute;
+    width: 100%;
+    bottom: 6px;
+    left: 2px;
+    padding: .2rem 0;
+}
+
+.c-vid-controls i{
+    color: #fff;
+}
