@@ -36,11 +36,3 @@
 .c-aud-btn-content[data-label='string'] i{
     margin-right: 9px;
 }
-
-.c-vid video{
-    outline: none;
-    border: 2px solid var(--primaryColor);
-    box-shadow: var(--shadowSize) var(--primaryColorLight);
-    height: 100%;
-    width: 100%;
-}
