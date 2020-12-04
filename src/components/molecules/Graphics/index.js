@@ -19,8 +19,8 @@ function Graphics({ width, height, chartType, data, options, props }) {
 
 export { Graphics }
 Graphics.propTypes = {
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
+  width: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired,
   chartType: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
   options: PropTypes.object.isRequired
