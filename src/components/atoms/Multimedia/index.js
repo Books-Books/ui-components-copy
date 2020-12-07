@@ -3,7 +3,7 @@ import React, { createRef, Fragment, useState } from 'react'
 import { Icon } from '../icon/index'
 import css from './Multimedia.module.css'
 
-function Multimedia({ url, label }) {
+function Multimedia({ url, label, addClass }) {
   const [getStateBtnAudio, setStateBtnAudio] = useState(false)
   const [getIcon, setIcon] = useState('play_arrow')
   const refAudio = createRef()
@@ -24,7 +24,7 @@ function Multimedia({ url, label }) {
   }
   return (
     <Fragment>
-      <div className={css['c-aud']}>
+      <div className={`${css['c-aud']} ${addClass}`}>
         <audio src={url} ref={refAudio} />
         <button
           id='btnAudio'
@@ -49,5 +49,10 @@ export { Multimedia }
 
 Multimedia.propTypes = {
   url: PropTypes.string.isRequired,
-  label: PropTypes.string
+  label: PropTypes.string,
+  addClass: PropTypes.string
+}
+
+Multimedia.defaultProps = {
+  addClass: ''
 }

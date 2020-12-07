@@ -6,8 +6,10 @@ export default {
   component: Dropdown
 }
 
-const Template = (args) => <Dropdown />
+const Template = (args) => <Dropdown {...args} />
 
 export const DropdownDefault = Template.bind({})
 
-DropdownDefault.args = {}
+DropdownDefault.args = {
+  addClass: 'prb'
+}

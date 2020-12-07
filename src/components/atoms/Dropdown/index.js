@@ -3,14 +3,14 @@ import { Icon } from '../icon'
 import { Link } from '../Link'
 import css from './Dropdown.module.css'
 
-export const Dropdown = ({ icon, arrItems, label }) => {
+export const Dropdown = ({ icon, arrItems, label, addClass }) => {
   const [Expanded, SetExpanded] = useState(false)
 
   function HandleChange() {
     SetExpanded(!Expanded)
   }
   return (
-    <div className={css.DropdownCont} onClick={HandleChange}>
+    <div className={`${css.DropdownCont} ${addClass} `} onClick={HandleChange}>
       {icon && <Icon nameIcon={icon} />}
       <ul>
         <li className={css.navItem}>
@@ -40,6 +40,7 @@ export const Dropdown = ({ icon, arrItems, label }) => {
 
 Dropdown.defaultProps = {
   icon: 'lock',
+  addClass: '',
   label: 'Dropdown',
   arrItems: [
     {

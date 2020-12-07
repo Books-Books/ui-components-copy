@@ -1,18 +1,16 @@
 import React from 'react'
+import { Button } from '../../atoms'
 import { Tooltip } from './'
-import {Button} from '../../atoms'
 
 export default {
-    title: 'Atoms/Tooltip',
-    component: Tooltip,
-
+  title: 'Atoms/Tooltip',
+  component: Tooltip
 }
 
 // const template = (args) => <Tooltip {...args} />
 
 export const TooltipDefault = () => (
-    <Tooltip label="holis">
-        <Button styled='secondary' label="Secondary button">
-        </Button>
-    </Tooltip>
+  <Tooltip label='holis' addClass='prb'>
+    <Button styled='secondary' label='Secondary button' />
+  </Tooltip>
 )

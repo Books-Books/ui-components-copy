@@ -4,10 +4,20 @@ import React from 'react'
 import { Icon } from '../icon'
 import css from './Select.module.css'
 
-export const Select = ({ placeholder, stateInput, options, ...args }) => {
+export const Select = ({
+  placeholder,
+  stateInput,
+  options,
+  addClass,
+  ...args
+}) => {
   const name = _uniqueId('ui-name-')
   return (
-    <label className={css.SelectWrapper} data-state={stateInput} {...args}>
+    <label
+      className={`${css.SelectWrapper} ${addClass}`}
+      data-state={stateInput}
+      {...args}
+    >
       <select
         defaultValue=''
         name={name}
@@ -33,10 +43,12 @@ export const Select = ({ placeholder, stateInput, options, ...args }) => {
 Select.propTypes = {
   placeholder: PropTypes.string.isRequired,
   stateInput: PropTypes.string,
-  options: PropTypes.array
+  options: PropTypes.array,
+  addClass: PropTypes.string
 }
 
 Select.defaultProps = {
   placeholder: 'Choose option',
-  options: ['Option 1', 'option 2']
+  options: ['Option 1', 'option 2'],
+  addClass: ''
 }

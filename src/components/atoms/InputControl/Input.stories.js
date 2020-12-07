@@ -28,7 +28,8 @@ InputRadio.storyName = 'Input Control'
 
 export const InputRadioError = template.bind({})
 InputRadioError.args = {
-  stateInput: 'Error'
+  stateInput: 'Error',
+  addClass: 'prb'
 }
 
 export const InputRadioSucces = template.bind({})

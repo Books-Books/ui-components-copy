@@ -4,7 +4,14 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { Icon } from '../icon'
 import css from './InputField.module.css'
 
-export const InputField = ({ type, label, dataIcon, styledInput, ...args }) => {
+export const InputField = ({
+  type,
+  label,
+  dataIcon,
+  styledInput,
+  addClass,
+  ...args
+}) => {
   const id = _uniqueId('ui-')
   const [isFocus, setIsFocus] = useState(false)
   const [value, setValue] = useState('')
@@ -53,7 +60,7 @@ export const InputField = ({ type, label, dataIcon, styledInput, ...args }) => {
   return (
     <label
       inputMode={type}
-      className={css.InputCont}
+      className={`${css.InputCont} ${addClass}`}
       data-status={isFocus || value !== '' ? 'active' : false}
       id={`contentLabel${id}`}
       state-input={styledInput}
@@ -91,7 +98,8 @@ InputField.propTypes = {
   type: PropTypes.oneOf(['text', 'email', 'password', 'date', 'number']),
   label: PropTypes.string.isRequired,
   dataIcon: PropTypes.object,
-  styledInput: PropTypes.string
+  styledInput: PropTypes.string,
+  addClass: PropTypes.string
 }
 
 InputField.defaultProps = {
@@ -99,5 +107,6 @@ InputField.defaultProps = {
   type: 'text',
   dataIcon: {
     state: false
-  }
+  },
+  addClass: ''
 }

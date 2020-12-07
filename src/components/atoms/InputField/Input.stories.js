@@ -34,7 +34,8 @@ const template = (args) => <InputField {...args} />
 export const InputText = template.bind({})
 InputText.storyName = 'Input Field'
 InputText.args = {
-  type: 'text'
+  type: 'text',
+  addClass: 'prb'
 }
 
 export const InputIcon = template.bind({})
@@ -51,7 +52,6 @@ InputError.args = {
   type: 'text',
   styledInput: 'Error'
 }
-
 
 export const InputErrorIcon = template.bind({})
 InputErrorIcon.args = {
