@@ -15,6 +15,7 @@ function Video({ url, width }) {
     icon: 'open_in_full'
   }) // stado de la pantalla completa
   const [getValueVolum, setValueVolumn] = useState(0.23)
+  const refCont = createRef()
   const refVideo = createRef()
   const refProgress = createRef()
   const refProgressBar = createRef()
@@ -41,20 +42,43 @@ function Video({ url, width }) {
 
   // funcion del evento click de pantalla completa
   function hanldeFullScrenn() {
-    const video = refVideo.current
-    video.requestFullscreen()
-    if (getStateScreen.state) {
-      video.webkitRequestFullscreen()
-      setStateScreen({
-        state: false,
-        icon: 'play_arrow'
-      })
-    } else {
-      video.mozRequestFullscreen()
+    const isInFullScreen =
+      (document.fullscreenElement && document.fullscreenElement !== null) ||
+      (document.webkitFullscreenElement &&
+        document.webkitFullscreenElement !== null) ||
+      (document.mozFullScreenElement &&
+        document.mozFullScreenElement !== null) ||
+      (document.msFullscreenElement && document.msFullscreenElement !== null)
+    // const video = refVideo.current
+    const docElm = refCont.current
+    if (!isInFullScreen) {
       setStateScreen({
         state: true,
         icon: 'close_fullscreen'
       })
+      if (docElm.requestFullscreen) {
+        docElm.requestFullscreen()
+      } else if (docElm.mozRequestFullScreen) {
+        docElm.mozRequestFullScreen()
+      } else if (docElm.webkitRequestFullScreen) {
+        docElm.webkitRequestFullScreen()
+      } else if (docElm.msRequestFullscreen) {
+        docElm.msRequestFullscreen()
+      }
+    } else {
+      setStateScreen({
+        state: false,
+        icon: 'open_in_full'
+      })
+      if (document.exitFullscreen) {
+        document.exitFullscreen()
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen()
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen()
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen()
+      }
     }
   }
 
@@ -122,6 +146,7 @@ function Video({ url, width }) {
   return (
     <div
       className={css['c-vid']}
+      ref={refCont}
       style={{ maxWidth: width, minWidth: '320px' }}
     >
       <video
