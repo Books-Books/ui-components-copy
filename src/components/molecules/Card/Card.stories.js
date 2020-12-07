@@ -67,7 +67,8 @@ fullCard.args = {
     },
     secundary: {
       label: 'Action 2',
-      theme: 'primary'
+      theme: 'primary',
+      icon: 'accessibility'
     }
   }
 }
