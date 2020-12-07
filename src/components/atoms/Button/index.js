@@ -4,10 +4,10 @@ import base from '../../utilities/style/Base.module.css'
 import { Icon } from '../icon'
 import css from './Button.module.css'
 
-export const Button = ({ styled, label, icon, ...args }) => {
+export const Button = ({ styled, label, icon, addClass, ...args }) => {
   return (
     <button
-      className={`${base.ColorBase} ${css.ButtonBase}`}
+      className={`${base.ColorBase} ${css.ButtonBase} ${addClass}`}
       styled={styled}
       {...args}
     >
@@ -30,10 +30,12 @@ Button.propTypes = {
   ]),
   icon: PropTypes.string,
   label: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  addClass: PropTypes.string
 }
 
 Button.defaultProps = {
   styled: 'primary',
+  addClass: '',
   onClick: undefined
 }

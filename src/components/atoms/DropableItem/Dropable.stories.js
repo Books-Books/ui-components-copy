@@ -16,5 +16,6 @@ baseAccordionItem.args = {
     text:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum,'
   },
-  index: '1'
+  index: '1',
+  addClass: 'prb'
 }

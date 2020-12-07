@@ -23,10 +23,15 @@ export const Card = ({ width, image, content, supportingText, buttons }) => {
         </div>
         {buttons.state ? (
           <div className={`"c-card-container-buttons"`}>
-            <Button label={buttons.first.label} styled={buttons.first.theme} />
+            <Button
+              label={buttons.first.label}
+              styled={buttons.first.theme}
+              icon={buttons.first.icon}
+            />
             <Button
               label={buttons.secundary.label}
               styled={buttons.secundary.theme}
+              icon={buttons.secundary.icon}
             />
           </div>
         ) : (

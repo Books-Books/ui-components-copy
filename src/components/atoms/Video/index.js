@@ -3,7 +3,7 @@ import React, { createRef, useState } from 'react'
 import { Icon } from '../icon/index'
 import css from './Video.module.css'
 
-function Video({ url, width }) {
+function Video({ url, width, addClass }) {
   const [getDurationVideo, setDurationVideo] = useState('00:00') // estado duracion del video
   const [getCurrentTiem, setCurrentTime] = useState('00:00') // estado del tiempo de ver el video
   const [getstateVideoPlay, setStateVideoPlay] = useState({
@@ -145,7 +145,7 @@ function Video({ url, width }) {
 
   return (
     <div
-      className={css['c-vid']}
+      className={`${css['c-vid']} ${addClass}`}
       ref={refCont}
       style={{ maxWidth: width, minWidth: '320px' }}
     >
@@ -199,5 +199,10 @@ export { Video }
 
 Video.propTypes = {
   url: PropTypes.string.isRequired,
-  width: PropTypes.string
+  width: PropTypes.string,
+  addClass: PropTypes.string
+}
+
+Video.defaultProps = {
+  addClass: ''
 }

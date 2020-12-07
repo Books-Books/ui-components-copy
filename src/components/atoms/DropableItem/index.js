@@ -1,13 +1,13 @@
+import PropTypes from 'prop-types'
 import React, { Fragment } from 'react'
 import { Icon } from '../icon/index'
-import PropTypes from 'prop-types'
 import css from './DropableItem.module.css'
 
-export function AccordionItem({ item, index, stateIcon, ...props }) {
+export function AccordionItem({ item, index, stateIcon, addClass, ...props }) {
   return (
     <Fragment>
       <div
-        className={css['c-collapsible-container-header']}
+        className={`${css['c-collapsible-container-header']} ${addClass}`}
         // data-element={`body${index}`}
         {...props}
       >
@@ -25,9 +25,11 @@ export function AccordionItem({ item, index, stateIcon, ...props }) {
 AccordionItem.propTypes = {
   item: PropTypes.object,
   stateIcon: PropTypes.string,
-  index: PropTypes.number
+  index: PropTypes.number,
+  addClass: PropTypes.string
 }
 
 AccordionItem.defaultProps = {
-  stateIcon: 'expand_more'
+  stateIcon: 'expand_more',
+  addClass: ''
 }

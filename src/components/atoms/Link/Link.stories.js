@@ -12,5 +12,6 @@ export const LinkDefault = Template.bind({})
 
 LinkDefault.args = {
   label: 'Esto es un link',
-  href: 'el_link'
+  href: 'el_link',
+  addClass: 'prb'
 }

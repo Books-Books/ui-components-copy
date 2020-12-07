@@ -1,5 +1,5 @@
 import React from 'react'
-import { Accordion, AsideNav, Button, Card, Carrousel, Col, Dropdown, Graphics, InputAction, InputControl, InputField, Link, Modal, Multimedia, PanelTabs, Row, Select, Table, TabPanel, Text, Textarea, Tooltip } from 'ui-components'
+import { Accordion, AsideNav, Button, Card, Carrousel, Col, Dropdown, Graphics, InputAction, InputControl, InputField, Link, Modal, Multimedia, PanelTabs, Row, Select, Table, TabPanel, Text, Textarea, Tooltip, Video } from 'ui-components'
 import 'ui-components/dist/index.css'
 import css from './index.module.css'
 
@@ -14,6 +14,7 @@ const App = () => {
           <Button label='Button' />
           <Button label='Disabled' disabled />
           <Button
+            addClass={css['btn-prueba']}
             styled='secondary'
             label='Secondary button'
             icon='account_balance_wallet'
@@ -560,6 +561,12 @@ const App = () => {
             url='https://storage.googleapis.com/cedoc360extencion/a_english_multimedia/a1/module_1/videos/a1m1a-ae_vid_1.mp4'
             width='280px'
           />
+        </div>
+      </div>
+      <div className={css.item}>
+        <h1 className={css.title}>Video</h1>
+        <div className={css.content}>
+          <Video url='https://storage.googleapis.com/cedoc360extencion/a_english_multimedia/a1/module_1/videos/a1m1a-ae_vid_1.mp4' width='600px' />
         </div>
       </div>
       <div className={[css.item, css.full].join(' ')}>

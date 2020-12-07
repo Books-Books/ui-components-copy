@@ -35,6 +35,10 @@ const Template = (args) => <Select {...args} />
 
 export const SelectDefault = Template.bind({})
 
+SelectDefault.args = {
+  addClass: 'prb'
+}
+
 export const SelectError = Template.bind({})
 SelectError.args = {
   stateInput: 'Error'

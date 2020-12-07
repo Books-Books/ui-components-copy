@@ -5,7 +5,14 @@ import base from '../../utilities/style/Base.module.css'
 import { Icon } from '../icon'
 import css from './InputAction.module.css'
 
-export const InputAction = ({ type, styled, label, icon, ...args }) => {
+export const InputAction = ({
+  type,
+  styled,
+  label,
+  icon,
+  addClass,
+  ...args
+}) => {
   const [Value, SetValue] = useState('')
   const id = _uniqueId('ui-')
 
@@ -25,7 +32,7 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
   return (
     <Fragment>
       <label
-        className={`${base.ColorBase} ${css.LabelStyled}`}
+        className={`${base.ColorBase} ${css.LabelStyled} ${addClass}`}
         htmlFor={id}
         styled={styled}
         {...args}
@@ -64,11 +71,13 @@ InputAction.propTypes = {
   type: PropTypes.oneOf(['file', 'color']),
   icon: PropTypes.string,
   label: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  addClass: PropTypes.string
 }
 
 InputAction.defaultProps = {
   styled: 'primary',
   type: 'file',
+  addClass: '',
   onClick: undefined
 }

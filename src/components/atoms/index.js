@@ -13,4 +13,5 @@ export * from './tab'
 export * from './Text'
 export * from './Textarea'
 export * from './Tooltip'
+export * from './Video'
 
