@@ -26,11 +26,11 @@ export const Carrousel = ({ children: childrenProp }) => {
       SetValue(getValue)
     }
 
-    if(getValue === 0){
+    if (getValue === 0) {
       refPrev.current.setAttribute('hidden', 'true')
-    }else if(getValue === contChild.length - 1 ) {
+    } else if (getValue === contChild.length - 1) {
       refNext.current.setAttribute('hidden', 'true')
-    }else{
+    } else {
       refPrev.current.removeAttribute('hidden')
       refNext.current.removeAttribute('hidden')
     }
@@ -53,28 +53,26 @@ export const Carrousel = ({ children: childrenProp }) => {
   return (
     <div
       id='carouselExampleControls'
-      className={[css.carrousel, css.slide].join(' ')}
+      className={`${css.carrousel} ${css.slide} iu-slider`}
       data-ride='carousel'
     >
-      <div ref={refCont} className={css.carrouselInner}>
+      <div ref={refCont} className={`${css.carrouselInner} ui-carrusel-inner`}>
         {children}
       </div>
       <button
-        className={css.carrouselControlPrev}
+        className={`${css.carrouselControlPrev} ui-carrusel-control-prev`}
         data-slide='prev'
         onClick={handleClick}
         ref={refPrev}
         hidden
-
       >
         <Icon nameIcon='keyboard_arrow_left' />
       </button>
       <button
-        className={css.carrouselControlNext}
+        className={`${css.carrouselControlNext} ui-carrusel-control-next`}
         data-slide='next'
         onClick={handleClick}
         ref={refNext}
-
       >
         <Icon nameIcon='keyboard_arrow_right' />
       </button>

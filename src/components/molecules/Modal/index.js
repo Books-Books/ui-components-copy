@@ -26,15 +26,19 @@ export const Modal = ({ children, dataButton, title, text }) => {
   }
   return (
     <Fragment>
-      <div ref={refOverlay} className={css['c-modal-overlay']} id='overlay' />
-      <div ref={refModal} className={css['c-modal']} id='modal'>
+      <div
+        ref={refOverlay}
+        className={`${css['c-modal-overlay']} ui-modal-overlay`}
+        id='overlay'
+      />
+      <div ref={refModal} className={`${css['c-modal']} ui-modal`} id='modal'>
         <Icon
           nameIcon='close'
           onClick={handleModal}
           style={{ cursor: 'pointer' }}
         />
         {children || (
-          <div>
+          <div className='ui-modal-content'>
             <h3> {title} </h3>
             <p> {text} </p>
           </div>

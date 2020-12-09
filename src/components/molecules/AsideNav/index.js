@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { createRef, Fragment, useState, useEffect } from 'react'
+import React, { createRef, Fragment, useEffect, useState } from 'react'
 import { Button } from '../../atoms/Button/index'
 import { Icon } from '../../atoms/icon/index'
 import css from './AsideNav.module.css'
@@ -40,8 +40,12 @@ export const AsideNav = ({ children, dataButton, content, location }) => {
   }
   return (
     <Fragment>
-      <div ref={refOverlay} className={css['c-overlay']} id='overlay' />
-      <div ref={refModal} className={css['c-side']} id='aside'>
+      <div
+        ref={refOverlay}
+        className={`${css['c-overlay']} ui-overlay`}
+        id='overlay'
+      />
+      <div ref={refModal} className={`${css['c-side']} ui-aside`} id='aside'>
         <Icon
           nameIcon='close'
           onClick={handleAside}
@@ -50,9 +54,12 @@ export const AsideNav = ({ children, dataButton, content, location }) => {
         {children || (
           <Fragment>
             <h2>{content.title}</h2>
-            <ul className={css['c-side-nav']}>
+            <ul className={`${css['c-side-nav']} ui-aside-nav`}>
               {content.list.map((item, index) => (
-                <li className={css['c-side-nav-item']} key={index}>
+                <li
+                  className={`${css['c-side-nav-item']} ui-aside-nav-item`}
+                  key={index}
+                >
                   {item}
                 </li>
               ))}

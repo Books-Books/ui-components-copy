@@ -5,24 +5,24 @@ import css from './Card.module.css'
 
 export const Card = ({ width, image, content, supportingText, buttons }) => {
   return (
-    <div className={css['c-card']} style={{ width: width }}>
+    <div className={`${css['c-card']} ui-card`} style={{ width: width }}>
       {image.state ? (
-        <figure className={css['c-card-image']}>
+        <figure className={`${css['c-card-image']} ui-card-img`}>
           <img src={image.url} alt={image.alt} />
         </figure>
       ) : (
         <></>
       )}
-      <div className={css['c-card-container']}>
-        <div className={`"c-card-container-title"`}>
+      <div className={`${css['c-card-container']} ui-card-container`}>
+        <div className='c-card-container-title'>
           <h3>{content.title}</h3>
-          <p className={css['u-text']}>{content.text}</p>
+          <p className={`${css['u-text']} ui-text`}>{content.text}</p>
         </div>
         <div>
-          <p className={css['u-text']}>{supportingText}</p>
+          <p className={`${css['u-text']} ui-text-two`}>{supportingText}</p>
         </div>
         {buttons.state ? (
-          <div className={`"c-card-container-buttons"`}>
+          <div className='c-card-container-buttons'>
             <Button
               label={buttons.first.label}
               styled={buttons.first.theme}

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import css from './Dropable.module.css'
+import React, { useState } from 'react'
 import { AccordionItem } from '../../atoms'
+import css from './Dropable.module.css'
 
 export const Accordion = ({ content, width, backgroundColor, color }) => {
   const [getStateList, setStateList] = useState(null)
@@ -47,10 +47,13 @@ export const Accordion = ({ content, width, backgroundColor, color }) => {
     stateList($bodyElement)
   }
   return (
-    <ul className={css['c-collapsible']} style={{ width: width }}>
+    <ul
+      className={`${css['c-collapsible']} ui-collapsible`}
+      style={{ width: width }}
+    >
       {content.map((item, index) => (
         <li
-          className={css['c-collapsible-container']}
+          className={`${css['c-collapsible-container']} ui-collapsible-container`}
           key={index}
           style={style}
         >
@@ -61,6 +64,7 @@ export const Accordion = ({ content, width, backgroundColor, color }) => {
               getStateIcon === `body${index}` ? 'expand_less' : 'expand_more'
             }
             onClick={() => handleToggleBody(`body${index}`)}
+            addClass='prb'
           />
         </li>
       ))}

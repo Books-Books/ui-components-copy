@@ -6,11 +6,14 @@ import css from './Table.module.css'
 
 function Table({ headLabels, bodyContent }) {
   return (
-    <table className={css.table}>
+    <table className={`${css.table} ui-table`}>
       <thead>
-        <tr className={css['table-content']}>
+        <tr className={`${css['table-content']} ui-table-content`}>
           {headLabels.map((item, index) => (
-            <th key={index} className={css['table-content-item']}>
+            <th
+              key={index}
+              className={`${css['table-content-item']} ui-table-content-item`}
+            >
               {item}
             </th>
           ))}
@@ -20,10 +23,13 @@ function Table({ headLabels, bodyContent }) {
         {bodyContent.map((content, index) => (
           <tr
             key={`content${index}`}
-            className={`${css['table-content']} ${css['body-content']}`}
+            className={`${css['table-content']} ${css['body-content']} ui-body-content`}
           >
             {content.map((item, i) => (
-              <td key={`item${i}`} className={css['table-content-item']}>
+              <td
+                key={`item${i}`}
+                className={`${css['table-content-item']} ui-body-content-item`}
+              >
                 {item.campoType === 'icon' ? (
                   <Icon nameIcon={item.label} />
                 ) : item.campoType === 'input' ? (
