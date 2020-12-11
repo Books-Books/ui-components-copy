@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import { Icon } from '../icon'
-import { Link } from '../Link'
 import css from './Dropdown.module.css'
 
-export const Dropdown = ({ icon, arrItems, label, addClass }) => {
+export const Dropdown = ({ icon, children: childsElem, label, addClass }) => {
   const [Expanded, SetExpanded] = useState(false)
 
   function HandleChange() {
     SetExpanded(!Expanded)
   }
   return (
-    <div className={`${css.DropdownCont} ${addClass} `} onClick={HandleChange}>
+    <div
+      className={`${css.DropdownCont} ${addClass} `}
+      onFocus={HandleChange}
+      onBlur={HandleChange}
+      tabIndex='1'
+    >
       {icon && <Icon nameIcon={icon} />}
       <ul>
         <li className={css.navItem}>
@@ -25,15 +29,15 @@ export const Dropdown = ({ icon, arrItems, label, addClass }) => {
             {label}
           </span>
           <div className={css.dropdownMenu} aria-labelledby='navbarDropdown'>
-            {arrItems.map((elem, idx) => (
-              <div className={css['dropdownMenu-item']} key={elem.key}>
-                <Link label={elem.label} href={elem.link} />
+            {React.Children.map(childsElem, (elem, idx) => (
+              <div className={css['dropdownMenu-item']} key={idx}>
+                {elem}
               </div>
             ))}
           </div>
         </li>
       </ul>
-      <Icon nameIcon='keyboard_arrow_down' />
+      <Icon nameIcon={Expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} />
     </div>
   )
 }
