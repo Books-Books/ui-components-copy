@@ -8,7 +8,7 @@ export default {
 }
 
 const Template = (args) => <TableGrid {...args} />
-const button = () => <Button label='ejemplo' styled='primary' />
+const button = (label, styled) => <Button label={label} styled={styled} />
 
 export const baseTable = Template.bind({})
 baseTable.args = {
@@ -18,9 +18,21 @@ baseTable.args = {
     { type: 'icon', label: 'restore' }
   ],
   bodyContent: [
-    [button, button, button],
-    [button, button, button],
-    [button, button, button]
+    [
+      button('ejemplo', 'primary'),
+      button('ejemplo', 'primary'),
+      button('ejemplo', 'primary')
+    ],
+    [
+      button('ejemplo', 'primary'),
+      button('ejemplo', 'primary'),
+      button('ejemplo', 'primary')
+    ],
+    [
+      button('ejemplo', 'primary'),
+      button('ejemplo', 'primary'),
+      button('ejemplo', 'primary')
+    ]
   ],
   gridColumn: {
     gridTemplateColumns: '1fr 1fr 1fr'

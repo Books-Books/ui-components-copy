@@ -35,7 +35,7 @@ export function TableGrid({ headContent, bodyContent, gridColumn }) {
                 className={`${css['c-gridTable-body-item']} ui-gridTable-body-item`}
                 key={`body-${index}`}
               >
-                {buttom()}
+                {buttom}
               </div>
             ))
           )}
