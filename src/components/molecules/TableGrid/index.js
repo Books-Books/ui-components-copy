@@ -3,7 +3,7 @@ import React from 'react'
 import { Icon } from '../../atoms/icon'
 import css from './TableGrid.module.css'
 
-export default function TableGrid({ headContent, bodyContent, gridColumn }) {
+export function TableGrid({ headContent, bodyContent, gridColumn }) {
   console.log(bodyContent)
   return (
     <div className={`${css['c-scroll']} ui-scroll`}>

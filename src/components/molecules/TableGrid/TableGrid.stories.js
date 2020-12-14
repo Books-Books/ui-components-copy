@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from '../../atoms/Button'
-import TableGrid from './index'
+import { TableGrid } from './index'
 
 export default {
   title: 'Molecules/TableGrid',
