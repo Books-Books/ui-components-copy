@@ -15,7 +15,6 @@ module.exports = {
     defaultValue: 'light',
     toolbar: {
       icon: 'circlehollow',
-      // array of plain string values or MenuItem shape (see below)
       items: ['light', 'dark'],
     },
   },

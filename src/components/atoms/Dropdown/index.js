@@ -11,8 +11,8 @@ export const Dropdown = ({ icon, children: childsElem, label, addClass }) => {
   return (
     <div
       className={`${css.DropdownCont} ${addClass} `}
-      onFocus={HandleChange}
-      onBlur={HandleChange}
+      onMouseOver={HandleChange}
+      onMouseOut={HandleChange}
       tabIndex='1'
     >
       {icon && <Icon nameIcon={icon} />}
