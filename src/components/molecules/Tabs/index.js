@@ -44,6 +44,10 @@ export const Tabs = React.forwardRef(function Tabs(props, ref) {
         : {})
     })
   })
+  console.log(
+    '🚀 ~ file: index.js ~ line 47 ~ children ~ childrenProp',
+    childrenProp
+  )
 
   const handleKeyDown = (event) => {
     const { target } = event
@@ -84,10 +88,10 @@ export const Tabs = React.forwardRef(function Tabs(props, ref) {
   }
 
   return (
-    <Component className={css.TabsCont} ref={ref} {...other}>
+    <Component className={`${css.TabsCont} ui-Tabs-cont`} ref={ref} {...other}>
       <div ref={tabsRef}>
         <div
-          className={css.TabsArea}
+          className={`${css.TabsArea} ui-tabs-area`}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
           aria-orientation={orientation === 'vertical' ? 'vertical' : null}

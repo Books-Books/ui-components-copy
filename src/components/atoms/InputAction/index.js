@@ -1,10 +1,18 @@
 import _uniqueId from 'lodash/uniqueId'
 import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
+import base from '../../utilities/style/Base.module.css'
 import { Icon } from '../icon'
 import css from './InputAction.module.css'
 
-export const InputAction = ({ type, styled, label, icon, ...args }) => {
+export const InputAction = ({
+  type,
+  styled,
+  label,
+  icon,
+  addClass,
+  ...args
+}) => {
   const [Value, SetValue] = useState('')
   const id = _uniqueId('ui-')
 
@@ -12,13 +20,10 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
     switch (type) {
       case 'file':
         SetValue(target.files[0].name)
-
         break
       case 'color':
         SetValue(target.value)
-
         break
-
       default:
         break
     }
@@ -26,16 +31,20 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
 
   return (
     <Fragment>
-      <label className={css.LabelStyled} htmlFor={id} styled={styled}>
+      <label
+        className={`${base.ColorBase} ${css.LabelStyled} ${addClass}`}
+        htmlFor={id}
+        styled={styled}
+        {...args}
+      >
         <input
           className={css.InputAction}
           type={type}
           id={id}
           onInput={handleChage}
-          {...args}
         />
         <Icon nameIcon={icon} />
-        <span>{label}</span>
+        {label !== '' ? <span>{label}</span> : <Fragment />}
       </label>
       {Value !== '' && (
         <p
@@ -49,16 +58,26 @@ export const InputAction = ({ type, styled, label, icon, ...args }) => {
   )
 }
 InputAction.propTypes = {
-  styled: PropTypes.oneOf(['primary', 'secondary']),
+  styled: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'primary-outline',
+    'secondary-outline',
+    'primary-icon',
+    'secondary-icon',
+    'primary-icon-outline',
+    'secondary-icon-outline'
+  ]),
   type: PropTypes.oneOf(['file', 'color']),
   icon: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  addClass: PropTypes.string
 }
 
 InputAction.defaultProps = {
-  label: 'select',
   styled: 'primary',
   type: 'file',
+  addClass: '',
   onClick: undefined
 }

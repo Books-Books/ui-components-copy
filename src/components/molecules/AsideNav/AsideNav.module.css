@@ -6,7 +6,6 @@
   width: 500px;
   position: fixed;
   top: 0px;
-  right: -548px;
   transition: 0.4s;
   z-index: 3;
   background-color: var(--backgroundAside);
@@ -34,10 +33,22 @@
   display: none;
 }
 
-.overlay--active {
-  display: block;
+.position-left{
+  left: -548px;
 }
 
-.aside--active {
+.aside--active--left{
+  left: 0;
+}
+
+.position-right{
+  right: -548px;
+}
+
+.aside--active--right{
   right: 0px;
+}
+
+.overlay--active {
+  display: block;
 }

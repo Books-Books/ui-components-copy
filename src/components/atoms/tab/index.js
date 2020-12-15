@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import { Icon } from '../icon'
 import css from './Tab.module.css'
@@ -18,6 +19,7 @@ export const Tab = React.forwardRef(function Tab(props, ref) {
     selected,
     selectionFollowsFocus,
     value,
+    addClass,
     ...other
   } = props
 
@@ -45,7 +47,7 @@ export const Tab = React.forwardRef(function Tab(props, ref) {
     <button
       ref={ref}
       role='tab'
-      className={css.TabsBtn}
+      className={`${css.TabsBtn} ${addClass}`}
       aria-selected={selected}
       disabled={disabled}
       onClick={handleClick}
@@ -63,3 +65,11 @@ export const Tab = React.forwardRef(function Tab(props, ref) {
     </button>
   )
 })
+
+Tab.propTypes = {
+  addClass: PropTypes.string
+}
+
+Tab.defaultProps = {
+  addClass: ''
+}

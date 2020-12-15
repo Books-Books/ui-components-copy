@@ -6,8 +6,8 @@ import css from './Modal.module.css'
 
 export const Modal = ({ children, dataButton, title, text }) => {
   const [getModal, setModal] = useState(false)
-  const RefModal = createRef()
-  const RefOverlay = createRef()
+  const refModal = createRef()
+  const refOverlay = createRef()
   function stateModal(elementModal, elementOverlay) {
     if (getModal) {
       elementModal.classList.remove(css['modal--active'])
@@ -20,21 +20,25 @@ export const Modal = ({ children, dataButton, title, text }) => {
     }
   }
   function handleModal() {
-    const $modal = RefModal.current
-    const $overlay = RefOverlay.current
+    const $modal = refModal.current
+    const $overlay = refOverlay.current
     stateModal($modal, $overlay)
   }
   return (
     <Fragment>
-      <div ref={RefOverlay} className={css['c-modal-overlay']} id='overlay' />
-      <div ref={RefModal} className={css['c-modal']} id='modal'>
+      <div
+        ref={refOverlay}
+        className={`${css['c-modal-overlay']} ui-modal-overlay`}
+        id='overlay'
+      />
+      <div ref={refModal} className={`${css['c-modal']} ui-modal`} id='modal'>
         <Icon
           nameIcon='close'
           onClick={handleModal}
           style={{ cursor: 'pointer' }}
         />
         {children || (
-          <div>
+          <div className='ui-modal-content'>
             <h3> {title} </h3>
             <p> {text} </p>
           </div>

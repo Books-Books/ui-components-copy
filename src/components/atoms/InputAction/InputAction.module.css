@@ -2,37 +2,44 @@
     display: none
 }
 .LabelStyled{
-    display: flex;
+    display: inline-flex;
+    position: relative;
     align-items: center;
-    gap: '8px';
+    justify-content: center;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
     min-width: var(--minWidthSizeBtn);
     min-height: var(--minHeightSizeBtn);
     padding: var(--paddingBtn);
     color: var(--textColor);
     font-family: inherit;
-    font-weight: normal;
-    margin: var(-marginBtn);
-    border: none;
+    margin: var(--marginBtn);
     border-radius: var(--borderRadiusBtn);
     transition: background 0.5s ease;
     cursor: pointer;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: var(--fontSizeButton);
+    line-height: 2.25rem;
+    font-weight: 500;
+    letter-spacing: .0892857143em;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    overflow: visible;
+    vertical-align: middle;
+
 }
 .TextFileName {
-    text-align: center;   
+    text-align: center;
     box-shadow: var(--shadowSize) var(--primaryColorLight);
     padding: .5rem;
 }
-.LabelStyled[styled='primary']{
-    background-color: var(--primaryColor);
-    box-shadow: var(--shadowSize) var(--primaryColorLight);
-}
-.LabelStyled[styled='primary']:hover{
-        background-color: var(--primaryColorLight);
-}
-.LabelStyled[styled='secondary']{
-    background-color: var(--secondaryColor);
-    box-shadow: var(--shadowSize) var(--secondaryColorLight);
-}
-.LabelStyled[styled='secondary']:hover{
-    background-color: var(--secondaryColorLight);
-}
+
+

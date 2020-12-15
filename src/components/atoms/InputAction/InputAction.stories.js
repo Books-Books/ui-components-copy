@@ -5,7 +5,19 @@ export default {
   component: InputAction,
   argTypes: {
     styled: {
-      control: { type: 'select', options: ['primary', 'secondary'] },
+      control: {
+        type: 'select',
+        options: [
+          'primary',
+          'secondary',
+          'primary-outline',
+          'secondary-outline',
+          'primary-icon',
+          'secondary-icon',
+          'primary-icon-outline',
+          'secondary-icon-outline'
+        ]
+      },
       defaultValue: 'primary',
       description: 'Aqui se puede escoger entre "primary" y "secondary" ',
       table: {
@@ -24,7 +36,8 @@ export const InputFile = Template.bind({})
 InputFile.args = {
   type: 'file',
   label: 'Upload file',
-  icon: 'upload'
+  icon: 'upload',
+  addClass: 'prb'
 }
 
 export const InputColor = Template.bind({})

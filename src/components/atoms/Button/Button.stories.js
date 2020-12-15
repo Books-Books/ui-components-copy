@@ -7,7 +7,19 @@ export default {
   argTypes: {
     onClick: { action: 'clicked', table: { disable: true } },
     styled: {
-      control: { type: 'select', options: ['primary', 'secondary'] },
+      control: {
+        type: 'select',
+        options: [
+          'primary',
+          'secondary',
+          'primary-outline',
+          'secondary-outline',
+          'primary-icon',
+          'secondary-icon',
+          'primary-icon-outline',
+          'secondary-icon-outline'
+        ]
+      },
       defaultValue: 'primary',
       description: 'Aqui se puede escoger entre "primary" y "secondary" ',
       table: {
@@ -37,5 +49,14 @@ ButtonDefault.storyName = 'Button'
 export const ButtonDefaultWithIconLeft = template.bind({})
 ButtonDefaultWithIconLeft.storyName = 'Button with icon '
 ButtonDefaultWithIconLeft.args = {
-  icon: 'accessibility'
+  icon: 'accessibility',
+  addClass: 'prueba'
+}
+
+export const ButtonDefaultIcon = template.bind({})
+ButtonDefaultIcon.storyName = 'Button icon '
+ButtonDefaultIcon.args = {
+  label: '',
+  icon: 'accessibility',
+  styled: 'secondary-icon'
 }

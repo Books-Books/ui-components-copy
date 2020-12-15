@@ -36,17 +36,4 @@
     margin-left: -4px;
     margin-right: 8px;
 }
-.ButtonBase[styled='primary']{
-    background-color: var(--primaryColor);
-    box-shadow: var(--shadowSize) var(--primaryColorLight);
-}
-.ButtonBase[styled='primary']:hover{
-        background-color: var(--primaryColorLight);
-}
-.ButtonBase[styled='secondary']{
-    background-color: var(--secondaryColor);
-    box-shadow: var(--shadowSize) var(--secondaryColorLight);
-}
-.ButtonBase[styled='secondary']:hover{
-    background-color: var(--secondaryColorLight);
-}
+

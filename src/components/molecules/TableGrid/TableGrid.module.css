@@ -1,0 +1,36 @@
+.c-scroll{
+    overflow-x: auto;
+    width: 100vw;
+}
+
+.c-gridTable{
+    width: 100%;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.c-gridTable-head{
+    box-shadow: rgba(0, 0, 0, 0.29) 2px 9px 20px 3px;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.c-gridTable-head, .c-gridTable-body{
+    display: grid;
+    grid-gap: .8rem;
+    justify-content: space-around;
+}
+
+.c-gridTable-body-item , .c-gridTable-head-item{
+    text-align: center;
+}
+
+.c-gridTable-head-item {
+    padding: .5rem;
+}
+
+.c-gridTable-body-item{
+    color: white;
+    padding: .5rem;
+    border-radius: 6px;
+}

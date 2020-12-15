@@ -1,26 +1,41 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Fragment } from 'react'
+import base from '../../utilities/style/Base.module.css'
 import { Icon } from '../icon'
 import css from './Button.module.css'
 
-export const Button = ({ styled, label, icon, ...args }) => {
+export const Button = ({ styled, label, icon, addClass, ...args }) => {
   return (
-    <button className={css.ButtonBase} styled={styled} {...args}>
+    <button
+      className={`${base.ColorBase} ${css.ButtonBase} ${addClass}`}
+      styled={styled}
+      {...args}
+    >
       {icon && <Icon nameIcon={icon} />}
-      <span>{label}</span>
+      {label !== '' ? <span>{label}</span> : <Fragment />}
     </button>
   )
 }
 
 Button.propTypes = {
-  styled: PropTypes.oneOf(['primary', 'secondary']),
+  styled: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'primary-outline',
+    'secondary-outline',
+    'primary-icon',
+    'secondary-icon',
+    'primary-icon-outline',
+    'secondary-icon-outline'
+  ]),
   icon: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  addClass: PropTypes.string
 }
 
 Button.defaultProps = {
-  label: 'Button',
   styled: 'primary',
+  addClass: '',
   onClick: undefined
 }

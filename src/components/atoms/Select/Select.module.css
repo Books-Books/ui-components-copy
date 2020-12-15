@@ -65,3 +65,48 @@
 .SelectWrapper:hover{
     box-shadow: inset 0px -3px var(--primaryColorLight);
 }
+/* select error */
+.SelectAfter[data-state="Error"]{
+    background-color: var(--coloErrorInput);
+}
+.SelectWrapper[data-state="Error"]{
+    box-shadow: inset 0px -1px var(--coloErrorInput);
+}
+.SelectStyle[data-state="Error"]:hover ~ div{
+    background-color: var(--coloErrorInput);
+}
+.SelectStyle[data-state="Error"]:hover ~ div i {
+    color: white;
+}
+.SelectWrapper[data-state="Error"]:hover{
+    box-shadow: inset 0px -3px var(--coloErrorInput);
+}
+/* select succes */
+.SelectAfter[data-state="Succes"]{
+    background-color: var(--coloSuccesInput);
+}
+.SelectWrapper[data-state="Succes"]{
+    box-shadow: inset 0px -1px var(--coloSuccesInput);
+}
+.SelectStyle[data-state="Succes"]:hover ~ div{
+    background-color: var(--coloSuccesInput);
+}
+.SelectStyle[data-state="Succes"]:hover ~ div i {
+    color: white;
+}
+.SelectWrapper[data-state="Succes"]:hover{
+    box-shadow: inset 0px -3px var(--coloSuccesInput);
+}
+
+.SelectWrapper[disabled]{
+    background-color: var(--bgColorDisabled);
+    pointer-events: none;
+    box-shadow: none;
+    color: var(--textColorDisabled);
+    opacity: var(--opacityDisabled);
+}
+
+.SelectWrapper[disabled] .SelectAfter{
+    background-color: var(--bgColorDisabled);
+    opacity: var(--opacityDisabled);
+}
