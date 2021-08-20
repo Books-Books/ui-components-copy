@@ -1120,10 +1120,11 @@ var base = {"ColorBase":"_3AGk-"};
 
 var css = {"Icon":"_3qt0u"};
 
+var _excluded = ["nameIcon", "addClass"];
 var Icon = function Icon(_ref) {
   var nameIcon = _ref.nameIcon,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, ["nameIcon", "addClass"]);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded);
 
   return /*#__PURE__*/React__default.createElement("i", _extends({
     className: css.Icon + " " + addClass
@@ -1138,12 +1139,13 @@ Icon.defaultProps = {
 
 var css$1 = {"ButtonBase":"_bJEh3"};
 
+var _excluded$1 = ["styled", "label", "icon", "addClass"];
 var Button = function Button(_ref) {
   var styled = _ref.styled,
       label = _ref.label,
       icon = _ref.icon,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, ["styled", "label", "icon", "addClass"]);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
   return /*#__PURE__*/React__default.createElement("button", _extends({
     className: base.ColorBase + " " + css$1.ButtonBase + " " + addClass,
@@ -1167,12 +1169,13 @@ Button.defaultProps = {
 
 var css$2 = {"c-collapsible-container-header":"_1CW18","c-collapsible-container-body":"_2ygtY"};
 
+var _excluded$2 = ["item", "index", "stateIcon", "addClass"];
 function AccordionItem(_ref) {
   var item = _ref.item,
       index = _ref.index,
       stateIcon = _ref.stateIcon,
       addClass = _ref.addClass,
-      props = _objectWithoutPropertiesLoose(_ref, ["item", "index", "stateIcon", "addClass"]);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", _extends({
     className: css$2['c-collapsible-container-header'] + " " + addClass
@@ -1562,13 +1565,14 @@ var uniqueId_1 = uniqueId;
 
 var css$4 = {"InputAction":"_xB2Ha","LabelStyled":"_1X4kF","TextFileName":"_OaT0I"};
 
+var _excluded$3 = ["type", "styled", "label", "icon", "addClass"];
 var InputAction = function InputAction(_ref) {
   var type = _ref.type,
       styled = _ref.styled,
       label = _ref.label,
       icon = _ref.icon,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, ["type", "styled", "label", "icon", "addClass"]);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$3);
 
   var _useState = React.useState(''),
       Value = _useState[0],
@@ -1625,13 +1629,14 @@ InputAction.defaultProps = {
 
 var css$5 = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckLabel":"_10bHL","CheckBg":"_3z4b_","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
 
+var _excluded$4 = ["type", "label", "stateInput", "name", "addClass"];
 var InputControl = function InputControl(_ref) {
   var type = _ref.type,
       label = _ref.label,
       stateInput = _ref.stateInput,
       name = _ref.name,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, ["type", "label", "stateInput", "name", "addClass"]);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$4);
 
   var _useState = React.useState(false),
       check = _useState[0],
@@ -1716,13 +1721,14 @@ InputControl.defaultProps = {
 
 var css$6 = {"InputCont":"_17byX","LabelStyle":"_2zmtW","InputStyled":"_3_8sU","input-error":"_23iPI","input-succes":"_1r2gj","deactive-border":"_2sE6F"};
 
+var _excluded$5 = ["type", "label", "dataIcon", "styledInput", "addClass"];
 var InputField = function InputField(_ref) {
   var type = _ref.type,
       label = _ref.label,
       dataIcon = _ref.dataIcon,
       styledInput = _ref.styledInput,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, ["type", "label", "dataIcon", "styledInput", "addClass"]);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$5);
 
   var id = uniqueId_1('ui-');
 
@@ -1915,12 +1921,13 @@ Multimedia.defaultProps = {
 
 var css$9 = {"Panel":"_qaB0F","fadeIn":"_23_l4"};
 
+var _excluded$6 = ["children", "value", "index", "addClass"];
 var TabPanel = function TabPanel(props) {
   var children = props.children,
       value = props.value,
       index = props.index,
       addClass = props.addClass,
-      other = _objectWithoutPropertiesLoose(props, ["children", "value", "index", "addClass"]);
+      other = _objectWithoutPropertiesLoose(props, _excluded$6);
 
   return /*#__PURE__*/React__default.createElement("div", _extends({
     className: css$9.Panel + " " + addClass,
@@ -1933,12 +1940,13 @@ var TabPanel = function TabPanel(props) {
 
 var css$a = {"SelectStyle":"_2NS2Z","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5"};
 
+var _excluded$7 = ["placeholder", "stateInput", "options", "addClass"];
 var Select = function Select(_ref) {
   var placeholder = _ref.placeholder,
       stateInput = _ref.stateInput,
       options = _ref.options,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, ["placeholder", "stateInput", "options", "addClass"]);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$7);
 
   var name = uniqueId_1('ui-name-');
 
@@ -1979,6 +1987,7 @@ Select.defaultProps = {
 
 var css$b = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
 
+var _excluded$8 = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"];
 var Tab = React.forwardRef(function Tab(props, ref) {
   var _props$disabled = props.disabled,
       disabled = _props$disabled === void 0 ? false : _props$disabled,
@@ -1992,7 +2001,7 @@ var Tab = React.forwardRef(function Tab(props, ref) {
       selectionFollowsFocus = props.selectionFollowsFocus,
       value = props.value,
       addClass = props.addClass,
-      other = _objectWithoutPropertiesLoose(props, ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"]);
+      other = _objectWithoutPropertiesLoose(props, _excluded$8);
 
   var handleClick = function handleClick(event) {
     if (!selected && onChange) {
@@ -2046,11 +2055,12 @@ Tab.defaultProps = {
 
 var css$c = {"Typography":"_2s-q8"};
 
+var _excluded$9 = ["type", "children", "addClass"];
 var Text = function Text(_ref) {
   var type = _ref.type,
       children = _ref.children,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, ["type", "children", "addClass"]);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$9);
 
   var DefaultValue = {
     h1: 'h1',
@@ -2794,6 +2804,7 @@ TableGrid.defaultProps = {
 
 var css$m = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
 
+var _excluded$a = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
 var Tabs = React.forwardRef(function Tabs(props, ref) {
   var ariaLabel = props['aria-label'],
       ariaLabelledBy = props['aria-labelledby'],
@@ -2805,7 +2816,7 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
       orientation = _props$orientation === void 0 ? 'horizontal' : _props$orientation,
       selectionFollowsFocus = props.selectionFollowsFocus,
       value = props.value,
-      other = _objectWithoutPropertiesLoose(props, ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"]);
+      other = _objectWithoutPropertiesLoose(props, _excluded$a);
 
   var valueToIndex = new Map();
   var tabsRef = React.useRef(null);
@@ -2968,10 +2979,11 @@ var Carrousel = function Carrousel(_ref) {
   })));
 };
 
+var _excluded$b = ["tabs", "panels"];
 var PanelTabs = function PanelTabs(props) {
   var tabs = props.tabs,
       panels = props.panels,
-      others = _objectWithoutPropertiesLoose(props, ["tabs", "panels"]);
+      others = _objectWithoutPropertiesLoose(props, _excluded$b);
 
   var _React$useState = React__default.useState(0),
       value = _React$useState[0],

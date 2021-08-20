@@ -1,6 +1,7 @@
 import React from 'react'
 import { Accordion, AsideNav, Button, Card, Carrousel, Col, Dropdown, Graphics, InputAction, InputControl, InputField, Link, Modal, Multimedia, PanelTabs, Row, Select, Table, TabPanel, Text, Textarea, Tooltip, Video } from 'ui-components'
 import 'ui-components/dist/index.css'
+import { RecognitionVoice } from '../../src/components/atoms/RecognitionVoice'
 import css from './index.module.css'
 
 
@@ -8,6 +9,9 @@ const App = () => {
   // console.log(Accordion)
   return (
     <div className={css.main}>
+      <div className={css.item}>
+        <RecognitionVoice />
+      </div>
       <div className={css.item}>
         <h1 className={css.title}>Buttons</h1>
         <div className={css.content}>
