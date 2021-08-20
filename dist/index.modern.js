@@ -1935,6 +1935,52 @@ var TabPanel = function TabPanel(props) {
   }, other), value === index && /*#__PURE__*/React__default.createElement("div", null, children));
 };
 
+var RecognitionVoice = function RecognitionVoice() {
+  var _useState = useState('record'),
+      action = _useState[0],
+      setAction = _useState[1];
+
+  var _useState2 = useState({
+    transcript: '',
+    confidence: ''
+  }),
+      output = _useState2[0],
+      setOutput = _useState2[1];
+
+  var runSpeechRecognition = function runSpeechRecognition() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var recognition = new SpeechRecognition();
+
+    recognition.onstart = function () {
+      setAction('listening');
+    };
+
+    recognition.onspeechend = function () {
+      setAction('record');
+      recognition.stop();
+    };
+
+    recognition.onresult = function (_ref) {
+      var results = _ref.results;
+      var transcript = results[0][0].transcript;
+      var confidence = results[0][0].confidence;
+      setOutput({
+        transcript: transcript,
+        confidence: confidence
+      });
+    };
+
+    recognition.start();
+  };
+
+  return /*#__PURE__*/React__default.createElement(Fragment$1, null, /*#__PURE__*/React__default.createElement(Button, {
+    type: "button",
+    onClick: runSpeechRecognition,
+    icon: action === 'record' ? 'mic' : 'mic_off',
+    label: action
+  }), /*#__PURE__*/React__default.createElement("p", null, output.transcript), /*#__PURE__*/React__default.createElement("p", null, output.confidence));
+};
+
 var css$a = {"SelectStyle":"_2NS2Z","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5"};
 
 var _excluded$7 = ["placeholder", "stateInput", "options", "addClass"];
@@ -3045,5 +3091,5 @@ var Row = function Row(props) {
   }, props));
 };
 
-export { Accordion, AccordionItem, AsideNav, Button, Card, Carrousel, Col, Dropdown, Graphics, Icon, InputAction, InputControl, InputField, Link, Modal, Multimedia, PanelTabs, Row, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, Tooltip, Video };
+export { Accordion, AccordionItem, AsideNav, Button, Card, Carrousel, Col, Dropdown, Graphics, Icon, InputAction, InputControl, InputField, Link, Modal, Multimedia, PanelTabs, RecognitionVoice, Row, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, Tooltip, Video };
 //# sourceMappingURL=index.modern.js.map
