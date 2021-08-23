@@ -4,7 +4,6 @@ import React, { Fragment, useState } from 'react'
 import { Button } from '../Button'
 
 export const RecognitionVoice = ({ setdata, children }) => {
-  console.log(`🚀 Miguel:  ~ RecognitionVoice ~ setdata`, setdata)
   const [action, setAction] = useState('record')
   const runSpeechRecognition = () => {
     // get output div reference

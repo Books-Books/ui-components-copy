@@ -1935,16 +1935,13 @@ var TabPanel = function TabPanel(props) {
   }, other), value === index && /*#__PURE__*/React__default.createElement("div", null, children));
 };
 
-var RecognitionVoice = function RecognitionVoice(_ref) {
-  var setdata = _ref.setdata,
-      children = _ref.children;
-  console.log("\uD83D\uDE80 Miguel:  ~ RecognitionVoice ~ setdata", setdata);
+const RecognitionVoice = ({
+  setdata,
+  children
+}) => {
+  const [action, setAction] = useState('record');
 
-  var _useState = useState('record'),
-      action = _useState[0],
-      setAction = _useState[1];
-
-  var runSpeechRecognition = function runSpeechRecognition() {
+  const runSpeechRecognition = () => {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
     var recognition = new SpeechRecognition();
 
@@ -1957,9 +1954,10 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
       recognition.stop();
     };
 
-    recognition.onresult = function (_ref2) {
-      var results = _ref2.results;
-      var transcript = results[0][0].transcript;
+    recognition.onresult = function ({
+      results
+    }) {
+      const transcript = results[0][0].transcript;
       setdata && setdata(transcript);
     };
 
