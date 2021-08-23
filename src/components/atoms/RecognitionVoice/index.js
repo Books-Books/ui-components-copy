@@ -3,9 +3,9 @@
 import React, { Fragment, useState } from 'react'
 import { Button } from '../Button'
 
-export const RecognitionVoice = () => {
+export const RecognitionVoice = ({ setdata, children }) => {
+  console.log(`🚀 Miguel:  ~ RecognitionVoice ~ setdata`, setdata)
   const [action, setAction] = useState('record')
-  const [output, setOutput] = useState({ transcript: '', confidence: '' })
   const runSpeechRecognition = () => {
     // get output div reference
     // new speech recognition object
@@ -25,8 +25,7 @@ export const RecognitionVoice = () => {
     // This runs when the speech recognition service returns result
     recognition.onresult = function ({ results }) {
       const transcript = results[0][0].transcript
-      const confidence = results[0][0].confidence
-      setOutput({ transcript, confidence })
+      setdata && setdata(transcript)
     }
 
     // start recognition
@@ -40,8 +39,7 @@ export const RecognitionVoice = () => {
         icon={action === 'record' ? 'mic' : 'mic_off'}
         label={action}
       />
-      <p>{output.transcript}</p>
-      <p>{output.confidence}</p>
+      {children && children}
     </Fragment>
   )
 }
