@@ -1935,17 +1935,14 @@ var TabPanel = function TabPanel(props) {
   }, other), value === index && /*#__PURE__*/React__default.createElement("div", null, children));
 };
 
-var RecognitionVoice = function RecognitionVoice() {
+var RecognitionVoice = function RecognitionVoice(_ref) {
+  var setdata = _ref.setdata,
+      children = _ref.children;
+  console.log("\uD83D\uDE80 Miguel:  ~ RecognitionVoice ~ setdata", setdata);
+
   var _useState = useState('record'),
       action = _useState[0],
       setAction = _useState[1];
-
-  var _useState2 = useState({
-    transcript: '',
-    confidence: ''
-  }),
-      output = _useState2[0],
-      setOutput = _useState2[1];
 
   var runSpeechRecognition = function runSpeechRecognition() {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -1960,14 +1957,10 @@ var RecognitionVoice = function RecognitionVoice() {
       recognition.stop();
     };
 
-    recognition.onresult = function (_ref) {
-      var results = _ref.results;
+    recognition.onresult = function (_ref2) {
+      var results = _ref2.results;
       var transcript = results[0][0].transcript;
-      var confidence = results[0][0].confidence;
-      setOutput({
-        transcript: transcript,
-        confidence: confidence
-      });
+      setdata && setdata(transcript);
     };
 
     recognition.start();
@@ -1978,7 +1971,7 @@ var RecognitionVoice = function RecognitionVoice() {
     onClick: runSpeechRecognition,
     icon: action === 'record' ? 'mic' : 'mic_off',
     label: action
-  }), /*#__PURE__*/React__default.createElement("p", null, output.transcript), /*#__PURE__*/React__default.createElement("p", null, output.confidence));
+  }), children && children);
 };
 
 var css$a = {"SelectStyle":"_2NS2Z","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5"};
