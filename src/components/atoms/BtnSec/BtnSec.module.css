@@ -1,0 +1,28 @@
+.BtnSec {
+  font-family: inherit;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.7rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  background: #db2533;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  z-index: 1;
+  height: 35px;
+  width: 35px;
+}
+
+.BtnSec[aria-selected='true'] {
+  background: #003d59;
+}
