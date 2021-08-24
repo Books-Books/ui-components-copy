@@ -21,6 +21,7 @@
   z-index: 1;
   height: 35px;
   width: 35px;
+  transition: background 0.5s linear;
 }
 
 .BtnSec[aria-selected='true'] {

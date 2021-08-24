@@ -2021,15 +2021,19 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
   }), children && children);
 };
 
+var css$b = {"section":"_Nahni","fadeInDown":"_BDs2n"};
+
 var _excluded$8 = ["children", "value", "index", "addClass"];
 
 var Section = function Section(_ref) {
   var children = _ref.children,
       value = _ref.value,
       index = _ref.index,
+      addClass = _ref.addClass,
       other = _objectWithoutPropertiesLoose(_ref, _excluded$8);
 
   return /*#__PURE__*/React__default.createElement("section", _extends({
+    className: css$b.section + " " + addClass,
     role: "tabpanel",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
@@ -2037,7 +2041,7 @@ var Section = function Section(_ref) {
   }, other), value === index && /*#__PURE__*/React__default.createElement("article", null, children));
 };
 
-var css$b = {"SelectStyle":"_2NS2Z","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5"};
+var css$c = {"SelectStyle":"_2NS2Z","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5"};
 
 var _excluded$9 = ["placeholder", "stateInput", "options", "addClass"];
 var Select = function Select(_ref) {
@@ -2050,12 +2054,12 @@ var Select = function Select(_ref) {
   var name = uniqueId_1('ui-name-');
 
   return /*#__PURE__*/React__default.createElement("label", _extends({
-    className: css$b.SelectWrapper + " " + addClass,
+    className: css$c.SelectWrapper + " " + addClass,
     "data-state": stateInput
   }, args), /*#__PURE__*/React__default.createElement("select", {
     defaultValue: "",
     name: name,
-    className: css$b.SelectStyle,
+    className: css$c.SelectStyle,
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement("option", {
     disabled: true,
@@ -2066,7 +2070,7 @@ var Select = function Select(_ref) {
       value: i + 1
     }, elem);
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$b.SelectAfter,
+    className: css$c.SelectAfter,
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "arrow_drop_down"
@@ -2084,7 +2088,7 @@ Select.defaultProps = {
   addClass: ''
 };
 
-var css$c = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
+var css$d = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
 
 var _excluded$a = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"];
 var Tab = forwardRef(function Tab(props, ref) {
@@ -2125,24 +2129,24 @@ var Tab = forwardRef(function Tab(props, ref) {
   return /*#__PURE__*/createElement("button", _extends({
     ref: ref,
     role: "tab",
-    className: css$c.TabsBtn + " " + addClass,
+    className: css$d.TabsBtn + " " + addClass,
     "aria-selected": selected,
     disabled: disabled,
     onClick: handleClick,
     onFocus: handleFocus,
     tabIndex: selected ? 0 : -1
   }, other), /*#__PURE__*/createElement("span", {
-    className: css$c.TabsBtnContent,
+    className: css$d.TabsBtnContent,
     "position-icon": positionIcon
   }, /*#__PURE__*/createElement(Icon, {
     "aria-hidden": "true",
     nameIcon: nameIcon
   }), ' ', /*#__PURE__*/createElement("span", {
-    className: css$c.TabsBtnContentLabel
+    className: css$d.TabsBtnContentLabel
   }, label), ' '), /*#__PURE__*/createElement("span", {
-    className: css$c.TabsBtnIndicator
+    className: css$d.TabsBtnIndicator
   }, /*#__PURE__*/createElement("span", {
-    className: css$c.TabsBtnIndicatorContent
+    className: css$d.TabsBtnIndicatorContent
   })));
 });
 Tab.propTypes = {
@@ -2152,7 +2156,7 @@ Tab.defaultProps = {
   addClass: ''
 };
 
-var css$d = {"Typography":"_2s-q8"};
+var css$e = {"Typography":"_2s-q8"};
 
 var _excluded$b = ["type", "children", "addClass"];
 var Text = function Text(_ref) {
@@ -2175,7 +2179,7 @@ var Text = function Text(_ref) {
   };
   var Component = DefaultValue[type];
   return /*#__PURE__*/React__default.createElement(Component, _extends({
-    className: css$d.Typography + " " + addClass,
+    className: css$e.Typography + " " + addClass,
     type: type
   }, args), children);
 };
@@ -2188,7 +2192,7 @@ Text.defaultProps = {
   addClass: ''
 };
 
-var css$e = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
+var css$f = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
 
 var Textarea = function Textarea(_ref) {
   var placeholder = _ref.placeholder,
@@ -2217,15 +2221,15 @@ var Textarea = function Textarea(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$e.TextareaCont + " " + addClass
+    className: css$f.TextareaCont + " " + addClass
   }, /*#__PURE__*/React__default.createElement("textarea", {
-    className: css$e.TextareaItem,
+    className: css$f.TextareaItem,
     rows: rows,
     placeholder: placeholder,
     onKeyPress: HandleChange,
     maxLength: MaxLength
   }), maxWords && /*#__PURE__*/React__default.createElement("span", {
-    className: css$e.CountCont
+    className: css$f.CountCont
   }, " ", Count + " / " + maxWords, " "));
 };
 Textarea.propTypes = {
@@ -2240,16 +2244,16 @@ Textarea.defaultProps = {
   addClass: ''
 };
 
-var css$f = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
+var css$g = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
 
 var Tooltip = function Tooltip(_ref) {
   var children = _ref.children,
       label = _ref.label,
       addClass = _ref.addClass;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$f.TooltipCont + " " + addClass
+    className: css$g.TooltipCont + " " + addClass
   }, children, /*#__PURE__*/React__default.createElement("div", {
-    className: css$f.TooltipItem
+    className: css$g.TooltipItem
   }, label));
 };
 Tooltip.propTypes = {
@@ -2259,7 +2263,7 @@ Tooltip.defaultProps = {
   addClass: ''
 };
 
-var css$g = {"c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress-content":"_29s-a","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
+var css$h = {"c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress-content":"_29s-a","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
 
 function Video(_ref) {
   var url = _ref.url,
@@ -2411,7 +2415,7 @@ function Video(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$g['c-vid'] + " " + addClass,
+    className: css$h['c-vid'] + " " + addClass,
     ref: refCont,
     style: {
       maxWidth: width,
@@ -2426,28 +2430,28 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("source", {
     src: url
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$g['progress-content']
+    className: css$h['progress-content']
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgress,
-    className: css$g.progress,
+    className: css$h.progress,
     onClick: handleProcessControl
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgressBar,
-    className: css$g['progress-bar'],
+    className: css$h['progress-bar'],
     onChange: handleBarProgress
   }))), /*#__PURE__*/React__default.createElement("div", {
-    className: css$g['c-vid-controls']
+    className: css$h['c-vid-controls']
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: getstateVideoPlay.icon,
     onClick: handlePlay
   }), /*#__PURE__*/React__default.createElement("p", {
-    className: css$g['c-vid-controls-text']
+    className: css$h['c-vid-controls-text']
   }, /*#__PURE__*/React__default.createElement("span", null, getCurrentTiem), " / ", /*#__PURE__*/React__default.createElement("span", null, getDurationVideo)), /*#__PURE__*/React__default.createElement("div", {
-    className: css$g['c-vid-controls-volumn']
+    className: css$h['c-vid-controls-volumn']
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "volume_up"
   }), /*#__PURE__*/React__default.createElement("input", {
-    className: css$g['c-vid-controls-volumn-item'],
+    className: css$h['c-vid-controls-volumn-item'],
     ref: refVolumn,
     type: "range",
     min: "0",
@@ -2469,7 +2473,7 @@ Video.defaultProps = {
   addClass: ''
 };
 
-var css$h = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
+var css$i = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
 
 var AsideNav = function AsideNav(_ref) {
   var children = _ref.children,
@@ -2493,10 +2497,10 @@ var AsideNav = function AsideNav(_ref) {
     function locationAside() {
       if (location === 'right') {
         setLocationAside('aside--active--right');
-        $aside.classList.add(css$h['position-right']);
+        $aside.classList.add(css$i['position-right']);
       } else {
         setLocationAside('aside--active--left');
-        $aside.classList.add(css$h['position-left']);
+        $aside.classList.add(css$i['position-left']);
       }
     }
 
@@ -2505,12 +2509,12 @@ var AsideNav = function AsideNav(_ref) {
 
   function stateAside(elementModal, elementOverlay) {
     if (getStateAside) {
-      elementModal.classList.remove(css$h[getLocationAside]);
-      elementOverlay.classList.remove(css$h['overlay--active']);
+      elementModal.classList.remove(css$i[getLocationAside]);
+      elementOverlay.classList.remove(css$i['overlay--active']);
       setStateAside(false);
     } else {
-      elementModal.classList.add(css$h[getLocationAside]);
-      elementOverlay.classList.add(css$h['overlay--active']);
+      elementModal.classList.add(css$i[getLocationAside]);
+      elementOverlay.classList.add(css$i['overlay--active']);
       setStateAside(true);
     }
   }
@@ -2523,11 +2527,11 @@ var AsideNav = function AsideNav(_ref) {
 
   return /*#__PURE__*/React__default.createElement(Fragment$1, null, /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$h['c-overlay'] + " ui-overlay",
+    className: css$i['c-overlay'] + " ui-overlay",
     id: "overlay"
   }), /*#__PURE__*/React__default.createElement("div", {
     ref: refModal,
-    className: css$h['c-side'] + " ui-aside",
+    className: css$i['c-side'] + " ui-aside",
     id: "aside"
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "close",
@@ -2536,10 +2540,10 @@ var AsideNav = function AsideNav(_ref) {
       cursor: 'pointer'
     }
   }), children || /*#__PURE__*/React__default.createElement(Fragment$1, null, /*#__PURE__*/React__default.createElement("h2", null, content.title), /*#__PURE__*/React__default.createElement("ul", {
-    className: css$h['c-side-nav'] + " ui-aside-nav"
+    className: css$i['c-side-nav'] + " ui-aside-nav"
   }, content.list.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$h['c-side-nav-item'] + " ui-aside-nav-item",
+      className: css$i['c-side-nav-item'] + " ui-aside-nav-item",
       key: index
     }, item);
   })))), /*#__PURE__*/React__default.createElement(Button, {
@@ -2566,7 +2570,7 @@ AsideNav.defaultProps = {
   location: 'left'
 };
 
-var css$i = {"AsideSection":"_37BVW"};
+var css$j = {"AsideSection":"_37BVW"};
 
 var _excluded$c = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
 var AsideSection = forwardRef(function Tabs(props, ref) {
@@ -2647,7 +2651,7 @@ var AsideSection = forwardRef(function Tabs(props, ref) {
   }, other), /*#__PURE__*/React__default.createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$i.AsideSection,
+    className: css$j.AsideSection,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -2657,7 +2661,7 @@ var AsideSection = forwardRef(function Tabs(props, ref) {
   }, children)));
 });
 
-var css$j = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
+var css$k = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
 
 var Card = function Card(_ref) {
   var width = _ref.width,
@@ -2666,23 +2670,23 @@ var Card = function Card(_ref) {
       supportingText = _ref.supportingText,
       buttons = _ref.buttons;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$j['c-card'] + " ui-card",
+    className: css$k['c-card'] + " ui-card",
     style: {
       width: width
     }
   }, image.state ? /*#__PURE__*/React__default.createElement("figure", {
-    className: css$j['c-card-image'] + " ui-card-img"
+    className: css$k['c-card-image'] + " ui-card-img"
   }, /*#__PURE__*/React__default.createElement("img", {
     src: image.url,
     alt: image.alt
   })) : /*#__PURE__*/React__default.createElement(Fragment$1, null), /*#__PURE__*/React__default.createElement("div", {
-    className: css$j['c-card-container'] + " ui-card-container"
+    className: css$k['c-card-container'] + " ui-card-container"
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-title"
   }, /*#__PURE__*/React__default.createElement("h3", null, content.title), /*#__PURE__*/React__default.createElement("p", {
-    className: css$j['u-text'] + " ui-text"
+    className: css$k['u-text'] + " ui-text"
   }, content.text)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("p", {
-    className: css$j['u-text'] + " ui-text-two"
+    className: css$k['u-text'] + " ui-text-two"
   }, supportingText)), buttons.state ? /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-buttons"
   }, /*#__PURE__*/React__default.createElement(Button, {
@@ -2716,7 +2720,7 @@ Card.defaultProps = {
   }
 };
 
-var css$k = {"c-collapsible":"_3W_Aj","block":"_1-o0m","show":"_26Izt"};
+var css$l = {"c-collapsible":"_3W_Aj","block":"_1-o0m","show":"_26Izt"};
 
 var Accordion = function Accordion(_ref) {
   var content = _ref.content,
@@ -2739,15 +2743,15 @@ var Accordion = function Accordion(_ref) {
 
   function addAndRemoveClass(element, addClass) {
     if (addClass) {
-      element.classList.add(css$k.block);
+      element.classList.add(css$l.block);
     } else {
-      element.classList.remove(css$k.block);
+      element.classList.remove(css$l.block);
     }
   }
 
   function classInElement(element) {
     element.classList.forEach(function (item) {
-      if (item === css$k.block) {
+      if (item === css$l.block) {
         addAndRemoveClass(element, false);
         setStateIcon('expand_less');
       } else {
@@ -2778,13 +2782,13 @@ var Accordion = function Accordion(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("ul", {
-    className: css$k['c-collapsible'] + " ui-collapsible",
+    className: css$l['c-collapsible'] + " ui-collapsible",
     style: {
       width: width
     }
   }, content.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$k['c-collapsible-container'] + " ui-collapsible-container",
+      className: css$l['c-collapsible-container'] + " ui-collapsible-container",
       key: index,
       style: style
     }, /*#__PURE__*/React__default.createElement(AccordionItem, {
@@ -2838,7 +2842,7 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
-var css$l = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","overlay--active":"_20Zpv","modal--active":"_2MLWh"};
+var css$m = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","overlay--active":"_20Zpv","modal--active":"_2MLWh"};
 
 var Modal = function Modal(_ref) {
   var children = _ref.children,
@@ -2855,12 +2859,12 @@ var Modal = function Modal(_ref) {
 
   function stateModal(elementModal, elementOverlay) {
     if (getModal) {
-      elementModal.classList.remove(css$l['modal--active']);
-      elementOverlay.classList.remove(css$l['overlay--active']);
+      elementModal.classList.remove(css$m['modal--active']);
+      elementOverlay.classList.remove(css$m['overlay--active']);
       setModal(false);
     } else {
-      elementModal.classList.add(css$l['modal--active']);
-      elementOverlay.classList.add(css$l['overlay--active']);
+      elementModal.classList.add(css$m['modal--active']);
+      elementOverlay.classList.add(css$m['overlay--active']);
       setModal(true);
     }
   }
@@ -2873,11 +2877,11 @@ var Modal = function Modal(_ref) {
 
   return /*#__PURE__*/React__default.createElement(Fragment$1, null, /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$l['c-modal-overlay'] + " ui-modal-overlay",
+    className: css$m['c-modal-overlay'] + " ui-modal-overlay",
     id: "overlay"
   }), /*#__PURE__*/React__default.createElement("div", {
     ref: refModal,
-    className: css$l['c-modal'] + " ui-modal",
+    className: css$m['c-modal'] + " ui-modal",
     id: "modal"
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "close",
@@ -2908,28 +2912,28 @@ Modal.defaultProps = {
   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!'
 };
 
-var css$m = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
+var css$n = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
 
 function Table(_ref) {
   var headLabels = _ref.headLabels,
       bodyContent = _ref.bodyContent;
   return /*#__PURE__*/React__default.createElement("table", {
-    className: css$m.table + " ui-table"
+    className: css$n.table + " ui-table"
   }, /*#__PURE__*/React__default.createElement("thead", null, /*#__PURE__*/React__default.createElement("tr", {
-    className: css$m['table-content'] + " ui-table-content"
+    className: css$n['table-content'] + " ui-table-content"
   }, headLabels.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("th", {
       key: index,
-      className: css$m['table-content-item'] + " ui-table-content-item"
+      className: css$n['table-content-item'] + " ui-table-content-item"
     }, item);
   }))), /*#__PURE__*/React__default.createElement("tbody", null, bodyContent.map(function (content, index) {
     return /*#__PURE__*/React__default.createElement("tr", {
       key: "content" + index,
-      className: css$m['table-content'] + " " + css$m['body-content'] + " ui-body-content"
+      className: css$n['table-content'] + " " + css$n['body-content'] + " ui-body-content"
     }, content.map(function (item, i) {
       return /*#__PURE__*/React__default.createElement("td", {
         key: "item" + i,
-        className: css$m['table-content-item'] + " ui-body-content-item"
+        className: css$n['table-content-item'] + " ui-body-content-item"
       }, item.campoType === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
         nameIcon: item.label
       }) : item.campoType === 'input' ? /*#__PURE__*/React__default.createElement(InputControl, {
@@ -2949,7 +2953,7 @@ Table.defaultProps = {
   bodyContent: [['Cell a1', 'Cell a2'], ['Cell b2', 'Cell b2']]
 };
 
-var css$n = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
+var css$o = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
 
 function TableGrid(_ref) {
   var headContent = _ref.headContent,
@@ -2957,27 +2961,27 @@ function TableGrid(_ref) {
       gridColumn = _ref.gridColumn;
   console.log(bodyContent);
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$n['c-scroll'] + " ui-scroll"
+    className: css$o['c-scroll'] + " ui-scroll"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$n['c-gridTable'] + " ui-gridTable"
+    className: css$o['c-gridTable'] + " ui-gridTable"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$n['c-gridTable-head'] + " ui-gridTable-head",
+    className: css$o['c-gridTable-head'] + " ui-gridTable-head",
     style: gridColumn
   }, headContent.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("div", {
-      className: css$n['c-gridTable-head-item'] + " ui-gridTable-head-item",
+      className: css$o['c-gridTable-head-item'] + " ui-gridTable-head-item",
       key: "head-" + index
     }, item.type === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
       nameIcon: item.label,
       addClass: item.addClass
     }) : /*#__PURE__*/React__default.createElement("span", null, item.label));
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$n['c-gridTable-body'] + " ui-gridTable-body",
+    className: css$o['c-gridTable-body'] + " ui-gridTable-body",
     style: gridColumn
   }, bodyContent.map(function (data) {
     return data.map(function (buttom, index) {
       return /*#__PURE__*/React__default.createElement("div", {
-        className: css$n['c-gridTable-body-item'] + " ui-gridTable-body-item",
+        className: css$o['c-gridTable-body-item'] + " ui-gridTable-body-item",
         key: "body-" + index
       }, buttom);
     });
@@ -2992,7 +2996,7 @@ TableGrid.defaultProps = {
   bodyContent: []
 };
 
-var css$o = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
+var css$p = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
 
 var _excluded$d = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
 var Tabs = forwardRef(function Tabs(props, ref) {
@@ -3069,12 +3073,12 @@ var Tabs = forwardRef(function Tabs(props, ref) {
   };
 
   return /*#__PURE__*/createElement(Component, _extends({
-    className: css$o.TabsCont + " ui-Tabs-cont",
+    className: css$p.TabsCont + " ui-Tabs-cont",
     ref: ref
   }, other), /*#__PURE__*/createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/createElement("div", {
-    className: css$o.TabsArea + " ui-tabs-area",
+    className: css$p.TabsArea + " ui-tabs-area",
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -3084,7 +3088,7 @@ var Tabs = forwardRef(function Tabs(props, ref) {
   }, children)));
 });
 
-var css$p = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
+var css$q = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
 
 var Carrousel = function Carrousel(_ref) {
   var childrenProp = _ref.children;
@@ -3146,13 +3150,13 @@ var Carrousel = function Carrousel(_ref) {
   });
   return /*#__PURE__*/React__default.createElement("div", {
     id: "carouselExampleControls",
-    className: css$p.carrousel + " " + css$p.slide + " iu-slider",
+    className: css$q.carrousel + " " + css$q.slide + " iu-slider",
     "data-ride": "carousel"
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refCont,
-    className: css$p.carrouselInner + " ui-carrusel-inner"
+    className: css$q.carrouselInner + " ui-carrusel-inner"
   }, children), /*#__PURE__*/React__default.createElement("button", {
-    className: css$p.carrouselControlPrev + " ui-carrusel-control-prev",
+    className: css$q.carrouselControlPrev + " ui-carrusel-control-prev",
     "data-slide": "prev",
     onClick: handleClick,
     ref: refPrev,
@@ -3160,7 +3164,7 @@ var Carrousel = function Carrousel(_ref) {
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "keyboard_arrow_left"
   })), /*#__PURE__*/React__default.createElement("button", {
-    className: css$p.carrouselControlNext + " ui-carrusel-control-next",
+    className: css$q.carrouselControlNext + " ui-carrusel-control-next",
     "data-slide": "next",
     onClick: handleClick,
     ref: refNext
@@ -3169,7 +3173,7 @@ var Carrousel = function Carrousel(_ref) {
   })));
 };
 
-var css$q = {"Section":"_2biAj"};
+var css$r = {"Section":"_2biAj"};
 
 var _excluded$e = ["children", "tabs"];
 
@@ -3200,7 +3204,7 @@ var PanelSection = function PanelSection(_ref) {
     });
   });
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$q.Section
+    className: css$r.Section
   }, others), /*#__PURE__*/React__default.createElement(AsideSection, {
     value: value,
     onChange: handleChange
@@ -3265,19 +3269,19 @@ PanelTabs.defaultProps = {
   }]
 };
 
-var css$r = {"col":"_1QLy6"};
+var css$s = {"col":"_1QLy6"};
 
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$r.col
+    className: css$s.col
   }, props));
 };
 
-var css$s = {"row":"_7DQjb"};
+var css$t = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("section", _extends({
-    className: css$s.row
+    className: css$t.row
   }, props));
 };
 

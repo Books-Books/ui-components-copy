@@ -141,6 +141,7 @@ html {
   z-index: 1;
   height: 35px;
   width: 35px;
+  transition: background 0.5s linear;
 }
 
 ._2eAZu[aria-selected='true'] {
@@ -813,6 +814,35 @@ html {
   }
   100% {
     opacity: 1;
+  }
+}
+
+._Nahni {
+  -webkit-animation: _BDs2n 1s ease-in forwards;
+          animation: _BDs2n 1s ease-in forwards;
+}
+
+@-webkit-keyframes _BDs2n {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes _BDs2n {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
