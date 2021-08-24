@@ -818,14 +818,14 @@ html {
 }
 
 ._Nahni {
-  -webkit-animation: _BDs2n 1s ease-in forwards;
-          animation: _BDs2n 1s ease-in forwards;
+  -webkit-animation: _BDs2n 0.25s ease-in forwards;
+          animation: _BDs2n 0.25s ease-in forwards;
 }
 
 @-webkit-keyframes _BDs2n {
   from {
     opacity: 0;
-    transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -10%, 0);
   }
 
   to {
@@ -837,7 +837,7 @@ html {
 @keyframes _BDs2n {
   from {
     opacity: 0;
-    transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -10%, 0);
   }
 
   to {

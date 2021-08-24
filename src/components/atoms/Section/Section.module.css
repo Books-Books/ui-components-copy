@@ -1,11 +1,11 @@
 .section {
-  animation: fadeInDown 1s ease-in forwards;
+  animation: fadeInDown 0.25s ease-in forwards;
 }
 
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -10%, 0);
   }
 
   to {
