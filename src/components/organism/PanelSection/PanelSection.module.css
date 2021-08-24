@@ -1,8 +1,8 @@
 .Section {
-  width: 100vw;
+  width: 100%;
   display: grid;
   grid-template: 1fr / 50px 1fr;
-  min-height: 100vh;
+  min-height: calc(100vh - 11rem);
   align-items: center;
   justify-items: center;
 }
