@@ -1,4 +1,4 @@
-import React__default, { forwardRef, Fragment as Fragment$1, useState, useEffect, createRef, createElement, useRef, Children, isValidElement, cloneElement } from 'react';
+import React__default, { forwardRef, Fragment as Fragment$1, useState, useEffect, createRef, Children, isValidElement, createElement, useRef, cloneElement } from 'react';
 import { Chart } from 'react-google-charts';
 
 function _extends() {
@@ -1991,15 +1991,30 @@ var TabPanel = function TabPanel(props) {
 
 var RecognitionVoice = function RecognitionVoice(_ref) {
   var setdata = _ref.setdata,
-      children = _ref.children;
+      validate = _ref.validate,
+      childrenProp = _ref.children;
 
   var _useState = useState('record'),
       action = _useState[0],
       setAction = _useState[1];
 
+  var _useState2 = useState(''),
+      diagnostic = _useState2[0],
+      setDiagnostic = _useState2[1];
+
+  var GRAMMAR = "#JSGF V1.0; grammar ; public <command> = " + (validate || '') + " ;";
+
   var runSpeechRecognition = function runSpeechRecognition() {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var speechRecognitionList = new SpeechGrammarList();
     var recognition = new SpeechRecognition();
+    speechRecognitionList.addFromString(GRAMMAR, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
 
     recognition.onstart = function () {
       setAction('listening');
@@ -2012,13 +2027,31 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
 
     recognition.onresult = function (_ref2) {
       var results = _ref2.results;
+      console.log("\uD83D\uDE80 Miguel:  ~ runSpeechRecognition ~ results", results);
       var transcript = results[0][0].transcript;
       setdata && setdata(transcript);
+    };
+
+    recognition.onnomatch = function (event) {
+      setDiagnostic("I didn't recognise that color.");
+    };
+
+    recognition.onerror = function (event) {
+      setDiagnostic('Error occurred in recognition: ' + event.error);
     };
 
     recognition.start();
   };
 
+  var children = Children.map(childrenProp, function (child) {
+    if (!isValidElement(child)) {
+      return null;
+    }
+
+    return React__default.cloneElement(child, {
+      children: diagnostic
+    });
+  });
   return /*#__PURE__*/React__default.createElement(Fragment$1, null, /*#__PURE__*/React__default.createElement(Button, {
     type: "button",
     onClick: runSpeechRecognition,

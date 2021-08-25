@@ -13,3 +13,9 @@ export const RecognitionVoiceDefault = Template.bind({})
 RecognitionVoiceDefault.args = {
   setdata: (e) => console.log(e)
 }
+export const RecognitionVoiceValidate = Template.bind({})
+
+RecognitionVoiceValidate.args = {
+  setdata: (e) => console.log(e),
+  validate: "You're slepping"
+}
