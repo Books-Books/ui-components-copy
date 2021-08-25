@@ -36,7 +36,6 @@ export const RecognitionVoice = ({
 
     // This runs when the speech recognition service returns result
     recognition.onresult = function ({ results }) {
-      console.log(`🚀 Miguel:  ~ runSpeechRecognition ~ results`, results)
       const transcript = results[0][0].transcript
       setdata && setdata(transcript)
     }

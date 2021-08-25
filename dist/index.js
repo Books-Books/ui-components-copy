@@ -2030,7 +2030,6 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
 
     recognition.onresult = function (_ref2) {
       var results = _ref2.results;
-      console.log("\uD83D\uDE80 Miguel:  ~ runSpeechRecognition ~ results", results);
       var transcript = results[0][0].transcript;
       setdata && setdata(transcript);
     };
