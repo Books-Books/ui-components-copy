@@ -1938,11 +1938,17 @@ function Multimedia(_ref) {
     validateStateBtn($audio);
   }
 
+  function handleFinish(e) {
+    setStateBtnAudio(false);
+    setIcon('play_arrow');
+  }
+
   return /*#__PURE__*/React__default.createElement(Fragment$1, null, /*#__PURE__*/React__default.createElement("div", {
     className: css$9['c-aud'] + " " + addClass
   }, /*#__PURE__*/React__default.createElement("audio", {
     src: url,
-    ref: refAudio
+    ref: refAudio,
+    onEnded: handleFinish
   }), /*#__PURE__*/React__default.createElement("button", {
     id: "btnAudio",
     onClick: handlePlayPause,

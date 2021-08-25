@@ -22,10 +22,16 @@ function Multimedia({ url, label, addClass }) {
     const $audio = refAudio.current
     validateStateBtn($audio)
   }
+
+  function handleFinish(e) {
+    setStateBtnAudio(false)
+    setIcon('play_arrow')
+  }
+
   return (
     <Fragment>
       <div className={`${css['c-aud']} ${addClass}`}>
-        <audio src={url} ref={refAudio} />
+        <audio src={url} ref={refAudio} onEnded={handleFinish} />
         <button
           id='btnAudio'
           onClick={handlePlayPause}
