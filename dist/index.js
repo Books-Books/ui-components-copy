@@ -1995,7 +1995,8 @@ var TabPanel = function TabPanel(props) {
 var RecognitionVoice = function RecognitionVoice(_ref) {
   var setdata = _ref.setdata,
       validate = _ref.validate,
-      childrenProp = _ref.children;
+      childrenProp = _ref.children,
+      disabled = _ref.disabled;
 
   var _useState = React.useState('record'),
       action = _useState[0],
@@ -2045,6 +2046,9 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
     recognition.start();
   };
 
+  useEffect(function () {
+    GRAMMAR = "#JSGF V1.0; grammar ; public <command> = " + (validate || '') + " ;";
+  }, [validate]);
   var children = React.Children.map(childrenProp, function (child) {
     if (!React.isValidElement(child)) {
       return null;
@@ -2058,7 +2062,8 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
     type: "button",
     onClick: runSpeechRecognition,
     icon: action === 'record' ? 'mic' : 'mic_off',
-    label: action
+    label: action,
+    disabled: disabled
   }), children && children);
 };
 

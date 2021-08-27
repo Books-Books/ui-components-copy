@@ -6,11 +6,12 @@ import { Button } from '../Button'
 export const RecognitionVoice = ({
   setdata,
   validate,
-  children: childrenProp
+  children: childrenProp,
+  disabled
 }) => {
   const [action, setAction] = useState('record')
   const [diagnostic, setDiagnostic] = useState('')
-  const GRAMMAR = `#JSGF V1.0; grammar ; public <command> = ${validate || ''} ;`
+  let GRAMMAR = `#JSGF V1.0; grammar ; public <command> = ${validate || ''} ;`
   const runSpeechRecognition = () => {
     // get output div reference
     // new speech recognition object
@@ -50,6 +51,10 @@ export const RecognitionVoice = ({
     recognition.start()
   }
 
+  useEffect(() => {
+    GRAMMAR = `#JSGF V1.0; grammar ; public <command> = ${validate || ''} ;`
+  }, [validate])
+
   const children = Children.map(childrenProp, (child) => {
     if (!isValidElement(child)) {
       return null
@@ -67,6 +72,7 @@ export const RecognitionVoice = ({
         onClick={runSpeechRecognition}
         icon={action === 'record' ? 'mic' : 'mic_off'}
         label={action}
+        disabled={disabled}
       />
       {children && children}
     </Fragment>

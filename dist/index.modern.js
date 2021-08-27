@@ -1,4 +1,4 @@
-import React__default, { forwardRef, Fragment as Fragment$1, useState, useEffect, createRef, Children, isValidElement, createElement, useRef, cloneElement } from 'react';
+import React__default, { forwardRef, Fragment as Fragment$1, useState, useEffect as useEffect$1, createRef, Children, isValidElement, createElement, useRef, cloneElement } from 'react';
 import { Chart } from 'react-google-charts';
 
 function _extends() {
@@ -1693,7 +1693,7 @@ var InputControl = function InputControl(_ref) {
 
   var id = uniqueId_1('ui-');
 
-  useEffect(function () {
+  useEffect$1(function () {
     function validateIcon(element) {
       if (stateInput) {
         if (stateInput === 'Error') {
@@ -1789,7 +1789,7 @@ var InputField = function InputField(_ref) {
       getStateInput = _useState3[0],
       setStateInput = _useState3[1];
 
-  useEffect(function () {
+  useEffect$1(function () {
     function addClass(element, nameClass) {
       element.classList.add(css$7[nameClass]);
     }
@@ -1992,7 +1992,8 @@ var TabPanel = function TabPanel(props) {
 var RecognitionVoice = function RecognitionVoice(_ref) {
   var setdata = _ref.setdata,
       validate = _ref.validate,
-      childrenProp = _ref.children;
+      childrenProp = _ref.children,
+      disabled = _ref.disabled;
 
   var _useState = useState('record'),
       action = _useState[0],
@@ -2042,6 +2043,9 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
     recognition.start();
   };
 
+  useEffect(function () {
+    GRAMMAR = "#JSGF V1.0; grammar ; public <command> = " + (validate || '') + " ;";
+  }, [validate]);
   var children = Children.map(childrenProp, function (child) {
     if (!isValidElement(child)) {
       return null;
@@ -2055,7 +2059,8 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
     type: "button",
     onClick: runSpeechRecognition,
     icon: action === 'record' ? 'mic' : 'mic_off',
-    label: action
+    label: action,
+    disabled: disabled
   }), children && children);
 };
 
@@ -2529,7 +2534,7 @@ var AsideNav = function AsideNav(_ref) {
 
   var refModal = createRef();
   var refOverlay = createRef();
-  useEffect(function () {
+  useEffect$1(function () {
     var $aside = refModal.current;
 
     function locationAside() {
