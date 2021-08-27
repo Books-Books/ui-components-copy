@@ -1,4 +1,4 @@
-import React__default, { forwardRef, Fragment as Fragment$1, useState, useEffect as useEffect$1, createRef, Children, isValidElement, createElement, useRef, cloneElement } from 'react';
+import React__default, { forwardRef, Fragment as Fragment$1, useState, useEffect, createRef, Children, isValidElement, createElement, useRef, cloneElement } from 'react';
 import { Chart } from 'react-google-charts';
 
 function _extends() {
@@ -1693,7 +1693,7 @@ var InputControl = function InputControl(_ref) {
 
   var id = uniqueId_1('ui-');
 
-  useEffect$1(function () {
+  useEffect(function () {
     function validateIcon(element) {
       if (stateInput) {
         if (stateInput === 'Error') {
@@ -1789,7 +1789,7 @@ var InputField = function InputField(_ref) {
       getStateInput = _useState3[0],
       setStateInput = _useState3[1];
 
-  useEffect$1(function () {
+  useEffect(function () {
     function addClass(element, nameClass) {
       element.classList.add(css$7[nameClass]);
     }
@@ -2534,7 +2534,7 @@ var AsideNav = function AsideNav(_ref) {
 
   var refModal = createRef();
   var refOverlay = createRef();
-  useEffect$1(function () {
+  useEffect(function () {
     var $aside = refModal.current;
 
     function locationAside() {

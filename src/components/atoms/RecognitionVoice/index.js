@@ -1,6 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-use-before-define */
-import React, { Children, Fragment, isValidElement, useState } from 'react'
+import React, {
+  Children,
+  Fragment,
+  isValidElement,
+  useEffect,
+  useState
+} from 'react'
 import { Button } from '../Button'
 
 export const RecognitionVoice = ({
@@ -12,6 +18,7 @@ export const RecognitionVoice = ({
   const [action, setAction] = useState('record')
   const [diagnostic, setDiagnostic] = useState('')
   let GRAMMAR = `#JSGF V1.0; grammar ; public <command> = ${validate || ''} ;`
+
   const runSpeechRecognition = () => {
     // get output div reference
     // new speech recognition object

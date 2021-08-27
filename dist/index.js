@@ -2046,7 +2046,7 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
     recognition.start();
   };
 
-  useEffect(function () {
+  React.useEffect(function () {
     GRAMMAR = "#JSGF V1.0; grammar ; public <command> = " + (validate || '') + " ;";
   }, [validate]);
   var children = React.Children.map(childrenProp, function (child) {
