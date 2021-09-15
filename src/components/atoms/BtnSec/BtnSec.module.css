@@ -11,7 +11,7 @@
   margin: 0.5rem;
   padding: 0.5rem;
   border: none;
-  background: #db2533;
+  background: #9ed83a;
   color: #fff;
   border-radius: 50%;
   text-align: center;
@@ -25,5 +25,5 @@
 }
 
 .BtnSec[aria-selected='true'] {
-  background: #003d59;
+  background: #4aca60;
 }
