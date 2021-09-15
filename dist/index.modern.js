@@ -3312,21 +3312,19 @@ PanelTabs.defaultProps = {
   }]
 };
 
-var _excluded$g = ["newClass"];
-var Col = function Col(_ref) {
-  var newClass = _ref.newClass,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
+var css$s = {"col":"_1QLy6"};
 
+var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: (newClass)
+    className: css$s.col
   }, props));
 };
 
-var css$s = {"row":"_7DQjb"};
+var css$t = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("section", _extends({
-    className: css$s.row
+    className: css$t.row
   }, props));
 };
 
