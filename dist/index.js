@@ -3315,9 +3315,13 @@ PanelTabs.defaultProps = {
   }]
 };
 
-var Col = function Col(props) {
+var _excluded$g = ["newClass"];
+var Col = function Col(_ref) {
+  var newClass = _ref.newClass,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
+
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: (props.newClass)
+    className: (newClass)
   }, props));
 };
 
