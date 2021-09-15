@@ -3312,19 +3312,17 @@ PanelTabs.defaultProps = {
   }]
 };
 
-var css$s = {"col":"_1QLy6"};
-
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$s.col
+    className: (props.newClass)
   }, props));
 };
 
-var css$t = {"row":"_7DQjb"};
+var css$s = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("section", _extends({
-    className: css$t.row
+    className: css$s.row
   }, props));
 };
 
