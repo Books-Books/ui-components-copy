@@ -1,5 +1,6 @@
 .section {
   animation: fadeInDown 0.25s ease-in forwards;
+  width: 100%;
 }
 
 @keyframes fadeInDown {

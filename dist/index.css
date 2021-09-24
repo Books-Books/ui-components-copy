@@ -821,6 +821,7 @@ html {
 ._Nahni {
   -webkit-animation: _BDs2n 0.25s ease-in forwards;
           animation: _BDs2n 0.25s ease-in forwards;
+  width: 100%;
 }
 
 @-webkit-keyframes _BDs2n {
