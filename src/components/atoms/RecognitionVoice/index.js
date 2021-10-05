@@ -80,7 +80,7 @@ export const RecognitionVoice = ({
         onClick={runSpeechRecognition}
         icon={action === 'record' ? 'mic' : 'mic_off'}
         label=''
-        /* disabled={disabled} */
+        disabled={disabled}
         styled={styledButton}
       />
       {children && children}
