@@ -1,7 +1,7 @@
 .c-aud-btn{
     border: none;
     cursor: pointer;
-    background-color: var(--primaryColor);
+    background-color: var(--secondaryColor);
     box-shadow: var(--shadowSize) var(--primaryColorLight);
     padding: .5rem;
     outline: none;
@@ -22,7 +22,7 @@
 }
 
 .c-aud-btn:hover{
-    background-color: var(--primaryColorLight);
+    background-color: var(--secondaryColorLight);
 }
 
 .c-aud-btn-content i{
