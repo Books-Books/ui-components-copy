@@ -13,7 +13,8 @@ export const RecognitionVoice = ({
   setdata,
   validate,
   children: childrenProp,
-  disabled
+  disabled,
+  styledButton = 'secondary-icon'
 }) => {
   const [action, setAction] = useState('record')
   const [diagnostic, setDiagnostic] = useState('')
@@ -78,8 +79,9 @@ export const RecognitionVoice = ({
         type='button'
         onClick={runSpeechRecognition}
         icon={action === 'record' ? 'mic' : 'mic_off'}
-        label={action}
+        label=''
         disabled={disabled}
+        styled={styledButton}
       />
       {children && children}
     </Fragment>
