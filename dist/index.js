@@ -1998,7 +1998,8 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
   var setdata = _ref.setdata,
       validate = _ref.validate,
       childrenProp = _ref.children,
-      disabled = _ref.disabled,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? "" : _ref$disabled,
       _ref$styledButton = _ref.styledButton,
       styledButton = _ref$styledButton === void 0 ? 'secondary-icon' : _ref$styledButton;
 

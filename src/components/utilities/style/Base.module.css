@@ -39,8 +39,8 @@
 .ColorBase[styled='primary-icon'], .ColorBase[styled='secondary-icon'], .ColorBase[styled='secondary-icon-outline'], .ColorBase[styled='primary-icon-outline']{
     min-width: 0;
     min-height: 0;
-    width: var(--minSizeBtnIcon);
-    height: var(--minSizeBtnIcon);
+    width: var(--widthBtnAudio);
+    height: var(--widthBtnAudio);
     padding: 0;
     border-radius: 50%;
 }

@@ -13,7 +13,7 @@ export const RecognitionVoice = ({
   setdata,
   validate,
   children: childrenProp,
-  disabled,
+  disabled="",
   styledButton = 'secondary-icon'
 }) => {
   const [action, setAction] = useState('record')
