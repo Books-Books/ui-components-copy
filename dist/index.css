@@ -196,7 +196,7 @@ html {
     border-radius: 50%;
 }
 
-._3AGk-[styled='primary-outline'][disabled], ._3AGk-[styled='secondary-outline'][disabled], ._3AGk-[styled='secondary-icon-outline'][disabled], ._3AGk-[styled='primary-icon-outline'][disabled]{
+._3AGk-[styled='primary-outline'][disabled=true], ._3AGk-[styled='secondary-outline'][disabled=true], ._3AGk-[styled='secondary-icon-outline'][disabled=true], ._3AGk-[styled='primary-icon-outline'][disabled=true]{
     border-color: var(--bgColorDisabled);
     background-color: transparent;
 }

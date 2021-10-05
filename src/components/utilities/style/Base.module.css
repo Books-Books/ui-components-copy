@@ -45,7 +45,7 @@
     border-radius: 50%;
 }
 
-.ColorBase[styled='primary-outline'][disabled], .ColorBase[styled='secondary-outline'][disabled], .ColorBase[styled='secondary-icon-outline'][disabled], .ColorBase[styled='primary-icon-outline'][disabled]{
+.ColorBase[styled='primary-outline'][disabled=true], .ColorBase[styled='secondary-outline'][disabled=true], .ColorBase[styled='secondary-icon-outline'][disabled=true], .ColorBase[styled='primary-icon-outline'][disabled=true]{
     border-color: var(--bgColorDisabled);
     background-color: transparent;
 }

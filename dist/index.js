@@ -1187,17 +1187,19 @@ Icon.defaultProps = {
 
 var css$2 = {"ButtonBase":"_bJEh3"};
 
-var _excluded$2 = ["styled", "label", "icon", "addClass"];
+var _excluded$2 = ["styled", "label", "icon", "addClass", "disabled"];
 var Button = function Button(_ref) {
   var styled = _ref.styled,
       label = _ref.label,
       icon = _ref.icon,
       addClass = _ref.addClass,
+      disabled = _ref.disabled,
       args = _objectWithoutPropertiesLoose(_ref, _excluded$2);
 
   return /*#__PURE__*/React__default.createElement("button", _extends({
     className: base.ColorBase + " " + css$2.ButtonBase + " " + addClass,
-    styled: styled
+    styled: styled,
+    disabled: disabled
   }, args), icon && /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: icon
   }), label !== '' ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null));
@@ -1996,6 +1998,7 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
   var setdata = _ref.setdata,
       validate = _ref.validate,
       childrenProp = _ref.children,
+      disabled = _ref.disabled,
       _ref$styledButton = _ref.styledButton,
       styledButton = _ref$styledButton === void 0 ? 'secondary-icon' : _ref$styledButton;
 
@@ -2064,6 +2067,7 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
     onClick: runSpeechRecognition,
     icon: action === 'record' ? 'mic' : 'mic_off',
     label: "",
+    disabled: disabled,
     styled: styledButton
   }), children && children);
 };

@@ -4,11 +4,12 @@ import base from '../../utilities/style/Base.module.css'
 import { Icon } from '../icon'
 import css from './Button.module.css'
 
-export const Button = ({ styled, label, icon, addClass, ...args }) => {
+export const Button = ({ styled, label, icon, addClass, disabled, ...args }) => {
   return (
     <button
       className={`${base.ColorBase} ${css.ButtonBase} ${addClass}`}
       styled={styled}
+      disabled={disabled}
       {...args}
     >
       {icon && <Icon nameIcon={icon} />}
