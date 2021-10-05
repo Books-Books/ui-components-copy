@@ -759,10 +759,11 @@ html {
     cursor: pointer;
     background-color: var(--secondaryColor);
     box-shadow: var(--shadowSize) var(--primaryColorLight);
-    padding: .5rem;
     outline: none;
     border-radius: 50%;
     color: #fff;
+    width: var(--widthBtnAudio);
+    height: var(--widthBtnAudio);
 }
 
 ._a9LbG[data-label='string']{
@@ -773,8 +774,6 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: var(--widthBtnAudio);
-    min-height: var(--widthBtnAudio);
 }
 
 ._a9LbG:hover{
@@ -782,12 +781,12 @@ html {
 }
 
 ._2E_hC i{
-    font-size: 21px;
+    font-size: 15px;
     margin: 0;
     color: var(--textColor);
-    margin-bottom: 4px;
+/*     margin-bottom: 4px;
     margin-right: 2px;
-}
+ */}
 
 ._2E_hC[data-label='string'] i{
     margin-right: 9px;
