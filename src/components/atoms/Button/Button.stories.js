@@ -58,5 +58,6 @@ ButtonDefaultIcon.storyName = 'Button icon '
 ButtonDefaultIcon.args = {
   label: '',
   icon: 'accessibility',
-  styled: 'secondary-icon'
+  styled: 'secondary-icon',
+  disabled: "true",
 }

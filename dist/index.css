@@ -190,8 +190,8 @@ html {
 ._3AGk-[styled='primary-icon'], ._3AGk-[styled='secondary-icon'], ._3AGk-[styled='secondary-icon-outline'], ._3AGk-[styled='primary-icon-outline']{
     min-width: 0;
     min-height: 0;
-    width: var(--minSizeBtnIcon);
-    height: var(--minSizeBtnIcon);
+    width: var(--widthBtnAudio);
+    height: var(--widthBtnAudio);
     padding: 0;
     border-radius: 50%;
 }
