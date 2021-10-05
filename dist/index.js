@@ -1996,7 +1996,6 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
   var setdata = _ref.setdata,
       validate = _ref.validate,
       childrenProp = _ref.children,
-      disabled = _ref.disabled,
       _ref$styledButton = _ref.styledButton,
       styledButton = _ref$styledButton === void 0 ? 'secondary-icon' : _ref$styledButton;
 
@@ -2065,7 +2064,6 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
     onClick: runSpeechRecognition,
     icon: action === 'record' ? 'mic' : 'mic_off',
     label: "",
-    disabled: disabled,
     styled: styledButton
   }), children && children);
 };
