@@ -15,7 +15,7 @@
     display: grid;
     grid-template-columns: 27px 1fr 151px 32px;
     grid-gap: .3rem;
-    background-color: rgb(103, 58, 183, .6);
+    background-color: #555555;
     position: absolute;
     height: 20px;
     width: 100%;
