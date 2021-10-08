@@ -25,7 +25,7 @@
 }
 
 .c-aud-btn-content i{
-    font-size: 15px;
+    font-size: 17px;
     margin: 0;
     color: var(--textColor);
 /*     margin-bottom: 4px;
@@ -34,4 +34,8 @@
 
 .c-aud-btn-content[data-label='string'] i{
     margin-right: 9px;
+}
+
+.c-aud-secundary{
+    background-color: #4aca60 !important;
 }
