@@ -1909,12 +1909,14 @@ Link.defaultProps = {
   addClass: ''
 };
 
-var css$9 = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC"};
+var css$9 = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
 
 function Multimedia(_ref) {
   var url = _ref.url,
       label = _ref.label,
-      addClass = _ref.addClass;
+      addClass = _ref.addClass,
+      _ref$isPrimary = _ref.isPrimary,
+      isPrimary = _ref$isPrimary === void 0 ? true : _ref$isPrimary;
 
   var _useState = React.useState(false),
       getStateBtnAudio = _useState[0],
@@ -1949,7 +1951,7 @@ function Multimedia(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
-    className: css$9['c-aud'] + " " + addClass
+    className: "" + addClass
   }, /*#__PURE__*/React__default.createElement("audio", {
     src: url,
     ref: refAudio,
@@ -1957,7 +1959,7 @@ function Multimedia(_ref) {
   }), /*#__PURE__*/React__default.createElement("button", {
     id: "btnAudio",
     onClick: handlePlayPause,
-    className: css$9['c-aud-btn'],
+    className: css$9['c-aud-btn'] + " " + (isPrimary ? '' : css$9['c-aud-secundary']),
     "data-label": label ? 'string' : ''
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$9['c-aud-btn-content'],
