@@ -249,11 +249,11 @@ html {
     outline: none;
     min-width: var(--minWidthSizeBtn);
     min-height: var(--minHeightSizeBtn);
-    padding: var(--paddingBtn);
+    padding: 0 14px 0 14px;
     color: var(--textColor);
     font-family: inherit;
     margin: var(--marginBtn);
-    border-radius: var(--borderRadiusBtn);
+    border-radius: 15px;
     transition: background 0.5s ease;
     cursor: pointer;
 
@@ -781,7 +781,7 @@ html {
 }
 
 ._2E_hC i{
-    font-size: 15px;
+    font-size: 17px;
     margin: 0;
     color: var(--textColor);
 /*     margin-bottom: 4px;
@@ -792,6 +792,9 @@ html {
     margin-right: 9px;
 }
 
+._2uPDm{
+    background-color: #4aca60 !important;
+}
 ._qaB0F {
   box-shadow: 0px 1px 3px #5d5d5d;
   padding: 0.5rem;

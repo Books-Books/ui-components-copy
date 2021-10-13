@@ -14,6 +14,12 @@ baseAudio.args = {
   addClass: 'prb'
 }
 
+export const styleSecundary = Template.bind({})
+styleSecundary.args = {
+  url: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/33378/soundcloud-austin-stephens-Auto_Tuned_Native_American_Flute.mp3',
+  isPrimary: false
+}
+
 export const TextAudio = Template.bind({})
 TextAudio.args = {
   url: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/33378/soundcloud-austin-stephens-Auto_Tuned_Native_American_Flute.mp3',
