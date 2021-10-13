@@ -1,83 +1,59 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-use-before-define */
 import React, {
-  Children,
-  Fragment,
-  isValidElement,
-  useEffect,
-  useState
-} from 'react'
-import { Button } from '../Button'
+  Fragment, useState
+} from 'react';
+import { Button } from '../Button';
 
 export const RecognitionVoice = ({
-  setdata,
-  validate,
-  children: childrenProp,
+  children,
   disabled="",
   styledButton = 'secondary-icon'
 }) => {
-  const [action, setAction] = useState('record')
-  const [diagnostic, setDiagnostic] = useState('')
-  let GRAMMAR = `#JSGF V1.0; grammar ; public <command> = ${validate || ''} ;`
+  const [action, setAction] = useState('record');
+  const recognition = new webkitSpeechRecognition();
+  let lastSaid = null;
+  recognition.lang = 'en-US';
+  recognition.continuous = true;
+  recognition.interimResults = true;
 
-  const runSpeechRecognition = () => {
-    // get output div reference
-    // new speech recognition object
-    const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
-    const SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
-    const speechRecognitionList = new SpeechGrammarList()
-    const recognition = new SpeechRecognition()
-    speechRecognitionList.addFromString(GRAMMAR, 1)
-    recognition.grammars = speechRecognitionList
-    recognition.continuous = false
-    recognition.lang = 'en-US'
-    recognition.interimResults = false
-    recognition.maxAlternatives = 1
-    // This runs when the speech recognition service starts
-    recognition.onstart = function () {
-      setAction('listening')
-    }
+  const startRecording = () => {
+    console.log('holaa foo');
+    recognition.start();
+    setAction('listening')
+  };
 
-    recognition.onspeechend = function () {
-      setAction('record')
-      recognition.stop()
+  const stopRecording = () => {
+    if (lastSaid) {
+      let strText = '';
+      lastSaid = [...lastSaid];
+      console.log('lastSaid', lastSaid);
+      lastSaid.forEach((element) => {
+        strText += element[0].transcript;
+      });
+      console.log('strText', strText);
     }
+    recognition.stop();
+    setAction('record')
+  };
 
-    // This runs when the speech recognition service returns result
-    recognition.onresult = function ({ results }) {
-      const transcript = results[0][0].transcript
-      setdata && setdata(transcript)
-    }
-    recognition.onnomatch = function (event) {
-      setDiagnostic("I didn't recognise that color.")
-    }
+  recognition.onresult = function (event) {
+    lastSaid = event.results;
+  };
 
-    recognition.onerror = function (event) {
-      setDiagnostic('Error occurred in recognition: ' + event.error)
+  const hanldeRecord = () => {
+    if (action === 'record') {
+      startRecording();
+    } else {
+      stopRecording();
     }
-    // start recognition
-    recognition.start()
   }
-
-  useEffect(() => {
-    GRAMMAR = `#JSGF V1.0; grammar ; public <command> = ${validate || ''} ;`
-  }, [validate])
-
-  const children = Children.map(childrenProp, (child) => {
-    if (!isValidElement(child)) {
-      return null
-    }
-
-    return React.cloneElement(child, {
-      children: diagnostic
-    })
-  })
 
   return (
     <Fragment>
       <Button
         type='button'
-        onClick={runSpeechRecognition}
+        onClick={hanldeRecord}
         icon={action === 'record' ? 'mic' : 'mic_off'}
         label=''
         disabled={disabled}
