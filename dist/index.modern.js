@@ -1,4 +1,4 @@
-import React__default, { forwardRef, Fragment as Fragment$1, useState, useEffect, createRef, createElement, useRef, Children, isValidElement, cloneElement } from 'react';
+import React__default, { forwardRef, Fragment as Fragment$1, useState, useEffect, createRef, Children, isValidElement, createElement, useRef, cloneElement } from 'react';
 import { Chart } from 'react-google-charts';
 
 function _extends() {
@@ -1994,7 +1994,9 @@ var TabPanel = function TabPanel(props) {
 };
 
 var RecognitionVoice = function RecognitionVoice(_ref) {
-  var children = _ref.children,
+  var setdata = _ref.setdata,
+      validate = _ref.validate,
+      childrenProp = _ref.children,
       _ref$disabled = _ref.disabled,
       disabled = _ref$disabled === void 0 ? "" : _ref$disabled,
       _ref$styledButton = _ref.styledButton,
@@ -2004,48 +2006,65 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
       action = _useState[0],
       setAction = _useState[1];
 
-  var recognition = new webkitSpeechRecognition();
-  var lastSaid = null;
-  recognition.lang = 'en-US';
-  recognition.continuous = true;
-  recognition.interimResults = true;
+  var _useState2 = useState(''),
+      diagnostic = _useState2[0],
+      setDiagnostic = _useState2[1];
 
-  var startRecording = function startRecording() {
-    console.log('holaa foo');
+  var GRAMMAR = "#JSGF V1.0; grammar ; public <command> = " + (validate || '') + " ;";
+
+  var runSpeechRecognition = function runSpeechRecognition() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var speechRecognitionList = new SpeechGrammarList();
+    var recognition = new SpeechRecognition();
+    speechRecognitionList.addFromString(GRAMMAR, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = function () {
+      setAction('listening');
+    };
+
+    recognition.onspeechend = function () {
+      setAction('record');
+      recognition.stop();
+    };
+
+    recognition.onresult = function (_ref2) {
+      var results = _ref2.results;
+      var transcript = results[0][0].transcript;
+      setdata && setdata(transcript);
+    };
+
+    recognition.onnomatch = function (event) {
+      setDiagnostic("I didn't recognise that color.");
+    };
+
+    recognition.onerror = function (event) {
+      setDiagnostic('Error occurred in recognition: ' + event.error);
+    };
+
     recognition.start();
-    setAction('listening');
   };
 
-  var stopRecording = function stopRecording() {
-    if (lastSaid) {
-      var strText = '';
-      lastSaid = [].concat(lastSaid);
-      console.log('lastSaid', lastSaid);
-      lastSaid.forEach(function (element) {
-        strText += element[0].transcript;
-      });
-      console.log('strText', strText);
+  useEffect(function () {
+    GRAMMAR = "#JSGF V1.0; grammar ; public <command> = " + (validate || '') + " ;";
+  }, [validate]);
+  var children = Children.map(childrenProp, function (child) {
+    if (!isValidElement(child)) {
+      return null;
     }
 
-    recognition.stop();
-    setAction('record');
-  };
-
-  recognition.onresult = function (event) {
-    lastSaid = event.results;
-  };
-
-  var hanldeRecord = function hanldeRecord() {
-    if (action === 'record') {
-      startRecording();
-    } else {
-      stopRecording();
-    }
-  };
-
+    return React__default.cloneElement(child, {
+      children: diagnostic
+    });
+  });
   return /*#__PURE__*/React__default.createElement(Fragment$1, null, /*#__PURE__*/React__default.createElement(Button, {
     type: "button",
-    onClick: hanldeRecord,
+    onClick: runSpeechRecognition,
     icon: action === 'record' ? 'mic' : 'mic_off',
     label: "",
     disabled: disabled,
