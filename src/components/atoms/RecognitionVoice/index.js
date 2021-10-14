@@ -9,6 +9,11 @@ import React, {
 } from 'react'
 import { Button } from '../Button'
 
+const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+const SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+const speechRecognitionList = new SpeechGrammarList()
+const recognition = new SpeechRecognition()
+
 export const RecognitionVoice = ({
   setdata,
   validate,
@@ -19,45 +24,53 @@ export const RecognitionVoice = ({
   const [action, setAction] = useState('record')
   const [diagnostic, setDiagnostic] = useState('')
   let GRAMMAR = `#JSGF V1.0; grammar ; public <command> = ${validate || ''} ;`
+  let transcript;
+
+  recognition.onresult = function ({ results }) {
+    transcript = results;
+  }
+  recognition.onnomatch = function (event) {
+    setDiagnostic("I didn't recognise that color.")
+  }
+
+  recognition.onerror = function (event) {
+    setDiagnostic('Error occurred in recognition: ' + event.error)
+  }
 
   const runSpeechRecognition = () => {
-    // get output div reference
-    // new speech recognition object
-    const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
-    const SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
-    const speechRecognitionList = new SpeechGrammarList()
-    const recognition = new SpeechRecognition()
+
     speechRecognitionList.addFromString(GRAMMAR, 1)
     recognition.grammars = speechRecognitionList
-    recognition.continuous = false
+    recognition.continuous = true
     recognition.lang = 'en-US'
-    recognition.interimResults = false
+    recognition.interimResults = true
     recognition.maxAlternatives = 1
-    // This runs when the speech recognition service starts
-    recognition.onstart = function () {
+
+    if (action === 'record') {
+      recognition.start();
       setAction('listening')
+    } else {
+      stopRecording();
     }
 
-    recognition.onspeechend = function () {
-      setAction('record')
-      recognition.stop()
-    }
-
-    // This runs when the speech recognition service returns result
-    recognition.onresult = function ({ results }) {
-      const transcript = results[0][0].transcript
-      setdata && setdata(transcript)
-    }
-    recognition.onnomatch = function (event) {
-      setDiagnostic("I didn't recognise that color.")
-    }
-
-    recognition.onerror = function (event) {
-      setDiagnostic('Error occurred in recognition: ' + event.error)
-    }
-    // start recognition
-    recognition.start()
   }
+
+  const stopRecording = () => {
+
+    if (transcript) {
+      let strText = '';
+      transcript = Array.from(transcript);
+
+      transcript.forEach((element) => {
+        strText += element[0].transcript;
+
+      });
+      console.log("DESDE UI", strText);
+      setdata && setdata(strText)
+    }
+    recognition.stop();
+    setAction('record')
+  };
 
   useEffect(() => {
     GRAMMAR = `#JSGF V1.0; grammar ; public <command> = ${validate || ''} ;`
