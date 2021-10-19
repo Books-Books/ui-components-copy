@@ -1993,6 +1993,10 @@ var TabPanel = function TabPanel(props) {
   }, other), value === index && /*#__PURE__*/React__default.createElement("div", null, children));
 };
 
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+var speechRecognitionList = new SpeechGrammarList();
+var recognition = new SpeechRecognition();
 var RecognitionVoice = function RecognitionVoice(_ref) {
   var setdata = _ref.setdata,
       validate = _ref.validate,
@@ -2011,43 +2015,51 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
       setDiagnostic = _useState2[1];
 
   var GRAMMAR = "#JSGF V1.0; grammar ; public <command> = " + (validate || '') + " ;";
+  var transcript;
+
+  recognition.onresult = function (_ref2) {
+    var results = _ref2.results;
+    transcript = results;
+  };
+
+  recognition.onnomatch = function (event) {
+    setDiagnostic("I didn't recognise that color.");
+  };
+
+  recognition.onerror = function (event) {
+    setDiagnostic('Error occurred in recognition: ' + event.error);
+  };
 
   var runSpeechRecognition = function runSpeechRecognition() {
-    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-    var speechRecognitionList = new SpeechGrammarList();
-    var recognition = new SpeechRecognition();
     speechRecognitionList.addFromString(GRAMMAR, 1);
     recognition.grammars = speechRecognitionList;
-    recognition.continuous = false;
+    recognition.continuous = true;
     recognition.lang = 'en-US';
-    recognition.interimResults = false;
+    recognition.interimResults = true;
     recognition.maxAlternatives = 1;
 
-    recognition.onstart = function () {
+    if (action === 'record') {
+      recognition.start();
       setAction('listening');
-    };
+    } else {
+      stopRecording();
+    }
+  };
 
-    recognition.onspeechend = function () {
-      setAction('record');
-      recognition.stop();
-    };
+  var stopRecording = function stopRecording() {
+    if (transcript) {
+      var strText = '';
+      transcript = Array.from(transcript);
+      console.log("transcript", transcript);
+      transcript.forEach(function (element) {
+        strText += element[0].transcript;
+      });
+      console.log("DESDE UI", strText);
+      setdata && setdata(strText);
+    }
 
-    recognition.onresult = function (_ref2) {
-      var results = _ref2.results;
-      var transcript = results[0][0].transcript;
-      setdata && setdata(transcript);
-    };
-
-    recognition.onnomatch = function (event) {
-      setDiagnostic("I didn't recognise that color.");
-    };
-
-    recognition.onerror = function (event) {
-      setDiagnostic('Error occurred in recognition: ' + event.error);
-    };
-
-    recognition.start();
+    recognition.stop();
+    setAction('record');
   };
 
   useEffect(function () {
