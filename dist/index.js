@@ -2053,7 +2053,6 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
     if (transcript) {
       var strText = '';
       transcript = Array.from(transcript);
-      console.log("transcript", transcript);
       transcript.forEach(function (element) {
         strText += element[0].transcript;
       });
