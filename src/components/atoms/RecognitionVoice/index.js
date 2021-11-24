@@ -19,7 +19,8 @@ export const RecognitionVoice = ({
   validate,
   children: childrenProp,
   disabled="",
-  styledButton = 'secondary-icon'
+  styledButton = 'secondary-icon',
+  onRecord
 }) => {
   const [action, setAction] = useState('record')
   const [diagnostic, setDiagnostic] = useState('')
@@ -48,8 +49,10 @@ export const RecognitionVoice = ({
 
     if (action === 'record') {
       recognition.start();
+      onRecord && onRecord(true)
       setAction('listening')
     } else {
+      onRecord && onRecord(false)
       stopRecording();
     }
 
