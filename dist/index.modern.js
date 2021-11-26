@@ -2004,7 +2004,8 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
       _ref$disabled = _ref.disabled,
       disabled = _ref$disabled === void 0 ? "" : _ref$disabled,
       _ref$styledButton = _ref.styledButton,
-      styledButton = _ref$styledButton === void 0 ? 'secondary-icon' : _ref$styledButton;
+      styledButton = _ref$styledButton === void 0 ? 'secondary-icon' : _ref$styledButton,
+      onRecord = _ref.onRecord;
 
   var _useState = useState('record'),
       action = _useState[0],
@@ -2040,8 +2041,10 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
 
     if (action === 'record') {
       recognition.start();
+      onRecord && onRecord(true);
       setAction('listening');
     } else {
+      onRecord && onRecord(false);
       stopRecording();
     }
   };
