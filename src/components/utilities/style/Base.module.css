@@ -39,13 +39,13 @@
 .ColorBase[styled='primary-icon'], .ColorBase[styled='secondary-icon'], .ColorBase[styled='secondary-icon-outline'], .ColorBase[styled='primary-icon-outline']{
     min-width: 0;
     min-height: 0;
-    width: var(--minSizeBtnIcon);
-    height: var(--minSizeBtnIcon);
+    width: var(--widthBtnAudio);
+    height: var(--widthBtnAudio);
     padding: 0;
     border-radius: 50%;
 }
 
-.ColorBase[styled='primary-outline'][disabled], .ColorBase[styled='secondary-outline'][disabled], .ColorBase[styled='secondary-icon-outline'][disabled], .ColorBase[styled='primary-icon-outline'][disabled]{
+.ColorBase[styled='primary-outline'][disabled=true], .ColorBase[styled='secondary-outline'][disabled=true], .ColorBase[styled='secondary-icon-outline'][disabled=true], .ColorBase[styled='primary-icon-outline'][disabled=true]{
     border-color: var(--bgColorDisabled);
     background-color: transparent;
 }

@@ -1,0 +1,14 @@
+.Section {
+  width: 100%;
+  display: grid;
+  grid-template: 1fr / 50px 1fr;
+  min-height: calc(100vh - 11rem);
+  align-items: center;
+  justify-items: center;
+}
+
+@media screen and (max-width: 30em) {
+  .Section {
+    grid-template: 50px 1fr / 1fr;
+  }
+}
