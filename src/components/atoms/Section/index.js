@@ -1,7 +1,7 @@
 import React from 'react'
 import css from './Section.module.css'
 
-const Section = ({ children, value, index, addClass, ...other }) => {
+const Section = ({ children, value, index, label, addClass, ...other }) => {
   return (
     <section
       className={`${css.section} ${addClass}`}
@@ -9,9 +9,10 @@ const Section = ({ children, value, index, addClass, ...other }) => {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
+      sectionID={`#section-${label}`}
       {...other}
     >
-      {value === index && <article>{children}</article>}
+      {children}
     </section>
   )
 }

@@ -21,10 +21,10 @@ export const PanelSections = () => (
       { label: '2', id: '2' }
     ]}
   >
-    <Section>
+    <Section label='1'>
       <p>hola primero</p>
     </Section>
-    <Section>
+    <Section label='2'>
       <p>hola segundo</p>
     </Section>
   </PanelSection>

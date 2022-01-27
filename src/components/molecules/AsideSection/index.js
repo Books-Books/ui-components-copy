@@ -15,6 +15,7 @@ const AsideSection = forwardRef(function Tabs(props, ref) {
     selectionFollowsFocus,
     TabScrollButtonProps,
     value,
+    labelName = 'Lista de secciones',
     ...other
   } = props
 
@@ -86,7 +87,10 @@ const AsideSection = forwardRef(function Tabs(props, ref) {
   return (
     <Component className='ui-Tabs-cont' ref={ref} {...other}>
       <div ref={tabsRef}>
-        <div
+        <h2 class='sr-only' id='section-list'>
+          {labelName}
+        </h2>
+        <ul
           className={css.AsideSection}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
@@ -94,9 +98,10 @@ const AsideSection = forwardRef(function Tabs(props, ref) {
           onKeyDown={handleKeyDown}
           ref={tabListRef}
           role='tablist'
+          aria-labelledby='section-list'
         >
           {children}
-        </div>
+        </ul>
       </div>
     </Component>
   )

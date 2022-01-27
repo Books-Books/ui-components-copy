@@ -31,6 +31,7 @@ html {
   --bgColorDisabled: rgb(0 0 0 / 0.12);
   --textColorDisabled: #919191;
   --opacityDisabled: 0.5;
+  --tabText: white;
 
   /*Base  Color outline*/
   --bgColorOutline: white;
@@ -119,4 +120,25 @@ html {
   --textBody: 1rem;
   --subTitleFz: 0.875rem;
   --subTitleFw: 500;
+}
+
+ul[role='list'],
+ul[role='tablist'] {
+  list-style: none;
+}
+
+ul[role='tablist'] {
+  padding-left: 0;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }

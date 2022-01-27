@@ -2,28 +2,40 @@
   font-family: inherit;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   box-sizing: border-box;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  border: none;
-  background: #9ed83a;
-  color: #fff;
+  margin: 0.7rem 0.6rem;
+  padding: 0.3rem;
+  border: 2px solid transparent;
+  background: var(--primaryColor);
+  color: var(--tabText);
   border-radius: 50%;
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
-  -webkit-appearance: none;
-  z-index: 1;
-  height: 35px;
-  width: 35px;
-  transition: background 0.5s linear;
+  text-decoration-color: transparent;
+  /* -webkit-appearance: none; */
+  /* z-index: 1; */
+  height: 3rem;
+  width: 3rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .BtnSec {
+    transition: background 0.5s linear, transform 0.3s ease-in-out,
+      outline-offset 0.2s ease-in-out;
+  }
+}
+
+.BtnSec:focus {
+  outline: 0.125rem solid var(--primaryColorDark);
+  outline-offset: 0.1875rem;
 }
 
 .BtnSec[aria-selected='true'] {
-  background: #4aca60;
+  background: var(--primaryColorDark);
+  transform: scale(1.1);
 }
