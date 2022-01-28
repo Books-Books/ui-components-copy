@@ -28,9 +28,12 @@ html {
   --bgColorGood: #00b02e;
   --bgColorWrong: #b00020;
 
-  --bgColorDisabled: rgb(0 0 0 / 0.12);
+  --bgColorDisabled: rgb(222, 222, 222);
   --textColorDisabled: #919191;
   --opacityDisabled: 0.5;
+
+  --linkColor: #4aca60;
+  --linkColorHover: #c8e990;
 
   /*Base  Color outline*/
   --bgColorOutline: white;
