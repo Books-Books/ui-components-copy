@@ -31,7 +31,6 @@ html {
   --bgColorDisabled: rgb(0 0 0 / 0.12);
   --textColorDisabled: #919191;
   --opacityDisabled: 0.5;
-  --tabText: white;
 
   /*Base  Color outline*/
   --bgColorOutline: white;
