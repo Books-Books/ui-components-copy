@@ -4,16 +4,27 @@ import base from '../../utilities/style/Base.module.css'
 import { Icon } from '../icon'
 import css from './Button.module.css'
 
-export const Button = ({ styled, label, icon, addClass, disabled, ...args }) => {
+export const Button = ({
+  styled,
+  label,
+  hasAriaLabel,
+  icon,
+  addClass,
+  disabled,
+  children,
+  ...args
+}) => {
   return (
     <button
       className={`${base.ColorBase} ${css.ButtonBase} ${addClass}`}
       styled={styled}
       disabled={disabled}
+      aria-label={hasAriaLabel ? `${label}` : ''}
       {...args}
     >
+      {children}
       {icon && <Icon nameIcon={icon} />}
-      {label !== '' ? <span>{label}</span> : <Fragment />}
+      {!hasAriaLabel ? <span>{label}</span> : <Fragment />}
     </button>
   )
 }
@@ -38,5 +49,6 @@ Button.propTypes = {
 Button.defaultProps = {
   styled: 'primary',
   addClass: '',
-  onClick: undefined
+  onClick: undefined,
+  hasAriaLabel: true
 }

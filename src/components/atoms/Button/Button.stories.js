@@ -45,12 +45,17 @@ const template = (args) => <Button {...args} />
 
 export const ButtonDefault = template.bind({})
 ButtonDefault.storyName = 'Button'
+ButtonDefault.args = {
+  hasAriaLabel: false,
+  label: 'Button'
+}
 
 export const ButtonDefaultWithIconLeft = template.bind({})
 ButtonDefaultWithIconLeft.storyName = 'Button with icon '
 ButtonDefaultWithIconLeft.args = {
   icon: 'accessibility',
-  addClass: 'prueba'
+  addClass: 'prueba',
+  hasAriaLabel: false
 }
 
 export const ButtonDefaultIcon = template.bind({})
@@ -59,5 +64,6 @@ ButtonDefaultIcon.args = {
   label: '',
   icon: 'accessibility',
   styled: 'secondary-icon',
-  disabled: "true",
+  disabled: 'true',
+  hasAriaLabel: false
 }

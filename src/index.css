@@ -141,3 +141,8 @@ ul[role='tablist'] {
   width: 1px;
   white-space: nowrap;
 }
+
+.svg-icon {
+  fill: currentColor;
+  forced-color-adjust: auto;
+}

@@ -10,6 +10,7 @@ function Multimedia({ url, label, addClass, isPrimary = true }) {
       height='48'
       viewBox='0 0 24 24'
       aria-hidden='true'
+      className='svg-icon'
     >
       <path fill='none' d='M0 0h24v24H0z'></path>
       <path d='M8 5v14l11-7z'></path>
@@ -23,6 +24,7 @@ function Multimedia({ url, label, addClass, isPrimary = true }) {
       width='48px'
       fill='#000000'
       aria-hidden='true'
+      className='svg-icon'
     >
       <path d='M0 0h24v24H0z' fill='none' />
       <path d='M6 19h4V5H6v14zm8-14v14h4V5h-4z' />
@@ -63,7 +65,8 @@ function Multimedia({ url, label, addClass, isPrimary = true }) {
             isPrimary ? '' : css['c-aud-secundary']
           }`}
           data-label={label ? 'string' : ''}
-          aria-label='Reproducir'
+          hasAriaLabel={true}
+          label='Reproducir'
         >
           <div
             className={css['c-aud-btn-content']}
