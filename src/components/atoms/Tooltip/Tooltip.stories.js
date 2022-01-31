@@ -11,6 +11,6 @@ export default {
 
 export const TooltipDefault = () => (
   <Tooltip label='holis' addClass='prb'>
-    <Button styled='secondary' label='Secondary button' />
+    <Button styled='secondary' hasAriaLabel={false} label='Secondary button' />
   </Tooltip>
 )
