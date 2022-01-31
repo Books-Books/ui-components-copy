@@ -164,10 +164,6 @@ input[type='range']::-ms-thumb {
 }
 
 @media screen and (forced-colors: active) {
-  input[type='range'] {
-    background: HighLight;
-  }
-
   /* Special styling for WebKit/Blink */
   input[type='range']::-webkit-slider-thumb {
     background: Highlight;

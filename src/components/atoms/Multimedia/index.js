@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { createRef, Fragment, useState } from 'react'
 import css from './Multimedia.module.css'
 
-function Multimedia({ url, label, addClass, isPrimary = true }) {
+function Multimedia({ url, label = 'Reproducir', addClass, isPrimary = true }) {
   const playButton = (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -40,10 +40,12 @@ function Multimedia({ url, label, addClass, isPrimary = true }) {
       setStateBtnAudio(false)
       element.pause()
       setIcon(playButton)
+      label = 'Reproducir'
     } else {
       setStateBtnAudio(true)
       element.play()
       setIcon(pauseButton)
+      label = 'Pausar'
     }
   }
   function handlePlayPause() {
@@ -66,16 +68,13 @@ function Multimedia({ url, label, addClass, isPrimary = true }) {
           className={`${css['c-aud-btn']} ${
             isPrimary ? '' : css['c-aud-secundary']
           }`}
-          data-label={label ? 'string' : ''}
-          hasAriaLabel={true}
-          label='Reproducir'
+          aria-label={getStateBtnAudio ? 'Pausar' : 'Reproducir'}
         >
           <div
             className={css['c-aud-btn-content']}
             data-label={label ? 'string' : ''}
           >
             {getIcon}
-            {label}
           </div>
         </button>
       </div>

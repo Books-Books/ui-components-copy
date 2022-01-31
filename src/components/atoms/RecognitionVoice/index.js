@@ -116,7 +116,7 @@ export const RecognitionVoice = ({
       <Button
         type='button'
         onClick={runSpeechRecognition}
-        label='Grabar audio'
+        label={action === 'record' ? 'Realizar grabación' : 'Detener grabación'}
         disabled={disabled}
         styled={styledButton}
         hasAriaLabel={true}
