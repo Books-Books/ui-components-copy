@@ -76,7 +76,7 @@ function Video({ url, width, addClass }) {
     icon: fullscreenIcon,
     label: 'Ver en pantalla completa'
   }) // stado de la pantalla completa
-  const [getValueVolum, setValueVolumn] = useState(0.23)
+  const [getValueVolum, setValueVolumn] = useState(25)
   const refCont = createRef()
   const refVideo = createRef()
   const refProgress = createRef()
@@ -205,8 +205,9 @@ function Video({ url, width, addClass }) {
   function handleVolumn(e) {
     const video = refVideo.current
     const value = e.target.value
+    const volume = value / 100
     setValueVolumn(value)
-    video.volume = getValueVolum
+    video.volume = volume
   }
 
   return (
@@ -265,8 +266,8 @@ function Video({ url, width, addClass }) {
               id='volumeControl'
               type='range'
               min='0'
-              max='1'
-              step='any'
+              max='100'
+              step='5'
               value={getValueVolum}
               onChange={handleVolumn}
             />
