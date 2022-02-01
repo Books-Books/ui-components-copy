@@ -2,8 +2,10 @@
 
 - **hasAriaLabel:** Determina si el componente tendrá un `aria-label` o no. Tiene dos valores:
 
-  - `true`, que en ese caso, el valor que se use en _label_ será usado como un `aria-label`
-  - `false` que en ese caso, el valor será usado como texto dentro del botón
+  - `true`, que en ese caso, el valor que se use en _label_ será usado como un `aria-label`.
+  - `false` que en ese caso, el valor será usado como texto dentro del botón.
+
+- **label:** El nombre del botón, será usado como un `aria-label` si `hasAriaLabel` está como _true_ o como texto del botón en caso de que `hasAriaLabel` sea _false_.
 
 ## Consideraciones de estilo
 
