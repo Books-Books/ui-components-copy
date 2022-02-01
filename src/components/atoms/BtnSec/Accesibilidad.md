@@ -1,3 +1,8 @@
+## Atributos para crear el componente
+
+- **label** será el valor que aparezca en el botón para cambiar de sección. Normalmente será un número.
+- **id** será el número que se le agregará al botón para agregarlo al id. **Es importante que este número corresponda al número que se usará en el componente `<Section>`** para que se pueda navegar a esa sección en específico.
+
 ## Consideraciones de maquetación
 
 - Al seleccionar uno de estos, su atributo `aria-selected` pasa a ser `true` mientras los demás selectores de sección del componente pasen a ser `false`
