@@ -3,12 +3,14 @@
   border-bottom: 1px solid var(--colorBorderDropable);
   display: grid;
   grid-template-columns: 30px 1fr 26px;
+  width: 100%;
   align-items: center;
   gap: 0.5rem;
   padding: 0 0.5rem;
   cursor: pointer;
+  border: 2px solid transparent;
 }
-.c-collapsible-container-header i{
+.c-collapsible-container-header i {
   color: var(--primaryColor);
 }
 .c-collapsible-container-body {
