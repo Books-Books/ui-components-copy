@@ -270,6 +270,7 @@ function Video({ url, width, addClass }) {
               step='5'
               value={getValueVolum}
               onChange={handleVolumn}
+              aria-valuetext={`${getValueVolum}%`}
             />
           </label>
         </div>
