@@ -15,8 +15,27 @@
 }
 .c-collapsible-container-body {
   animation-delay: 2s;
-  /* border: 1px solid var(--colorBorderDropable); */
+  border: 1px solid var(--colorBorderDropable);
   border-top: none;
   padding: 1rem;
   display: none;
+}
+
+.c-collapsible-container-body.active {
+  display: block;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .c-collapsible-container-body.active {
+    animation: show 0.5s 1;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
 }

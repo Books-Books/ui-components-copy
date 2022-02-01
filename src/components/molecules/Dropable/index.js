@@ -41,11 +41,6 @@ export const Accordion = ({ content, width, backgroundColor, color }) => {
       setStateList(element)
     }
   }
-  function handleToggleBody(element) {
-    const $bodyElement = document.querySelector(`#${element}`)
-    setStateIcon(element)
-    stateList($bodyElement)
-  }
   return (
     <ul
       className={`${css['c-collapsible']} ui-collapsible`}
@@ -63,7 +58,6 @@ export const Accordion = ({ content, width, backgroundColor, color }) => {
             stateIcon={
               getStateIcon === `body${index}` ? 'expand_less' : 'expand_more'
             }
-            onClick={() => handleToggleBody(`body${index}`)}
             addClass='prb'
           />
         </li>
@@ -83,8 +77,7 @@ Accordion.defaultProps = {
   content: [
     {
       title: 'Location',
-      text:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!',
+      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!',
       dataIcon: 'close'
     }
   ]

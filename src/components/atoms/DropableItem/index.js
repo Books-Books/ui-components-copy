@@ -1,22 +1,42 @@
 import PropTypes from 'prop-types'
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Icon } from '../icon/index'
 import css from './DropableItem.module.css'
 
 export function AccordionItem({ item, index, stateIcon, addClass, ...props }) {
+  const [Expanded, SetExpanded] = useState(false)
+  const [active, setActive] = useState('')
+
+  const toggleAccordion = () => {
+    Expanded ? SetExpanded(false) : SetExpanded(true)
+    if (active === '') {
+      setActive(css['active'])
+    } else {
+      setActive('')
+    }
+  }
+
+  const hideAccordion = () => {
+    SetExpanded(false)
+    setActive('')
+  }
+
   return (
     <Fragment>
       <button
         className={`${css['c-collapsible-container-header']} ${addClass}`}
-        aria-expanded={false}
-        // data-element={`body${index}`}
+        aria-expanded={Expanded}
+        onClick={toggleAccordion}
         {...props}
       >
         <Icon nameIcon={item.dataIcon} />
         <p> {item.title}</p>
         <Icon nameIcon={stateIcon} />
       </button>
-      <div className={css['c-collapsible-container-body']} id={`body${index}`}>
+      <div
+        className={`${css['c-collapsible-container-body']} ${active}`}
+        id={`body${index}`}
+      >
         <p>{item.text}</p>
       </div>
     </Fragment>

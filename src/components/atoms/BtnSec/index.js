@@ -47,7 +47,6 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
         role='tab'
         className={`${css.BtnSec} ${addClass}`}
         aria-selected={selected}
-        disabled={disabled}
         onClick={handleClick}
         onFocus={handleFocus}
         {...other}
