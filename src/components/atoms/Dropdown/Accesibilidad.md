@@ -41,7 +41,7 @@
 
 ## Consideraciones de estilo
 
-- Para agregar un estilo al menú al haber recibido clic (o a alguno de sus elementos internos) usar el selector `.DropdownCont[aria-expanded="true"]`
+- Para agregar un estilo al botón de menú al haber recibido clic (o a alguno de sus elementos internos) usar el selector `.DropdownCont[aria-expanded="true"]`
 
   ```css
   .DropdownCont[aria-expanded='true'] {
