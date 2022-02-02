@@ -1,7 +1,7 @@
 import React from 'react'
-import css from './Tooltip.module.css'
+import css from './Toggletip.module.css'
 
-export const Tooltip = ({ children, addClass, id, content }) => {
+export const Toggletip = ({ children, addClass, id, content }) => {
   return (
     <div className={`${css.TooltipCont} ${addClass}`}>
       {children}
