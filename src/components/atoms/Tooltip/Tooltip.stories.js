@@ -9,8 +9,8 @@ export default {
 
 // const template = (args) => <Tooltip {...args} />
 
-export const TooltipDefault = () => (
-  <Tooltip label='holis' addClass='prb' id='test' content='Descripción'>
+export const Tooltip = () => (
+  <Tooltip addClass='prb' id='test' content='Descripción'>
     <Button
       styled='secondary'
       hasAriaLabel={false}

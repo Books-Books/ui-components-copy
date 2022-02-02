@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Toggletip } from '.'
-import { Button } from '..'
 
 export default {
   title: 'Atoms/Toggletip',
@@ -9,13 +8,15 @@ export default {
 
 // const template = (args) => <Tooltip {...args} />
 
-export const TooltipDefault = () => (
-  <Toggletip label='holis' addClass='prb' id='test' content='Descripción'>
-    <Button
-      styled='secondary'
-      hasAriaLabel={false}
-      label='Secondary button'
-      aria-labelledby='test'
-    />
-  </Toggletip>
-)
+export const TooltipDefault = (args) => {
+  const instruction = (
+    <Fragment>
+      <p>Contenido del toggletip</p>
+      <p>
+        Se usa para dar información más <em>detallada</em>
+      </p>
+    </Fragment>
+  )
+
+  return <Toggletip content={instruction} />
+}

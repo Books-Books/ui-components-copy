@@ -19,6 +19,7 @@ export const Button = ({
       className={`${base.ColorBase} ${css.ButtonBase} ${addClass}`}
       styled={styled}
       disabled={disabled}
+      type='button'
       aria-label={hasAriaLabel ? `${label}` : ''}
       {...args}
     >
