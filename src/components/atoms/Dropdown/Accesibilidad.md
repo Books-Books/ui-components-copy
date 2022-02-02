@@ -37,6 +37,8 @@
   </Dropdown>
   ```
 
+- **svgHide:** determina si el ícono que está a la derecha de la descripción (el de la flecha hacia abajo) se ve o no. Por defecto es _false_ lo que lo hará visible. Si se cambia a _true_ se esconderá
+
 ## Consideraciones de estilo
 
 - Para agregar un estilo al menú al haber recibido clic (o a alguno de sus elementos internos) usar el selector `.DropdownCont[aria-expanded="true"]`
