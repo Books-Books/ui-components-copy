@@ -5,6 +5,16 @@ import { InputControl } from '../../atoms/InputControl/index'
 import css from './Table.module.css'
 
 function Table({ headLabels, bodyContent }) {
+  const rowContent = (item) => {
+    return item.campoType === 'icon' ? (
+      <Icon nameIcon={item.label} />
+    ) : item.campoType === 'input' ? (
+      <InputControl type={item.type} label={item.label} name={item.name} />
+    ) : (
+      <span>{item.label}</span>
+    )
+  }
+
   return (
     <table className={`${css.table} ui-table`}>
       <thead>
@@ -13,6 +23,7 @@ function Table({ headLabels, bodyContent }) {
             <th
               key={index}
               className={`${css['table-content-item']} ui-table-content-item`}
+              scope='col'
             >
               {item}
             </th>
@@ -26,22 +37,24 @@ function Table({ headLabels, bodyContent }) {
             className={`${css['table-content']} ${css['body-content']} ui-body-content`}
           >
             {content.map((item, i) => (
-              <td
-                key={`item${i}`}
-                className={`${css['table-content-item']} ui-body-content-item`}
-              >
-                {item.campoType === 'icon' ? (
-                  <Icon nameIcon={item.label} />
-                ) : item.campoType === 'input' ? (
-                  <InputControl
-                    type={item.type}
-                    label={item.label}
-                    name={item.name}
-                  />
+              <>
+                {item.isRowHeader ? (
+                  <th
+                    key={`item${i}`}
+                    className={`${css['table-content-item']} ui-body-content-item`}
+                    scope='row'
+                  >
+                    {rowContent(item)}
+                  </th>
                 ) : (
-                  <span>{item.label}</span>
+                  <td
+                    key={`item${i}`}
+                    className={`${css['table-content-item']} ui-body-content-item`}
+                  >
+                    {rowContent(item)}
+                  </td>
                 )}
-              </td>
+              </>
             ))}
           </tr>
         ))}

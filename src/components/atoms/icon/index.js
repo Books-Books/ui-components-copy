@@ -4,7 +4,7 @@ import css from './Icon.module.css'
 
 export const Icon = ({ nameIcon, addClass, ...args }) => {
   return (
-    <i className={`${css.Icon} ${addClass}`} {...args}>
+    <i aria-hidden='true' className={`${css.Icon} ${addClass}`} {...args}>
       {nameIcon}
     </i>
   )

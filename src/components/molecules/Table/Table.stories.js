@@ -15,7 +15,8 @@ BaseTable.args = {
     [
       {
         campoType: 'default',
-        label: 'Cell a1'
+        label: 'Cell a1',
+        isRowHeader: true
       },
       {
         campoType: 'default',
@@ -29,7 +30,8 @@ BaseTable.args = {
     [
       {
         campoType: 'default',
-        label: 'Cell b1'
+        label: 'Cell b1',
+        isRowHeader: true
       },
       {
         campoType: 'default',
@@ -43,7 +45,8 @@ BaseTable.args = {
     [
       {
         campoType: 'default',
-        label: 'Cell c1'
+        label: 'Cell c1',
+        isRowHeader: true
       },
       {
         campoType: 'default',
