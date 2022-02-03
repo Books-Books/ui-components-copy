@@ -4,7 +4,7 @@ import css from './Toggletip.module.css'
 
 // Toggletip: Crea un tooltip que es activado al hacer clic. Deja de mostrar contenido al dejar de enfocar el elemento o al presionar la tecla Esc
 // Atributos:
-// - content: Código HTML que va dentro del toggletip. Es importante que el contenedor de padre de este sea un div con el atributo className={css['toggletip-content']}
+// - content: Código HTML que va dentro del toggletip.
 
 export const Toggletip = ({ content }) => {
   const [toggletipContent, SetToggletipContent] = useState('')
