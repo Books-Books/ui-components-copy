@@ -37,12 +37,14 @@ InputFile.args = {
   type: 'file',
   label: 'Upload file',
   icon: 'upload',
-  addClass: 'prb'
+  addClass: 'prb',
+  id: 'file-1'
 }
 
 export const InputColor = Template.bind({})
 InputColor.args = {
   type: 'color',
   label: 'Select Color',
-  icon: 'palette'
+  icon: 'palette',
+  id: 'color-1'
 }

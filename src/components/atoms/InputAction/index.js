@@ -1,33 +1,41 @@
 import _uniqueId from 'lodash/uniqueId'
 import PropTypes from 'prop-types'
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import base from '../../utilities/style/Base.module.css'
-import { Icon } from '../icon'
 import css from './InputAction.module.css'
 
-export const InputAction = ({
-  type,
-  styled,
-  label,
-  icon,
-  addClass,
-  ...args
-}) => {
-  const [Value, SetValue] = useState('')
+export const InputAction = ({ type, styled, label, addClass, ...args }) => {
   const id = _uniqueId('ui-')
 
-  function handleChage({ target }) {
-    switch (type) {
-      case 'file':
-        SetValue(target.files[0].name)
-        break
-      case 'color':
-        SetValue(target.value)
-        break
-      default:
-        break
-    }
-  }
+  const uploadIcon = (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='48'
+      height='48'
+      viewBox='0 0 24 24'
+      aria-hidden='true'
+      focusable='false'
+      className='svg-icon'
+    >
+      <path fill='none' d='M0 0h24v24H0z'></path>
+      <path d='M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z'></path>
+    </svg>
+  )
+
+  const colorIcon = (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='48'
+      height='48'
+      viewBox='0 0 20 20'
+      aria-hidden='true'
+      focusable='false'
+      className='svg-icon'
+    >
+      <path fill='none' d='M0 0H20V20H0z'></path>
+      <path d='M10 2c-4.41 0-8 3.59-8 8s3.59 8 8 8c1.1 0 2-.9 2-2 0-.49-.18-.96-.51-1.34a.445.445 0 01-.1-.26c0-.22.18-.4.4-.4h1.42c2.65 0 4.8-2.15 4.8-4.8C18 5.23 14.41 2 10 2zm-4.5 8.75a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5-3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm4 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5 3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z'></path>
+    </svg>
+  )
 
   return (
     <Fragment>
@@ -41,19 +49,11 @@ export const InputAction = ({
           className={css.InputAction}
           type={type}
           id={id}
-          onInput={handleChage}
+          // onInput={handleChage}
         />
-        <Icon nameIcon={icon} />
+        {type === 'color' ? colorIcon : uploadIcon}
         {label !== '' ? <span>{label}</span> : <Fragment />}
       </label>
-      {Value !== '' && (
-        <p
-          className={css.TextFileName}
-          style={type === 'color' ? { backgroundColor: Value } : {}}
-        >
-          {Value}
-        </p>
-      )}
     </Fragment>
   )
 }
