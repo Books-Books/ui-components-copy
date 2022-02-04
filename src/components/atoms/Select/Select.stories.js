@@ -36,7 +36,9 @@ const Template = (args) => <Select {...args} />
 export const SelectDefault = Template.bind({})
 
 SelectDefault.args = {
-  addClass: 'prb'
+  addClass: 'prb',
+  label: 'Seleccione la opción',
+  isLabelVisible: true
 }
 
 export const SelectError = Template.bind({})

@@ -1,15 +1,9 @@
+import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Button } from '../../atoms'
 import { Tooltip } from './'
 
-export default {
-  title: 'Atoms/Tooltip',
-  component: Tooltip
-}
-
-// const template = (args) => <Tooltip {...args} />
-
-export const Tooltip = () => (
+storiesOf('Atoms/Tooltip', module).add('Tooltip', () => (
   <Tooltip addClass='prb' id='test' content='Descripción'>
     <Button
       styled='secondary'
@@ -18,4 +12,4 @@ export const Tooltip = () => (
       aria-labelledby='test'
     />
   </Tooltip>
-)
+))
