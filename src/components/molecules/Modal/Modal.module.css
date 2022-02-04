@@ -1,4 +1,5 @@
 .c-modal {
+  position: relative;
   max-width: var(--maxWidthModal);
   margin: auto;
   padding: 2rem;
@@ -21,6 +22,16 @@
   opacity: 0.5;
   z-index: 2;
   display: none;
+}
+
+.c-modal__close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 50%;
+  background: none;
+  border: 0.125rem solid transparent;
+  font-size: 1.3rem;
 }
 
 .overlay--active {
