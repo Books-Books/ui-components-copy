@@ -18,4 +18,4 @@
 ## Consideraciones de estilo
 
 - Es importante mantener la propiedad `pointer-events: none` en los SVG dentro de los botones, de otro modo interfiere con el clic para moverse en el carrusel.
-- al agregar estilo a los botones con el atributo `disabled` **no usar algún tipo de color con transparencia en el fondo** ya que puede hacer difícil verlo para algunos usuarios. En su lugar, mantener tonos de grises y usar la propiedad `pointer: not-allowed` para hacer notorio que no es posible usar el botón.
+- al agregar estilo a los botones con el atributo `disabled` **no usar algún tipo de color con transparencia en el fondo** ya que puede hacer difícil verlo para algunos usuarios. En su lugar, mantener tonos de grises y usar la propiedad `cursor: not-allowed` para hacer notorio que no es posible usar el botón.
