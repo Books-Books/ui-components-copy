@@ -3,7 +3,7 @@ import css from './Carrousel.module.css'
 
 export const Carrousel = (
   { children: childrenProp },
-  { roleDescription = 'Slider' }
+  { roleDescription = 'Slider', type = 'Slide' }
 ) => {
   const [Value, SetValue] = useState(0)
   const refCont = createRef()
@@ -119,7 +119,7 @@ export const Carrousel = (
         </button>
       </div>
       <div class='sr-only' aria-live='polite' aria-atomic='true'>
-        Slide {Value + 1} de {children.length}
+        {type} {Value + 1} de {children.length}
       </div>
     </div>
   )
