@@ -104,7 +104,7 @@ export const Carrousel = (
           onClick={handleClick}
           ref={refPrev}
           disabled
-          aria-label='slide anterior'
+          aria-label={`${type} anterior`}
         >
           {backButton}
         </button>
@@ -113,7 +113,7 @@ export const Carrousel = (
           data-slide='next'
           onClick={handleClick}
           ref={refNext}
-          aria-label='slide siguiente'
+          aria-label={`${type} siguiente`}
         >
           {nextButton}
         </button>
