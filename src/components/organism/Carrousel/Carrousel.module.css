@@ -29,6 +29,10 @@
   margin-top: 0.5em;
 }
 
+.carrouselButtonContainer svg {
+  pointer-events: none;
+}
+
 .carrouselControlPrev,
 .carrouselControlNext {
   display: flex;
@@ -56,6 +60,7 @@
 .carrouselControlNext[disabled] {
   color: rgb(100, 100, 100);
   background-color: rgb(230, 230, 230);
+  cursor: not-allowed;
 }
 
 .carrouselControlNextIcon,
@@ -65,10 +70,4 @@
   height: 20px;
   background: transparent no-repeat center center;
   background-size: 100% 100%;
-}
-
-.carrouselControlPrev[hidden],
-.carrouselControlNext[hidden] {
-  opacity: 0;
-  pointer-events: none;
 }

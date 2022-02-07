@@ -51,7 +51,7 @@ export const Carrousel = (
         getValue = 0
       }
       SetValue(getValue)
-    } else {
+    } else if (dataValue === 'next') {
       getValue++
       if (getValue >= contChild.length - 1) {
         getValue = contChild.length - 1
@@ -118,7 +118,7 @@ export const Carrousel = (
           {nextButton}
         </button>
       </div>
-      <div class='sr-only' aria-live='polite' aria-atomic='true'>
+      <div className='sr-only' aria-live='polite' aria-atomic='true'>
         {type} {Value + 1} de {children.length}
       </div>
     </div>
