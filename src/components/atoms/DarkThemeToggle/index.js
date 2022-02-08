@@ -8,7 +8,6 @@ export const DarkThemeToggle = (addClass = {}) => {
     document.body.classList.remove('light-theme')
     document.body.classList.add('dark-theme')
     setPressed(true)
-    // this.setAttribute('aria-pressed', true)
   }
 
   // Desactiva el modo oscuro
@@ -17,22 +16,7 @@ export const DarkThemeToggle = (addClass = {}) => {
     document.body.classList.remove('dark-theme')
     document.body.classList.add('light-theme')
     setPressed(false)
-    // this.setAttribute('aria-pressed', false)
   }
-
-  // Revisa si el navegador o sistema operativo tiene preferencia del modo oscuro, y de ser el caso, lo activa
-
-  // function setThemePreference() {
-  //   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  //     enableDarkMode()
-  //   } else {
-  //     enableLightMode()
-  //   }
-  // }
-
-  // Activa la función setThemePreference al momento de cargar el sitio
-
-  // document.onload = setThemePreference()
 
   const togglePressed = () => {
     document.body.classList.contains('light-theme')

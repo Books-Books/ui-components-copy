@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
 
 @font-face {
   font-family: 'Material Icons';
@@ -9,27 +10,35 @@
 }
 
 html {
-  font-family: Roboto;
+  /* font-family: Roboto; */
+  font-family: 'Work Sans', sans-serif;
+}
+button {
+  font-family: inherit;
 }
 
 :root {
   /* Base Color */
-  --primaryColorDark: #4aca60;
-  --primaryColor: #9ed83a;
-  --primaryColorLight: #c8e990;
+  --primaryColorDark: #f50e3d;
+  --primaryColor: #f50e3d;
+  --primaryColorLight: #f50e3d;
 
-  --secondaryColorDark: #c29200;
-  --secondaryColor: #f4b800;
-  --secondaryColorLight: #ffd75c;
-  --textColor: #fafafa;
+  --secondaryColorDark: #f2ba01;
+  --secondaryColor: #f2ba01;
+  --secondaryColorLight: #f2ba01;
 
-  --thirdColor: #fdfbf4;
+  --tertiaryColor: #005680;
+  --fourthColor: #ed7203;
+
+  --textColor: #212121;
+
+  --thirdColor: #ffffff;
 
   --bgColorGood: #00b02e;
   --bgColorWrong: #b00020;
 
   --bgColorDisabled: rgb(222, 222, 222);
-  --textColorDisabled: #919191;
+  --textColorDisabled: #bcb8b8;
   --opacityDisabled: 0.5;
 
   --linkColor: #4aca60;

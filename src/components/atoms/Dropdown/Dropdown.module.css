@@ -53,7 +53,7 @@
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  /* border: 1px solid rgba(0, 0, 0, 0.15); */
   border-radius: var(--borderRadiusNav);
 }
 
@@ -89,4 +89,11 @@
   background-color: transparent;
   border: 0;
   text-decoration: none;
+}
+
+svg[hide] {
+  display: none;
+}
+svg[hide='false'] {
+  display: block;
 }
