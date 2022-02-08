@@ -73,16 +73,21 @@ var BtnSec = React.forwardRef(function BtnSec(props, ref) {
     }
   };
 
-  return /*#__PURE__*/React__default.createElement("button", _extends({
-    ref: ref,
+  return /*#__PURE__*/React__default.createElement("li", {
+    role: "presentation"
+  }, /*#__PURE__*/React__default.createElement("a", _extends({
+    href: "#section-" + label,
     role: "tab",
     className: css.BtnSec + " " + addClass,
     "aria-selected": selected,
     disabled: disabled,
     onClick: handleClick,
-    onFocus: handleFocus,
-    tabIndex: selected ? 0 : -1
-  }, other), /*#__PURE__*/React__default.createElement("span", null, label));
+    onFocus: handleFocus
+  }, other), /*#__PURE__*/React__default.createElement("span", {
+    "class": "sr-only"
+  }, "Secci\xF3n ", label), /*#__PURE__*/React__default.createElement("span", {
+    "aria-hidden": "true"
+  }, label)));
 });
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
@@ -1209,22 +1214,25 @@ Icon.defaultProps = {
 
 var css$2 = {"ButtonBase":"_bJEh3"};
 
-var _excluded$2 = ["styled", "label", "icon", "addClass", "disabled"];
+var _excluded$2 = ["styled", "label", "hasAriaLabel", "icon", "addClass", "disabled", "children"];
 var Button = function Button(_ref) {
   var styled = _ref.styled,
       label = _ref.label,
+      hasAriaLabel = _ref.hasAriaLabel,
       icon = _ref.icon,
       addClass = _ref.addClass,
       disabled = _ref.disabled,
+      children = _ref.children,
       args = _objectWithoutPropertiesLoose(_ref, _excluded$2);
 
   return /*#__PURE__*/React__default.createElement("button", _extends({
     className: base.ColorBase + " " + css$2.ButtonBase + " " + addClass,
     styled: styled,
-    disabled: disabled
-  }, args), icon && /*#__PURE__*/React__default.createElement(Icon, {
+    disabled: disabled,
+    "aria-label": hasAriaLabel ? "" + label : ''
+  }, args), children, icon && /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: icon
-  }), label !== '' ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null));
+  }), !hasAriaLabel ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null));
 };
 Button.propTypes = {
   styled: propTypes.oneOf(['primary', 'secondary', 'primary-outline', 'secondary-outline', 'primary-icon', 'secondary-icon', 'primary-icon-outline', 'secondary-icon-outline']),
@@ -1236,7 +1244,8 @@ Button.propTypes = {
 Button.defaultProps = {
   styled: 'primary',
   addClass: '',
-  onClick: undefined
+  onClick: undefined,
+  hasAriaLabel: true
 };
 
 var css$3 = {"c-collapsible-container-header":"_1CW18","c-collapsible-container-body":"_2ygtY"};
@@ -1271,11 +1280,14 @@ AccordionItem.defaultProps = {
   addClass: ''
 };
 
-var css$4 = {"DropdownCont":"_D5DjI","navItem":"_2UAjf","navLink":"_362sV","dropdownMenu":"_jT9p5","dropdownMenu-item":"_2SR1I","dropdownItem":"_1JWTx"};
+var css$4 = {"dropdownContainer":"_fH-Dn","DropdownCont":"_D5DjI","dropdownArrow":"_2SmiC","navItem":"_2UAjf","dropdownMenu":"_jT9p5","dropdownMenu-item":"_2SR1I","navLink":"_362sV","dropdownItem":"_1JWTx"};
 
 var Dropdown = function Dropdown(_ref) {
-  var icon = _ref.icon,
-      childsElem = _ref.children,
+  var _ref$icon = _ref.icon,
+      icon = _ref$icon === void 0 ? '' : _ref$icon,
+      children = _ref.children,
+      _ref$hasAriaLabel = _ref.hasAriaLabel,
+      hasAriaLabel = _ref$hasAriaLabel === void 0 ? false : _ref$hasAriaLabel,
       label = _ref.label,
       addClass = _ref.addClass;
 
@@ -1283,37 +1295,44 @@ var Dropdown = function Dropdown(_ref) {
       Expanded = _useState[0],
       SetExpanded = _useState[1];
 
-  function HandleChange() {
-    SetExpanded(!Expanded);
-  }
+  var toggleMenu = function toggleMenu() {
+    Expanded ? SetExpanded(false) : SetExpanded(true);
+  };
+
+  var closeMenu = function closeMenu() {
+    SetExpanded(false);
+  };
+
+  var closeMenuOnEsc = function closeMenuOnEsc(e) {
+    if ((e.keyCode || e.which) === 27) SetExpanded(false);
+  };
 
   return /*#__PURE__*/React__default.createElement("div", {
+    className: css$4['dropdownContainer']
+  }, /*#__PURE__*/React__default.createElement(Button, {
+    hasAriaLabel: hasAriaLabel,
+    "aria-expanded": Expanded,
     className: css$4.DropdownCont + " " + addClass + " ",
-    onMouseOver: HandleChange,
-    onMouseOut: HandleChange,
-    tabIndex: "1"
-  }, icon && /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: icon
-  }), /*#__PURE__*/React__default.createElement("ul", null, /*#__PURE__*/React__default.createElement("li", {
-    className: css$4.navItem
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: css$4.navLink,
-    id: "navbarDropdown",
-    role: "button",
-    "data-toggle": "dropdown",
-    "aria-haspopup": "true",
-    "aria-expanded": Expanded
-  }, label), /*#__PURE__*/React__default.createElement("div", {
-    className: css$4.dropdownMenu,
-    "aria-labelledby": "navbarDropdown"
-  }, React__default.Children.map(childsElem, function (elem, idx) {
-    return /*#__PURE__*/React__default.createElement("div", {
-      className: css$4['dropdownMenu-item'],
-      key: idx
-    }, elem);
-  })))), /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: Expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
-  }));
+    onClick: toggleMenu,
+    onBlur: closeMenu,
+    onKeyDown: closeMenuOnEsc
+  }, icon, label, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    focusable: "false",
+    "aria-hidden": "true",
+    className: css$4['dropdownArrow']
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M7 10l5 5 5-5z"
+  }))), /*#__PURE__*/React__default.createElement("ul", {
+    role: "list",
+    className: css$4.dropdownMenu
+  }, children));
 };
 Dropdown.defaultProps = {
   icon: 'lock',
@@ -1935,16 +1954,46 @@ var css$9 = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary"
 
 function Multimedia(_ref) {
   var url = _ref.url,
-      label = _ref.label,
+      _ref$label = _ref.label,
+      label = _ref$label === void 0 ? 'Reproducir' : _ref$label,
       addClass = _ref.addClass,
       _ref$isPrimary = _ref.isPrimary,
       isPrimary = _ref$isPrimary === void 0 ? true : _ref$isPrimary;
+  var playButton = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    className: "svg-icon",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M8 5v14l11-7z"
+  }));
+  var pauseButton = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "48px",
+    viewBox: "0 0 24 24",
+    width: "48px",
+    fill: "#000000",
+    "aria-hidden": "true",
+    className: "svg-icon",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+  }));
 
   var _useState = React.useState(false),
       getStateBtnAudio = _useState[0],
       setStateBtnAudio = _useState[1];
 
-  var _useState2 = React.useState('play_arrow'),
+  var _useState2 = React.useState(playButton),
       getIcon = _useState2[0],
       setIcon = _useState2[1];
 
@@ -1954,11 +2003,13 @@ function Multimedia(_ref) {
     if (getStateBtnAudio) {
       setStateBtnAudio(false);
       element.pause();
-      setIcon('play_arrow');
+      setIcon(playButton);
+      label = 'Reproducir';
     } else {
       setStateBtnAudio(true);
       element.play();
-      setIcon('pause');
+      setIcon(pauseButton);
+      label = 'Pausar';
     }
   }
 
@@ -1969,7 +2020,7 @@ function Multimedia(_ref) {
 
   function handleFinish(e) {
     setStateBtnAudio(false);
-    setIcon('play_arrow');
+    setIcon(playButton);
   }
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
@@ -1982,13 +2033,11 @@ function Multimedia(_ref) {
     id: "btnAudio",
     onClick: handlePlayPause,
     className: css$9['c-aud-btn'] + " " + (isPrimary ? '' : css$9['c-aud-secundary']),
-    "data-label": label ? 'string' : ''
+    "aria-label": getStateBtnAudio ? 'Pausar' : 'Reproducir'
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$9['c-aud-btn-content'],
     "data-label": label ? 'string' : ''
-  }, /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: getIcon
-  }), label))));
+  }, getIcon))));
 }
 Multimedia.propTypes = {
   url: propTypes.string.isRequired,
@@ -2027,10 +2076,32 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
       validate = _ref.validate,
       childrenProp = _ref.children,
       _ref$disabled = _ref.disabled,
-      disabled = _ref$disabled === void 0 ? "" : _ref$disabled,
+      disabled = _ref$disabled === void 0 ? '' : _ref$disabled,
       _ref$styledButton = _ref.styledButton,
       styledButton = _ref$styledButton === void 0 ? 'secondary-icon' : _ref$styledButton,
       onRecord = _ref.onRecord;
+  var micOnIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    className: "svg-icon",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    d: "M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15a.998.998 0 00-.98-.85c-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08a6.993 6.993 0 005.91-5.78c.1-.6-.39-1.14-1-1.14z"
+  }));
+  var micOffIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    className: "svg-icon",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    d: "M15 10.6V5c0-1.66-1.34-3-3-3-1.54 0-2.79 1.16-2.96 2.65L15 10.6zm3.08.4c-.41 0-.77.3-.83.71-.05.32-.12.64-.22.93l1.27 1.27c.3-.6.52-1.25.63-1.94a.857.857 0 00-.85-.97zM3.71 3.56a.996.996 0 000 1.41L9 10.27v.43c0 1.19.6 2.32 1.63 2.91.75.43 1.41.44 2.02.31l1.66 1.66c-.71.33-1.5.52-2.31.52-2.54 0-4.88-1.77-5.25-4.39a.839.839 0 00-.83-.71c-.52 0-.92.46-.85.97.46 2.96 2.96 5.3 5.93 5.75V20c0 .55.45 1 1 1s1-.45 1-1v-2.28a7.13 7.13 0 002.55-.9l3.49 3.49a.996.996 0 101.41-1.41L5.12 3.56a.996.996 0 00-1.41 0z"
+  }));
 
   var _useState = React.useState('record'),
       action = _useState[0],
@@ -2081,7 +2152,7 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
       transcript.forEach(function (element) {
         strText += element[0].transcript;
       });
-      console.log("DESDE UI", strText);
+      console.log('DESDE UI', strText);
       setdata && setdata(strText);
     }
 
@@ -2104,21 +2175,22 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(Button, {
     type: "button",
     onClick: runSpeechRecognition,
-    icon: action === 'record' ? 'mic' : 'mic_off',
-    label: "",
+    label: action === 'record' ? 'Realizar grabación' : 'Detener grabación',
     disabled: disabled,
-    styled: styledButton
-  }), children && children);
+    styled: styledButton,
+    hasAriaLabel: true
+  }, action === 'record' ? micOnIcon : micOffIcon), children && children);
 };
 
 var css$b = {"section":"_Nahni","fadeInDown":"_BDs2n"};
 
-var _excluded$8 = ["children", "value", "index", "addClass"];
+var _excluded$8 = ["children", "value", "index", "label", "addClass"];
 
 var Section = function Section(_ref) {
   var children = _ref.children,
       value = _ref.value,
       index = _ref.index,
+      label = _ref.label,
       addClass = _ref.addClass,
       other = _objectWithoutPropertiesLoose(_ref, _excluded$8);
 
@@ -2127,8 +2199,11 @@ var Section = function Section(_ref) {
     role: "tabpanel",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
-    "aria-labelledby": "simple-tab-" + index
-  }, other), value === index && /*#__PURE__*/React__default.createElement("article", null, children));
+    "aria-labelledby": "simple-tab-" + label
+  }, other), /*#__PURE__*/React__default.createElement("h2", {
+    "class": "sr-only",
+    id: "simple-tab-" + label
+  }, "Secci\xF3n ", label), children);
 };
 
 var css$c = {"SelectStyle":"_2NS2Z","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5"};
@@ -2359,6 +2434,61 @@ function Video(_ref) {
   var url = _ref.url,
       width = _ref.width,
       addClass = _ref.addClass;
+  var playIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    className: "svg-icon",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M8 5v14l11-7z"
+  }));
+  var pauseIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "48px",
+    viewBox: "0 0 24 24",
+    width: "48px",
+    fill: "#000000",
+    "aria-hidden": "true",
+    className: "svg-icon",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+  }));
+  var fullscreenIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    focusable: "false",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0H24V24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M21 11L21 3 13 3 16.29 6.29 6.29 16.29 3 13 3 21 11 21 7.71 17.71 17.71 7.71z"
+  }));
+  var closeFullScreenIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    focusable: "false",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0H24V24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M22 3.41L16.71 8.7 20 12h-8V4l3.29 3.29L20.59 2 22 3.41zM3.41 22l5.29-5.29L12 20v-8H4l3.29 3.29L2 20.59 3.41 22z"
+  }));
 
   var _useState = React.useState('00:00'),
       getDurationVideo = _useState[0],
@@ -2370,14 +2500,16 @@ function Video(_ref) {
 
   var _useState3 = React.useState({
     state: false,
-    icon: 'play_arrow'
+    icon: playIcon,
+    label: 'Reproducir video'
   }),
       getstateVideoPlay = _useState3[0],
       setStateVideoPlay = _useState3[1];
 
   var _useState4 = React.useState({
     state: false,
-    icon: 'open_in_full'
+    icon: fullscreenIcon,
+    label: 'Ver en pantalla completa'
   }),
       getStateScreen = _useState4[0],
       setStateScreen = _useState4[1];
@@ -2399,13 +2531,15 @@ function Video(_ref) {
       $video.pause();
       setStateVideoPlay({
         state: false,
-        icon: 'play_arrow'
+        icon: playIcon,
+        label: 'Reproducir video'
       });
     } else {
       $video.play();
       setStateVideoPlay({
         state: true,
-        icon: 'pause'
+        icon: pauseIcon,
+        label: 'Pausar video'
       });
     }
   }
@@ -2417,7 +2551,8 @@ function Video(_ref) {
     if (!isInFullScreen) {
       setStateScreen({
         state: true,
-        icon: 'close_fullscreen'
+        icon: closeFullScreenIcon,
+        label: 'Salir de pantalla completa'
       });
 
       if (docElm.requestFullscreen) {
@@ -2432,7 +2567,8 @@ function Video(_ref) {
     } else {
       setStateScreen({
         state: false,
-        icon: 'open_in_full'
+        icon: fullscreenIcon,
+        label: 'Ver en pantalla completa'
       });
 
       if (document.exitFullscreen) {
@@ -2531,28 +2667,43 @@ function Video(_ref) {
     onChange: handleBarProgress
   }))), /*#__PURE__*/React__default.createElement("div", {
     className: css$h['c-vid-controls']
-  }, /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: getstateVideoPlay.icon,
+  }, /*#__PURE__*/React__default.createElement("button", {
+    "aria-label": getstateVideoPlay.label,
     onClick: handlePlay
-  }), /*#__PURE__*/React__default.createElement("p", {
+  }, getstateVideoPlay.icon), /*#__PURE__*/React__default.createElement("p", {
     className: css$h['c-vid-controls-text']
   }, /*#__PURE__*/React__default.createElement("span", null, getCurrentTiem), " / ", /*#__PURE__*/React__default.createElement("span", null, getDurationVideo)), /*#__PURE__*/React__default.createElement("div", {
     className: css$h['c-vid-controls-volumn']
-  }, /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: "volume_up"
-  }), /*#__PURE__*/React__default.createElement("input", {
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"
+  })), /*#__PURE__*/React__default.createElement("label", {
+    "for": "volumeControl"
+  }, /*#__PURE__*/React__default.createElement("span", {
+    "class": "sr-only"
+  }, "Controlar volumen"), /*#__PURE__*/React__default.createElement("input", {
     className: css$h['c-vid-controls-volumn-item'],
     ref: refVolumn,
+    id: "volumeControl",
     type: "range",
     min: "0",
     max: "1",
     step: "any",
     value: getValueVolum,
     onChange: handleVolumn
-  })), /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: getStateScreen.icon,
+  }))), /*#__PURE__*/React__default.createElement("button", {
+    "aria-label": getStateScreen.label,
     onClick: hanldeFullScrenn
-  })));
+  }, getStateScreen.icon)));
 }
 Video.propTypes = {
   url: propTypes.string.isRequired,
@@ -2662,8 +2813,10 @@ AsideNav.defaultProps = {
 
 var css$j = {"AsideSection":"_37BVW"};
 
-var _excluded$c = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
+var _excluded$c = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value", "labelName"];
 var AsideSection = React.forwardRef(function Tabs(props, ref) {
+  var _React$createElement;
+
   var ariaLabel = props['aria-label'],
       ariaLabelledBy = props['aria-labelledby'],
       childrenProp = props.children,
@@ -2674,6 +2827,8 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
       orientation = _props$orientation === void 0 ? 'horizontal' : _props$orientation,
       selectionFollowsFocus = props.selectionFollowsFocus,
       value = props.value,
+      _props$labelName = props.labelName,
+      labelName = _props$labelName === void 0 ? 'Lista de secciones' : _props$labelName,
       other = _objectWithoutPropertiesLoose(props, _excluded$c);
 
   var valueToIndex = new Map();
@@ -2740,7 +2895,10 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
     ref: ref
   }, other), /*#__PURE__*/React__default.createElement("div", {
     ref: tabsRef
-  }, /*#__PURE__*/React__default.createElement("div", {
+  }, /*#__PURE__*/React__default.createElement("h2", {
+    "class": "sr-only",
+    id: "section-list"
+  }, labelName), /*#__PURE__*/React__default.createElement("ul", (_React$createElement = {
     className: css$j.AsideSection,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
@@ -2748,7 +2906,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
     onKeyDown: handleKeyDown,
     ref: tabListRef,
     role: "tablist"
-  }, children)));
+  }, _React$createElement["aria-labelledby"] = "section-list", _React$createElement), children)));
 });
 
 var css$k = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
@@ -3370,7 +3528,7 @@ var Col = function Col(props) {
 var css$t = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
-  return /*#__PURE__*/React__default.createElement("section", _extends({
+  return /*#__PURE__*/React__default.createElement("div", _extends({
     className: css$t.row
   }, props));
 };
