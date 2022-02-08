@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '../Button'
+import { Icon } from '../icon'
 import css from './Dropdown.module.css'
 
 export const Dropdown = ({
@@ -43,7 +44,7 @@ export const Dropdown = ({
         onBlur={closeMenu}
         onKeyDown={closeMenuOnEsc}
       >
-        {icon}
+        <Icon nameIcon={icon} />
         {label}
         <svg
           xmlns='http://www.w3.org/2000/svg'
