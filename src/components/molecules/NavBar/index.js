@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react'
+import { DarkThemeToggle } from '../../atoms/DarkThemeToggle'
 import { Dropdown } from '../../atoms/Dropdown'
 import { Icon } from '../../atoms/icon'
 import { Link } from '../../atoms/Link'
@@ -296,14 +297,7 @@ export function NavBar({
                 </ul>
               </li>
               <li className={cssNavbar['styleLi']}>
-                <button
-                  name='nightMode'
-                  type='button'
-                  className={cssNavbar['styleBtns']}
-                >
-                  <Icon nameIcon='mode_night' />
-                  <span className={`${cssNavbar.spanText}`}>Modo Nocturno</span>
-                </button>
+                <DarkThemeToggle addClass={cssNavbar['styleBtns']} />
               </li>
             </Dropdown>
           </li>
