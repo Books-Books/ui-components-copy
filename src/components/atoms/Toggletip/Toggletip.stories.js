@@ -6,9 +6,7 @@ export default {
   component: Toggletip
 }
 
-// const template = (args) => <Tooltip {...args} />
-
-export const ToggletipDefault = (args) => {
+export const ToggletipDefault = () => {
   const instruction = (
     <Fragment>
       <p>Contenido del toggletip</p>

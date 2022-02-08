@@ -103,7 +103,7 @@ function createCommonjsModule(fn, module) {
  */
 var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?
 Symbol.for("react.suspense_list"):60120,r=b?Symbol.for("react.memo"):60115,t=b?Symbol.for("react.lazy"):60116,v=b?Symbol.for("react.block"):60121,w=b?Symbol.for("react.fundamental"):60117,x=b?Symbol.for("react.responder"):60118,y=b?Symbol.for("react.scope"):60119;
-function z(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A(a){return z(a)===m}var AsyncMode=l;var ConcurrentMode=m;var ContextConsumer=k;var ContextProvider=h;var Element=c;var ForwardRef=n;var Fragment=e;var Lazy=t;var Memo=r;var Portal=d;
+function z(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A(a){return z(a)===m}var AsyncMode=l;var ConcurrentMode=m;var ContextConsumer=k;var ContextProvider=h;var Element=c;var ForwardRef=n;var Fragment$1=e;var Lazy=t;var Memo=r;var Portal=d;
 var Profiler=g;var StrictMode=f;var Suspense=p;var isAsyncMode=function(a){return A(a)||z(a)===l};var isConcurrentMode=A;var isContextConsumer=function(a){return z(a)===k};var isContextProvider=function(a){return z(a)===h};var isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===c};var isForwardRef=function(a){return z(a)===n};var isFragment=function(a){return z(a)===e};var isLazy=function(a){return z(a)===t};
 var isMemo=function(a){return z(a)===r};var isPortal=function(a){return z(a)===d};var isProfiler=function(a){return z(a)===g};var isStrictMode=function(a){return z(a)===f};var isSuspense=function(a){return z(a)===p};
 var isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===w||a.$$typeof===x||a.$$typeof===y||a.$$typeof===v)};var typeOf=z;
@@ -115,7 +115,7 @@ var reactIs_production_min = {
 	ContextProvider: ContextProvider,
 	Element: Element,
 	ForwardRef: ForwardRef,
-	Fragment: Fragment,
+	Fragment: Fragment$1,
 	Lazy: Lazy,
 	Memo: Memo,
 	Portal: Portal,
@@ -1199,6 +1199,7 @@ var Icon = function Icon(_ref) {
       args = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
   return /*#__PURE__*/React__default.createElement("i", _extends({
+    "aria-hidden": "true",
     className: css$1.Icon + " " + addClass
   }, args), nameIcon);
 };
@@ -1226,6 +1227,7 @@ var Button = function Button(_ref) {
     className: base.ColorBase + " " + css$2.ButtonBase + " " + addClass,
     styled: styled,
     disabled: disabled,
+    type: "button",
     "aria-label": hasAriaLabel ? "" + label : ''
   }, args), children, icon && /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: icon
@@ -1243,6 +1245,10 @@ Button.defaultProps = {
   addClass: '',
   onClick: undefined,
   hasAriaLabel: true
+};
+
+var DarkThemeToggle = function DarkThemeToggle() {
+  return /*#__PURE__*/React__default.createElement("button", null, "Cambiar a modo oscuro");
 };
 
 var css$3 = {"c-collapsible-container-header":"_1CW18","c-collapsible-container-body":"_2ygtY","active":"_1xv7i","show":"_2moa5"};
@@ -1673,35 +1679,44 @@ var uniqueId_1 = uniqueId;
 
 var css$5 = {"InputAction":"_xB2Ha","LabelStyled":"_1X4kF","TextFileName":"_OaT0I"};
 
-var _excluded$4 = ["type", "styled", "label", "icon", "addClass"];
+var _excluded$4 = ["type", "styled", "label", "addClass"];
 var InputAction = function InputAction(_ref) {
   var type = _ref.type,
       styled = _ref.styled,
       label = _ref.label,
-      icon = _ref.icon,
       addClass = _ref.addClass,
       args = _objectWithoutPropertiesLoose(_ref, _excluded$4);
 
-  var _useState = React.useState(''),
-      Value = _useState[0],
-      SetValue = _useState[1];
-
   var id = uniqueId_1('ui-');
 
-  function handleChage(_ref2) {
-    var target = _ref2.target;
-
-    switch (type) {
-      case 'file':
-        SetValue(target.files[0].name);
-        break;
-
-      case 'color':
-        SetValue(target.value);
-        break;
-    }
-  }
-
+  var uploadIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false",
+    className: "svg-icon"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"
+  }));
+  var colorIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 20 20",
+    "aria-hidden": "true",
+    focusable: "false",
+    className: "svg-icon"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0H20V20H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M10 2c-4.41 0-8 3.59-8 8s3.59 8 8 8c1.1 0 2-.9 2-2 0-.49-.18-.96-.51-1.34a.445.445 0 01-.1-.26c0-.22.18-.4.4-.4h1.42c2.65 0 4.8-2.15 4.8-4.8C18 5.23 14.41 2 10 2zm-4.5 8.75a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5-3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm4 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5 3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"
+  }));
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("label", _extends({
     className: base.ColorBase + " " + css$5.LabelStyled + " " + addClass,
     htmlFor: id,
@@ -1709,16 +1724,8 @@ var InputAction = function InputAction(_ref) {
   }, args), /*#__PURE__*/React__default.createElement("input", {
     className: css$5.InputAction,
     type: type,
-    id: id,
-    onInput: handleChage
-  }), /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: icon
-  }), label !== '' ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null)), Value !== '' && /*#__PURE__*/React__default.createElement("p", {
-    className: css$5.TextFileName,
-    style: type === 'color' ? {
-      backgroundColor: Value
-    } : {}
-  }, Value));
+    id: id
+  }), type === 'color' ? colorIcon : uploadIcon, label !== '' ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null)));
 };
 InputAction.propTypes = {
   styled: propTypes.oneOf(['primary', 'secondary', 'primary-outline', 'secondary-outline', 'primary-icon', 'secondary-icon', 'primary-icon-outline', 'secondary-icon-outline']),
@@ -1735,7 +1742,7 @@ InputAction.defaultProps = {
   onClick: undefined
 };
 
-var css$6 = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckLabel":"_10bHL","CheckBg":"_3z4b_","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
+var css$6 = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckBg":"_3z4b_","CheckLabel":"_10bHL","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
 
 var _excluded$5 = ["type", "label", "stateInput", "name", "addClass"];
 var InputControl = function InputControl(_ref) {
@@ -1807,7 +1814,7 @@ var InputControl = function InputControl(_ref) {
   }, type !== 'toggle' && /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: getStateIcon,
     id: id + "ContentIcon"
-  }))), /*#__PURE__*/React__default.createElement("label", {
+  }))), /*#__PURE__*/React__default.createElement("span", {
     className: css$6.CheckLabel
   }, label));
 };
@@ -1915,7 +1922,7 @@ var InputField = function InputField(_ref) {
     onBlur: handleBlur,
     onChange: handleChange,
     id: id
-  }), type !== 'date' && /*#__PURE__*/React__default.createElement("label", {
+  }), type !== 'date' && /*#__PURE__*/React__default.createElement("span", {
     className: css$7.LabelStyle,
     htmlFor: id,
     inputMode: type,
@@ -2067,20 +2074,24 @@ Multimedia.defaultProps = {
 
 var css$a = {"Panel":"_qaB0F","fadeIn":"_23_l4"};
 
-var _excluded$7 = ["children", "value", "index", "addClass"];
+var _excluded$7 = ["children", "value", "index", "addClass", "roleDescription"];
 var TabPanel = function TabPanel(props) {
   var children = props.children,
       value = props.value,
       index = props.index,
       addClass = props.addClass,
+      _props$roleDescriptio = props.roleDescription,
+      roleDescription = _props$roleDescriptio === void 0 ? 'slide' : _props$roleDescriptio,
       other = _objectWithoutPropertiesLoose(props, _excluded$7);
 
   return /*#__PURE__*/React__default.createElement("div", _extends({
     className: css$a.Panel + " " + addClass,
-    role: "tabpanel",
+    role: "group",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
-    "aria-labelledby": "simple-tab-" + index
+    "aria-roledescription": roleDescription,
+    "aria-labelledby": "simple-tab-" + index,
+    tabIndex: "0"
   }, other), value === index && /*#__PURE__*/React__default.createElement("div", null, children));
 };
 
@@ -2223,14 +2234,17 @@ var Section = function Section(_ref) {
   }, "Secci\xF3n ", label), children);
 };
 
-var css$c = {"SelectStyle":"_2NS2Z","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5"};
+var css$c = {"SelectStyle":"_2NS2Z","SelectContainer":"_3AjWz","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5","SelectLabel":"_1YqCo"};
 
-var _excluded$9 = ["placeholder", "stateInput", "options", "addClass"];
+var _excluded$9 = ["placeholder", "stateInput", "options", "addClass", "isLabelVisible", "label"];
 var Select = function Select(_ref) {
   var placeholder = _ref.placeholder,
       stateInput = _ref.stateInput,
       options = _ref.options,
       addClass = _ref.addClass,
+      _ref$isLabelVisible = _ref.isLabelVisible,
+      isLabelVisible = _ref$isLabelVisible === void 0 ? 'true' : _ref$isLabelVisible,
+      label = _ref.label,
       args = _objectWithoutPropertiesLoose(_ref, _excluded$9);
 
   var name = uniqueId_1('ui-name-');
@@ -2238,7 +2252,12 @@ var Select = function Select(_ref) {
   return /*#__PURE__*/React__default.createElement("label", _extends({
     className: css$c.SelectWrapper + " " + addClass,
     "data-state": stateInput
-  }, args), /*#__PURE__*/React__default.createElement("select", {
+  }, args), /*#__PURE__*/React__default.createElement("span", {
+    className: css$c['SelectLabel'] + " " + (isLabelVisible ? '' : 'sr-only')
+  }, label), /*#__PURE__*/React__default.createElement("div", {
+    className: css$c['SelectContainer'],
+    "data-state": stateInput
+  }, /*#__PURE__*/React__default.createElement("select", {
     defaultValue: "",
     name: name,
     className: css$c.SelectStyle,
@@ -2256,7 +2275,7 @@ var Select = function Select(_ref) {
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "arrow_drop_down"
-  })));
+  }))));
 };
 Select.propTypes = {
   placeholder: propTypes.string.isRequired,
@@ -2267,7 +2286,9 @@ Select.propTypes = {
 Select.defaultProps = {
   placeholder: 'Choose option',
   options: ['Option 1', 'option 2'],
-  addClass: ''
+  addClass: '',
+  isLabelVisible: false,
+  label: 'Selecciona la opción'
 };
 
 var css$d = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
@@ -2377,7 +2398,11 @@ Text.defaultProps = {
 var css$f = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
 
 var Textarea = function Textarea(_ref) {
-  var placeholder = _ref.placeholder,
+  var id = _ref.id,
+      placeholder = _ref.placeholder,
+      label = _ref.label,
+      _ref$isLabelVisible = _ref.isLabelVisible,
+      isLabelVisible = _ref$isLabelVisible === void 0 ? false : _ref$isLabelVisible,
       rows = _ref.rows,
       maxWords = _ref.maxWords,
       addClass = _ref.addClass;
@@ -2404,13 +2429,18 @@ var Textarea = function Textarea(_ref) {
 
   return /*#__PURE__*/React__default.createElement("div", {
     className: css$f.TextareaCont + " " + addClass
-  }, /*#__PURE__*/React__default.createElement("textarea", {
+  }, /*#__PURE__*/React__default.createElement("label", {
+    "for": id
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: isLabelVisible ? '' : 'sr-only'
+  }, label), /*#__PURE__*/React__default.createElement("textarea", {
     className: css$f.TextareaItem,
     rows: rows,
     placeholder: placeholder,
     onKeyPress: HandleChange,
-    maxLength: MaxLength
-  }), maxWords && /*#__PURE__*/React__default.createElement("span", {
+    maxLength: MaxLength,
+    id: id
+  })), maxWords && /*#__PURE__*/React__default.createElement("span", {
     className: css$f.CountCont
   }, " ", Count + " / " + maxWords, " "));
 };
@@ -2426,26 +2456,67 @@ Textarea.defaultProps = {
   addClass: ''
 };
 
-var css$g = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
+var css$g = {"toggletip-container":"_3Z4HX","toggletip-icon":"_hQ4M-","toggletip-content":"_2SzZ3"};
+
+var Toggletip = function Toggletip(_ref) {
+  var content = _ref.content;
+
+  var _useState = React.useState(''),
+      toggletipContent = _useState[0],
+      SetToggletipContent = _useState[1];
+
+  var changeToggletipContent = function changeToggletipContent() {
+    toggletipContent == '' ? SetToggletipContent(
+    /*#__PURE__*/
+    React__default.createElement("div", {
+      className: css$g['toggletip-content']
+    }, content)) : SetToggletipContent('');
+  };
+
+  var emptyToggletipContent = function emptyToggletipContent() {
+    SetToggletipContent('');
+  };
+
+  var emptyToggletipContentOnEsc = function emptyToggletipContentOnEsc(e) {
+    if ((e.keyCode || e.which) === 27) SetToggletipContent('');
+  };
+
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: css$g['toggletip-container']
+  }, /*#__PURE__*/React__default.createElement(Button, {
+    hasAriaLabel: "false",
+    styled: "primary-icon",
+    label: "",
+    onClick: changeToggletipContent,
+    onBlur: emptyToggletipContent,
+    onKeyDown: emptyToggletipContentOnEsc
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: css$g['toggletip-icon'],
+    "aria-hidden": "true"
+  }, "i"), /*#__PURE__*/React__default.createElement("span", {
+    "class": "sr-only"
+  }, "M\xE1s informaci\xF3n")), /*#__PURE__*/React__default.createElement("div", {
+    role: "status"
+  }, toggletipContent));
+};
+
+var css$h = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
 
 var Tooltip = function Tooltip(_ref) {
   var children = _ref.children,
-      label = _ref.label,
-      addClass = _ref.addClass;
+      addClass = _ref.addClass,
+      id = _ref.id,
+      content = _ref.content;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$g.TooltipCont + " " + addClass
+    className: css$h.TooltipCont + " " + addClass
   }, children, /*#__PURE__*/React__default.createElement("div", {
-    className: css$g.TooltipItem
-  }, label));
-};
-Tooltip.propTypes = {
-  addClass: propTypes.string
-};
-Tooltip.defaultProps = {
-  addClass: ''
+    role: "tooltip",
+    className: css$h.TooltipItem,
+    id: id
+  }, content));
 };
 
-var css$h = {"c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress-content":"_29s-a","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
+var css$i = {"c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress-content":"_29s-a","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
 
 function Video(_ref) {
   var url = _ref.url,
@@ -2659,7 +2730,7 @@ function Video(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$h['c-vid'] + " " + addClass,
+    className: css$i['c-vid'] + " " + addClass,
     ref: refCont,
     style: {
       maxWidth: width,
@@ -2674,24 +2745,24 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("source", {
     src: url
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$h['progress-content']
+    className: css$i['progress-content']
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgress,
-    className: css$h.progress,
+    className: css$i.progress,
     onClick: handleProcessControl
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgressBar,
-    className: css$h['progress-bar'],
+    className: css$i['progress-bar'],
     onChange: handleBarProgress
   }))), /*#__PURE__*/React__default.createElement("div", {
-    className: css$h['c-vid-controls']
+    className: css$i['c-vid-controls']
   }, /*#__PURE__*/React__default.createElement("button", {
     "aria-label": getstateVideoPlay.label,
     onClick: handlePlay
   }, getstateVideoPlay.icon), /*#__PURE__*/React__default.createElement("p", {
-    className: css$h['c-vid-controls-text']
+    className: css$i['c-vid-controls-text']
   }, /*#__PURE__*/React__default.createElement("span", null, getCurrentTiem), " / ", /*#__PURE__*/React__default.createElement("span", null, getDurationVideo)), /*#__PURE__*/React__default.createElement("div", {
-    className: css$h['c-vid-controls-volumn']
+    className: css$i['c-vid-controls-volumn']
   }, /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "48",
@@ -2709,7 +2780,7 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("span", {
     "class": "sr-only"
   }, "Controlar volumen"), /*#__PURE__*/React__default.createElement("input", {
-    className: css$h['c-vid-controls-volumn-item'],
+    className: css$i['c-vid-controls-volumn-item'],
     ref: refVolumn,
     id: "volumeControl",
     type: "range",
@@ -2733,7 +2804,7 @@ Video.defaultProps = {
   addClass: ''
 };
 
-var css$i = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
+var css$j = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
 
 var AsideNav = function AsideNav(_ref) {
   var children = _ref.children,
@@ -2757,10 +2828,10 @@ var AsideNav = function AsideNav(_ref) {
     function locationAside() {
       if (location === 'right') {
         setLocationAside('aside--active--right');
-        $aside.classList.add(css$i['position-right']);
+        $aside.classList.add(css$j['position-right']);
       } else {
         setLocationAside('aside--active--left');
-        $aside.classList.add(css$i['position-left']);
+        $aside.classList.add(css$j['position-left']);
       }
     }
 
@@ -2769,12 +2840,12 @@ var AsideNav = function AsideNav(_ref) {
 
   function stateAside(elementModal, elementOverlay) {
     if (getStateAside) {
-      elementModal.classList.remove(css$i[getLocationAside]);
-      elementOverlay.classList.remove(css$i['overlay--active']);
+      elementModal.classList.remove(css$j[getLocationAside]);
+      elementOverlay.classList.remove(css$j['overlay--active']);
       setStateAside(false);
     } else {
-      elementModal.classList.add(css$i[getLocationAside]);
-      elementOverlay.classList.add(css$i['overlay--active']);
+      elementModal.classList.add(css$j[getLocationAside]);
+      elementOverlay.classList.add(css$j['overlay--active']);
       setStateAside(true);
     }
   }
@@ -2787,11 +2858,11 @@ var AsideNav = function AsideNav(_ref) {
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$i['c-overlay'] + " ui-overlay",
+    className: css$j['c-overlay'] + " ui-overlay",
     id: "overlay"
   }), /*#__PURE__*/React__default.createElement("div", {
     ref: refModal,
-    className: css$i['c-side'] + " ui-aside",
+    className: css$j['c-side'] + " ui-aside",
     id: "aside"
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "close",
@@ -2800,10 +2871,10 @@ var AsideNav = function AsideNav(_ref) {
       cursor: 'pointer'
     }
   }), children || /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("h2", null, content.title), /*#__PURE__*/React__default.createElement("ul", {
-    className: css$i['c-side-nav'] + " ui-aside-nav"
+    className: css$j['c-side-nav'] + " ui-aside-nav"
   }, content.list.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$i['c-side-nav-item'] + " ui-aside-nav-item",
+      className: css$j['c-side-nav-item'] + " ui-aside-nav-item",
       key: index
     }, item);
   })))), /*#__PURE__*/React__default.createElement(Button, {
@@ -2830,7 +2901,7 @@ AsideNav.defaultProps = {
   location: 'left'
 };
 
-var css$j = {"AsideSection":"_37BVW"};
+var css$k = {"AsideSection":"_37BVW"};
 
 var _excluded$c = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value", "labelName"];
 var AsideSection = React.forwardRef(function Tabs(props, ref) {
@@ -2918,7 +2989,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
     "class": "sr-only",
     id: "section-list"
   }, labelName), /*#__PURE__*/React__default.createElement("ul", (_React$createElement = {
-    className: css$j.AsideSection,
+    className: css$k.AsideSection,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -2928,7 +2999,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
   }, _React$createElement["aria-labelledby"] = "section-list", _React$createElement), children)));
 });
 
-var css$k = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
+var css$l = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
 
 var Card = function Card(_ref) {
   var width = _ref.width,
@@ -2937,23 +3008,23 @@ var Card = function Card(_ref) {
       supportingText = _ref.supportingText,
       buttons = _ref.buttons;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$k['c-card'] + " ui-card",
+    className: css$l['c-card'] + " ui-card",
     style: {
       width: width
     }
   }, image.state ? /*#__PURE__*/React__default.createElement("figure", {
-    className: css$k['c-card-image'] + " ui-card-img"
+    className: css$l['c-card-image'] + " ui-card-img"
   }, /*#__PURE__*/React__default.createElement("img", {
     src: image.url,
     alt: image.alt
   })) : /*#__PURE__*/React__default.createElement(React.Fragment, null), /*#__PURE__*/React__default.createElement("div", {
-    className: css$k['c-card-container'] + " ui-card-container"
+    className: css$l['c-card-container'] + " ui-card-container"
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-title"
   }, /*#__PURE__*/React__default.createElement("h3", null, content.title), /*#__PURE__*/React__default.createElement("p", {
-    className: css$k['u-text'] + " ui-text"
+    className: css$l['u-text'] + " ui-text"
   }, content.text)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("p", {
-    className: css$k['u-text'] + " ui-text-two"
+    className: css$l['u-text'] + " ui-text-two"
   }, supportingText)), buttons.state ? /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-buttons"
   }, /*#__PURE__*/React__default.createElement(Button, {
@@ -2987,7 +3058,7 @@ Card.defaultProps = {
   }
 };
 
-var css$l = {"c-collapsible":"_3W_Aj"};
+var css$m = {"c-collapsible":"_3W_Aj"};
 
 var Accordion = function Accordion(_ref) {
   var content = _ref.content,
@@ -3006,13 +3077,13 @@ var Accordion = function Accordion(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("ul", {
-    className: css$l['c-collapsible'] + " ui-collapsible",
+    className: css$m['c-collapsible'] + " ui-collapsible",
     style: {
       width: width
     }
   }, content.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$l['c-collapsible-container'] + " ui-collapsible-container",
+      className: css$m['c-collapsible-container'] + " ui-collapsible-container",
       key: index,
       style: style
     }, /*#__PURE__*/React__default.createElement(AccordionItem, {
@@ -3063,7 +3134,7 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
-var css$m = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","overlay--active":"_20Zpv","modal--active":"_2MLWh"};
+var css$n = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh"};
 
 var Modal = function Modal(_ref) {
   var children = _ref.children,
@@ -3077,17 +3148,37 @@ var Modal = function Modal(_ref) {
 
   var refModal = React.createRef();
   var refOverlay = React.createRef();
+  var modalIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    className: "svg-icon",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"
+  }));
 
   function stateModal(elementModal, elementOverlay) {
     if (getModal) {
-      elementModal.classList.remove(css$m['modal--active']);
-      elementOverlay.classList.remove(css$m['overlay--active']);
+      elementModal.classList.remove(css$n['modal--active']);
+      elementOverlay.classList.remove(css$n['overlay--active']);
       setModal(false);
     } else {
-      elementModal.classList.add(css$m['modal--active']);
-      elementOverlay.classList.add(css$m['overlay--active']);
+      elementModal.classList.add(css$n['modal--active']);
+      elementOverlay.classList.add(css$n['overlay--active']);
       setModal(true);
     }
+  }
+
+  function closeModal(elementModal, elementOverlay) {
+    elementModal.classList.remove(css$n['modal--active']);
+    elementOverlay.classList.remove(css$n['overlay--active']);
+    setModal(false);
   }
 
   function handleModal() {
@@ -3096,27 +3187,51 @@ var Modal = function Modal(_ref) {
     stateModal($modal, $overlay);
   }
 
-  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
-    ref: refOverlay,
-    className: css$m['c-modal-overlay'] + " ui-modal-overlay",
-    id: "overlay"
+  function closeModalOnEsc(e) {
+    if ((e.keyCode || e.which) === 27) {
+      var $modal = refModal.current;
+      var $overlay = refOverlay.current;
+      closeModal($modal, $overlay);
+    }
+  }
+
+  React.useEffect(function () {
+    if (setModal) {
+      document.addEventListener('keydown', closeModalOnEsc);
+    } else {
+      document.removeEventListener('keydown', closeModalOnEsc, false);
+    }
+  }, [getModal]);
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(Button, {
+    label: dataButton.label,
+    styled: dataButton.styled,
+    onClick: handleModal,
+    icon: modalIcon,
+    hasAriaLabel: dataButton.hasAriaLabel
   }), /*#__PURE__*/React__default.createElement("div", {
+    ref: refOverlay,
+    className: css$n['c-modal-overlay'] + " ui-modal-overlay",
+    id: "overlay",
+    onClick: handleModal
+  }), /*#__PURE__*/React__default.createElement("div", {
+    role: "dialog",
     ref: refModal,
-    className: css$m['c-modal'] + " ui-modal",
+    className: css$n['c-modal'] + " ui-modal",
     id: "modal"
-  }, /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: "close",
+  }, children || /*#__PURE__*/React__default.createElement("div", {
+    className: "ui-modal-content"
+  }, /*#__PURE__*/React__default.createElement("h3", null, " ", title, " "), /*#__PURE__*/React__default.createElement("p", null, " ", text, " ")), /*#__PURE__*/React__default.createElement("button", {
+    className: "" + css$n['c-modal__close-button'],
     onClick: handleModal,
     style: {
       cursor: 'pointer'
-    }
-  }), children || /*#__PURE__*/React__default.createElement("div", {
-    className: "ui-modal-content"
-  }, /*#__PURE__*/React__default.createElement("h3", null, " ", title, " "), /*#__PURE__*/React__default.createElement("p", null, " ", text, " "))), /*#__PURE__*/React__default.createElement(Button, {
-    label: dataButton.label,
-    styled: dataButton.styled,
-    onClick: handleModal
-  }));
+    },
+    onKeyDown: closeModalOnEsc
+  }, /*#__PURE__*/React__default.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7"), /*#__PURE__*/React__default.createElement("span", {
+    className: "sr-only"
+  }, "Cerrar modal"))));
 };
 Modal.propTypes = {
   title: propTypes.string,
@@ -3133,35 +3248,45 @@ Modal.defaultProps = {
   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!'
 };
 
-var css$n = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
+var css$o = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
 
 function Table(_ref) {
   var headLabels = _ref.headLabels,
       bodyContent = _ref.bodyContent;
+
+  var rowContent = function rowContent(item) {
+    return item.campoType === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
+      nameIcon: item.label
+    }) : item.campoType === 'input' ? /*#__PURE__*/React__default.createElement(InputControl, {
+      type: item.type,
+      label: item.label,
+      name: item.name
+    }) : /*#__PURE__*/React__default.createElement("span", null, item.label);
+  };
+
   return /*#__PURE__*/React__default.createElement("table", {
-    className: css$n.table + " ui-table"
+    className: css$o.table + " ui-table"
   }, /*#__PURE__*/React__default.createElement("thead", null, /*#__PURE__*/React__default.createElement("tr", {
-    className: css$n['table-content'] + " ui-table-content"
+    className: css$o['table-content'] + " ui-table-content"
   }, headLabels.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("th", {
       key: index,
-      className: css$n['table-content-item'] + " ui-table-content-item"
+      className: css$o['table-content-item'] + " ui-table-content-item",
+      scope: "col"
     }, item);
   }))), /*#__PURE__*/React__default.createElement("tbody", null, bodyContent.map(function (content, index) {
     return /*#__PURE__*/React__default.createElement("tr", {
       key: "content" + index,
-      className: css$n['table-content'] + " " + css$n['body-content'] + " ui-body-content"
+      className: css$o['table-content'] + " " + css$o['body-content'] + " ui-body-content"
     }, content.map(function (item, i) {
-      return /*#__PURE__*/React__default.createElement("td", {
+      return /*#__PURE__*/React__default.createElement(Fragment, null, item.isRowHeader ? /*#__PURE__*/React__default.createElement("th", {
         key: "item" + i,
-        className: css$n['table-content-item'] + " ui-body-content-item"
-      }, item.campoType === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
-        nameIcon: item.label
-      }) : item.campoType === 'input' ? /*#__PURE__*/React__default.createElement(InputControl, {
-        type: item.type,
-        label: item.label,
-        name: item.name
-      }) : /*#__PURE__*/React__default.createElement("span", null, item.label));
+        className: css$o['table-content-item'] + " ui-body-content-item",
+        scope: "row"
+      }, rowContent(item)) : /*#__PURE__*/React__default.createElement("td", {
+        key: "item" + i,
+        className: css$o['table-content-item'] + " ui-body-content-item"
+      }, rowContent(item)));
     }));
   })));
 }
@@ -3174,7 +3299,7 @@ Table.defaultProps = {
   bodyContent: [['Cell a1', 'Cell a2'], ['Cell b2', 'Cell b2']]
 };
 
-var css$o = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
+var css$p = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
 
 function TableGrid(_ref) {
   var headContent = _ref.headContent,
@@ -3182,27 +3307,27 @@ function TableGrid(_ref) {
       gridColumn = _ref.gridColumn;
   console.log(bodyContent);
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$o['c-scroll'] + " ui-scroll"
+    className: css$p['c-scroll'] + " ui-scroll"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$o['c-gridTable'] + " ui-gridTable"
+    className: css$p['c-gridTable'] + " ui-gridTable"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$o['c-gridTable-head'] + " ui-gridTable-head",
+    className: css$p['c-gridTable-head'] + " ui-gridTable-head",
     style: gridColumn
   }, headContent.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("div", {
-      className: css$o['c-gridTable-head-item'] + " ui-gridTable-head-item",
+      className: css$p['c-gridTable-head-item'] + " ui-gridTable-head-item",
       key: "head-" + index
     }, item.type === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
       nameIcon: item.label,
       addClass: item.addClass
     }) : /*#__PURE__*/React__default.createElement("span", null, item.label));
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$o['c-gridTable-body'] + " ui-gridTable-body",
+    className: css$p['c-gridTable-body'] + " ui-gridTable-body",
     style: gridColumn
   }, bodyContent.map(function (data) {
     return data.map(function (buttom, index) {
       return /*#__PURE__*/React__default.createElement("div", {
-        className: css$o['c-gridTable-body-item'] + " ui-gridTable-body-item",
+        className: css$p['c-gridTable-body-item'] + " ui-gridTable-body-item",
         key: "body-" + index
       }, buttom);
     });
@@ -3217,7 +3342,7 @@ TableGrid.defaultProps = {
   bodyContent: []
 };
 
-var css$p = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
+var css$q = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
 
 var _excluded$d = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
 var Tabs = React.forwardRef(function Tabs(props, ref) {
@@ -3294,12 +3419,12 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   };
 
   return /*#__PURE__*/React.createElement(Component, _extends({
-    className: css$p.TabsCont + " ui-Tabs-cont",
+    className: css$q.TabsCont + " ui-Tabs-cont",
     ref: ref
   }, other), /*#__PURE__*/React.createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/React.createElement("div", {
-    className: css$p.TabsArea + " ui-tabs-area",
+    className: css$q.TabsArea + " ui-tabs-area",
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -3309,10 +3434,14 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   }, children)));
 });
 
-var css$q = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
+var css$r = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselButtonContainer":"_DZmRD","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
 
-var Carrousel = function Carrousel(_ref) {
+var Carrousel = function Carrousel(_ref, _ref2) {
   var childrenProp = _ref.children;
+  var _ref2$roleDescription = _ref2.roleDescription,
+      roleDescription = _ref2$roleDescription === void 0 ? 'Slider' : _ref2$roleDescription,
+      _ref2$type = _ref2.type,
+      type = _ref2$type === void 0 ? 'Slide' : _ref2$type;
 
   var _useState = React.useState(0),
       Value = _useState[0],
@@ -3322,9 +3451,37 @@ var Carrousel = function Carrousel(_ref) {
   var refPrev = React.createRef();
   var refNext = React.createRef();
   var childIndex = 0;
+  var backButton = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false",
+    className: "svg-icon"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+  }));
+  var nextButton = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false",
+    className: "svg-icon"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+  }));
 
-  function handleClick(_ref2) {
-    var target = _ref2.target;
+  function handleClick(_ref3) {
+    var target = _ref3.target;
     var dataValue = target.dataset.slide;
     var contChild = [].concat(refCont.current.children);
     var getValue = Value;
@@ -3337,7 +3494,7 @@ var Carrousel = function Carrousel(_ref) {
       }
 
       SetValue(getValue);
-    } else {
+    } else if (dataValue === 'next') {
       getValue++;
 
       if (getValue >= contChild.length - 1) {
@@ -3348,12 +3505,12 @@ var Carrousel = function Carrousel(_ref) {
     }
 
     if (getValue === 0) {
-      refPrev.current.setAttribute('hidden', 'true');
+      refPrev.current.setAttribute('disabled', 'true');
     } else if (getValue === contChild.length - 1) {
-      refNext.current.setAttribute('hidden', 'true');
+      refNext.current.setAttribute('disabled', 'true');
     } else {
-      refPrev.current.removeAttribute('hidden');
-      refNext.current.removeAttribute('hidden');
+      refPrev.current.removeAttribute('disabled');
+      refNext.current.removeAttribute('disabled');
     }
   }
 
@@ -3371,30 +3528,36 @@ var Carrousel = function Carrousel(_ref) {
   });
   return /*#__PURE__*/React__default.createElement("div", {
     id: "carouselExampleControls",
-    className: css$q.carrousel + " " + css$q.slide + " iu-slider",
+    className: css$r.carrousel + " " + css$r.slide + " iu-slider",
     "data-ride": "carousel"
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refCont,
-    className: css$q.carrouselInner + " ui-carrusel-inner"
-  }, children), /*#__PURE__*/React__default.createElement("button", {
-    className: css$q.carrouselControlPrev + " ui-carrusel-control-prev",
+    className: css$r.carrouselInner + " ui-carrusel-inner",
+    role: "group",
+    "aria-roledescription": roleDescription
+  }, children), /*#__PURE__*/React__default.createElement("div", {
+    className: "" + css$r.carrouselButtonContainer
+  }, /*#__PURE__*/React__default.createElement("button", {
+    className: css$r.carrouselControlPrev + " ui-carrusel-control-prev",
     "data-slide": "prev",
     onClick: handleClick,
     ref: refPrev,
-    hidden: true
-  }, /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: "keyboard_arrow_left"
-  })), /*#__PURE__*/React__default.createElement("button", {
-    className: css$q.carrouselControlNext + " ui-carrusel-control-next",
+    disabled: true,
+    "aria-label": type + " anterior"
+  }, backButton), /*#__PURE__*/React__default.createElement("button", {
+    className: css$r.carrouselControlNext + " ui-carrusel-control-next",
     "data-slide": "next",
     onClick: handleClick,
-    ref: refNext
-  }, /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: "keyboard_arrow_right"
-  })));
+    ref: refNext,
+    "aria-label": type + " siguiente"
+  }, nextButton)), /*#__PURE__*/React__default.createElement("div", {
+    className: "sr-only",
+    "aria-live": "polite",
+    "aria-atomic": "true"
+  }, type, " ", Value + 1, " de ", children.length));
 };
 
-var css$r = {"Section":"_2biAj"};
+var css$s = {"Section":"_2biAj"};
 
 var _excluded$e = ["children", "tabs"];
 
@@ -3425,7 +3588,7 @@ var PanelSection = function PanelSection(_ref) {
     });
   });
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$r.Section
+    className: css$s.Section
   }, others), /*#__PURE__*/React__default.createElement(AsideSection, {
     value: value,
     onChange: handleChange
@@ -3490,19 +3653,19 @@ PanelTabs.defaultProps = {
   }]
 };
 
-var css$s = {"col":"_1QLy6"};
+var css$t = {"col":"_1QLy6"};
 
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$s.col
+    className: css$t.col
   }, props));
 };
 
-var css$t = {"row":"_7DQjb"};
+var css$u = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$t.row
+    className: css$u.row
   }, props));
 };
 
@@ -3515,6 +3678,7 @@ exports.Button = Button;
 exports.Card = Card;
 exports.Carrousel = Carrousel;
 exports.Col = Col;
+exports.DarkThemeToggle = DarkThemeToggle;
 exports.Dropdown = Dropdown;
 exports.Graphics = Graphics;
 exports.Icon = Icon;
@@ -3537,6 +3701,7 @@ exports.TableGrid = TableGrid;
 exports.Tabs = Tabs;
 exports.Text = Text;
 exports.Textarea = Textarea;
+exports.Toggletip = Toggletip;
 exports.Tooltip = Tooltip;
 exports.Video = Video;
 //# sourceMappingURL=index.js.map
