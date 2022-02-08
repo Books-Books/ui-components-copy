@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '../Button'
 import css from './Dropdown.module.css'
 
@@ -7,21 +7,31 @@ export const Dropdown = ({
   children,
   hasAriaLabel = false,
   label,
-  addClass
+  addClass,
+  svgHide,
+  ulClass,
+  isExpanded = false, // props que utilizamos en el UseEffect para cambiar el estado desplegable
+  fnMenuExpanded // funcion que retornamos desde el componente NavBar para reiniciar el estado de isExpanded
 }) => {
-  const [Expanded, SetExpanded] = useState(false)
+  let [Expanded, SetExpanded] = useState(false)
 
   const toggleMenu = () => {
     Expanded ? SetExpanded(false) : SetExpanded(true)
   }
 
-  const closeMenu = () => {
-    SetExpanded(false)
+  const closeMenu = (e) => {
+    if (e.relatedTarget === null) {
+      SetExpanded(false)
+      typeof fnMenuExpanded === 'function' && fnMenuExpanded(false)
+    }
   }
-
   const closeMenuOnEsc = (e) => {
     if ((e.keyCode || e.which) === 27) SetExpanded(false)
   }
+
+  useEffect(() => {
+    SetExpanded(isExpanded)
+  }, [isExpanded])
 
   return (
     <div className={css['dropdownContainer']}>
@@ -43,6 +53,7 @@ export const Dropdown = ({
           focusable='false'
           aria-hidden='true'
           className={css['dropdownArrow']}
+          hide={svgHide}
         >
           <path fill='none' d='M0 0h24v24H0z'></path>
           <path d='M7 10l5 5 5-5z'></path>
@@ -70,7 +81,11 @@ export const Dropdown = ({
           <path d='M7 10l5 5 5-5z'></path>
         </svg>
       </button> */}
-      <ul role='list' className={css.dropdownMenu}>
+      <ul
+        role='list'
+        className={`${css.dropdownMenu} ${ulClass}`}
+        onBlur={closeMenu}
+      >
         {children}
       </ul>
     </div>
