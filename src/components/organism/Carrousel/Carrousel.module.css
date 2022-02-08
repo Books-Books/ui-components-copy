@@ -20,58 +20,54 @@
 }
 
 .carrouselItem[data-state='active'] {
-    display: block;
+  display: block;
+}
+
+.carrouselButtonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.5em;
+}
+
+.carrouselButtonContainer svg {
+  pointer-events: none;
 }
 
 .carrouselControlPrev,
 .carrouselControlNext {
-  position: absolute;
-  top: 0;
-  bottom: 0;
   display: flex;
   margin: auto;
   align-items: center;
   justify-content: center;
   width: 50px;
   color: var(--textColor);
-  background-color:  var(--primaryColor);
-  transition: opacity .5s ease;
-  border: none;
+  background-color: var(--primaryColorDark);
+  transition: opacity 0.5s ease;
   text-align: center;
-  opacity: 0.5;
   max-height: 50px;
   cursor: pointer;
   border-radius: 5px;
-}
-.carrouselControlPrev i,
-.carrouselControlNext i{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    margin: 0;
-    pointer-events: none;
+  border: 2px solid transparent;
 }
 
-.carrouselControlPrev:hover,
-.carrouselControlNext:hover{
-    opacity: 1;
-}
-.carrouselControlNext {
-  right: 0;
+.carrouselControlPrev:focus,
+.carrouselControlNext:focus {
+  outline: 0.1875rem solid var(--primaryColorDark);
+  outline-offset: 0.1875rem;
 }
 
-.carrouselControlNextIcon, .carrouselControlNextIcon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: transparent no-repeat center center;
-    background-size: 100% 100%;
+.carrouselControlPrev[disabled],
+.carrouselControlNext[disabled] {
+  color: rgb(100, 100, 100);
+  background-color: rgb(230, 230, 230);
+  cursor: not-allowed;
 }
 
-.carrouselControlPrev[hidden],
-.carrouselControlNext[hidden]{
-  display: none;
+.carrouselControlNextIcon,
+.carrouselControlNextIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
 }

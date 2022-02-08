@@ -12,5 +12,8 @@ const template = (args) => <Textarea {...args} />
 export const TextareaDefault = template.bind({})
 TextareaDefault.args = {
   maxWords: '10',
-  addClass: 'prb'
+  addClass: 'prb',
+  label: 'Escribe aquí',
+  id: 'test',
+  isLabelVisible: true
 }

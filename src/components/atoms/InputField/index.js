@@ -80,7 +80,7 @@ export const InputField = ({
         id={id}
       />
       {type !== 'date' && (
-        <label
+        <span
           className={css.LabelStyle}
           htmlFor={id}
           inputMode={type}
@@ -88,7 +88,7 @@ export const InputField = ({
           state-input={styledInput}
         >
           {label}
-        </label>
+        </span>
       )}
     </label>
   )

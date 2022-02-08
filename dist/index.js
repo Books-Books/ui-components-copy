@@ -41,9 +41,7 @@ var css = {"BtnSec":"_2eAZu"};
 
 var _excluded = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"];
 var BtnSec = React.forwardRef(function BtnSec(props, ref) {
-  var _props$disabled = props.disabled,
-      disabled = _props$disabled === void 0 ? false : _props$disabled,
-      label = props.label,
+  var label = props.label,
       onChange = props.onChange,
       onClick = props.onClick,
       onFocus = props.onFocus,
@@ -80,7 +78,6 @@ var BtnSec = React.forwardRef(function BtnSec(props, ref) {
     role: "tab",
     className: css.BtnSec + " " + addClass,
     "aria-selected": selected,
-    disabled: disabled,
     onClick: handleClick,
     onFocus: handleFocus
   }, other), /*#__PURE__*/React__default.createElement("span", {
@@ -106,7 +103,7 @@ function createCommonjsModule(fn, module) {
  */
 var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?
 Symbol.for("react.suspense_list"):60120,r=b?Symbol.for("react.memo"):60115,t=b?Symbol.for("react.lazy"):60116,v=b?Symbol.for("react.block"):60121,w=b?Symbol.for("react.fundamental"):60117,x=b?Symbol.for("react.responder"):60118,y=b?Symbol.for("react.scope"):60119;
-function z(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A(a){return z(a)===m}var AsyncMode=l;var ConcurrentMode=m;var ContextConsumer=k;var ContextProvider=h;var Element=c;var ForwardRef=n;var Fragment=e;var Lazy=t;var Memo=r;var Portal=d;
+function z(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A(a){return z(a)===m}var AsyncMode=l;var ConcurrentMode=m;var ContextConsumer=k;var ContextProvider=h;var Element=c;var ForwardRef=n;var Fragment$1=e;var Lazy=t;var Memo=r;var Portal=d;
 var Profiler=g;var StrictMode=f;var Suspense=p;var isAsyncMode=function(a){return A(a)||z(a)===l};var isConcurrentMode=A;var isContextConsumer=function(a){return z(a)===k};var isContextProvider=function(a){return z(a)===h};var isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===c};var isForwardRef=function(a){return z(a)===n};var isFragment=function(a){return z(a)===e};var isLazy=function(a){return z(a)===t};
 var isMemo=function(a){return z(a)===r};var isPortal=function(a){return z(a)===d};var isProfiler=function(a){return z(a)===g};var isStrictMode=function(a){return z(a)===f};var isSuspense=function(a){return z(a)===p};
 var isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===w||a.$$typeof===x||a.$$typeof===y||a.$$typeof===v)};var typeOf=z;
@@ -118,7 +115,7 @@ var reactIs_production_min = {
 	ContextProvider: ContextProvider,
 	Element: Element,
 	ForwardRef: ForwardRef,
-	Fragment: Fragment,
+	Fragment: Fragment$1,
 	Lazy: Lazy,
 	Memo: Memo,
 	Portal: Portal,
@@ -1202,6 +1199,7 @@ var Icon = function Icon(_ref) {
       args = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
   return /*#__PURE__*/React__default.createElement("i", _extends({
+    "aria-hidden": "true",
     className: css$1.Icon + " " + addClass
   }, args), nameIcon);
 };
@@ -1229,6 +1227,7 @@ var Button = function Button(_ref) {
     className: base.ColorBase + " " + css$2.ButtonBase + " " + addClass,
     styled: styled,
     disabled: disabled,
+    type: "button",
     "aria-label": hasAriaLabel ? "" + label : ''
   }, args), children, icon && /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: icon
@@ -1248,7 +1247,7 @@ Button.defaultProps = {
   hasAriaLabel: true
 };
 
-var css$3 = {"c-collapsible-container-header":"_1CW18","c-collapsible-container-body":"_2ygtY"};
+var css$3 = {"c-collapsible-container-header":"_1CW18","c-collapsible-container-body":"_2ygtY","active":"_1xv7i","show":"_2moa5"};
 
 var _excluded$3 = ["item", "index", "stateIcon", "addClass"];
 function AccordionItem(_ref) {
@@ -1258,14 +1257,34 @@ function AccordionItem(_ref) {
       addClass = _ref.addClass,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
 
-  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$3['c-collapsible-container-header'] + " " + addClass
+  var _useState = React.useState(false),
+      Expanded = _useState[0],
+      SetExpanded = _useState[1];
+
+  var _useState2 = React.useState(''),
+      active = _useState2[0],
+      setActive = _useState2[1];
+
+  var toggleAccordion = function toggleAccordion() {
+    Expanded ? SetExpanded(false) : SetExpanded(true);
+
+    if (active === '') {
+      setActive(css$3['active']);
+    } else {
+      setActive('');
+    }
+  };
+
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("button", _extends({
+    className: css$3['c-collapsible-container-header'] + " " + addClass,
+    "aria-expanded": Expanded,
+    onClick: toggleAccordion
   }, props), /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: item.dataIcon
   }), /*#__PURE__*/React__default.createElement("p", null, " ", item.title), /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: stateIcon
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$3['c-collapsible-container-body'],
+    className: css$3['c-collapsible-container-body'] + " " + active,
     id: "body" + index
   }, /*#__PURE__*/React__default.createElement("p", null, item.text)));
 }
@@ -1289,7 +1308,12 @@ var Dropdown = function Dropdown(_ref) {
       _ref$hasAriaLabel = _ref.hasAriaLabel,
       hasAriaLabel = _ref$hasAriaLabel === void 0 ? false : _ref$hasAriaLabel,
       label = _ref.label,
-      addClass = _ref.addClass;
+      addClass = _ref.addClass,
+      svgHide = _ref.svgHide,
+      ulClass = _ref.ulClass,
+      _ref$isExpanded = _ref.isExpanded,
+      isExpanded = _ref$isExpanded === void 0 ? false : _ref$isExpanded,
+      fnMenuExpanded = _ref.fnMenuExpanded;
 
   var _useState = React.useState(false),
       Expanded = _useState[0],
@@ -1299,14 +1323,20 @@ var Dropdown = function Dropdown(_ref) {
     Expanded ? SetExpanded(false) : SetExpanded(true);
   };
 
-  var closeMenu = function closeMenu() {
-    SetExpanded(false);
+  var closeMenu = function closeMenu(e) {
+    if (e.relatedTarget === null) {
+      SetExpanded(false);
+      typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
+    }
   };
 
   var closeMenuOnEsc = function closeMenuOnEsc(e) {
     if ((e.keyCode || e.which) === 27) SetExpanded(false);
   };
 
+  React.useEffect(function () {
+    SetExpanded(isExpanded);
+  }, [isExpanded]);
   return /*#__PURE__*/React__default.createElement("div", {
     className: css$4['dropdownContainer']
   }, /*#__PURE__*/React__default.createElement(Button, {
@@ -1323,7 +1353,8 @@ var Dropdown = function Dropdown(_ref) {
     viewBox: "0 0 24 24",
     focusable: "false",
     "aria-hidden": "true",
-    className: css$4['dropdownArrow']
+    className: css$4['dropdownArrow'],
+    hide: svgHide
   }, /*#__PURE__*/React__default.createElement("path", {
     fill: "none",
     d: "M0 0h24v24H0z"
@@ -1331,7 +1362,8 @@ var Dropdown = function Dropdown(_ref) {
     d: "M7 10l5 5 5-5z"
   }))), /*#__PURE__*/React__default.createElement("ul", {
     role: "list",
-    className: css$4.dropdownMenu
+    className: css$4.dropdownMenu + " " + ulClass,
+    onBlur: closeMenu
   }, children));
 };
 Dropdown.defaultProps = {
@@ -1656,35 +1688,44 @@ var uniqueId_1 = uniqueId;
 
 var css$5 = {"InputAction":"_xB2Ha","LabelStyled":"_1X4kF","TextFileName":"_OaT0I"};
 
-var _excluded$4 = ["type", "styled", "label", "icon", "addClass"];
+var _excluded$4 = ["type", "styled", "label", "addClass"];
 var InputAction = function InputAction(_ref) {
   var type = _ref.type,
       styled = _ref.styled,
       label = _ref.label,
-      icon = _ref.icon,
       addClass = _ref.addClass,
       args = _objectWithoutPropertiesLoose(_ref, _excluded$4);
 
-  var _useState = React.useState(''),
-      Value = _useState[0],
-      SetValue = _useState[1];
-
   var id = uniqueId_1('ui-');
 
-  function handleChage(_ref2) {
-    var target = _ref2.target;
-
-    switch (type) {
-      case 'file':
-        SetValue(target.files[0].name);
-        break;
-
-      case 'color':
-        SetValue(target.value);
-        break;
-    }
-  }
-
+  var uploadIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false",
+    className: "svg-icon"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"
+  }));
+  var colorIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 20 20",
+    "aria-hidden": "true",
+    focusable: "false",
+    className: "svg-icon"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0H20V20H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M10 2c-4.41 0-8 3.59-8 8s3.59 8 8 8c1.1 0 2-.9 2-2 0-.49-.18-.96-.51-1.34a.445.445 0 01-.1-.26c0-.22.18-.4.4-.4h1.42c2.65 0 4.8-2.15 4.8-4.8C18 5.23 14.41 2 10 2zm-4.5 8.75a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5-3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm4 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5 3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"
+  }));
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("label", _extends({
     className: base.ColorBase + " " + css$5.LabelStyled + " " + addClass,
     htmlFor: id,
@@ -1692,16 +1733,8 @@ var InputAction = function InputAction(_ref) {
   }, args), /*#__PURE__*/React__default.createElement("input", {
     className: css$5.InputAction,
     type: type,
-    id: id,
-    onInput: handleChage
-  }), /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: icon
-  }), label !== '' ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null)), Value !== '' && /*#__PURE__*/React__default.createElement("p", {
-    className: css$5.TextFileName,
-    style: type === 'color' ? {
-      backgroundColor: Value
-    } : {}
-  }, Value));
+    id: id
+  }), type === 'color' ? colorIcon : uploadIcon, label !== '' ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null)));
 };
 InputAction.propTypes = {
   styled: propTypes.oneOf(['primary', 'secondary', 'primary-outline', 'secondary-outline', 'primary-icon', 'secondary-icon', 'primary-icon-outline', 'secondary-icon-outline']),
@@ -1718,7 +1751,7 @@ InputAction.defaultProps = {
   onClick: undefined
 };
 
-var css$6 = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckLabel":"_10bHL","CheckBg":"_3z4b_","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
+var css$6 = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckBg":"_3z4b_","CheckLabel":"_10bHL","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
 
 var _excluded$5 = ["type", "label", "stateInput", "name", "addClass"];
 var InputControl = function InputControl(_ref) {
@@ -1790,7 +1823,7 @@ var InputControl = function InputControl(_ref) {
   }, type !== 'toggle' && /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: getStateIcon,
     id: id + "ContentIcon"
-  }))), /*#__PURE__*/React__default.createElement("label", {
+  }))), /*#__PURE__*/React__default.createElement("span", {
     className: css$6.CheckLabel
   }, label));
 };
@@ -1898,7 +1931,7 @@ var InputField = function InputField(_ref) {
     onBlur: handleBlur,
     onChange: handleChange,
     id: id
-  }), type !== 'date' && /*#__PURE__*/React__default.createElement("label", {
+  }), type !== 'date' && /*#__PURE__*/React__default.createElement("span", {
     className: css$7.LabelStyle,
     htmlFor: id,
     inputMode: type,
@@ -2050,20 +2083,24 @@ Multimedia.defaultProps = {
 
 var css$a = {"Panel":"_qaB0F","fadeIn":"_23_l4"};
 
-var _excluded$7 = ["children", "value", "index", "addClass"];
+var _excluded$7 = ["children", "value", "index", "addClass", "roleDescription"];
 var TabPanel = function TabPanel(props) {
   var children = props.children,
       value = props.value,
       index = props.index,
       addClass = props.addClass,
+      _props$roleDescriptio = props.roleDescription,
+      roleDescription = _props$roleDescriptio === void 0 ? 'slide' : _props$roleDescriptio,
       other = _objectWithoutPropertiesLoose(props, _excluded$7);
 
   return /*#__PURE__*/React__default.createElement("div", _extends({
     className: css$a.Panel + " " + addClass,
-    role: "tabpanel",
+    role: "group",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
-    "aria-labelledby": "simple-tab-" + index
+    "aria-roledescription": roleDescription,
+    "aria-labelledby": "simple-tab-" + index,
+    tabIndex: "0"
   }, other), value === index && /*#__PURE__*/React__default.createElement("div", null, children));
 };
 
@@ -2206,14 +2243,17 @@ var Section = function Section(_ref) {
   }, "Secci\xF3n ", label), children);
 };
 
-var css$c = {"SelectStyle":"_2NS2Z","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5"};
+var css$c = {"SelectStyle":"_2NS2Z","SelectContainer":"_3AjWz","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5","SelectLabel":"_1YqCo"};
 
-var _excluded$9 = ["placeholder", "stateInput", "options", "addClass"];
+var _excluded$9 = ["placeholder", "stateInput", "options", "addClass", "isLabelVisible", "label"];
 var Select = function Select(_ref) {
   var placeholder = _ref.placeholder,
       stateInput = _ref.stateInput,
       options = _ref.options,
       addClass = _ref.addClass,
+      _ref$isLabelVisible = _ref.isLabelVisible,
+      isLabelVisible = _ref$isLabelVisible === void 0 ? 'true' : _ref$isLabelVisible,
+      label = _ref.label,
       args = _objectWithoutPropertiesLoose(_ref, _excluded$9);
 
   var name = uniqueId_1('ui-name-');
@@ -2221,7 +2261,12 @@ var Select = function Select(_ref) {
   return /*#__PURE__*/React__default.createElement("label", _extends({
     className: css$c.SelectWrapper + " " + addClass,
     "data-state": stateInput
-  }, args), /*#__PURE__*/React__default.createElement("select", {
+  }, args), /*#__PURE__*/React__default.createElement("span", {
+    className: css$c['SelectLabel'] + " " + (isLabelVisible ? '' : 'sr-only')
+  }, label), /*#__PURE__*/React__default.createElement("div", {
+    className: css$c['SelectContainer'],
+    "data-state": stateInput
+  }, /*#__PURE__*/React__default.createElement("select", {
     defaultValue: "",
     name: name,
     className: css$c.SelectStyle,
@@ -2239,7 +2284,7 @@ var Select = function Select(_ref) {
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "arrow_drop_down"
-  })));
+  }))));
 };
 Select.propTypes = {
   placeholder: propTypes.string.isRequired,
@@ -2250,7 +2295,9 @@ Select.propTypes = {
 Select.defaultProps = {
   placeholder: 'Choose option',
   options: ['Option 1', 'option 2'],
-  addClass: ''
+  addClass: '',
+  isLabelVisible: false,
+  label: 'Selecciona la opción'
 };
 
 var css$d = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
@@ -2360,7 +2407,11 @@ Text.defaultProps = {
 var css$f = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
 
 var Textarea = function Textarea(_ref) {
-  var placeholder = _ref.placeholder,
+  var id = _ref.id,
+      placeholder = _ref.placeholder,
+      label = _ref.label,
+      _ref$isLabelVisible = _ref.isLabelVisible,
+      isLabelVisible = _ref$isLabelVisible === void 0 ? false : _ref$isLabelVisible,
       rows = _ref.rows,
       maxWords = _ref.maxWords,
       addClass = _ref.addClass;
@@ -2387,13 +2438,18 @@ var Textarea = function Textarea(_ref) {
 
   return /*#__PURE__*/React__default.createElement("div", {
     className: css$f.TextareaCont + " " + addClass
-  }, /*#__PURE__*/React__default.createElement("textarea", {
+  }, /*#__PURE__*/React__default.createElement("label", {
+    "for": id
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: isLabelVisible ? '' : 'sr-only'
+  }, label), /*#__PURE__*/React__default.createElement("textarea", {
     className: css$f.TextareaItem,
     rows: rows,
     placeholder: placeholder,
     onKeyPress: HandleChange,
-    maxLength: MaxLength
-  }), maxWords && /*#__PURE__*/React__default.createElement("span", {
+    maxLength: MaxLength,
+    id: id
+  })), maxWords && /*#__PURE__*/React__default.createElement("span", {
     className: css$f.CountCont
   }, " ", Count + " / " + maxWords, " "));
 };
@@ -2409,26 +2465,67 @@ Textarea.defaultProps = {
   addClass: ''
 };
 
-var css$g = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
+var css$g = {"toggletip-container":"_3Z4HX","toggletip-icon":"_hQ4M-","toggletip-content":"_2SzZ3"};
+
+var Toggletip = function Toggletip(_ref) {
+  var content = _ref.content;
+
+  var _useState = React.useState(''),
+      toggletipContent = _useState[0],
+      SetToggletipContent = _useState[1];
+
+  var changeToggletipContent = function changeToggletipContent() {
+    toggletipContent == '' ? SetToggletipContent(
+    /*#__PURE__*/
+    React__default.createElement("div", {
+      className: css$g['toggletip-content']
+    }, content)) : SetToggletipContent('');
+  };
+
+  var emptyToggletipContent = function emptyToggletipContent() {
+    SetToggletipContent('');
+  };
+
+  var emptyToggletipContentOnEsc = function emptyToggletipContentOnEsc(e) {
+    if ((e.keyCode || e.which) === 27) SetToggletipContent('');
+  };
+
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: css$g['toggletip-container']
+  }, /*#__PURE__*/React__default.createElement(Button, {
+    hasAriaLabel: "false",
+    styled: "primary-icon",
+    label: "",
+    onClick: changeToggletipContent,
+    onBlur: emptyToggletipContent,
+    onKeyDown: emptyToggletipContentOnEsc
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: css$g['toggletip-icon'],
+    "aria-hidden": "true"
+  }, "i"), /*#__PURE__*/React__default.createElement("span", {
+    "class": "sr-only"
+  }, "M\xE1s informaci\xF3n")), /*#__PURE__*/React__default.createElement("div", {
+    role: "status"
+  }, toggletipContent));
+};
+
+var css$h = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
 
 var Tooltip = function Tooltip(_ref) {
   var children = _ref.children,
-      label = _ref.label,
-      addClass = _ref.addClass;
+      addClass = _ref.addClass,
+      id = _ref.id,
+      content = _ref.content;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$g.TooltipCont + " " + addClass
+    className: css$h.TooltipCont + " " + addClass
   }, children, /*#__PURE__*/React__default.createElement("div", {
-    className: css$g.TooltipItem
-  }, label));
-};
-Tooltip.propTypes = {
-  addClass: propTypes.string
-};
-Tooltip.defaultProps = {
-  addClass: ''
+    role: "tooltip",
+    className: css$h.TooltipItem,
+    id: id
+  }, content));
 };
 
-var css$h = {"c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress-content":"_29s-a","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
+var css$i = {"c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress-content":"_29s-a","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
 
 function Video(_ref) {
   var url = _ref.url,
@@ -2514,7 +2611,7 @@ function Video(_ref) {
       getStateScreen = _useState4[0],
       setStateScreen = _useState4[1];
 
-  var _useState5 = React.useState(0.23),
+  var _useState5 = React.useState(25),
       getValueVolum = _useState5[0],
       setValueVolumn = _useState5[1];
 
@@ -2636,12 +2733,13 @@ function Video(_ref) {
   function handleVolumn(e) {
     var video = refVideo.current;
     var value = e.target.value;
+    var volume = value / 100;
     setValueVolumn(value);
-    video.volume = getValueVolum;
+    video.volume = volume;
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$h['c-vid'] + " " + addClass,
+    className: css$i['c-vid'] + " " + addClass,
     ref: refCont,
     style: {
       maxWidth: width,
@@ -2656,24 +2754,24 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("source", {
     src: url
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$h['progress-content']
+    className: css$i['progress-content']
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgress,
-    className: css$h.progress,
+    className: css$i.progress,
     onClick: handleProcessControl
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgressBar,
-    className: css$h['progress-bar'],
+    className: css$i['progress-bar'],
     onChange: handleBarProgress
   }))), /*#__PURE__*/React__default.createElement("div", {
-    className: css$h['c-vid-controls']
+    className: css$i['c-vid-controls']
   }, /*#__PURE__*/React__default.createElement("button", {
     "aria-label": getstateVideoPlay.label,
     onClick: handlePlay
   }, getstateVideoPlay.icon), /*#__PURE__*/React__default.createElement("p", {
-    className: css$h['c-vid-controls-text']
+    className: css$i['c-vid-controls-text']
   }, /*#__PURE__*/React__default.createElement("span", null, getCurrentTiem), " / ", /*#__PURE__*/React__default.createElement("span", null, getDurationVideo)), /*#__PURE__*/React__default.createElement("div", {
-    className: css$h['c-vid-controls-volumn']
+    className: css$i['c-vid-controls-volumn']
   }, /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "48",
@@ -2691,15 +2789,16 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("span", {
     "class": "sr-only"
   }, "Controlar volumen"), /*#__PURE__*/React__default.createElement("input", {
-    className: css$h['c-vid-controls-volumn-item'],
+    className: css$i['c-vid-controls-volumn-item'],
     ref: refVolumn,
     id: "volumeControl",
     type: "range",
     min: "0",
-    max: "1",
-    step: "any",
+    max: "100",
+    step: "5",
     value: getValueVolum,
-    onChange: handleVolumn
+    onChange: handleVolumn,
+    "aria-valuetext": getValueVolum + "%"
   }))), /*#__PURE__*/React__default.createElement("button", {
     "aria-label": getStateScreen.label,
     onClick: hanldeFullScrenn
@@ -2714,7 +2813,7 @@ Video.defaultProps = {
   addClass: ''
 };
 
-var css$i = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
+var css$j = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
 
 var AsideNav = function AsideNav(_ref) {
   var children = _ref.children,
@@ -2738,10 +2837,10 @@ var AsideNav = function AsideNav(_ref) {
     function locationAside() {
       if (location === 'right') {
         setLocationAside('aside--active--right');
-        $aside.classList.add(css$i['position-right']);
+        $aside.classList.add(css$j['position-right']);
       } else {
         setLocationAside('aside--active--left');
-        $aside.classList.add(css$i['position-left']);
+        $aside.classList.add(css$j['position-left']);
       }
     }
 
@@ -2750,12 +2849,12 @@ var AsideNav = function AsideNav(_ref) {
 
   function stateAside(elementModal, elementOverlay) {
     if (getStateAside) {
-      elementModal.classList.remove(css$i[getLocationAside]);
-      elementOverlay.classList.remove(css$i['overlay--active']);
+      elementModal.classList.remove(css$j[getLocationAside]);
+      elementOverlay.classList.remove(css$j['overlay--active']);
       setStateAside(false);
     } else {
-      elementModal.classList.add(css$i[getLocationAside]);
-      elementOverlay.classList.add(css$i['overlay--active']);
+      elementModal.classList.add(css$j[getLocationAside]);
+      elementOverlay.classList.add(css$j['overlay--active']);
       setStateAside(true);
     }
   }
@@ -2768,11 +2867,11 @@ var AsideNav = function AsideNav(_ref) {
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$i['c-overlay'] + " ui-overlay",
+    className: css$j['c-overlay'] + " ui-overlay",
     id: "overlay"
   }), /*#__PURE__*/React__default.createElement("div", {
     ref: refModal,
-    className: css$i['c-side'] + " ui-aside",
+    className: css$j['c-side'] + " ui-aside",
     id: "aside"
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "close",
@@ -2781,10 +2880,10 @@ var AsideNav = function AsideNav(_ref) {
       cursor: 'pointer'
     }
   }), children || /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("h2", null, content.title), /*#__PURE__*/React__default.createElement("ul", {
-    className: css$i['c-side-nav'] + " ui-aside-nav"
+    className: css$j['c-side-nav'] + " ui-aside-nav"
   }, content.list.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$i['c-side-nav-item'] + " ui-aside-nav-item",
+      className: css$j['c-side-nav-item'] + " ui-aside-nav-item",
       key: index
     }, item);
   })))), /*#__PURE__*/React__default.createElement(Button, {
@@ -2811,7 +2910,7 @@ AsideNav.defaultProps = {
   location: 'left'
 };
 
-var css$j = {"AsideSection":"_37BVW"};
+var css$k = {"AsideSection":"_37BVW"};
 
 var _excluded$c = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value", "labelName"];
 var AsideSection = React.forwardRef(function Tabs(props, ref) {
@@ -2899,7 +2998,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
     "class": "sr-only",
     id: "section-list"
   }, labelName), /*#__PURE__*/React__default.createElement("ul", (_React$createElement = {
-    className: css$j.AsideSection,
+    className: css$k.AsideSection,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -2909,7 +3008,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
   }, _React$createElement["aria-labelledby"] = "section-list", _React$createElement), children)));
 });
 
-var css$k = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
+var css$l = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
 
 var Card = function Card(_ref) {
   var width = _ref.width,
@@ -2918,23 +3017,23 @@ var Card = function Card(_ref) {
       supportingText = _ref.supportingText,
       buttons = _ref.buttons;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$k['c-card'] + " ui-card",
+    className: css$l['c-card'] + " ui-card",
     style: {
       width: width
     }
   }, image.state ? /*#__PURE__*/React__default.createElement("figure", {
-    className: css$k['c-card-image'] + " ui-card-img"
+    className: css$l['c-card-image'] + " ui-card-img"
   }, /*#__PURE__*/React__default.createElement("img", {
     src: image.url,
     alt: image.alt
   })) : /*#__PURE__*/React__default.createElement(React.Fragment, null), /*#__PURE__*/React__default.createElement("div", {
-    className: css$k['c-card-container'] + " ui-card-container"
+    className: css$l['c-card-container'] + " ui-card-container"
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-title"
   }, /*#__PURE__*/React__default.createElement("h3", null, content.title), /*#__PURE__*/React__default.createElement("p", {
-    className: css$k['u-text'] + " ui-text"
+    className: css$l['u-text'] + " ui-text"
   }, content.text)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("p", {
-    className: css$k['u-text'] + " ui-text-two"
+    className: css$l['u-text'] + " ui-text-two"
   }, supportingText)), buttons.state ? /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-buttons"
   }, /*#__PURE__*/React__default.createElement(Button, {
@@ -2968,7 +3067,7 @@ Card.defaultProps = {
   }
 };
 
-var css$l = {"c-collapsible":"_3W_Aj","block":"_1-o0m","show":"_26Izt"};
+var css$m = {"c-collapsible":"_3W_Aj"};
 
 var Accordion = function Accordion(_ref) {
   var content = _ref.content,
@@ -2976,76 +3075,30 @@ var Accordion = function Accordion(_ref) {
       backgroundColor = _ref.backgroundColor,
       color = _ref.color;
 
-  var _useState = React.useState(null),
-      getStateList = _useState[0],
-      setStateList = _useState[1];
+  var _useState = React.useState(null);
 
   var _useState2 = React.useState(''),
-      getStateIcon = _useState2[0],
-      setStateIcon = _useState2[1];
+      getStateIcon = _useState2[0];
 
   var style = {
     backgroundColor: backgroundColor,
     color: color
   };
 
-  function addAndRemoveClass(element, addClass) {
-    if (addClass) {
-      element.classList.add(css$l.block);
-    } else {
-      element.classList.remove(css$l.block);
-    }
-  }
-
-  function classInElement(element) {
-    element.classList.forEach(function (item) {
-      if (item === css$l.block) {
-        addAndRemoveClass(element, false);
-        setStateIcon('expand_less');
-      } else {
-        addAndRemoveClass(element, true);
-      }
-    });
-  }
-
-  function stateList(element) {
-    if (getStateList) {
-      if (getStateList === element) {
-        classInElement(element);
-      } else {
-        addAndRemoveClass(getStateList, false);
-        addAndRemoveClass(element, true);
-        setStateList(element);
-      }
-    } else {
-      addAndRemoveClass(element, true);
-      setStateList(element);
-    }
-  }
-
-  function handleToggleBody(element) {
-    var $bodyElement = document.querySelector("#" + element);
-    setStateIcon(element);
-    stateList($bodyElement);
-  }
-
   return /*#__PURE__*/React__default.createElement("ul", {
-    className: css$l['c-collapsible'] + " ui-collapsible",
+    className: css$m['c-collapsible'] + " ui-collapsible",
     style: {
       width: width
     }
   }, content.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$l['c-collapsible-container'] + " ui-collapsible-container",
+      className: css$m['c-collapsible-container'] + " ui-collapsible-container",
       key: index,
       style: style
     }, /*#__PURE__*/React__default.createElement(AccordionItem, {
       item: item,
       index: index,
       stateIcon: getStateIcon === "body" + index ? 'expand_less' : 'expand_more',
-      onClick: function onClick() {
-        return handleToggleBody("body" + index);
-      },
       addClass: "prb"
     }));
   }));
@@ -3090,7 +3143,7 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
-var css$m = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","overlay--active":"_20Zpv","modal--active":"_2MLWh"};
+var css$n = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh"};
 
 var Modal = function Modal(_ref) {
   var children = _ref.children,
@@ -3104,17 +3157,37 @@ var Modal = function Modal(_ref) {
 
   var refModal = React.createRef();
   var refOverlay = React.createRef();
+  var modalIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    className: "svg-icon",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"
+  }));
 
   function stateModal(elementModal, elementOverlay) {
     if (getModal) {
-      elementModal.classList.remove(css$m['modal--active']);
-      elementOverlay.classList.remove(css$m['overlay--active']);
+      elementModal.classList.remove(css$n['modal--active']);
+      elementOverlay.classList.remove(css$n['overlay--active']);
       setModal(false);
     } else {
-      elementModal.classList.add(css$m['modal--active']);
-      elementOverlay.classList.add(css$m['overlay--active']);
+      elementModal.classList.add(css$n['modal--active']);
+      elementOverlay.classList.add(css$n['overlay--active']);
       setModal(true);
     }
+  }
+
+  function closeModal(elementModal, elementOverlay) {
+    elementModal.classList.remove(css$n['modal--active']);
+    elementOverlay.classList.remove(css$n['overlay--active']);
+    setModal(false);
   }
 
   function handleModal() {
@@ -3123,27 +3196,51 @@ var Modal = function Modal(_ref) {
     stateModal($modal, $overlay);
   }
 
-  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
-    ref: refOverlay,
-    className: css$m['c-modal-overlay'] + " ui-modal-overlay",
-    id: "overlay"
+  function closeModalOnEsc(e) {
+    if ((e.keyCode || e.which) === 27) {
+      var $modal = refModal.current;
+      var $overlay = refOverlay.current;
+      closeModal($modal, $overlay);
+    }
+  }
+
+  React.useEffect(function () {
+    if (setModal) {
+      document.addEventListener('keydown', closeModalOnEsc);
+    } else {
+      document.removeEventListener('keydown', closeModalOnEsc, false);
+    }
+  }, [getModal]);
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(Button, {
+    label: dataButton.label,
+    styled: dataButton.styled,
+    onClick: handleModal,
+    icon: modalIcon,
+    hasAriaLabel: dataButton.hasAriaLabel
   }), /*#__PURE__*/React__default.createElement("div", {
+    ref: refOverlay,
+    className: css$n['c-modal-overlay'] + " ui-modal-overlay",
+    id: "overlay",
+    onClick: handleModal
+  }), /*#__PURE__*/React__default.createElement("div", {
+    role: "dialog",
     ref: refModal,
-    className: css$m['c-modal'] + " ui-modal",
+    className: css$n['c-modal'] + " ui-modal",
     id: "modal"
-  }, /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: "close",
+  }, children || /*#__PURE__*/React__default.createElement("div", {
+    className: "ui-modal-content"
+  }, /*#__PURE__*/React__default.createElement("h3", null, " ", title, " "), /*#__PURE__*/React__default.createElement("p", null, " ", text, " ")), /*#__PURE__*/React__default.createElement("button", {
+    className: "" + css$n['c-modal__close-button'],
     onClick: handleModal,
     style: {
       cursor: 'pointer'
-    }
-  }), children || /*#__PURE__*/React__default.createElement("div", {
-    className: "ui-modal-content"
-  }, /*#__PURE__*/React__default.createElement("h3", null, " ", title, " "), /*#__PURE__*/React__default.createElement("p", null, " ", text, " "))), /*#__PURE__*/React__default.createElement(Button, {
-    label: dataButton.label,
-    styled: dataButton.styled,
-    onClick: handleModal
-  }));
+    },
+    onKeyDown: closeModalOnEsc
+  }, /*#__PURE__*/React__default.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7"), /*#__PURE__*/React__default.createElement("span", {
+    className: "sr-only"
+  }, "Cerrar modal"))));
 };
 Modal.propTypes = {
   title: propTypes.string,
@@ -3160,35 +3257,531 @@ Modal.defaultProps = {
   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!'
 };
 
-var css$n = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
+var cssNavbar = {"menuContainer":"_1O8g7","ulMenu":"_3GtQQ","styleBtn":"_8TzwT","styleUlMenu":"_1J1dN","styleUlAcc":"_2luFu","styleUlHelp":"_3J7fz","styleLi":"_2FQig","stylelinks":"_1-rcw","styleLink":"_uX2AO","styleNumber":"_6Gdkr","styleSubLi":"_1t9Uz","styleBtns":"_pyjf0","segundoMenu":"_3okIe","positionUlRelative":"_MrthX","spanText":"_o6aML","iconRight":"_pORcv"};
+
+function NavBar(_ref) {
+  var _ref$hrefInicio = _ref.hrefInicio,
+      hrefInicio = _ref$hrefInicio === void 0 ? '#' : _ref$hrefInicio;
+
+  var _useState = React.useState(false),
+      dropdownMenu = _useState[0],
+      setDropdownMenu = _useState[1];
+
+  var _useState2 = React.useState(false),
+      dropdownAcc = _useState2[0],
+      setDropdownAcc = _useState2[1];
+
+  var _useState3 = React.useState(false),
+      dropdownHelp = _useState3[0],
+      setDropdownHelp = _useState3[1];
+
+  var svgMenu = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24"
+  }, ' ', /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0z"
+  }), ' ', /*#__PURE__*/React__default.createElement("path", {
+    d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+  }), ' ');
+  var svgInicio = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "30",
+    height: "30",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"
+  }));
+  var svgAccesibility = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+  }));
+  var svgHelp = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+  }));
+  var content = [{
+    name: 'primero',
+    url: '#'
+  }, {
+    name: 'segundo',
+    url: '#'
+  }, {
+    name: 'tercero',
+    url: '#'
+  }, {
+    name: 'cuarto',
+    url: '#'
+  }, {
+    name: 'quinto',
+    url: '#'
+  }].map(function (enlaces, i) {
+    if (i < 9) {
+      return /*#__PURE__*/React__default.createElement("li", {
+        className: cssNavbar['styleLi']
+      }, /*#__PURE__*/React__default.createElement("a", {
+        href: enlaces.url,
+        className: cssNavbar['stylelinks']
+      }, /*#__PURE__*/React__default.createElement("span", {
+        className: cssNavbar['styleNumber']
+      }, "0" + (i + 1) + ".", " "), enlaces.name));
+    } else {
+      return /*#__PURE__*/React__default.createElement("li", {
+        className: cssNavbar['styleLi']
+      }, /*#__PURE__*/React__default.createElement("a", {
+        href: enlaces.url,
+        className: cssNavbar['stylelinks']
+      }, /*#__PURE__*/React__default.createElement("span", {
+        className: cssNavbar['styleNumber']
+      }, i + 1 + ".", " "), enlaces.name));
+    }
+  });
+
+  var handleClickDropdown = function handleClickDropdown(state, setState) {
+    setDropdownMenu(false);
+    setDropdownAcc(false);
+    setDropdownHelp(false);
+    setState(!state);
+  };
+
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("nav", {
+    className: cssNavbar['menuContainer'],
+    "aria-label": "menu principal"
+  }, /*#__PURE__*/React__default.createElement("ul", {
+    role: "list",
+    className: cssNavbar['ulMenu']
+  }, /*#__PURE__*/React__default.createElement("li", {
+    onClick: function onClick() {
+      handleClickDropdown(dropdownMenu, setDropdownMenu);
+    }
+  }, /*#__PURE__*/React__default.createElement(Dropdown, {
+    label: "Menu",
+    svgHide: "true",
+    icon: svgMenu,
+    addClass: cssNavbar['styleBtn'],
+    ulClass: cssNavbar['styleUlMenu'],
+    isExpanded: dropdownMenu,
+    fnMenuExpanded: setDropdownMenu
+  }, content)), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement(Link, {
+    label: "Inicio",
+    icon: svgInicio,
+    addClass: cssNavbar['styleLink'],
+    href: hrefInicio
+  })), /*#__PURE__*/React__default.createElement("li", {
+    onClick: function onClick() {
+      handleClickDropdown(dropdownAcc, setDropdownAcc);
+    }
+  }, /*#__PURE__*/React__default.createElement(Dropdown, {
+    label: "Accesibilidad",
+    svgHide: "true",
+    icon: svgAccesibility,
+    addClass: cssNavbar['styleBtn'],
+    ulClass: cssNavbar['styleUlAcc'],
+    isExpanded: dropdownAcc,
+    fnMenuExpanded: setDropdownAcc
+  }, /*#__PURE__*/React__default.createElement("li", {
+    className: cssNavbar['styleLi']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    "aria-hidden": "true",
+    className: "Icon_Icon__1siX0 "
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M17 20c-.29 0-.56-.06-.76-.15-.71-.37-1.21-.88-1.71-2.38-.51-1.56-1.47-2.29-2.39-3-.79-.61-1.61-1.24-2.32-2.53C9.29 10.98 9 9.93 9 9c0-2.8 2.2-5 5-5s5 2.2 5 5h2c0-3.93-3.07-7-7-7S7 5.07 7 9c0 1.26.38 2.65 1.07 3.9.91 1.65 1.98 2.48 2.85 3.15.81.62 1.39 1.07 1.71 2.05.6 1.82 1.37 2.84 2.73 3.55A3.999 3.999 0 0021 18h-2c0 1.1-.9 2-2 2zM7.64 2.64L6.22 1.22C4.23 3.21 3 5.96 3 9s1.23 5.79 3.22 7.78l1.41-1.41C6.01 13.74 5 11.49 5 9s1.01-4.74 2.64-6.36zM11.5 9a2.5 2.5 0 005 0 2.5 2.5 0 00-5 0z"
+  }))), /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Asistencia"), /*#__PURE__*/React__default.createElement("span", {
+    "aria-hidden": "true",
+    className: 'Icon_Icon__1siX0' + " " + cssNavbar.iconRight
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    focusable: "false"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+  })))), /*#__PURE__*/React__default.createElement("ul", {
+    className: cssNavbar.segundoMenu + " " + cssNavbar.positionUlRelative
+  }, /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "disableHelp",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Deshabilitar ayuda"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "ActivateInterpreter",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Activar int\xE9rprete"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "activateAudio",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Activar audio"))))), /*#__PURE__*/React__default.createElement("li", {
+    className: cssNavbar['styleLi']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "Icon_Icon__1siX0 "
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M7 16c.55 0 1 .45 1 1 0 1.1-.9 2-2 2-.17 0-.33-.02-.5-.05.31-.55.5-1.21.5-1.95 0-.55.45-1 1-1M18.67 3c-.26 0-.51.1-.71.29L9 12.25 11.75 15l8.96-8.96a.996.996 0 000-1.41l-1.34-1.34c-.2-.2-.45-.29-.7-.29zM7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3z"
+  }))), /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Contraste"), /*#__PURE__*/React__default.createElement("span", {
+    className: 'Icon_Icon__1siX0' + " " + cssNavbar.iconRight
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+  })))), /*#__PURE__*/React__default.createElement("ul", {
+    className: cssNavbar.segundoMenu + " " + cssNavbar.positionUlRelative
+  }, /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "noTheme",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Sin tema"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "noTheme",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Alto contraste"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "noTheme",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Invertir colores"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "noTheme",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Amarillo sobre negro"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "noTheme",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Blanco sobre rojo"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "noTheme",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Verde sobre azul"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "noTheme",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Amarillo sobre azul"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "noTheme",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Blaco sobre negro"))))), /*#__PURE__*/React__default.createElement("li", {
+    className: cssNavbar['styleLi']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "Icon_Icon__1siX0 "
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"
+  }))), /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Tama\xF1o de letra"), /*#__PURE__*/React__default.createElement("span", {
+    className: 'Icon_Icon__1siX0' + " " + cssNavbar.iconRight
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+  })))), /*#__PURE__*/React__default.createElement("ul", {
+    className: cssNavbar.segundoMenu + " " + cssNavbar.positionUlRelative
+  }, /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "fontZise1",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Tama\xF1o de letra 1"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "fontZise2",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Tama\xF1o de letra 2"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "fontZise3",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Tama\xF1o de letra 3"))))), /*#__PURE__*/React__default.createElement("li", {
+    className: cssNavbar['styleLi']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    name: "nightMode",
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "Icon_Icon__1siX0 "
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z"
+  }))), /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Modo Nocturno"))))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("li", {
+    onClick: function onClick() {
+      handleClickDropdown(dropdownHelp, setDropdownHelp);
+    }
+  }, /*#__PURE__*/React__default.createElement(Dropdown, {
+    label: "Ayuda",
+    svgHide: "true",
+    icon: svgHelp,
+    addClass: cssNavbar['styleBtn'],
+    ulClass: cssNavbar['styleUlAcc'],
+    isExpanded: dropdownHelp,
+    fnMenuExpanded: setDropdownHelp
+  }, /*#__PURE__*/React__default.createElement("li", {
+    className: cssNavbar['styleLi']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "Icon_Icon__1siX0 "
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"
+  }))), /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Bibliografia"))), /*#__PURE__*/React__default.createElement("li", {
+    className: cssNavbar['styleLi']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "Icon_Icon__1siX0 "
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"
+  }))), /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Cr\xE9ditos"))), /*#__PURE__*/React__default.createElement("li", {
+    className: cssNavbar['styleLi']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "Icon_Icon__1siX0 "
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0zm0 0h24v24H0V0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M20 7v10H4V7h16m0-2H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2zm0 3h2v2h-2zM8 8h2v2H8zm0 3h2v2H8zm-3 0h2v2H5zm0-3h2v2H5zm3 6h8v2H8zm6-3h2v2h-2zm0-3h2v2h-2zm3 3h2v2h-2zm0-3h2v2h-2z"
+  }))), /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Atajos de teclado"))), /*#__PURE__*/React__default.createElement("li", {
+    className: cssNavbar['styleLi']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "Icon_Icon__1siX0 "
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+  }))), /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Tour"))), /*#__PURE__*/React__default.createElement("li", {
+    className: cssNavbar['styleLi']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "Icon_Icon__1siX0 "
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.488.488 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+  }))), /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Especificaciones t\xE9cnicas")))))))));
+}
+
+var css$o = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
 
 function Table(_ref) {
   var headLabels = _ref.headLabels,
       bodyContent = _ref.bodyContent;
+
+  var rowContent = function rowContent(item) {
+    return item.campoType === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
+      nameIcon: item.label
+    }) : item.campoType === 'input' ? /*#__PURE__*/React__default.createElement(InputControl, {
+      type: item.type,
+      label: item.label,
+      name: item.name
+    }) : /*#__PURE__*/React__default.createElement("span", null, item.label);
+  };
+
   return /*#__PURE__*/React__default.createElement("table", {
-    className: css$n.table + " ui-table"
+    className: css$o.table + " ui-table"
   }, /*#__PURE__*/React__default.createElement("thead", null, /*#__PURE__*/React__default.createElement("tr", {
-    className: css$n['table-content'] + " ui-table-content"
+    className: css$o['table-content'] + " ui-table-content"
   }, headLabels.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("th", {
       key: index,
-      className: css$n['table-content-item'] + " ui-table-content-item"
+      className: css$o['table-content-item'] + " ui-table-content-item",
+      scope: "col"
     }, item);
   }))), /*#__PURE__*/React__default.createElement("tbody", null, bodyContent.map(function (content, index) {
     return /*#__PURE__*/React__default.createElement("tr", {
       key: "content" + index,
-      className: css$n['table-content'] + " " + css$n['body-content'] + " ui-body-content"
+      className: css$o['table-content'] + " " + css$o['body-content'] + " ui-body-content"
     }, content.map(function (item, i) {
-      return /*#__PURE__*/React__default.createElement("td", {
+      return /*#__PURE__*/React__default.createElement(Fragment, null, item.isRowHeader ? /*#__PURE__*/React__default.createElement("th", {
         key: "item" + i,
-        className: css$n['table-content-item'] + " ui-body-content-item"
-      }, item.campoType === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
-        nameIcon: item.label
-      }) : item.campoType === 'input' ? /*#__PURE__*/React__default.createElement(InputControl, {
-        type: item.type,
-        label: item.label,
-        name: item.name
-      }) : /*#__PURE__*/React__default.createElement("span", null, item.label));
+        className: css$o['table-content-item'] + " ui-body-content-item",
+        scope: "row"
+      }, rowContent(item)) : /*#__PURE__*/React__default.createElement("td", {
+        key: "item" + i,
+        className: css$o['table-content-item'] + " ui-body-content-item"
+      }, rowContent(item)));
     }));
   })));
 }
@@ -3201,7 +3794,7 @@ Table.defaultProps = {
   bodyContent: [['Cell a1', 'Cell a2'], ['Cell b2', 'Cell b2']]
 };
 
-var css$o = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
+var css$p = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
 
 function TableGrid(_ref) {
   var headContent = _ref.headContent,
@@ -3209,27 +3802,27 @@ function TableGrid(_ref) {
       gridColumn = _ref.gridColumn;
   console.log(bodyContent);
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$o['c-scroll'] + " ui-scroll"
+    className: css$p['c-scroll'] + " ui-scroll"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$o['c-gridTable'] + " ui-gridTable"
+    className: css$p['c-gridTable'] + " ui-gridTable"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$o['c-gridTable-head'] + " ui-gridTable-head",
+    className: css$p['c-gridTable-head'] + " ui-gridTable-head",
     style: gridColumn
   }, headContent.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("div", {
-      className: css$o['c-gridTable-head-item'] + " ui-gridTable-head-item",
+      className: css$p['c-gridTable-head-item'] + " ui-gridTable-head-item",
       key: "head-" + index
     }, item.type === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
       nameIcon: item.label,
       addClass: item.addClass
     }) : /*#__PURE__*/React__default.createElement("span", null, item.label));
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$o['c-gridTable-body'] + " ui-gridTable-body",
+    className: css$p['c-gridTable-body'] + " ui-gridTable-body",
     style: gridColumn
   }, bodyContent.map(function (data) {
     return data.map(function (buttom, index) {
       return /*#__PURE__*/React__default.createElement("div", {
-        className: css$o['c-gridTable-body-item'] + " ui-gridTable-body-item",
+        className: css$p['c-gridTable-body-item'] + " ui-gridTable-body-item",
         key: "body-" + index
       }, buttom);
     });
@@ -3244,7 +3837,7 @@ TableGrid.defaultProps = {
   bodyContent: []
 };
 
-var css$p = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
+var css$q = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
 
 var _excluded$d = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
 var Tabs = React.forwardRef(function Tabs(props, ref) {
@@ -3321,12 +3914,12 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   };
 
   return /*#__PURE__*/React.createElement(Component, _extends({
-    className: css$p.TabsCont + " ui-Tabs-cont",
+    className: css$q.TabsCont + " ui-Tabs-cont",
     ref: ref
   }, other), /*#__PURE__*/React.createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/React.createElement("div", {
-    className: css$p.TabsArea + " ui-tabs-area",
+    className: css$q.TabsArea + " ui-tabs-area",
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -3336,10 +3929,14 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   }, children)));
 });
 
-var css$q = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
+var css$r = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselButtonContainer":"_DZmRD","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
 
-var Carrousel = function Carrousel(_ref) {
+var Carrousel = function Carrousel(_ref, _ref2) {
   var childrenProp = _ref.children;
+  var _ref2$roleDescription = _ref2.roleDescription,
+      roleDescription = _ref2$roleDescription === void 0 ? 'Slider' : _ref2$roleDescription,
+      _ref2$type = _ref2.type,
+      type = _ref2$type === void 0 ? 'Slide' : _ref2$type;
 
   var _useState = React.useState(0),
       Value = _useState[0],
@@ -3349,9 +3946,37 @@ var Carrousel = function Carrousel(_ref) {
   var refPrev = React.createRef();
   var refNext = React.createRef();
   var childIndex = 0;
+  var backButton = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false",
+    className: "svg-icon"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+  }));
+  var nextButton = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    "aria-hidden": "true",
+    focusable: "false",
+    className: "svg-icon"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+  }));
 
-  function handleClick(_ref2) {
-    var target = _ref2.target;
+  function handleClick(_ref3) {
+    var target = _ref3.target;
     var dataValue = target.dataset.slide;
     var contChild = [].concat(refCont.current.children);
     var getValue = Value;
@@ -3364,7 +3989,7 @@ var Carrousel = function Carrousel(_ref) {
       }
 
       SetValue(getValue);
-    } else {
+    } else if (dataValue === 'next') {
       getValue++;
 
       if (getValue >= contChild.length - 1) {
@@ -3375,12 +4000,12 @@ var Carrousel = function Carrousel(_ref) {
     }
 
     if (getValue === 0) {
-      refPrev.current.setAttribute('hidden', 'true');
+      refPrev.current.setAttribute('disabled', 'true');
     } else if (getValue === contChild.length - 1) {
-      refNext.current.setAttribute('hidden', 'true');
+      refNext.current.setAttribute('disabled', 'true');
     } else {
-      refPrev.current.removeAttribute('hidden');
-      refNext.current.removeAttribute('hidden');
+      refPrev.current.removeAttribute('disabled');
+      refNext.current.removeAttribute('disabled');
     }
   }
 
@@ -3398,30 +4023,36 @@ var Carrousel = function Carrousel(_ref) {
   });
   return /*#__PURE__*/React__default.createElement("div", {
     id: "carouselExampleControls",
-    className: css$q.carrousel + " " + css$q.slide + " iu-slider",
+    className: css$r.carrousel + " " + css$r.slide + " iu-slider",
     "data-ride": "carousel"
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refCont,
-    className: css$q.carrouselInner + " ui-carrusel-inner"
-  }, children), /*#__PURE__*/React__default.createElement("button", {
-    className: css$q.carrouselControlPrev + " ui-carrusel-control-prev",
+    className: css$r.carrouselInner + " ui-carrusel-inner",
+    role: "group",
+    "aria-roledescription": roleDescription
+  }, children), /*#__PURE__*/React__default.createElement("div", {
+    className: "" + css$r.carrouselButtonContainer
+  }, /*#__PURE__*/React__default.createElement("button", {
+    className: css$r.carrouselControlPrev + " ui-carrusel-control-prev",
     "data-slide": "prev",
     onClick: handleClick,
     ref: refPrev,
-    hidden: true
-  }, /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: "keyboard_arrow_left"
-  })), /*#__PURE__*/React__default.createElement("button", {
-    className: css$q.carrouselControlNext + " ui-carrusel-control-next",
+    disabled: true,
+    "aria-label": type + " anterior"
+  }, backButton), /*#__PURE__*/React__default.createElement("button", {
+    className: css$r.carrouselControlNext + " ui-carrusel-control-next",
     "data-slide": "next",
     onClick: handleClick,
-    ref: refNext
-  }, /*#__PURE__*/React__default.createElement(Icon, {
-    nameIcon: "keyboard_arrow_right"
-  })));
+    ref: refNext,
+    "aria-label": type + " siguiente"
+  }, nextButton)), /*#__PURE__*/React__default.createElement("div", {
+    className: "sr-only",
+    "aria-live": "polite",
+    "aria-atomic": "true"
+  }, type, " ", Value + 1, " de ", children.length));
 };
 
-var css$r = {"Section":"_2biAj"};
+var css$s = {"Section":"_2biAj"};
 
 var _excluded$e = ["children", "tabs"];
 
@@ -3452,7 +4083,7 @@ var PanelSection = function PanelSection(_ref) {
     });
   });
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$r.Section
+    className: css$s.Section
   }, others), /*#__PURE__*/React__default.createElement(AsideSection, {
     value: value,
     onChange: handleChange
@@ -3517,19 +4148,19 @@ PanelTabs.defaultProps = {
   }]
 };
 
-var css$s = {"col":"_1QLy6"};
+var css$t = {"col":"_1QLy6"};
 
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$s.col
+    className: css$t.col
   }, props));
 };
 
-var css$t = {"row":"_7DQjb"};
+var css$u = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$t.row
+    className: css$u.row
   }, props));
 };
 
@@ -3551,6 +4182,7 @@ exports.InputField = InputField;
 exports.Link = Link;
 exports.Modal = Modal;
 exports.Multimedia = Multimedia;
+exports.NavBar = NavBar;
 exports.PanelSection = PanelSection;
 exports.PanelTabs = PanelTabs;
 exports.RecognitionVoice = RecognitionVoice;
@@ -3564,6 +4196,7 @@ exports.TableGrid = TableGrid;
 exports.Tabs = Tabs;
 exports.Text = Text;
 exports.Textarea = Textarea;
+exports.Toggletip = Toggletip;
 exports.Tooltip = Tooltip;
 exports.Video = Video;
 //# sourceMappingURL=index.js.map

@@ -9,6 +9,8 @@ export const Select = ({
   stateInput,
   options,
   addClass,
+  isLabelVisible = 'true',
+  label,
   ...args
 }) => {
   const name = _uniqueId('ui-name-')
@@ -18,23 +20,30 @@ export const Select = ({
       data-state={stateInput}
       {...args}
     >
-      <select
-        defaultValue=''
-        name={name}
-        className={css.SelectStyle}
-        data-state={stateInput}
+      <span
+        className={`${css['SelectLabel']} ${isLabelVisible ? '' : 'sr-only'}`}
       >
-        <option disabled value=''>
-          {placeholder}
-        </option>
-        {options.map((elem, i) => (
-          <option key={i} value={i + 1}>
-            {elem}
+        {label}
+      </span>
+      <div className={css['SelectContainer']} data-state={stateInput}>
+        <select
+          defaultValue=''
+          name={name}
+          className={css.SelectStyle}
+          data-state={stateInput}
+        >
+          <option disabled value=''>
+            {placeholder}
           </option>
-        ))}
-      </select>
-      <div className={css.SelectAfter} data-state={stateInput}>
-        <Icon nameIcon='arrow_drop_down' />
+          {options.map((elem, i) => (
+            <option key={i} value={i + 1}>
+              {elem}
+            </option>
+          ))}
+        </select>
+        <div className={css.SelectAfter} data-state={stateInput}>
+          <Icon nameIcon='arrow_drop_down' />
+        </div>
       </div>
     </label>
   )
@@ -50,5 +59,7 @@ Select.propTypes = {
 Select.defaultProps = {
   placeholder: 'Choose option',
   options: ['Option 1', 'option 2'],
-  addClass: ''
+  addClass: '',
+  isLabelVisible: false,
+  label: 'Selecciona la opción'
 }

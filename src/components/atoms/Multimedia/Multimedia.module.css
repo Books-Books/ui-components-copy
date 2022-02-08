@@ -29,6 +29,15 @@
   background-color: var(--secondaryColorLight);
 }
 
+.c-aud-btn:focus {
+  outline: 0.125rem solid var(--secondaryColorDark);
+  outline-offset: 3px;
+}
+
+.c-aud-btn.c-aud-secundary:focus {
+  outline-color: var(--primaryColorDark);
+}
+
 .c-aud-btn-content i {
   font-size: 17px;
   margin: 0;

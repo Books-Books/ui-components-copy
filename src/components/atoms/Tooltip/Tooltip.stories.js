@@ -7,10 +7,15 @@ export default {
   component: Tooltip
 }
 
-// const template = (args) => <Tooltip {...args} />
-
-export const TooltipDefault = () => (
-  <Tooltip label='holis' addClass='prb'>
-    <Button styled='secondary' hasAriaLabel={false} label='Secondary button' />
-  </Tooltip>
-)
+export const TooltipDefault = () => {
+  return (
+    <Tooltip addClass='prb' id='test' content='Descripción'>
+      <Button
+        styled='secondary'
+        hasAriaLabel={false}
+        label='Secondary button'
+        aria-labelledby='test'
+      />
+    </Tooltip>
+  )
+}

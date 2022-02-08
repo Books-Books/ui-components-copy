@@ -157,4 +157,6 @@ ul[role='tablist'] {
 .svg-icon {
   fill: currentColor;
   forced-color-adjust: auto;
+  max-width: 100%;
+  max-height: 100%;
 }

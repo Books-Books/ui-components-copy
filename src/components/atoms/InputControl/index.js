@@ -68,7 +68,7 @@ export const InputControl = ({
           )}
         </div>
       </div>
-      <label className={css.CheckLabel}>{label}</label>
+      <span className={css.CheckLabel}>{label}</span>
     </label>
   )
 }
