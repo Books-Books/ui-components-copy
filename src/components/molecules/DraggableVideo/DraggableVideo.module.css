@@ -1,0 +1,46 @@
+.draggable-video-container {
+  position: relative;
+  padding: 0.5em;
+  border: 0.1875rem solid var(--secondaryColor);
+  border-radius: 0.7em;
+}
+
+.draggable-video-button {
+  position: absolute;
+  top: 50%;
+  right: -3rem;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  background-color: var(--secondaryColor);
+  transform: translateY(-50%);
+  border: 0.125rem solid transparent;
+  border-radius: 0 50% 50% 0;
+}
+
+.draggable-video-button i {
+  font-size: 2rem;
+  pointer-events: none;
+}
+
+.draggable-video-button:focus {
+  outline: 0.1875rem solid black;
+  outline-offset: -0.1875rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .draggable-video-container {
+    transition: transform 100ms linear;
+  }
+}
+
+.draggable-video-container.dragged {
+  position: fixed;
+}
+
+.draggable-video-container.dragging {
+  opacity: 0.5;
+  transform: scale(0.9);
+  cursor: move;
+}
