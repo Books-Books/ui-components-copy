@@ -2,6 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { Button } from '../Button'
 import css from './Dropdown.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un botón de dropdown que al hacer clic muestra u oculta un contenido
+ * param { icon, label, addClass, ulClass, isExpanded }
+ * - icon: ícono que será usado en el botón de dropdown (opcinal)
+ * - label: etiqueta del botón.
+ * - addClass: clase adicional que se le agregue al botón.
+ * - ulClass: clase adicional que se le puede agregar al contenedor del menú dropdown.
+ * - isExpanded: determina si está desplegado. Por defecto es false
+ **/
+
 export const Dropdown = ({
   icon = '',
   children,
@@ -15,16 +26,20 @@ export const Dropdown = ({
 }) => {
   let [Expanded, SetExpanded] = useState(false)
 
+  // Cambia el estado de activado a desactivado
   const toggleMenu = () => {
     Expanded ? SetExpanded(false) : SetExpanded(true)
   }
 
+  // Cierra el menú al hacer clic fuera del menú
   const closeMenu = (e) => {
     if (e.relatedTarget === null) {
       SetExpanded(false)
       typeof fnMenuExpanded === 'function' && fnMenuExpanded(false)
     }
   }
+
+  // Cierra el menú al presionar la tecla Esc
   const closeMenuOnEsc = (e) => {
     if ((e.keyCode || e.which) === 27) SetExpanded(false)
   }
@@ -59,28 +74,6 @@ export const Dropdown = ({
           <path d='M7 10l5 5 5-5z'></path>
         </svg>
       </Button>
-      {/* <button
-        aria-expanded={Expanded}
-        className={`${css.DropdownCont} ${addClass} `}
-        onClick={toggleMenu}
-        onBlur={closeMenu}
-        onKeyDown={closeMenuOnEsc}
-      >
-        {icon}
-        {label}
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='48'
-          height='48'
-          viewBox='0 0 24 24'
-          focusable='false'
-          aria-hidden='true'
-          className={css['dropdownArrow']}
-        >
-          <path fill='none' d='M0 0h24v24H0z'></path>
-          <path d='M7 10l5 5 5-5z'></path>
-        </svg>
-      </button> */}
       <ul
         role='list'
         className={`${css.dropdownMenu} ${ulClass}`}
@@ -89,36 +82,6 @@ export const Dropdown = ({
         {children}
       </ul>
     </div>
-    // <div
-    //   className={`${css.DropdownCont} ${addClass} `}
-    //   onMouseOver={HandleChange}
-    //   onMouseOut={HandleChange}
-    //   tabIndex='1'
-    // >
-    //   {icon && <Icon nameIcon={icon} />}
-    //   <ul>
-    //     <li className={css.navItem}>
-    //       <span
-    //         className={css.navLink}
-    //         id='navbarDropdown'
-    //         role='button'
-    //         data-toggle='dropdown'
-    //         aria-haspopup='true'
-    //         aria-expanded={Expanded}
-    //       >
-    //         {label}
-    //       </span>
-    //       <div className={css.dropdownMenu} aria-labelledby='navbarDropdown'>
-    //         {React.Children.map(childsElem, (elem, idx) => (
-    //           <div className={css['dropdownMenu-item']} key={idx}>
-    //             {elem}
-    //           </div>
-    //         ))}
-    //       </div>
-    //     </li>
-    //   </ul>
-    //   <Icon nameIcon={Expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} />
-    // </div>
   )
 }
 

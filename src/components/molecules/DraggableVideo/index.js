@@ -35,7 +35,7 @@ export const DraggableVideo = ({ url, width }) => {
   }
 
   return (
-    <div
+    <span
       className={`${css['draggable-video-container']} ${
         dragged ? css['dragged'] : ''
       }`}
@@ -49,6 +49,6 @@ export const DraggableVideo = ({ url, width }) => {
         <span className='sr-only'>Mover en la pantalla</span>
       </button>
       <Video url={url} width={width} />
-    </div>
+    </span>
   )
 }

@@ -5,7 +5,7 @@ import css from './Link.module.css'
 
 /**
  * Usuario: bb-frontend-7
- * Descripción: Crea un botón.
+ * Descripción: Crea un link.
  * param { label, href, icon, addClass, target }
  * - label: etiqueta del link
  * - href: dirección a la que enviará el link

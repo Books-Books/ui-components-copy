@@ -3,6 +3,15 @@ import React, { createRef, Fragment, useEffect, useState } from 'react'
 import { Button } from '../../atoms/Button/index'
 import css from './Modal.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un modal que se puede cerrar al hacer clic en el botón, en el overlay que está por fuera o en al presionar la tecla Esc
+ * param { children, title, text }
+ * - children: elemento que va dentro del modal. Si no hay children, irá el contenido que se use en title y text.
+ * - title: título del modal
+ * - text: Nodos de texto dentro del modal.
+ **/
+
 export const Modal = ({ children, dataButton, title, text }) => {
   const [getModal, setModal] = useState(false)
   const refModal = createRef()

@@ -4,9 +4,21 @@ import React, { Fragment } from 'react'
 import base from '../../utilities/style/Base.module.css'
 import css from './InputAction.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un botón para poder o subir un archivo o seleccionar un color
+ * param { type, styled, label, addClass, }
+ * - type: El tipo de botón que se creará. Los valores son "file" o "color"
+ * - styled: tipo de estilo del botón. Los valores permitidos están en PropTypes
+ * - label: etiqueta que describirá el elemento.
+ * - addClass: clase adicional que se necesite agregar al botón
+ **/
+
 export const InputAction = ({ type, styled, label, addClass, ...args }) => {
+  // Genera un id automáticamente
   const id = _uniqueId('ui-')
 
+  // Icono de upload
   const uploadIcon = (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -22,6 +34,7 @@ export const InputAction = ({ type, styled, label, addClass, ...args }) => {
     </svg>
   )
 
+  // Ícono de paleta de colores
   const colorIcon = (
     <svg
       xmlns='http://www.w3.org/2000/svg'

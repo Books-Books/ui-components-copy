@@ -4,7 +4,7 @@ import css from './Multimedia.module.css'
 
 /**
  * Usuario: bb-frontend-7
- * Descripción: Crea un botón.
+ * Descripción: Crea un botón que reproduce audio.
  * param { url, label, addClass, isPrimary }
  * - url: ruta del audio que será reproducido
  * - label: etiqueta del botón. Por defecto es "Reproducir" y siempre será un aria-label
