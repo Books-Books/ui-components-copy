@@ -10,7 +10,7 @@ import css from './Button.module.css'
  * param { styled, label, hasAriaLabel, icon, disabled }
  * - styled: definición del estilo del botón. La lista está en Button.propTypes
  * - label: etiqueta del botón
- * - hasAriaLabel: determina si la etiqueta será usada como un aria-label o será mostrada como texto de forma normal
+ * - hasAriaLabel: determina si la etiqueta será usada como un aria-label (si es true) o será mostrada como texto de forma normal (si es false)
  * - icon: determina el nombre del ícono de Google Icons que será usado.
  * - disabled: determina si el botón estará o no deshabilitado.
  **/

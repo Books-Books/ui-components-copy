@@ -2,7 +2,18 @@ import PropTypes from 'prop-types'
 import React, { createRef, Fragment, useState } from 'react'
 import css from './Multimedia.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un botón.
+ * param { url, label, addClass, isPrimary }
+ * - url: ruta del audio que será reproducido
+ * - label: etiqueta del botón. Por defecto es "Reproducir" y siempre será un aria-label
+ * - addClass: clase adicional que se le agregue al botón.
+ * - isPrimary: determina si el estilo del botón va a usar el estilo de color primaro (si es true) o secundario (si es false)
+ **/
 function Multimedia({ url, label = 'Reproducir', addClass, isPrimary = true }) {
+  // Ícono de reproducir
+
   const playButton = (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -17,6 +28,8 @@ function Multimedia({ url, label = 'Reproducir', addClass, isPrimary = true }) {
       <path d='M8 5v14l11-7z'></path>
     </svg>
   )
+
+  // Ícono de pausar
   const pauseButton = (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -35,6 +48,8 @@ function Multimedia({ url, label = 'Reproducir', addClass, isPrimary = true }) {
   const [getStateBtnAudio, setStateBtnAudio] = useState(false)
   const [getIcon, setIcon] = useState(playButton)
   const refAudio = createRef()
+
+  // Determina si el estado del botón es reproduciendo el audio o pausándolo
   function validateStateBtn(element) {
     if (getStateBtnAudio) {
       setStateBtnAudio(false)
@@ -48,11 +63,14 @@ function Multimedia({ url, label = 'Reproducir', addClass, isPrimary = true }) {
       label = 'Pausar'
     }
   }
+
+  // Pausa el audio
   function handlePlayPause() {
     const $audio = refAudio.current
     validateStateBtn($audio)
   }
 
+  // Detiene el audio cuando termina
   function handleFinish(e) {
     setStateBtnAudio(false)
     setIcon(playButton)
