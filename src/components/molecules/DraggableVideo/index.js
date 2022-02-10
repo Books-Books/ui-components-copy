@@ -3,53 +3,52 @@ import { Icon } from '../../atoms/icon/index'
 import { Video } from '../../atoms/Video/index'
 import css from './DraggableVideo.module.css'
 
-export const DraggableVideo = ({ videoUrl, videoWidth }) => {
+/**
+ * Fecha: 10 de febrero de 2022
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un contenedor de video que puede ser arrastrado en pantalla. Su uso es casi exclusivamente para los videos de accesibilidad.
+ * @param { url, width }
+ * - url: url del video
+ * - width: ancho máximo en píxeles del video
+ **/
+export const DraggableVideo = ({ url, width }) => {
   const [dragged, setDragged] = useState(false)
-  const [dragging, setDragging] = useState(false)
 
-  const position = {
-    top: 'var(--top, 0)',
-    left: 'var(--left, 0)'
+  // Cambia la posición de static a absolute
+  function startClassDrag(event) {
+    setDragged(true)
   }
 
   function draggingElement(event) {
-    let getStyle = event.target.parentElement.classList
-    getStyle.style.setProperty('--top', '100px')
-    getStyle.style.setProperty('--left', '60px')
-    console.log(getStyle.getPropertyValue('--top'))
-    //   getStyle.style.setProperty('--left', '200px')
-    // console.log(getStyle)
+    let getStyle = event.target.parentElement
+
+    // Selecciona alto, ancho y posición del mouse en X y en Y
+    let elementWidth = getStyle.offsetWidth
+    let elementHeight = getStyle.offsetHeight
+    let elementTop = event.target.offsetTop
+    let elementLeft = event.target.offsetLeft
+
+    // Calcula la posición de la ventana
+    getStyle.style.setProperty('--top', `${elementHeight - elementTop}px`)
+    getStyle.style.setProperty('--left', `${elementWidth - elementLeft}px`)
+    startClassDrag(event)
   }
-
-  // function startClassDrag(event) {
-  //   setDragged(true)
-  //   setDragging(true)
-  //   event.target.addEventListener('mousedown', draggingElement())
-  // }
-
-  // function stopClassDrag(event) {
-  //   setDragging(false)
-  //   event.target.removeEventListener('mousemove', draggingElement())
-  // }
 
   return (
     <div
       className={`${css['draggable-video-container']} ${
-        dragging ? css['dragging'] : ''
-      } ${dragged ? css['dragged'] : ''}`}
+        dragged ? css['dragged'] : ''
+      }`}
       draggable
-      style={position}
     >
       <button
         className={css['draggable-video-button']}
-        // onMouseDown={startClassDrag}
-        // onMouseUp={stopClassDrag}
-        onClick={draggingElement}
+        onMouseDown={draggingElement}
       >
         <Icon nameIcon='open_with' />
         <span className='sr-only'>Mover en la pantalla</span>
       </button>
-      <Video url={videoUrl} width={videoWidth} />
+      <Video url={url} width={width} />
     </div>
   )
 }

@@ -1,8 +1,8 @@
 .draggable-video-container {
+  top: var(--top, 0);
+  left: var(--left, 0);
   position: relative;
-  padding: 0.5em;
   border: 0.1875rem solid var(--secondaryColor);
-  border-radius: 0.7em;
 }
 
 .draggable-video-button {
@@ -36,11 +36,5 @@
 }
 
 .draggable-video-container.dragged {
-  position: fixed;
-}
-
-.draggable-video-container.dragging {
-  opacity: 0.5;
-  transform: scale(0.9);
-  cursor: move;
+  position: absolute;
 }
