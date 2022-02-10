@@ -4,10 +4,10 @@ import { Video } from '../../atoms/Video/index'
 import css from './DraggableVideo.module.css'
 
 /**
- * Fecha: 10 de febrero de 2022
+ * Fecha: 8 de febrero de 2022
  * Usuario: bb-frontend-7
  * Descripción: Crea un contenedor de video que puede ser arrastrado en pantalla. Su uso es casi exclusivamente para los videos de accesibilidad.
- * @param { url, width }
+ * param { url, width }
  * - url: url del video
  * - width: ancho máximo en píxeles del video
  **/

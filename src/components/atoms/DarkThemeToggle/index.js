@@ -1,8 +1,18 @@
 import React, { useState } from 'react'
 import css from './DarkThemeToggle.module.css'
 
+/**
+ * Fecha: 9 de febrero de 2022
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un botón que alterna entre el modo claro y el modo oscuro
+ * param { addClass }
+ * - addClass: clase adicional del botón para que coincida con los estilos del elemento al que se incorpore
+ **/
+
 export const DarkThemeToggle = (addClass = {}) => {
-  const [pressed, setPressed] = useState(false)
+  const [pressed, setPressed] = useState(false) // Estado que alterna entre presionado y no presionado. Se usa para el atributo aria-pressed del botón
+
+  // Activa el modo oscuro
 
   function enableDarkMode() {
     document.body.classList.remove('light-theme')
