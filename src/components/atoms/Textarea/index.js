@@ -2,6 +2,19 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import css from './Textarea.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un input de texto.
+ * param { id, placeholder, label, isLabelVisible, rows, maxWords, addClass }
+ * - id: identificador único del componente.
+ * - placeholder: texto que aparecerá por default.
+ * - label: etiqueta que describirá el elemento.
+ * - isLabelVisible: determina si el label será visible visualmente (si es true) o no (si es false)
+ * - rows: número de filas
+ * - maxWords: número de palabras máximas en el textarea
+ * - addClass: clase adicional que se necesite agregar al textarea
+ **/
+
 export const Textarea = ({
   id,
   placeholder,

@@ -4,6 +4,16 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { Icon } from '../icon'
 import css from './InputField.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un input de texto.
+ * param { type, label, dataIcon, styledInput, addClass, }
+ * - type: El tipo del input que se creará. Los valores están al final en propTypes
+ * - label: etiqueta que describirá el elemento.
+ * - dataIcon: nombre del ícono de Google Icons que se usará
+ * - addClass: clase adicional que se necesite agregar al input
+ **/
+
 export const InputField = ({
   type,
   label,
@@ -12,6 +22,7 @@ export const InputField = ({
   addClass,
   ...args
 }) => {
+  // Genera un id único
   const id = _uniqueId('ui-')
   const [isFocus, setIsFocus] = useState(false)
   const [value, setValue] = useState('')

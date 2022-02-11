@@ -1,0 +1,31 @@
+.draggable-video-container {
+  top: var(--top, 0);
+  left: var(--left, 0);
+  display: inline-block;
+  position: relative;
+  border: 0.1875rem solid var(--secondaryColor);
+}
+
+.draggable-video-button {
+  position: absolute;
+  top: -0.1875rem;
+  right: -3rem;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  background-color: var(--secondaryColor);
+  /* transform: translateY(-50%); */
+  border: 0.125rem solid transparent;
+  border-radius: 0 50% 50% 0;
+}
+
+.draggable-video-button i {
+  font-size: 2rem;
+  pointer-events: none;
+}
+
+.draggable-video-button:focus {
+  outline: 0.1875rem solid black;
+  outline-offset: -0.1875rem;
+}

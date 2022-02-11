@@ -2,6 +2,14 @@ import PropTypes from 'prop-types'
 import React, { createRef, useState } from 'react'
 import css from './Video.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un reproductor de video
+ * param { url, width, addClass }
+ * - url: ruta del video que será reproducido.
+ * - width: ancho máximo del video.
+ * - addClass: clase adicional que se le agregue al reproductor.
+ **/
 function Video({ url, width, addClass }) {
   // Icons
 

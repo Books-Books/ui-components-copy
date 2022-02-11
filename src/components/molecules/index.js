@@ -1,6 +1,7 @@
 export * from './AsideNav'
 export * from './AsideSection'
 export * from './Card'
+export * from './DraggableVideo'
 export * from './Dropable'
 export * from './Graphics'
 export * from './Modal'
