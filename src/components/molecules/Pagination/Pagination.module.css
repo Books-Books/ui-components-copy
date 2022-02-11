@@ -1,0 +1,54 @@
+.styleUl {
+  align-items: center;
+  display: inline-flex;
+  gap: 3.125rem;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+.styleUl li {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  font-size: 0.875rem;
+  justify-content: center;
+  width: 50px;
+}
+
+.styleUl li > a {
+  align-items: center;
+  border-radius: 50%;
+  color: var(--textColor);
+  display: inline-flex;
+  text-decoration: none;
+  width: 50px;
+  height: 45px;
+  /* border: 1px solid red; */
+  justify-content: center;
+}
+.styleUl li > a:focus {
+  border: 3px solid var(--secondaryColor);
+  background-color: var(--fourthColor);
+  font-weight: bold;
+  color: var(--thirdColor);
+}
+.active {
+  border: 3px solid var(--secondaryColor);
+  background-color: var(--fourthColor);
+  font-weight: bold;
+  color: var(--thirdColor) !important;
+}
+.styleBtn {
+  background-color: var(--tertiaryColor) !important;
+  box-shadow: none !important;
+  border: none;
+  cursor: pointer;
+  color: var(--thirdColor);
+  border-radius: 50%;
+  min-width: 50px !important;
+  min-height: 50px !important;
+}
+.styleBtn:focus {
+  outline: none !important;
+}

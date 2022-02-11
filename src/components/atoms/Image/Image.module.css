@@ -1,0 +1,28 @@
+.containerImg {
+  box-sizing: border-box;
+  border: solid 1px var(--tertiaryColor);
+  padding: 10px;
+  position: relative;
+}
+.square {
+  position: absolute;
+  border-top: 4px solid var(--tertiaryColor);
+  border-right: 4px solid var(--tertiaryColor);
+  height: 110px;
+  right: -20px;
+  top: -20px;
+  width: 110px;
+}
+.containerText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.styleTitle {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.styleText {
+  font-size: 1.125rem;
+}

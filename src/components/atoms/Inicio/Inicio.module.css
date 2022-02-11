@@ -1,0 +1,75 @@
+.styleInit {
+  box-sizing: border-box;
+  height: 1080px;
+  max-width: 600px;
+  max-height: 1080px;
+  position: relative;
+  width: 600px;
+
+  background: transparent
+    linear-gradient(
+      180deg,
+      #ffffff00 0%,
+      rgb(88 144 172 / 20%) 23%,
+      rgb(2 41 60 / 30%) 100%,
+      #ffffff 100%
+    )
+    0% 0% no-repeat padding-box;
+}
+
+.imgUpRight {
+  position: absolute;
+  width: 520px;
+  height: 310px;
+  z-index: 100;
+  right: 0;
+  top: 0;
+}
+.imgDownRight {
+  position: absolute;
+  width: 300px;
+  height: 230px;
+  z-index: 110;
+  bottom: 0;
+  right: 0;
+}
+.container {
+  position: absolute;
+  right: 100px;
+  top: 435px;
+  text-align: center;
+  width: 65%;
+  z-index: 120;
+}
+.styleTitle {
+  color: var(--secondaryColor);
+}
+.styleTitle h3 {
+  margin: 14px 0 !important;
+  font-size: 2.625rem;
+}
+.styleSubTitle {
+  color: var(--thirdColor);
+}
+.styleSubTitle h4 {
+  margin: 0 0 60px 0 !important;
+  font-size: 2.1875rem;
+}
+.styleBtn {
+  box-shadow: none !important;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  color: var(--thirdColor);
+  display: block;
+  font-size: 2.1875rem;
+  font-weight: bold;
+  letter-spacing: 0;
+  min-width: 150px !important;
+  min-height: 60px !important;
+  margin: 0 auto;
+  text-transform: none;
+}
+.styleBtn:focus {
+  outline: none !important;
+}
