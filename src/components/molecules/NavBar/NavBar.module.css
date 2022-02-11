@@ -55,7 +55,7 @@
 .styleLi {
   cursor: pointer;
   padding: 13px 20px;
-  height: 20px;
+  height: 25px;
 }
 .styleLi:focus-within .stylelinks {
   outline: 0.1875rem solid transparent;
@@ -171,13 +171,14 @@
   float: right;
 }
 .styleBtns {
+  align-items: center;
   background-color: transparent;
+  border: none;
+  cursor: pointer;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  width: 100%;
-  cursor: pointer;
-  border: none;
   padding: 0;
+  width: 100%;
 }
 /* Barras de scroll */
 .styleUlMenu::-webkit-scrollbar {

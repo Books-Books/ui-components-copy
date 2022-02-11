@@ -4,9 +4,9 @@ import css from './Icon.module.css'
 
 export const Icon = ({ nameIcon, addClass, ...args }) => {
   return (
-    <i aria-hidden='true' className={`${css.Icon} ${addClass}`} {...args}>
+    <span aria-hidden='true' className={`${css.Icon} ${addClass}`} {...args}>
       {nameIcon}
-    </i>
+    </span>
   )
 }
 
