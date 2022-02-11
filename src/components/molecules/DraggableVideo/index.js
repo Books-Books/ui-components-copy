@@ -17,6 +17,7 @@ export const DraggableVideo = ({ url, width }) => {
 
   useEffect(() => {
     dragButton.current.onmousedown = function (event) {
+      event.preventDefault()
       const currentParent = dragButton.current.parentElement
       const parent = event.target.parentElement
 

@@ -10,6 +10,7 @@ export function NavBar({
   const [dropdownMenu, setDropdownMenu] = useState(false)
   const [dropdownAcc, setDropdownAcc] = useState(false)
   const [dropdownHelp, setDropdownHelp] = useState(false)
+  const [activeTheme, setActiveTheme] = useState('')
 
   //iconos de las opciones
   const svgMenu = (
@@ -108,6 +109,41 @@ export function NavBar({
     setDropdownAcc(false)
     setDropdownHelp(false)
     setState(!state)
+  }
+
+  const changeTheme = (type) => {
+    switch (type) {
+      case '':
+        document.body.className = ''
+        break
+      case 'highContrast':
+        document.body.className = 'high-contrast'
+        break
+      case 'grayScale':
+        document.body.className = 'grayscale'
+        break
+      case 'invertColors':
+        document.body.className = 'invert-colors'
+        break
+      case 'yellowOverBlack':
+        document.body.className = 'yellow-over-black'
+        break
+      case 'whiteOverRed':
+        document.body.className = 'white-over-red'
+        break
+      case 'greenOverBlue':
+        document.body.className = 'green-over-blue'
+        break
+      case 'yellowOverBlue':
+        document.body.className = 'yellow-over-blue'
+        break
+      case 'blackOverWhite':
+        document.body.className = 'black-over-white'
+        break
+      default:
+        document.body.className = ''
+    }
+    setActiveTheme(type)
   }
 
   return (
@@ -267,6 +303,8 @@ export function NavBar({
                       name='noTheme'
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      // onClick={changeTheme('highContrast')}
+                      // aria-preseed={activeTheme('highContrast') ? true : false}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Alto contraste
