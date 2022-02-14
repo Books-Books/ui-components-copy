@@ -161,14 +161,38 @@ ul[role='tablist'] {
   max-height: 100%;
 }
 
-body.high-contrast {
+html.high-contrast {
   filter: contrast(200%);
 }
 
-body.grayscale {
+html.grayscale {
   filter: grayscale(1);
 }
 
-body.invert-colors {
+html.invert-colors {
   filter: invert(1);
+}
+
+html.invert-colors {
+  filter: invert(1);
+}
+
+html.yellow-on-black {
+  filter: url('#hc_extension_yellow_on_black');
+}
+
+html.red-on-white {
+  filter: url('#hc_extension_red_on_white');
+}
+
+html.green-on-blue {
+  filter: url('#hc_extension_green_on_blue');
+}
+
+html.yellow-on-blue {
+  filter: url('#hc_extension_yellow_on_blue');
+}
+
+html.white-on-black {
+  filter: url('#hc_extension_white_on_black');
 }

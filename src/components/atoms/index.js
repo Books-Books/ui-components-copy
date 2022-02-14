@@ -1,5 +1,6 @@
 export * from './BtnSec'
 export * from './Button'
+export * from './ContrastFilters'
 export * from './DarkThemeToggle'
 export * from './DropableItem'
 export * from './Dropdown'

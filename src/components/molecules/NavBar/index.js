@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react'
+import { ContrastFilters } from '../../atoms'
 import { DarkThemeToggle } from '../../atoms/DarkThemeToggle'
 import { Dropdown } from '../../atoms/Dropdown'
 import { Icon } from '../../atoms/icon'
@@ -67,36 +68,38 @@ export function NavBar({
   }
 
   const changeTheme = function (type) {
+    const html = document.querySelector('html')
+
     switch (type) {
       case '':
-        document.body.className = ''
+        html.className = ''
         break
       case 'highContrast':
-        document.body.className = 'high-contrast'
+        html.className = 'high-contrast'
         break
       case 'grayScale':
-        document.body.className = 'grayscale'
+        html.className = 'grayscale'
         break
       case 'invertColors':
-        document.body.className = 'invert-colors'
+        html.className = 'invert-colors'
         break
       case 'yellowOverBlack':
-        document.body.className = 'yellow-over-black'
+        html.className = 'yellow-on-black'
         break
       case 'whiteOverRed':
-        document.body.className = 'white-over-red'
+        html.className = 'red-on-white'
         break
       case 'greenOverBlue':
-        document.body.className = 'green-over-blue'
+        html.className = 'green-on-blue'
         break
       case 'yellowOverBlue':
-        document.body.className = 'yellow-over-blue'
+        html.className = 'yellow-on-blue'
         break
       case 'whiteOverBlack':
-        document.body.className = 'white-over-black'
+        html.className = 'white-on-black'
         break
       default:
-        document.body.className = ''
+        html.className = ''
         break
     }
     setActiveTheme(type)
@@ -203,7 +206,9 @@ export function NavBar({
                       type='button'
                       className={cssNavbar['styleBtns']}
                       aria-pressed={activeTheme == '' ? true : false}
-                      onClick={changeTheme('')}
+                      onClick={() => {
+                        changeTheme('')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>Sin tema</span>
                     </button>
@@ -213,6 +218,9 @@ export function NavBar({
                     <button
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      onClick={() => {
+                        changeTheme('grayScale')
+                      }}
                       aria-pressed={activeTheme == 'grayScale' ? true : false}
                     >
                       <span className={`${cssNavbar.spanText}`}>
@@ -228,7 +236,9 @@ export function NavBar({
                       aria-pressed={
                         activeTheme == 'highContrast' ? true : false
                       }
-                      // onClick={changeTheme('highContrast')}
+                      onClick={() => {
+                        changeTheme('highContrast')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Alto contraste
@@ -243,6 +253,9 @@ export function NavBar({
                       aria-pressed={
                         activeTheme == 'invertColors' ? true : false
                       }
+                      onClick={() => {
+                        changeTheme('invertColors')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Invertir colores
@@ -257,6 +270,9 @@ export function NavBar({
                       aria-pressed={
                         activeTheme == 'yellowOverBlack' ? true : false
                       }
+                      onClick={() => {
+                        changeTheme('yellowOverBlack')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Amarillo sobre negro
@@ -271,6 +287,9 @@ export function NavBar({
                       aria-pressed={
                         activeTheme == 'whiteOverRed' ? true : false
                       }
+                      onClick={() => {
+                        changeTheme('whiteOverRed')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Blanco sobre rojo
@@ -285,6 +304,9 @@ export function NavBar({
                       aria-pressed={
                         activeTheme == 'greenOverBlue' ? true : false
                       }
+                      onClick={() => {
+                        changeTheme('greenOverBlue')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Verde sobre azul
@@ -299,6 +321,9 @@ export function NavBar({
                       aria-pressed={
                         activeTheme == 'yellowOverBlue' ? true : false
                       }
+                      onClick={() => {
+                        changeTheme('yellowOverBlue')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Amarillo sobre azul
@@ -313,6 +338,9 @@ export function NavBar({
                       aria-pressed={
                         activeTheme == 'whiteOverBlack' ? true : false
                       }
+                      onClick={() => {
+                        changeTheme('whiteOverBlack')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Blanco sobre negro
@@ -428,6 +456,7 @@ export function NavBar({
           </li>
         </ul>
       </nav>
+      <ContrastFilters />
     </Fragment>
   )
 }
