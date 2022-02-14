@@ -58,7 +58,7 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
         onFocus={handleFocus}
         {...other}
       >
-        <span class='sr-only'>Sección {label}</span>
+        <span className='sr-only'>Sección {label}</span>
         <span aria-hidden='true'>{label}</span>
       </a>
     </li>
@@ -66,3 +66,4 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
 })
 
 export { BtnSec }
+

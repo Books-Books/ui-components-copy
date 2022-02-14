@@ -87,7 +87,7 @@ const AsideSection = forwardRef(function Tabs(props, ref) {
   return (
     <Component className='ui-Tabs-cont' ref={ref} {...other}>
       <div ref={tabsRef}>
-        <h2 class='sr-only' id='section-list'>
+        <h2 className='sr-only' id='section-list'>
           {labelName}
         </h2>
         <ul
@@ -108,3 +108,4 @@ const AsideSection = forwardRef(function Tabs(props, ref) {
 })
 
 export { AsideSection }
+
