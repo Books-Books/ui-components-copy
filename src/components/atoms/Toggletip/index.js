@@ -47,7 +47,7 @@ export const Toggletip = ({ content }) => {
         <span className={css['toggletip-icon']} aria-hidden='true'>
           i
         </span>
-        <span class='sr-only'>Más información</span>
+        <span className='sr-only'>Más información</span>
       </Button>
       <div role='status'>{toggletipContent}</div>
     </div>
