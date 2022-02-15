@@ -2,6 +2,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = require('react');
 var React__default = _interopDefault(React);
+var Draggable = _interopDefault(require('react-draggable'));
 var reactGoogleCharts = require('react-google-charts');
 
 function _extends() {
@@ -81,7 +82,7 @@ var BtnSec = React.forwardRef(function BtnSec(props, ref) {
     onClick: handleClick,
     onFocus: handleFocus
   }, other), /*#__PURE__*/React__default.createElement("span", {
-    "class": "sr-only"
+    className: "sr-only"
   }, "Secci\xF3n ", label), /*#__PURE__*/React__default.createElement("span", {
     "aria-hidden": "true"
   }, label)));
@@ -1198,7 +1199,7 @@ var Icon = function Icon(_ref) {
       addClass = _ref.addClass,
       args = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
-  return /*#__PURE__*/React__default.createElement("i", _extends({
+  return /*#__PURE__*/React__default.createElement("span", _extends({
     "aria-hidden": "true",
     className: css$1.Icon + " " + addClass
   }, args), nameIcon);
@@ -1247,12 +1248,457 @@ Button.defaultProps = {
   hasAriaLabel: true
 };
 
-var css$3 = {};
+var ContrastFilters = function ContrastFilters() {
+  var filterStyles = {
+    position: 'fixed',
+    inset: '0px',
+    zIndex: '-1999999999',
+    display: 'block',
+    background: 'none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255)'
+  };
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
+    id: "hc_extension_bkgnd",
+    style: filterStyles
+  }), /*#__PURE__*/React__default.createElement("span", {
+    id: "hc_extension_svg_filters"
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    version: "1.1",
+    height: "0"
+  }, /*#__PURE__*/React__default.createElement("defs", null, /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_off",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "0 1"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "0 1"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "0 1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_highcontrast",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    exponent: "3.0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    exponent: "3.0"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    exponent: "3.0"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_highcontrast_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    exponent: "0.33"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_grayscale",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecolormatrix", {
+    type: "matrix",
+    values: "0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"
+  }), /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    exponent: "3"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    exponent: "3"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    exponent: "3"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_grayscale_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    exponent: "0.33"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_invert",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_invert_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "1 0"
+  })), /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    exponent: "1.7"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    exponent: "1.7"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    exponent: "1.7"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_yellow_on_black",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  })), /*#__PURE__*/React__default.createElement("fecolormatrix", {
+    type: "matrix",
+    values: "0.3 0.5 0.2 0 0 0.3 0.5 0.2 0 0 0 0 0 0 0 0 0 0 1 0"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_yellow_on_black_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "1 0"
+  })), /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    exponent: "0.33"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_red_on_white",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999",
+    filterUnits: "objectBoundingBox",
+    primitiveUnits: "userSpaceOnUse",
+    "color-interpolation-filters": "sRGB"
+  }, /*#__PURE__*/React__default.createElement("fecolormatrix", {
+    type: "matrix",
+    values: "                        .33 .33 .33 0 0                        .33 .33 .33 0 0                        .33 .33 .33 0 0                        0 0 0 1 0",
+    "in": "SourceGraphic",
+    result: "colormatrix"
+  }), /*#__PURE__*/React__default.createElement("fecomponenttransfer", {
+    "in": "colormatrix",
+    result: "componentTransfer"
+  }, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "0.97 0.52"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "1 0.03"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "0.98 0.06"
+  }), /*#__PURE__*/React__default.createElement("fefunca", {
+    type: "table",
+    tableValues: "0 1"
+  })), /*#__PURE__*/React__default.createElement("feblend", {
+    mode: "normal",
+    "in": "componentTransfer",
+    in2: "SourceGraphic",
+    result: "blend"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_red_on_white_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "0 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "0 0"
+  })), /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_green_on_blue",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999",
+    filterUnits: "objectBoundingBox",
+    primitiveUnits: "userSpaceOnUse",
+    "color-interpolation-filters": "sRGB"
+  }, /*#__PURE__*/React__default.createElement("fecolormatrix", {
+    type: "matrix",
+    values: ".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0",
+    "in": "SourceGraphic",
+    result: "colormatrix"
+  }), /*#__PURE__*/React__default.createElement("fecomponenttransfer", {
+    "in": "colormatrix",
+    result: "componentTransfer"
+  }, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "0.09 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "1 0.16"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "0 1"
+  }), /*#__PURE__*/React__default.createElement("fefunca", {
+    type: "table",
+    tableValues: "0 1"
+  })), /*#__PURE__*/React__default.createElement("feblend", {
+    mode: "normal",
+    "in": "componentTransfer",
+    in2: "SourceGraphic",
+    result: "blend"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_green_on_blue_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "0 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "0 0"
+  })), /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_yellow_on_blue",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999",
+    filterUnits: "objectBoundingBox",
+    primitiveUnits: "userSpaceOnUse",
+    "color-interpolation-filters": "sRGB"
+  }, /*#__PURE__*/React__default.createElement("fecolormatrix", {
+    type: "matrix",
+    values: ".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0",
+    "in": "SourceGraphic",
+    result: "colormatrix"
+  }), /*#__PURE__*/React__default.createElement("fecomponenttransfer", {
+    "in": "colormatrix",
+    result: "componentTransfer"
+  }, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "0.99 0.16"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "0 1"
+  }), /*#__PURE__*/React__default.createElement("fefunca", {
+    type: "table",
+    tableValues: "0 1"
+  })), /*#__PURE__*/React__default.createElement("feblend", {
+    mode: "normal",
+    "in": "componentTransfer",
+    in2: "SourceGraphic",
+    result: "blend"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_yellow_on_blue_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "0 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "0 0"
+  })), /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_white_on_black",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999",
+    filterUnits: "objectBoundingBox",
+    primitiveUnits: "userSpaceOnUse",
+    "color-interpolation-filters": "sRGB"
+  }, /*#__PURE__*/React__default.createElement("fecolormatrix", {
+    type: "matrix",
+    values: ".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0",
+    "in": "SourceGraphic",
+    result: "colormatrix"
+  }), /*#__PURE__*/React__default.createElement("fecomponenttransfer", {
+    "in": "colormatrix",
+    result: "componentTransfer"
+  }, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "0.98 0"
+  }), /*#__PURE__*/React__default.createElement("fefunca", {
+    type: "table",
+    tableValues: "0 1"
+  })), /*#__PURE__*/React__default.createElement("feblend", {
+    mode: "normal",
+    "in": "componentTransfer",
+    in2: "SourceGraphic",
+    result: "blend"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_white_on_black_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "table",
+    tableValues: "0 0"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "table",
+    tableValues: "0 0"
+  })), /*#__PURE__*/React__default.createElement("fecomponenttransfer", null, /*#__PURE__*/React__default.createElement("fefuncr", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncg", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("fefuncb", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  })))))));
+};
 
-var DarkThemeToggle = function DarkThemeToggle(addClass) {
-  if (addClass === void 0) {
-    addClass = {};
-  }
+var css$3 = {"spanText":"_DarkThemeToggle-module__spanText__4KFeG"};
+
+var DarkThemeToggle = function DarkThemeToggle(_ref) {
+  var addClass = _ref.addClass;
 
   var _useState = React.useState(false),
       pressed = _useState[0],
@@ -1279,20 +1725,11 @@ var DarkThemeToggle = function DarkThemeToggle(addClass) {
     "aria-pressed": pressed,
     onClick: togglePressed,
     type: "button"
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24",
-    "aria-hidden": "true",
-    focusable: "false",
-    className: "svg-icon"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z"
-  })), "Modo Nocturno");
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "mode_night"
+  }), /*#__PURE__*/React__default.createElement("span", {
+    className: css$3.spanText
+  }, "Modo Nocturno"));
 };
 
 var css$4 = {"c-collapsible-container-header":"_DropableItem-module__c-collapsible-container-header__1CW18","c-collapsible-container-body":"_DropableItem-module__c-collapsible-container-body__2ygtY","active":"_DropableItem-module__active__1xv7i","show":"_DropableItem-module__show__2moa5"};
@@ -1394,7 +1831,9 @@ var Dropdown = function Dropdown(_ref) {
     onClick: toggleMenu,
     onBlur: closeMenu,
     onKeyDown: closeMenuOnEsc
-  }, icon, label, /*#__PURE__*/React__default.createElement("svg", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: icon
+  }), label, /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "48",
     height: "48",
@@ -2286,7 +2725,7 @@ var Section = function Section(_ref) {
     id: "simple-tabpanel-" + index,
     "aria-labelledby": "simple-tab-" + label
   }, other), /*#__PURE__*/React__default.createElement("h2", {
-    "class": "sr-only",
+    className: "sr-only",
     id: "simple-tab-" + label
   }, "Secci\xF3n ", label), children);
 };
@@ -2551,7 +2990,7 @@ var Toggletip = function Toggletip(_ref) {
     className: css$h['toggletip-icon'],
     "aria-hidden": "true"
   }, "i"), /*#__PURE__*/React__default.createElement("span", {
-    "class": "sr-only"
+    className: "sr-only"
   }, "M\xE1s informaci\xF3n")), /*#__PURE__*/React__default.createElement("div", {
     role: "status"
   }, toggletipContent));
@@ -2835,7 +3274,7 @@ function Video(_ref) {
   })), /*#__PURE__*/React__default.createElement("label", {
     "for": "volumeControl"
   }, /*#__PURE__*/React__default.createElement("span", {
-    "class": "sr-only"
+    className: "sr-only"
   }, "Controlar volumen"), /*#__PURE__*/React__default.createElement("input", {
     className: css$j['c-vid-controls-volumn-item'],
     ref: refVolumn,
@@ -3043,7 +3482,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
   }, other), /*#__PURE__*/React__default.createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/React__default.createElement("h2", {
-    "class": "sr-only",
+    className: "sr-only",
     id: "section-list"
   }, labelName), /*#__PURE__*/React__default.createElement("ul", (_React$createElement = {
     className: css$l.AsideSection,
@@ -3120,53 +3559,42 @@ var css$n = {"draggable-video-container":"_DraggableVideo-module__draggable-vide
 var DraggableVideo = function DraggableVideo(_ref) {
   var url = _ref.url,
       width = _ref.width;
-  var dragButton = React.useRef();
-  React.useEffect(function () {
-    dragButton.current.onmousedown = function (event) {
-      var currentParent = dragButton.current.parentElement;
-      var parent = event.target.parentElement;
-      var shiftX = event.clientX - currentParent.getBoundingClientRect().left;
-      var shiftY = event.clientY - currentParent.getBoundingClientRect().top;
-      currentParent.style.position = 'absolute';
-      currentParent.style.zIndex = 5;
-      document.body.append(currentParent);
-      moveAt(parent.pageX, parent.pageY);
 
-      function moveAt(pageX, pageY) {
-        currentParent.style.left = pageX - shiftX + 'px';
-        currentParent.style.top = pageY - shiftY + 'px';
-      }
+  var _useState = React.useState({
+    activeDrags: 0
+  }),
+      position = _useState[0],
+      setPosition = _useState[1];
 
-      function onMouseMove(event) {
-        moveAt(event.pageX, event.pageY);
-      }
-
-      document.addEventListener('mousemove', onMouseMove);
-
-      currentParent.onmouseup = function () {
-        document.removeEventListener('mousemove', onMouseMove);
-        dragButton.current.onmouseup = null;
-      };
-    };
-
-    dragButton.current.parentElement.ondragstart = function () {
-      return false;
-    };
-  }, [dragButton.current]);
-  return /*#__PURE__*/React__default.createElement("span", {
-    className: "" + css$n['draggable-video-container'],
-    draggable: true
+  var dragHandlers = {
+    onStart: function onStart() {
+      setPosition({
+        activeDrags: ++position.activeDrags
+      });
+    },
+    onStop: function onStop() {
+      setPosition({
+        activeDrags: --position.activeDrags
+      });
+    }
+  };
+  return /*#__PURE__*/React__default.createElement(Draggable, _extends({
+    handle: "strong"
+  }, dragHandlers), /*#__PURE__*/React__default.createElement("div", {
+    className: css$n['draggable-video-container'] + " box no-cursor"
+  }, /*#__PURE__*/React__default.createElement("strong", {
+    role: "presentation",
+    className: "cursor"
   }, /*#__PURE__*/React__default.createElement("button", {
-    className: "" + css$n['draggable-video-button'],
-    ref: dragButton
+    className: "" + css$n['draggable-video-button']
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "open_with"
   }), /*#__PURE__*/React__default.createElement("span", {
     className: "sr-only"
-  }, "Mover en la pantalla")), /*#__PURE__*/React__default.createElement(Video, {
+  }, "Mover en la pantalla"))), /*#__PURE__*/React__default.createElement(Video, {
     url: url,
     width: width
-  }));
+  })));
 };
 
 var css$o = {"c-collapsible":"_Dropable-module__c-collapsible__3W_Aj"};
@@ -3377,50 +3805,10 @@ function NavBar(_ref) {
       dropdownHelp = _useState3[0],
       setDropdownHelp = _useState3[1];
 
-  var svgMenu = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "48",
-    height: "48",
-    viewBox: "0 0 24 24"
-  }, ' ', /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), ' ', /*#__PURE__*/React__default.createElement("path", {
-    d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-  }), ' ');
-  var svgInicio = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "30",
-    height: "30",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"
-  }));
-  var svgAccesibility = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "48",
-    height: "48",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
-  }));
-  var svgHelp = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
-  }));
+  var _useState4 = React.useState(''),
+      activeTheme = _useState4[0],
+      setActiveTheme = _useState4[1];
+
   var content = [{
     name: 'primero',
     url: '#'
@@ -3465,6 +3853,54 @@ function NavBar(_ref) {
     setState(!state);
   };
 
+  var changeTheme = function changeTheme(type) {
+    var html = document.querySelector('html');
+
+    switch (type) {
+      case '':
+        html.className = '';
+        break;
+
+      case 'highContrast':
+        html.className = 'high-contrast';
+        break;
+
+      case 'grayScale':
+        html.className = 'grayscale';
+        break;
+
+      case 'invertColors':
+        html.className = 'invert-colors';
+        break;
+
+      case 'yellowOverBlack':
+        html.className = 'yellow-on-black';
+        break;
+
+      case 'whiteOverRed':
+        html.className = 'red-on-white';
+        break;
+
+      case 'greenOverBlue':
+        html.className = 'green-on-blue';
+        break;
+
+      case 'yellowOverBlue':
+        html.className = 'yellow-on-blue';
+        break;
+
+      case 'whiteOverBlack':
+        html.className = 'white-on-black';
+        break;
+
+      default:
+        html.className = '';
+        break;
+    }
+
+    setActiveTheme(type);
+  };
+
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("nav", {
     className: cssNavbar['menuContainer'],
     "aria-label": "menu principal"
@@ -3478,14 +3914,14 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement(Dropdown, {
     label: "Menu",
     svgHide: "true",
-    icon: svgMenu,
+    icon: "menu",
     addClass: cssNavbar['styleBtn'],
     ulClass: cssNavbar['styleUlMenu'],
     isExpanded: dropdownMenu,
     fnMenuExpanded: setDropdownMenu
   }, content)), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement(Link, {
     label: "Inicio",
-    icon: svgInicio,
+    icon: "home",
     addClass: cssNavbar['styleLink'],
     href: hrefInicio
   })), /*#__PURE__*/React__default.createElement("li", {
@@ -3495,7 +3931,7 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement(Dropdown, {
     label: "Accesibilidad",
     svgHide: "true",
-    icon: svgAccesibility,
+    icon: "accessibility_new",
     addClass: cssNavbar['styleBtn'],
     ulClass: cssNavbar['styleUlAcc'],
     isExpanded: dropdownAcc,
@@ -3505,37 +3941,13 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    "aria-hidden": "true",
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "22",
-    height: "22",
-    viewBox: "0 0 24 24",
-    focusable: "false"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M17 20c-.29 0-.56-.06-.76-.15-.71-.37-1.21-.88-1.71-2.38-.51-1.56-1.47-2.29-2.39-3-.79-.61-1.61-1.24-2.32-2.53C9.29 10.98 9 9.93 9 9c0-2.8 2.2-5 5-5s5 2.2 5 5h2c0-3.93-3.07-7-7-7S7 5.07 7 9c0 1.26.38 2.65 1.07 3.9.91 1.65 1.98 2.48 2.85 3.15.81.62 1.39 1.07 1.71 2.05.6 1.82 1.37 2.84 2.73 3.55A3.999 3.999 0 0021 18h-2c0 1.1-.9 2-2 2zM7.64 2.64L6.22 1.22C4.23 3.21 3 5.96 3 9s1.23 5.79 3.22 7.78l1.41-1.41C6.01 13.74 5 11.49 5 9s1.01-4.74 2.64-6.36zM11.5 9a2.5 2.5 0 005 0 2.5 2.5 0 00-5 0z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "hearing"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Asistencia"), /*#__PURE__*/React__default.createElement("span", {
-    "aria-hidden": "true",
-    className: 'Icon_Icon__1siX0' + " " + cssNavbar.iconRight
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    focusable: "false"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-  })))), /*#__PURE__*/React__default.createElement("ul", {
+  }, "Asistencia"), /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "chevron_right"
+  })), /*#__PURE__*/React__default.createElement("ul", {
     className: cssNavbar.segundoMenu + " " + cssNavbar.positionUlRelative
   }, /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
@@ -3566,130 +3978,125 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M7 16c.55 0 1 .45 1 1 0 1.1-.9 2-2 2-.17 0-.33-.02-.5-.05.31-.55.5-1.21.5-1.95 0-.55.45-1 1-1M18.67 3c-.26 0-.51.1-.71.29L9 12.25 11.75 15l8.96-8.96a.996.996 0 000-1.41l-1.34-1.34c-.2-.2-.45-.29-.7-.29zM7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "brush"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Contraste"), /*#__PURE__*/React__default.createElement("span", {
-    className: 'Icon_Icon__1siX0' + " " + cssNavbar.iconRight
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-  })))), /*#__PURE__*/React__default.createElement("ul", {
+  }, "Contraste"), /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "chevron_right"
+  })), /*#__PURE__*/React__default.createElement("ul", {
     className: cssNavbar.segundoMenu + " " + cssNavbar.positionUlRelative
   }, /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == '' ? true : false,
+    onClick: function onClick() {
+      changeTheme('');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Sin tema"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    onClick: function onClick() {
+      changeTheme('grayScale');
+    },
+    "aria-pressed": activeTheme == 'grayScale' ? true : false
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Escala de grises"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'highContrast' ? true : false,
+    onClick: function onClick() {
+      changeTheme('highContrast');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Alto contraste"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'invertColors' ? true : false,
+    onClick: function onClick() {
+      changeTheme('invertColors');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Invertir colores"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'yellowOverBlack' ? true : false,
+    onClick: function onClick() {
+      changeTheme('yellowOverBlack');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Amarillo sobre negro"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'whiteOverRed' ? true : false,
+    onClick: function onClick() {
+      changeTheme('whiteOverRed');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Blanco sobre rojo"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'greenOverBlue' ? true : false,
+    onClick: function onClick() {
+      changeTheme('greenOverBlue');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Verde sobre azul"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'yellowOverBlue' ? true : false,
+    onClick: function onClick() {
+      changeTheme('yellowOverBlue');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Amarillo sobre azul"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'whiteOverBlack' ? true : false,
+    onClick: function onClick() {
+      changeTheme('whiteOverBlack');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Blaco sobre negro"))))), /*#__PURE__*/React__default.createElement("li", {
+  }, "Blanco sobre negro"))))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "format_size"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Tama\xF1o de letra"), /*#__PURE__*/React__default.createElement("span", {
-    className: 'Icon_Icon__1siX0' + " " + cssNavbar.iconRight
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-  })))), /*#__PURE__*/React__default.createElement("ul", {
+  }, "Tama\xF1o de letra"), /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "chevron_right"
+  })), /*#__PURE__*/React__default.createElement("ul", {
     className: cssNavbar.segundoMenu + " " + cssNavbar.positionUlRelative
   }, /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
@@ -3717,32 +4124,16 @@ function NavBar(_ref) {
     className: "" + cssNavbar.spanText
   }, "Tama\xF1o de letra 3"))))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
-  }, /*#__PURE__*/React__default.createElement("button", {
-    name: "nightMode",
-    type: "button",
-    className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
-    className: "" + cssNavbar.spanText
-  }, "Modo Nocturno"))))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("li", {
+  }, /*#__PURE__*/React__default.createElement(DarkThemeToggle, {
+    addClass: cssNavbar['styleBtns']
+  })))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("li", {
     onClick: function onClick() {
       handleClickDropdown(dropdownHelp, setDropdownHelp);
     }
   }, /*#__PURE__*/React__default.createElement(Dropdown, {
     label: "Ayuda",
     svgHide: "true",
-    icon: svgHelp,
+    icon: "help",
     addClass: cssNavbar['styleBtn'],
     ulClass: cssNavbar['styleUlAcc'],
     isExpanded: dropdownHelp,
@@ -3752,97 +4143,47 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "description"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Bibliografia"))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "credit_card"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Cr\xE9ditos"))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0zm0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M20 7v10H4V7h16m0-2H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2zm0 3h2v2h-2zM8 8h2v2H8zm0 3h2v2H8zm-3 0h2v2H5zm0-3h2v2H5zm3 6h8v2H8zm6-3h2v2h-2zm0-3h2v2h-2zm3 3h2v2h-2zm0-3h2v2h-2z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "keyboard"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Atajos de teclado"))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "info"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Tour"))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.488.488 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "settings"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Especificaciones t\xE9cnicas")))))))));
+  }, "Especificaciones t\xE9cnicas")))))))), /*#__PURE__*/React__default.createElement(ContrastFilters, null));
 }
 
 var css$q = {"table":"_Table-module__table__3LoBn","table-content":"_Table-module__table-content__1W60s","table-content-item":"_Table-module__table-content-item__27m22","body-content":"_Table-module__body-content__2OoWj"};
@@ -4275,6 +4616,7 @@ exports.Button = Button;
 exports.Card = Card;
 exports.Carrousel = Carrousel;
 exports.Col = Col;
+exports.ContrastFilters = ContrastFilters;
 exports.DarkThemeToggle = DarkThemeToggle;
 exports.DraggableVideo = DraggableVideo;
 exports.Dropdown = Dropdown;
