@@ -1,15 +1,6 @@
 import React from 'react'
 
 export const ContrastFilters = () => {
-  const filterStyles = {
-    position: 'fixed',
-    inset: '0px',
-    zIndex: '-1999999999',
-    display: 'block',
-    background:
-      'none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255)'
-  }
-
   return (
     <span id='hc_extension_svg_filters'>
       <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='0'>
@@ -430,8 +421,5 @@ export const ContrastFilters = () => {
         </defs>
       </svg>
     </span>
-    // // <Fragment>
-    //   {/* <div id='hc_extension_bkgnd' style={filterStyles}></div> */}
-    // // </Fragment>
   )
 }

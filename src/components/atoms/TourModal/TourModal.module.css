@@ -1,0 +1,75 @@
+.tour-modal {
+  box-sizing: content-box;
+  position: absolute;
+  visibility: visible;
+  padding: 10px;
+  background-color: #fff;
+  min-width: 200px;
+  max-width: 300px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px #005c94 inset;
+  transition: opacity 0.1s ease-out;
+}
+
+.tour-progress {
+  box-sizing: content-box;
+  overflow: hidden;
+  height: 10px;
+  margin: 10px 0 5px 0;
+  border-radius: 4px;
+  background-color: #ecf0f1;
+}
+
+.tour-progress-bar {
+  box-sizing: content-box;
+  float: left;
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+  line-height: 10px;
+  text-align: center;
+  background-color: var(--client-color, #08c);
+  transform: scaleX(0%);
+  transform-origin: left;
+}
+
+.tour-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tour-button-container button {
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: #08c;
+  border: 0.125rem solid transparent;
+  color: #ecf0f1;
+}
+
+.tour-button-container button:hover,
+.tour-button-container button:focus {
+  background-color: #005c94;
+}
+
+.tour-button-container button:focus {
+  outline: 0.125rem solid #ecf0f1;
+  outline-offset: -0.3125rem;
+}
+
+.tour-button-container button[disabled] {
+  background-color: var(--bgColorDisabled);
+  color: black;
+}
+
+.tour-button-container button[disabled]:hover {
+  cursor: not-allowed;
+}
+
+.tour-button-container span {
+  width: revert;
+  height: revert;
+  font-size: 1.3rem;
+}
