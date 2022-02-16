@@ -27,7 +27,9 @@ button {
   --secondaryColor: #f2ba01;
   --secondaryColorLight: #f2ba01;
 
-  --tertiaryColor: #005680;
+  --tertiaryColor: #005580;
+  --tertiaryColorLight: #005c93;
+  --tertiaryColorDark: #002c42;
   --fourthColor: #ed7203;
 
   --textColor: #212121;
