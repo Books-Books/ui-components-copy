@@ -6,8 +6,11 @@ export const TourModal = ({
   top = '100',
   left = '300',
   description = 'Este es el botón de menú',
-  modalNumber = 7,
-  totalModals = 7
+  modalNumber = 4,
+  totalModals = 7,
+  nextTour,
+  backTour,
+  endTour
 }) => {
   const size = {
     top: `${top}px`,
@@ -27,15 +30,23 @@ export const TourModal = ({
       </div>
       <p className={css['tour-description']}>{description}</p>
       <div className={css['tour-button-container']}>
-        <button>
+        <button type='button' onClick={endTour}>
           <Icon nameIcon='close' />
           <span class='sr-only'>Salir</span>
         </button>
-        <button disabled={modalNumber == 1 ? true : false}>
+        <button
+          type='button'
+          disabled={modalNumber == 1 ? true : false}
+          onClick={backTour}
+        >
           <Icon nameIcon='arrow_left' />
           <span class='sr-only'>Anterior</span>
         </button>
-        <button disabled={modalNumber == totalModals ? true : false}>
+        <button
+          type='button'
+          disabled={modalNumber == totalModals ? true : false}
+          onClick={nextTour}
+        >
           <Icon nameIcon='arrow_right' />
           <span class='sr-only'>Siguiente</span>
         </button>

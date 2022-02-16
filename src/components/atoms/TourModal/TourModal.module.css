@@ -2,21 +2,23 @@
   box-sizing: content-box;
   position: absolute;
   visibility: visible;
-  padding: 10px;
+  padding: 0.625rem;
   background-color: #fff;
-  min-width: 200px;
-  max-width: 300px;
-  border-radius: 3px;
-  box-shadow: 0 0 0 2px #005c94 inset;
+  line-height: 1.5;
+  min-width: 12.5rem;
+  max-width: 18.75rem;
+  border-radius: 0.1875rem;
+  box-shadow: 0 0 0 0.125rem #005c94 inset;
   transition: opacity 0.1s ease-out;
+  z-index: 9999998;
 }
 
 .tour-progress {
   box-sizing: content-box;
   overflow: hidden;
-  height: 10px;
-  margin: 10px 0 5px 0;
-  border-radius: 4px;
+  height: 0.625rem;
+  margin: 0.625rem 0 0.3125rem 0;
+  border-radius: 0.25rem;
   background-color: #ecf0f1;
 }
 
@@ -25,8 +27,6 @@
   float: left;
   width: 100%;
   height: 100%;
-  font-size: 10px;
-  line-height: 10px;
   text-align: center;
   background-color: var(--client-color, #08c);
   transform: scaleX(0%);
