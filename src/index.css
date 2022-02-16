@@ -88,7 +88,7 @@ button {
   --backgroundModal: #fff;
   --boxModal: 5px 3px 11px 0px #8d8989;
   --colorOverlay: black;
-  --maxWidthModal: 600px;
+  --maxWidthModal: 50rem;
   /*aside nav*/
   --borderAside: #ddd;
   --overlayAside: black;
