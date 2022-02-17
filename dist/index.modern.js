@@ -1218,7 +1218,7 @@ Icon.defaultProps = {
 var css$2 = {"ButtonBase":"_bJEh3"};
 
 var _excluded$2 = ["styled", "label", "hasAriaLabel", "icon", "addClass", "disabled", "children"];
-var Button$1 = function Button(_ref) {
+var Button = function Button(_ref) {
   var styled = _ref.styled,
       label = _ref.label,
       hasAriaLabel = _ref.hasAriaLabel,
@@ -1238,14 +1238,14 @@ var Button$1 = function Button(_ref) {
     nameIcon: icon
   }), !hasAriaLabel ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(Fragment$2, null));
 };
-Button$1.propTypes = {
+Button.propTypes = {
   styled: propTypes.oneOf(['primary', 'secondary', 'primary-outline', 'secondary-outline', 'primary-icon', 'secondary-icon', 'primary-icon-outline', 'secondary-icon-outline']),
   icon: propTypes.string,
   label: propTypes.string,
   onClick: propTypes.func,
   addClass: propTypes.string
 };
-Button$1.defaultProps = {
+Button.defaultProps = {
   styled: 'primary',
   addClass: '',
   onClick: undefined,
@@ -1818,7 +1818,7 @@ var Dropdown = function Dropdown(_ref) {
   }, [isExpanded]);
   return /*#__PURE__*/React__default.createElement("div", {
     className: css$5['dropdownContainer']
-  }, /*#__PURE__*/React__default.createElement(Button$1, {
+  }, /*#__PURE__*/React__default.createElement(Button, {
     hasAriaLabel: hasAriaLabel,
     "aria-expanded": Expanded,
     className: css$5.DropdownCont + " " + addClass + " ",
@@ -2690,7 +2690,7 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
       children: diagnostic
     });
   });
-  return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement(Button$1, {
+  return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement(Button, {
     type: "button",
     onClick: runSpeechRecognition,
     label: action === 'record' ? 'Realizar grabación' : 'Detener grabación',
@@ -2977,7 +2977,7 @@ var Toggletip = function Toggletip(_ref) {
 
   return /*#__PURE__*/React__default.createElement("div", {
     className: css$h['toggletip-container']
-  }, /*#__PURE__*/React__default.createElement(Button$1, {
+  }, /*#__PURE__*/React__default.createElement(Button, {
     hasAriaLabel: "false",
     styled: "primary-icon",
     label: "",
@@ -3490,7 +3490,7 @@ var AsideNav = function AsideNav(_ref) {
       className: css$n['c-side-nav-item'] + " ui-aside-nav-item",
       key: index
     }, item);
-  })))), /*#__PURE__*/React__default.createElement(Button$1, {
+  })))), /*#__PURE__*/React__default.createElement(Button, {
     label: dataButton.label,
     styled: dataButton.styled,
     onClick: handleAside
@@ -3640,11 +3640,11 @@ var Card = function Card(_ref) {
     className: css$p['u-text'] + " ui-text-two"
   }, supportingText)), buttons.state ? /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-buttons"
-  }, /*#__PURE__*/React__default.createElement(Button$1, {
+  }, /*#__PURE__*/React__default.createElement(Button, {
     label: buttons.first.label,
     styled: buttons.first.theme,
     icon: buttons.first.icon
-  }), /*#__PURE__*/React__default.createElement(Button$1, {
+  }), /*#__PURE__*/React__default.createElement(Button, {
     label: buttons.secundary.label,
     styled: buttons.secundary.theme,
     icon: buttons.secundary.icon
@@ -3900,7 +3900,7 @@ var Modal = function Modal(_ref) {
   }, /*#__PURE__*/React__default.createElement(Image, {
     url: url,
     alt: alt
-  })) : /*#__PURE__*/React__default.createElement(Button$1, {
+  })) : /*#__PURE__*/React__default.createElement(Button, {
     label: label,
     styled: styled,
     onClick: handleModal,
@@ -3964,6 +3964,10 @@ function NavBar(_ref) {
   var _useState4 = useState(''),
       activeTheme = _useState4[0],
       setActiveTheme = _useState4[1];
+
+  var _useState5 = useState(false),
+      menuResponsive = _useState5[0],
+      setMenuResponsive = _useState5[1];
 
   var content = [{
     name: 'primero',
@@ -4801,5 +4805,5 @@ var Row = function Row(props) {
   }, props));
 };
 
-export { Accordion, AccordionItem, AsideNav, AsideSection, BtnSec, Button$1 as Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Icon, InputAction, InputControl, InputField, Link, Modal, Multimedia, NavBar, PanelSection, PanelTabs, RecognitionVoice, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, Video };
+export { Accordion, AccordionItem, AsideNav, AsideSection, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Icon, InputAction, InputControl, InputField, Link, Modal, Multimedia, NavBar, PanelSection, PanelTabs, RecognitionVoice, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, Video };
 //# sourceMappingURL=index.modern.js.map
