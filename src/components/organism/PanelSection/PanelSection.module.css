@@ -3,7 +3,7 @@
   display: grid;
   gap: 1em;
   grid-template: 1fr / auto 1fr;
-  min-height: calc(100vh - 11rem);
+  /* min-height: calc(100vh - 11rem); */
   align-items: center;
   justify-items: center;
 }

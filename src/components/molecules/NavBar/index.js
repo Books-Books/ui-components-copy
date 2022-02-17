@@ -108,7 +108,19 @@ export function NavBar({
   return (
     <Fragment>
       <nav className={cssNavbar['menuContainer']} aria-label='menu principal'>
-        <ul role='list' className={cssNavbar['ulMenu']}>
+        <Button
+          icon='menu'
+          className={`${cssNavbar.menuResponsive}`}
+          onClick={() => {
+            !menuResponsive ? setMenuResponsive(true) : setMenuResponsive(false)
+          }}
+        />
+        <ul
+          role='list'
+          className={`${cssNavbar['ulMenu']} ${
+            menuResponsive === true && cssNavbar.ulMenuAct
+          }`}
+        >
           <li
             onClick={() => {
               handleClickDropdown(dropdownMenu, setDropdownMenu) //invocamos y utilizamos la función
@@ -132,7 +144,7 @@ export function NavBar({
               icon='home'
               addClass={cssNavbar['styleLink']}
               href={hrefInicio}
-            />
+            ></Link>
           </li>
           <li
             onClick={() => {
@@ -411,7 +423,7 @@ export function NavBar({
                 svgHide='true'
                 icon='help'
                 addClass={cssNavbar['styleBtn']}
-                ulClass={cssNavbar['styleUlAcc']}
+                ulClass={cssNavbar['styleUlHelp']}
                 isExpanded={dropdownHelp}
                 fnMenuExpanded={setDropdownHelp}
               >

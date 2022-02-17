@@ -1,4 +1,4 @@
-import React__default, { forwardRef, Fragment as Fragment$2, useState, useEffect, createRef, Children, isValidElement, createElement, useRef, cloneElement } from 'react';
+import React__default, { Children, cloneElement, createElement, createRef, forwardRef, Fragment as Fragment$2, isValidElement, useEffect, useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import { Chart } from 'react-google-charts';
 
@@ -38,11 +38,12 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
     if (selectionFollowsFocus && !selected && onChange) {
       onChange(event, value);
     }
+  };
 
     if (onFocus) {
       onFocus(event);
     }
-  };
+  
 
   return /*#__PURE__*/React__default.createElement("li", {
     role: "presentation"

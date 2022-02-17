@@ -43,23 +43,25 @@ export const Pagination = ({
 
   return (
     <Fragment>
-      <ul className={css.styleUl}>
-        <li>
-          <Button
-            className={css.styleBtn}
-            onClick={prevPage}
-            icon='chevron_left'
-          />
-        </li>
-        {page}
-        <li>
-          <Button
-            className={css.styleBtn}
-            onClick={nextPage}
-            icon='chevron_right'
-          />
-        </li>
-      </ul>
+      <footer>
+        <ul className={css.styleUl}>
+          <li>
+            <Button
+              className={css.styleBtn}
+              onClick={prevPage}
+              icon='chevron_left'
+            />
+          </li>
+          {page}
+          <li>
+            <Button
+              className={css.styleBtn}
+              onClick={nextPage}
+              icon='chevron_right'
+            />
+          </li>
+        </ul>
+      </footer>
     </Fragment>
   )
 }

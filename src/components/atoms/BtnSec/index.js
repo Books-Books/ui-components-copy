@@ -25,6 +25,8 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
     selectionFollowsFocus,
     value,
     addClass,
+    setValue,
+    url,
     ...other
   } = props
 
@@ -35,6 +37,9 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
 
     if (onClick) {
       onClick(event)
+    }
+    if (setValue) {
+      setValue(value + 1)
     }
   }
 
@@ -50,12 +55,13 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
   return (
     <li role='presentation'>
       <a
-        href={`#section-${label}`}
+        href={url}
         role='tab'
         className={`${css.BtnSec} ${addClass}`}
         aria-selected={selected}
         onClick={handleClick}
         onFocus={handleFocus}
+        value={value + 1}
         {...other}
       >
         <span className='sr-only'>Sección {label}</span>
@@ -66,4 +72,3 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
 })
 
 export { BtnSec }
-

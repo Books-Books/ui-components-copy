@@ -9,6 +9,11 @@
   opacity: 1;
   width: 700px;
 }
+.menuResponsive {
+  color: var(--textColor);
+  cursor: pointer;
+  display: none;
+}
 .ulMenu {
   display: flex;
   justify-content: center;
@@ -193,4 +198,60 @@
   border: 2px solid white;
   background-color: var(--secondaryColor);
   border-radius: 7px;
+}
+/* Media querys */
+@media (max-width: 767px) {
+  .menuContainer {
+    align-items: center;
+    box-sizing: border-box;
+    background: none;
+    border-radius: 0;
+    height: 45px;
+    width: 45px;
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+  }
+  .menuResponsive {
+    display: block;
+    background-color: var(--secondaryColor);
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+  }
+  .ulMenu {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 30px;
+    left: -305px;
+    background-color: var(--secondaryColor);
+    border-radius: 10px;
+    transition: all 0.5s;
+    width: 160px;
+  }
+  .ulMenuAct {
+    left: 0px;
+  }
+  .ulMenu > li {
+    margin: 20px 0px;
+  }
+  .styleBtn,
+  .styleLink {
+    font-size: 1.125rem;
+  }
+  .styleUlMenu {
+    left: 180px;
+    top: -22px;
+  }
+  .styleUlAcc {
+    left: 215px;
+    top: -8px;
+  }
+
+  .styleUlHelp {
+    left: 183px;
+    top: -5px;
+  }
 }
