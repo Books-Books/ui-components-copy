@@ -38,7 +38,7 @@ export const InputControl = ({
           setStateIcon('check')
         }
       } else {
-        setStateIcon('check')
+        setStateIcon('')
       }
     }
     function initInputIcon() {

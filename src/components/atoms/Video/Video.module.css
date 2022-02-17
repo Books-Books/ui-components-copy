@@ -78,8 +78,9 @@
   margin: 0;
 }
 
-.progress-content {
+.c-vid-controls-text {
   width: 100%;
+  font-variant-numeric: tabular-nums;
 }
 
 .progress {

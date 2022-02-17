@@ -10,11 +10,10 @@ const Template = (args) => <Modal {...args} />
 
 export const baseModal = Template.bind({})
 baseModal.args = {
-  dataButton: {
-    label: 'Abrir modal',
-    styled: 'primary',
-    hasAriaLabel: false
-  },
+  label: 'Abrir modal',
+  styled: 'primary',
+  hasImage: false,
+  hasAriaLabel: false,
   title: 'Modal',
   text: (
     <p>
