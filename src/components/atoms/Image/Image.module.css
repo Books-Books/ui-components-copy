@@ -1,10 +1,40 @@
 .containerImg {
   box-sizing: border-box;
-  border: solid 1px var(--tertiaryColor);
   padding: 10px;
   position: relative;
 }
-.square {
+[data-style='1'] {
+  border: solid 1px var(--tertiaryColor);
+}
+[data-style='2'] {
+  border: solid 1px var(--tertiaryColor);
+}
+[data-style='3'] {
+  border: solid 1px var(--secondaryColor);
+}
+[data-style='4'] {
+  border: solid 1px var(--secondaryColor);
+}
+[data-style-img='default'] {
+  border-radius: 20px;
+}
+
+.styleTitle {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.styleText {
+  font-size: 1.125rem;
+}
+.containerText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+[data-style='1']::before {
+  content: '';
   position: absolute;
   border-top: 4px solid var(--tertiaryColor);
   border-right: 4px solid var(--tertiaryColor);
@@ -13,16 +43,54 @@
   top: -20px;
   width: 110px;
 }
-.containerText {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+[data-style='2']::before {
+  content: '';
+  position: absolute;
+  border-top: 4px solid var(--fourthColor);
+  border-right: 4px solid var(--fourthColor);
+  height: 110px;
+  right: -20px;
+  top: -20px;
+  width: 110px;
 }
-.styleTitle {
-  font-size: 1.125rem;
-  font-weight: bold;
-  margin-right: 10px;
+[data-style='2']::after {
+  content: '';
+  position: absolute;
+  border-left: 4px solid var(--secondaryColor);
+  border-bottom: 4px solid var(--secondaryColor);
+  height: 110px;
+  left: -20px;
+  bottom: -20px;
+  width: 110px;
 }
-.styleText {
-  font-size: 1.125rem;
+[data-style='3']::before {
+  content: '';
+  position: absolute;
+  border-top: 4px solid var(--fourthColor);
+  border-right: 4px solid var(--fourthColor);
+  height: 110px;
+  right: -20px;
+  top: -20px;
+  width: 110px;
+}
+[data-style='4']::before {
+  content: '';
+  position: absolute;
+  border-top: 4px solid var(--fourthColor);
+  border-right: 4px solid var(--fourthColor);
+  height: 110px;
+  right: -20px;
+  top: -20px;
+  width: 110px;
+}
+[data-style='4']::after {
+  content: '';
+  position: absolute;
+  border-left: 4px solid var(--secondaryColor);
+  border-bottom: 4px solid var(--secondaryColor);
+  height: 110px;
+  left: -20px;
+  bottom: -20px;
+  width: 110px;
 }

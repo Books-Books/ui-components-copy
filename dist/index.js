@@ -37,9 +37,9 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
-var css = {"BtnSec":"_2eAZu"};
+var css = {"BtnSec":"_BtnSec-module__BtnSec__2eAZu"};
 
-var _excluded = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"];
+var _excluded = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass", "setValue", "url"];
 var BtnSec = React.forwardRef(function BtnSec(props, ref) {
   var label = props.label,
       onChange = props.onChange,
@@ -49,6 +49,8 @@ var BtnSec = React.forwardRef(function BtnSec(props, ref) {
       selectionFollowsFocus = props.selectionFollowsFocus,
       value = props.value,
       addClass = props.addClass,
+      setValue = props.setValue,
+      url = props.url,
       other = _objectWithoutPropertiesLoose(props, _excluded);
 
   var handleClick = function handleClick(event) {
@@ -58,6 +60,10 @@ var BtnSec = React.forwardRef(function BtnSec(props, ref) {
 
     if (onClick) {
       onClick(event);
+    }
+
+    if (setValue) {
+      setValue(value + 1);
     }
   };
 
@@ -74,17 +80,16 @@ var BtnSec = React.forwardRef(function BtnSec(props, ref) {
   return /*#__PURE__*/React__default.createElement("li", {
     role: "presentation"
   }, /*#__PURE__*/React__default.createElement("a", _extends({
-    href: "#section-" + label,
+    href: url,
     role: "tab",
     className: css.BtnSec + " " + addClass,
     "aria-selected": selected,
     onClick: handleClick,
-    onFocus: handleFocus
+    onFocus: handleFocus,
+    value: value + 1
   }, other), /*#__PURE__*/React__default.createElement("span", {
     "class": "sr-only"
-  }, "Secci\xF3n ", label), /*#__PURE__*/React__default.createElement("span", {
-    "aria-hidden": "true"
-  }, label)));
+  }, "Secci\xF3n ", label)));
 });
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
@@ -1188,9 +1193,9 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
-var base = {"ColorBase":"_3AGk-"};
+var base = {"ColorBase":"_Base-module__ColorBase__3AGk-"};
 
-var css$1 = {"Icon":"_3qt0u"};
+var css$1 = {"Icon":"_Icon-module__Icon__3qt0u"};
 
 var _excluded$1 = ["nameIcon", "addClass"];
 var Icon = function Icon(_ref) {
@@ -1198,7 +1203,7 @@ var Icon = function Icon(_ref) {
       addClass = _ref.addClass,
       args = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
-  return /*#__PURE__*/React__default.createElement("i", _extends({
+  return /*#__PURE__*/React__default.createElement("span", _extends({
     "aria-hidden": "true",
     className: css$1.Icon + " " + addClass
   }, args), nameIcon);
@@ -1210,7 +1215,7 @@ Icon.defaultProps = {
   addClass: ''
 };
 
-var css$2 = {"ButtonBase":"_bJEh3"};
+var css$2 = {"ButtonBase":"_Button-module__ButtonBase__bJEh3"};
 
 var _excluded$2 = ["styled", "label", "hasAriaLabel", "icon", "addClass", "disabled", "children"];
 var Button = function Button(_ref) {
@@ -1247,7 +1252,44 @@ Button.defaultProps = {
   hasAriaLabel: true
 };
 
-var css$3 = {"c-collapsible-container-header":"_1CW18","c-collapsible-container-body":"_2ygtY","active":"_1xv7i","show":"_2moa5"};
+var css$3 = {"spanText":"_DarkThemeToggle-module__spanText__4KFeG"};
+
+var DarkThemeToggle = function DarkThemeToggle(_ref) {
+  var addClass = _ref.addClass;
+
+  var _useState = React.useState(false),
+      pressed = _useState[0],
+      setPressed = _useState[1];
+
+  function enableDarkMode() {
+    document.body.classList.remove('light-theme');
+    document.body.classList.add('dark-theme');
+    setPressed(true);
+  }
+
+  function enableLightMode() {
+    document.body.classList.remove('dark-theme');
+    document.body.classList.add('light-theme');
+    setPressed(false);
+  }
+
+  var togglePressed = function togglePressed() {
+    document.body.classList.contains('light-theme') ? enableDarkMode() : enableLightMode();
+  };
+
+  return /*#__PURE__*/React__default.createElement("button", {
+    className: css$3['toggle-button'] + " " + addClass,
+    "aria-pressed": pressed,
+    onClick: togglePressed,
+    type: "button"
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "mode_night"
+  }), /*#__PURE__*/React__default.createElement("span", {
+    className: css$3.spanText
+  }, "Modo Nocturno"));
+};
+
+var css$4 = {"c-collapsible-container-header":"_DropableItem-module__c-collapsible-container-header__1CW18","c-collapsible-container-body":"_DropableItem-module__c-collapsible-container-body__2ygtY","active":"_DropableItem-module__active__1xv7i","show":"_DropableItem-module__show__2moa5"};
 
 var _excluded$3 = ["item", "index", "stateIcon", "addClass"];
 function AccordionItem(_ref) {
@@ -1269,14 +1311,14 @@ function AccordionItem(_ref) {
     Expanded ? SetExpanded(false) : SetExpanded(true);
 
     if (active === '') {
-      setActive(css$3['active']);
+      setActive(css$4['active']);
     } else {
       setActive('');
     }
   };
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("button", _extends({
-    className: css$3['c-collapsible-container-header'] + " " + addClass,
+    className: css$4['c-collapsible-container-header'] + " " + addClass,
     "aria-expanded": Expanded,
     onClick: toggleAccordion
   }, props), /*#__PURE__*/React__default.createElement(Icon, {
@@ -1284,7 +1326,7 @@ function AccordionItem(_ref) {
   }), /*#__PURE__*/React__default.createElement("p", null, " ", item.title), /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: stateIcon
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$3['c-collapsible-container-body'] + " " + active,
+    className: css$4['c-collapsible-container-body'] + " " + active,
     id: "body" + index
   }, /*#__PURE__*/React__default.createElement("p", null, item.text)));
 }
@@ -1299,7 +1341,7 @@ AccordionItem.defaultProps = {
   addClass: ''
 };
 
-var css$4 = {"dropdownContainer":"_fH-Dn","DropdownCont":"_D5DjI","dropdownArrow":"_2SmiC","navItem":"_2UAjf","dropdownMenu":"_jT9p5","dropdownMenu-item":"_2SR1I","navLink":"_362sV","dropdownItem":"_1JWTx"};
+var css$5 = {"dropdownContainer":"_Dropdown-module__dropdownContainer__fH-Dn","DropdownCont":"_Dropdown-module__DropdownCont__D5DjI","dropdownArrow":"_Dropdown-module__dropdownArrow__2SmiC","navItem":"_Dropdown-module__navItem__2UAjf","dropdownMenu":"_Dropdown-module__dropdownMenu__jT9p5","dropdownMenu-item":"_Dropdown-module__dropdownMenu-item__2SR1I","navLink":"_Dropdown-module__navLink__362sV","dropdownItem":"_Dropdown-module__dropdownItem__1JWTx"};
 
 var Dropdown = function Dropdown(_ref) {
   var _ref$icon = _ref.icon,
@@ -1338,22 +1380,24 @@ var Dropdown = function Dropdown(_ref) {
     SetExpanded(isExpanded);
   }, [isExpanded]);
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$4['dropdownContainer']
+    className: css$5['dropdownContainer']
   }, /*#__PURE__*/React__default.createElement(Button, {
     hasAriaLabel: hasAriaLabel,
     "aria-expanded": Expanded,
-    className: css$4.DropdownCont + " " + addClass + " ",
+    className: css$5.DropdownCont + " " + addClass + " ",
     onClick: toggleMenu,
     onBlur: closeMenu,
     onKeyDown: closeMenuOnEsc
-  }, icon, label, /*#__PURE__*/React__default.createElement("svg", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: icon
+  }), label, /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "48",
     height: "48",
     viewBox: "0 0 24 24",
     focusable: "false",
     "aria-hidden": "true",
-    className: css$4['dropdownArrow'],
+    className: css$5['dropdownArrow'],
     hide: svgHide
   }, /*#__PURE__*/React__default.createElement("path", {
     fill: "none",
@@ -1362,7 +1406,7 @@ var Dropdown = function Dropdown(_ref) {
     d: "M7 10l5 5 5-5z"
   }))), /*#__PURE__*/React__default.createElement("ul", {
     role: "list",
-    className: css$4.dropdownMenu + " " + ulClass,
+    className: css$5.dropdownMenu + " " + ulClass,
     onBlur: closeMenu
   }, children));
 };
@@ -1686,7 +1730,7 @@ function uniqueId(prefix) {
 
 var uniqueId_1 = uniqueId;
 
-var css$5 = {"InputAction":"_xB2Ha","LabelStyled":"_1X4kF","TextFileName":"_OaT0I"};
+var css$6 = {"InputAction":"_InputAction-module__InputAction__xB2Ha","LabelStyled":"_InputAction-module__LabelStyled__1X4kF","TextFileName":"_InputAction-module__TextFileName__OaT0I"};
 
 var _excluded$4 = ["type", "styled", "label", "addClass"];
 var InputAction = function InputAction(_ref) {
@@ -1727,11 +1771,11 @@ var InputAction = function InputAction(_ref) {
     d: "M10 2c-4.41 0-8 3.59-8 8s3.59 8 8 8c1.1 0 2-.9 2-2 0-.49-.18-.96-.51-1.34a.445.445 0 01-.1-.26c0-.22.18-.4.4-.4h1.42c2.65 0 4.8-2.15 4.8-4.8C18 5.23 14.41 2 10 2zm-4.5 8.75a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5-3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm4 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5 3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"
   }));
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("label", _extends({
-    className: base.ColorBase + " " + css$5.LabelStyled + " " + addClass,
+    className: base.ColorBase + " " + css$6.LabelStyled + " " + addClass,
     htmlFor: id,
     styled: styled
   }, args), /*#__PURE__*/React__default.createElement("input", {
-    className: css$5.InputAction,
+    className: css$6.InputAction,
     type: type,
     id: id
   }), type === 'color' ? colorIcon : uploadIcon, label !== '' ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null)));
@@ -1751,7 +1795,7 @@ InputAction.defaultProps = {
   onClick: undefined
 };
 
-var css$6 = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckBg":"_3z4b_","CheckLabel":"_10bHL","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
+var css$7 = {"InputStyled":"_InputControl-module__InputStyled__1isCe","InputCont":"_InputControl-module__InputCont__1YikN","CheckCont":"_InputControl-module__CheckCont__WN9au","CheckBg":"_InputControl-module__CheckBg__3z4b_","CheckLabel":"_InputControl-module__CheckLabel__10bHL","CheckTrack":"_InputControl-module__CheckTrack__2QBZ5","input-error":"_InputControl-module__input-error__8exJT","input-succes":"_InputControl-module__input-succes__3GadY"};
 
 var _excluded$5 = ["type", "label", "stateInput", "name", "addClass"];
 var InputControl = function InputControl(_ref) {
@@ -1777,10 +1821,10 @@ var InputControl = function InputControl(_ref) {
       if (stateInput) {
         if (stateInput === 'Error') {
           setStateIcon('close');
-          element.classList.add(css$6['input-error']);
+          element.classList.add(css$7['input-error']);
         } else if (stateInput === 'Succes') {
           setStateIcon('check');
-          element.classList.add(css$6['input-succes']);
+          element.classList.add(css$7['input-succes']);
         } else {
           setStateIcon('check');
         }
@@ -1798,13 +1842,13 @@ var InputControl = function InputControl(_ref) {
   });
   return /*#__PURE__*/React__default.createElement("label", _extends({
     htmlFor: id,
-    className: css$6.InputCont + " " + addClass,
+    className: css$7.InputCont + " " + addClass,
     inputMode: type
   }, args), /*#__PURE__*/React__default.createElement("div", {
-    className: css$6.CheckCont,
+    className: css$7.CheckCont,
     inputMode: type
   }, /*#__PURE__*/React__default.createElement("input", {
-    className: css$6.InputStyled,
+    className: css$7.InputStyled,
     "data-state": stateInput,
     inputMode: type,
     defaultChecked: check,
@@ -1812,9 +1856,9 @@ var InputControl = function InputControl(_ref) {
     id: id,
     name: name
   }), type === 'toggle' && /*#__PURE__*/React__default.createElement("div", {
-    className: css$6.CheckTrack
+    className: css$7.CheckTrack
   }), /*#__PURE__*/React__default.createElement("div", {
-    className: css$6.CheckBg,
+    className: css$7.CheckBg,
     inputMode: type,
     onClick: function onClick() {
       return setCheck(!check);
@@ -1824,7 +1868,7 @@ var InputControl = function InputControl(_ref) {
     nameIcon: getStateIcon,
     id: id + "ContentIcon"
   }))), /*#__PURE__*/React__default.createElement("span", {
-    className: css$6.CheckLabel
+    className: css$7.CheckLabel
   }, label));
 };
 InputControl.propTypes = {
@@ -1843,7 +1887,7 @@ InputControl.defaultProps = {
   onClick: undefined
 };
 
-var css$7 = {"InputCont":"_17byX","LabelStyle":"_2zmtW","InputStyled":"_3_8sU","input-error":"_23iPI","input-succes":"_1r2gj","deactive-border":"_2sE6F"};
+var css$8 = {"InputCont":"_InputField-module__InputCont__17byX","LabelStyle":"_InputField-module__LabelStyle__2zmtW","InputStyled":"_InputField-module__InputStyled__3_8sU","input-error":"_InputField-module__input-error__23iPI","input-succes":"_InputField-module__input-succes__1r2gj","deactive-border":"_InputField-module__deactive-border__2sE6F"};
 
 var _excluded$6 = ["type", "label", "dataIcon", "styledInput", "addClass"];
 var InputField = function InputField(_ref) {
@@ -1870,7 +1914,7 @@ var InputField = function InputField(_ref) {
 
   React.useEffect(function () {
     function addClass(element, nameClass) {
-      element.classList.add(css$7[nameClass]);
+      element.classList.add(css$8[nameClass]);
     }
 
     function validateInput(content, input, label) {
@@ -1917,7 +1961,7 @@ var InputField = function InputField(_ref) {
 
   return /*#__PURE__*/React__default.createElement("label", _extends({
     inputMode: type,
-    className: css$7.InputCont + " " + addClass,
+    className: css$8.InputCont + " " + addClass,
     "data-status": isFocus || value !== '' ? 'active' : false,
     id: "contentLabel" + id,
     "state-input": styledInput
@@ -1925,14 +1969,14 @@ var InputField = function InputField(_ref) {
     nameIcon: dataIcon.nameIcon,
     "state-input": styledInput
   }) : /*#__PURE__*/React__default.createElement(React.Fragment, null), /*#__PURE__*/React__default.createElement("input", {
-    className: css$7.InputStyled,
+    className: css$8.InputStyled,
     type: type,
     onFocus: handleFocus,
     onBlur: handleBlur,
     onChange: handleChange,
     id: id
   }), type !== 'date' && /*#__PURE__*/React__default.createElement("span", {
-    className: css$7.LabelStyle,
+    className: css$8.LabelStyle,
     htmlFor: id,
     inputMode: type,
     id: "label-" + id,
@@ -1955,7 +1999,7 @@ InputField.defaultProps = {
   addClass: ''
 };
 
-var css$8 = {"LinkCont":"_2lFDP"};
+var css$9 = {"LinkCont":"_Link-module__LinkCont__2lFDP"};
 
 var Link = function Link(_ref) {
   var label = _ref.label,
@@ -1964,7 +2008,7 @@ var Link = function Link(_ref) {
       addClass = _ref.addClass,
       target = _ref.target;
   return /*#__PURE__*/React__default.createElement("a", {
-    className: css$8.LinkCont + " " + addClass,
+    className: css$9.LinkCont + " " + addClass,
     href: href,
     target: target
   }, icon && /*#__PURE__*/React__default.createElement(Icon, {
@@ -1983,7 +2027,7 @@ Link.defaultProps = {
   addClass: ''
 };
 
-var css$9 = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
+var css$a = {"c-aud-btn":"_Multimedia-module__c-aud-btn__a9LbG","c-aud-btn-content":"_Multimedia-module__c-aud-btn-content__2E_hC","c-aud-secundary":"_Multimedia-module__c-aud-secundary__2uPDm"};
 
 function Multimedia(_ref) {
   var url = _ref.url,
@@ -2065,10 +2109,10 @@ function Multimedia(_ref) {
   }), /*#__PURE__*/React__default.createElement("button", {
     id: "btnAudio",
     onClick: handlePlayPause,
-    className: css$9['c-aud-btn'] + " " + (isPrimary ? '' : css$9['c-aud-secundary']),
+    className: css$a['c-aud-btn'] + " " + (isPrimary ? '' : css$a['c-aud-secundary']),
     "aria-label": getStateBtnAudio ? 'Pausar' : 'Reproducir'
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$9['c-aud-btn-content'],
+    className: css$a['c-aud-btn-content'],
     "data-label": label ? 'string' : ''
   }, getIcon))));
 }
@@ -2081,7 +2125,7 @@ Multimedia.defaultProps = {
   addClass: ''
 };
 
-var css$a = {"Panel":"_qaB0F","fadeIn":"_23_l4"};
+var css$b = {"Panel":"_Panel-module__Panel__qaB0F","fadeIn":"_Panel-module__fadeIn__23_l4"};
 
 var _excluded$7 = ["children", "value", "index", "addClass", "roleDescription"];
 var TabPanel = function TabPanel(props) {
@@ -2094,7 +2138,7 @@ var TabPanel = function TabPanel(props) {
       other = _objectWithoutPropertiesLoose(props, _excluded$7);
 
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$a.Panel + " " + addClass,
+    className: css$b.Panel + " " + addClass,
     role: "group",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
@@ -2219,7 +2263,7 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
   }, action === 'record' ? micOnIcon : micOffIcon), children && children);
 };
 
-var css$b = {"section":"_Nahni","fadeInDown":"_BDs2n"};
+var css$c = {"section":"_Section-module__section__Nahni","fadeInDown":"_Section-module__fadeInDown__BDs2n"};
 
 var _excluded$8 = ["children", "value", "index", "label", "addClass"];
 
@@ -2232,7 +2276,7 @@ var Section = function Section(_ref) {
       other = _objectWithoutPropertiesLoose(_ref, _excluded$8);
 
   return /*#__PURE__*/React__default.createElement("section", _extends({
-    className: css$b.section + " " + addClass,
+    className: css$c.section + " " + addClass,
     role: "tabpanel",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
@@ -2243,7 +2287,7 @@ var Section = function Section(_ref) {
   }, "Secci\xF3n ", label), children);
 };
 
-var css$c = {"SelectStyle":"_2NS2Z","SelectContainer":"_3AjWz","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5","SelectLabel":"_1YqCo"};
+var css$d = {"SelectStyle":"_Select-module__SelectStyle__2NS2Z","SelectContainer":"_Select-module__SelectContainer__3AjWz","SelectAfter":"_Select-module__SelectAfter__2vUqP","SelectWrapper":"_Select-module__SelectWrapper__2BQM5","SelectLabel":"_Select-module__SelectLabel__1YqCo"};
 
 var _excluded$9 = ["placeholder", "stateInput", "options", "addClass", "isLabelVisible", "label"];
 var Select = function Select(_ref) {
@@ -2259,17 +2303,17 @@ var Select = function Select(_ref) {
   var name = uniqueId_1('ui-name-');
 
   return /*#__PURE__*/React__default.createElement("label", _extends({
-    className: css$c.SelectWrapper + " " + addClass,
+    className: css$d.SelectWrapper + " " + addClass,
     "data-state": stateInput
   }, args), /*#__PURE__*/React__default.createElement("span", {
-    className: css$c['SelectLabel'] + " " + (isLabelVisible ? '' : 'sr-only')
+    className: css$d['SelectLabel'] + " " + (isLabelVisible ? '' : 'sr-only')
   }, label), /*#__PURE__*/React__default.createElement("div", {
-    className: css$c['SelectContainer'],
+    className: css$d['SelectContainer'],
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement("select", {
     defaultValue: "",
     name: name,
-    className: css$c.SelectStyle,
+    className: css$d.SelectStyle,
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement("option", {
     disabled: true,
@@ -2280,7 +2324,7 @@ var Select = function Select(_ref) {
       value: i + 1
     }, elem);
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$c.SelectAfter,
+    className: css$d.SelectAfter,
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "arrow_drop_down"
@@ -2300,7 +2344,7 @@ Select.defaultProps = {
   label: 'Selecciona la opción'
 };
 
-var css$d = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
+var css$e = {"TabsBtn":"_Tab-module__TabsBtn__2P1fM","TabsBtnContent":"_Tab-module__TabsBtnContent__293oo","TabsBtnContentLabel":"_Tab-module__TabsBtnContentLabel__h75tA","TabsBtnIndicator":"_Tab-module__TabsBtnIndicator__247Rk","TabsBtnIndicatorContent":"_Tab-module__TabsBtnIndicatorContent__21fWb"};
 
 var _excluded$a = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"];
 var Tab = React.forwardRef(function Tab(props, ref) {
@@ -2341,24 +2385,24 @@ var Tab = React.forwardRef(function Tab(props, ref) {
   return /*#__PURE__*/React.createElement("button", _extends({
     ref: ref,
     role: "tab",
-    className: css$d.TabsBtn + " " + addClass,
+    className: css$e.TabsBtn + " " + addClass,
     "aria-selected": selected,
     disabled: disabled,
     onClick: handleClick,
     onFocus: handleFocus,
     tabIndex: selected ? 0 : -1
   }, other), /*#__PURE__*/React.createElement("span", {
-    className: css$d.TabsBtnContent,
+    className: css$e.TabsBtnContent,
     "position-icon": positionIcon
   }, /*#__PURE__*/React.createElement(Icon, {
     "aria-hidden": "true",
     nameIcon: nameIcon
   }), ' ', /*#__PURE__*/React.createElement("span", {
-    className: css$d.TabsBtnContentLabel
+    className: css$e.TabsBtnContentLabel
   }, label), ' '), /*#__PURE__*/React.createElement("span", {
-    className: css$d.TabsBtnIndicator
+    className: css$e.TabsBtnIndicator
   }, /*#__PURE__*/React.createElement("span", {
-    className: css$d.TabsBtnIndicatorContent
+    className: css$e.TabsBtnIndicatorContent
   })));
 });
 Tab.propTypes = {
@@ -2368,12 +2412,14 @@ Tab.defaultProps = {
   addClass: ''
 };
 
-var css$e = {"Typography":"_2s-q8"};
+var css$f = {"Typography":"_Text-module__Typography__2s-q8"};
 
 var _excluded$b = ["type", "children", "addClass"];
 var Text = function Text(_ref) {
-  var type = _ref.type,
-      children = _ref.children,
+  var _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'p' : _ref$type,
+      _ref$children = _ref.children,
+      children = _ref$children === void 0 ? 'hola' : _ref$children,
       addClass = _ref.addClass,
       args = _objectWithoutPropertiesLoose(_ref, _excluded$b);
 
@@ -2390,8 +2436,10 @@ var Text = function Text(_ref) {
     span: 'span'
   };
   var Component = DefaultValue[type];
+  console.log(Component);
+  console.log(type);
   return /*#__PURE__*/React__default.createElement(Component, _extends({
-    className: css$e.Typography + " " + addClass,
+    className: css$f.Typography + " " + addClass,
     type: type
   }, args), children);
 };
@@ -2404,7 +2452,7 @@ Text.defaultProps = {
   addClass: ''
 };
 
-var css$f = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
+var css$g = {"TextareaCont":"_Textarea-module__TextareaCont__2hUyD","TextareaItem":"_Textarea-module__TextareaItem__1haMe","CountCont":"_Textarea-module__CountCont__34S0r"};
 
 var Textarea = function Textarea(_ref) {
   var id = _ref.id,
@@ -2437,20 +2485,20 @@ var Textarea = function Textarea(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$f.TextareaCont + " " + addClass
+    className: css$g.TextareaCont + " " + addClass
   }, /*#__PURE__*/React__default.createElement("label", {
     "for": id
   }, /*#__PURE__*/React__default.createElement("span", {
     className: isLabelVisible ? '' : 'sr-only'
   }, label), /*#__PURE__*/React__default.createElement("textarea", {
-    className: css$f.TextareaItem,
+    className: css$g.TextareaItem,
     rows: rows,
     placeholder: placeholder,
     onKeyPress: HandleChange,
     maxLength: MaxLength,
     id: id
   })), maxWords && /*#__PURE__*/React__default.createElement("span", {
-    className: css$f.CountCont
+    className: css$g.CountCont
   }, " ", Count + " / " + maxWords, " "));
 };
 Textarea.propTypes = {
@@ -2465,7 +2513,7 @@ Textarea.defaultProps = {
   addClass: ''
 };
 
-var css$g = {"toggletip-container":"_3Z4HX","toggletip-icon":"_hQ4M-","toggletip-content":"_2SzZ3"};
+var css$h = {"toggletip-container":"_Toggletip-module__toggletip-container__3Z4HX","toggletip-icon":"_Toggletip-module__toggletip-icon__hQ4M-","toggletip-content":"_Toggletip-module__toggletip-content__2SzZ3"};
 
 var Toggletip = function Toggletip(_ref) {
   var content = _ref.content;
@@ -2478,7 +2526,7 @@ var Toggletip = function Toggletip(_ref) {
     toggletipContent == '' ? SetToggletipContent(
     /*#__PURE__*/
     React__default.createElement("div", {
-      className: css$g['toggletip-content']
+      className: css$h['toggletip-content']
     }, content)) : SetToggletipContent('');
   };
 
@@ -2491,7 +2539,7 @@ var Toggletip = function Toggletip(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$g['toggletip-container']
+    className: css$h['toggletip-container']
   }, /*#__PURE__*/React__default.createElement(Button, {
     hasAriaLabel: "false",
     styled: "primary-icon",
@@ -2500,7 +2548,7 @@ var Toggletip = function Toggletip(_ref) {
     onBlur: emptyToggletipContent,
     onKeyDown: emptyToggletipContentOnEsc
   }, /*#__PURE__*/React__default.createElement("span", {
-    className: css$g['toggletip-icon'],
+    className: css$h['toggletip-icon'],
     "aria-hidden": "true"
   }, "i"), /*#__PURE__*/React__default.createElement("span", {
     "class": "sr-only"
@@ -2509,7 +2557,7 @@ var Toggletip = function Toggletip(_ref) {
   }, toggletipContent));
 };
 
-var css$h = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
+var css$i = {"TooltipCont":"_Tooltip-module__TooltipCont__2fDQR","TooltipItem":"_Tooltip-module__TooltipItem__3KPt0"};
 
 var Tooltip = function Tooltip(_ref) {
   var children = _ref.children,
@@ -2517,15 +2565,15 @@ var Tooltip = function Tooltip(_ref) {
       id = _ref.id,
       content = _ref.content;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$h.TooltipCont + " " + addClass
+    className: css$i.TooltipCont + " " + addClass
   }, children, /*#__PURE__*/React__default.createElement("div", {
     role: "tooltip",
-    className: css$h.TooltipItem,
+    className: css$i.TooltipItem,
     id: id
   }, content));
 };
 
-var css$i = {"c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress-content":"_29s-a","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
+var css$j = {"c-vid":"_Video-module__c-vid__2uck7","c-vid-controls":"_Video-module__c-vid-controls__2yF4K","c-vid-controls-text":"_Video-module__c-vid-controls-text__2W8d_","progress-content":"_Video-module__progress-content__29s-a","progress":"_Video-module__progress__2vrVD","progress-bar":"_Video-module__progress-bar__5SxVn","c-vid-controls-volumn":"_Video-module__c-vid-controls-volumn__3e9Q1","c-vid-controls-volumn-item":"_Video-module__c-vid-controls-volumn-item__2YNZg"};
 
 function Video(_ref) {
   var url = _ref.url,
@@ -2739,7 +2787,7 @@ function Video(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$i['c-vid'] + " " + addClass,
+    className: css$j['c-vid'] + " " + addClass,
     ref: refCont,
     style: {
       maxWidth: width,
@@ -2754,24 +2802,24 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("source", {
     src: url
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$i['progress-content']
+    className: css$j['progress-content']
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgress,
-    className: css$i.progress,
+    className: css$j.progress,
     onClick: handleProcessControl
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgressBar,
-    className: css$i['progress-bar'],
+    className: css$j['progress-bar'],
     onChange: handleBarProgress
   }))), /*#__PURE__*/React__default.createElement("div", {
-    className: css$i['c-vid-controls']
+    className: css$j['c-vid-controls']
   }, /*#__PURE__*/React__default.createElement("button", {
     "aria-label": getstateVideoPlay.label,
     onClick: handlePlay
   }, getstateVideoPlay.icon), /*#__PURE__*/React__default.createElement("p", {
-    className: css$i['c-vid-controls-text']
+    className: css$j['c-vid-controls-text']
   }, /*#__PURE__*/React__default.createElement("span", null, getCurrentTiem), " / ", /*#__PURE__*/React__default.createElement("span", null, getDurationVideo)), /*#__PURE__*/React__default.createElement("div", {
-    className: css$i['c-vid-controls-volumn']
+    className: css$j['c-vid-controls-volumn']
   }, /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "48",
@@ -2789,7 +2837,7 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("span", {
     "class": "sr-only"
   }, "Controlar volumen"), /*#__PURE__*/React__default.createElement("input", {
-    className: css$i['c-vid-controls-volumn-item'],
+    className: css$j['c-vid-controls-volumn-item'],
     ref: refVolumn,
     id: "volumeControl",
     type: "range",
@@ -2813,7 +2861,7 @@ Video.defaultProps = {
   addClass: ''
 };
 
-var css$j = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
+var css$k = {"c-side":"_AsideNav-module__c-side__3jq03","c-side-nav":"_AsideNav-module__c-side-nav__ORlc2","c-side-nav-item":"_AsideNav-module__c-side-nav-item__2VUuV","c-overlay":"_AsideNav-module__c-overlay__1ZsvR","position-left":"_AsideNav-module__position-left__2dAro","aside--active--left":"_AsideNav-module__aside--active--left__3yTuc","position-right":"_AsideNav-module__position-right__2GOdp","aside--active--right":"_AsideNav-module__aside--active--right__28cLO","overlay--active":"_AsideNav-module__overlay--active__IKRE0"};
 
 var AsideNav = function AsideNav(_ref) {
   var children = _ref.children,
@@ -2837,10 +2885,10 @@ var AsideNav = function AsideNav(_ref) {
     function locationAside() {
       if (location === 'right') {
         setLocationAside('aside--active--right');
-        $aside.classList.add(css$j['position-right']);
+        $aside.classList.add(css$k['position-right']);
       } else {
         setLocationAside('aside--active--left');
-        $aside.classList.add(css$j['position-left']);
+        $aside.classList.add(css$k['position-left']);
       }
     }
 
@@ -2849,12 +2897,12 @@ var AsideNav = function AsideNav(_ref) {
 
   function stateAside(elementModal, elementOverlay) {
     if (getStateAside) {
-      elementModal.classList.remove(css$j[getLocationAside]);
-      elementOverlay.classList.remove(css$j['overlay--active']);
+      elementModal.classList.remove(css$k[getLocationAside]);
+      elementOverlay.classList.remove(css$k['overlay--active']);
       setStateAside(false);
     } else {
-      elementModal.classList.add(css$j[getLocationAside]);
-      elementOverlay.classList.add(css$j['overlay--active']);
+      elementModal.classList.add(css$k[getLocationAside]);
+      elementOverlay.classList.add(css$k['overlay--active']);
       setStateAside(true);
     }
   }
@@ -2867,11 +2915,11 @@ var AsideNav = function AsideNav(_ref) {
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$j['c-overlay'] + " ui-overlay",
+    className: css$k['c-overlay'] + " ui-overlay",
     id: "overlay"
   }), /*#__PURE__*/React__default.createElement("div", {
     ref: refModal,
-    className: css$j['c-side'] + " ui-aside",
+    className: css$k['c-side'] + " ui-aside",
     id: "aside"
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "close",
@@ -2880,10 +2928,10 @@ var AsideNav = function AsideNav(_ref) {
       cursor: 'pointer'
     }
   }), children || /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("h2", null, content.title), /*#__PURE__*/React__default.createElement("ul", {
-    className: css$j['c-side-nav'] + " ui-aside-nav"
+    className: css$k['c-side-nav'] + " ui-aside-nav"
   }, content.list.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$j['c-side-nav-item'] + " ui-aside-nav-item",
+      className: css$k['c-side-nav-item'] + " ui-aside-nav-item",
       key: index
     }, item);
   })))), /*#__PURE__*/React__default.createElement(Button, {
@@ -2910,7 +2958,7 @@ AsideNav.defaultProps = {
   location: 'left'
 };
 
-var css$k = {"AsideSection":"_37BVW"};
+var css$l = {"AsideSection":"_AsideSection-module__AsideSection__37BVW"};
 
 var _excluded$c = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value", "labelName"];
 var AsideSection = React.forwardRef(function Tabs(props, ref) {
@@ -2998,7 +3046,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
     "class": "sr-only",
     id: "section-list"
   }, labelName), /*#__PURE__*/React__default.createElement("ul", (_React$createElement = {
-    className: css$k.AsideSection,
+    className: css$l.AsideSection,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -3008,7 +3056,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
   }, _React$createElement["aria-labelledby"] = "section-list", _React$createElement), children)));
 });
 
-var css$l = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
+var css$m = {"u-text":"_Card-module__u-text__16nIh","c-card":"_Card-module__c-card__1iLqk","c-card-image":"_Card-module__c-card-image__2zNmo","c-card-container":"_Card-module__c-card-container__1Z4zT"};
 
 var Card = function Card(_ref) {
   var width = _ref.width,
@@ -3017,23 +3065,23 @@ var Card = function Card(_ref) {
       supportingText = _ref.supportingText,
       buttons = _ref.buttons;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$l['c-card'] + " ui-card",
+    className: css$m['c-card'] + " ui-card",
     style: {
       width: width
     }
   }, image.state ? /*#__PURE__*/React__default.createElement("figure", {
-    className: css$l['c-card-image'] + " ui-card-img"
+    className: css$m['c-card-image'] + " ui-card-img"
   }, /*#__PURE__*/React__default.createElement("img", {
     src: image.url,
     alt: image.alt
   })) : /*#__PURE__*/React__default.createElement(React.Fragment, null), /*#__PURE__*/React__default.createElement("div", {
-    className: css$l['c-card-container'] + " ui-card-container"
+    className: css$m['c-card-container'] + " ui-card-container"
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-title"
   }, /*#__PURE__*/React__default.createElement("h3", null, content.title), /*#__PURE__*/React__default.createElement("p", {
-    className: css$l['u-text'] + " ui-text"
+    className: css$m['u-text'] + " ui-text"
   }, content.text)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("p", {
-    className: css$l['u-text'] + " ui-text-two"
+    className: css$m['u-text'] + " ui-text-two"
   }, supportingText)), buttons.state ? /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-buttons"
   }, /*#__PURE__*/React__default.createElement(Button, {
@@ -3067,7 +3115,7 @@ Card.defaultProps = {
   }
 };
 
-var css$m = {"c-collapsible":"_3W_Aj"};
+var css$n = {"c-collapsible":"_Dropable-module__c-collapsible__3W_Aj"};
 
 var Accordion = function Accordion(_ref) {
   var content = _ref.content,
@@ -3086,13 +3134,13 @@ var Accordion = function Accordion(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("ul", {
-    className: css$m['c-collapsible'] + " ui-collapsible",
+    className: css$n['c-collapsible'] + " ui-collapsible",
     style: {
       width: width
     }
   }, content.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$m['c-collapsible-container'] + " ui-collapsible-container",
+      className: css$n['c-collapsible-container'] + " ui-collapsible-container",
       key: index,
       style: style
     }, /*#__PURE__*/React__default.createElement(AccordionItem, {
@@ -3143,7 +3191,7 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
-var css$n = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh"};
+var css$o = {"c-modal":"_Modal-module__c-modal__6eOcM","c-modal-overlay":"_Modal-module__c-modal-overlay__1q2aa","c-modal__close-button":"_Modal-module__c-modal__close-button___SM4G","overlay--active":"_Modal-module__overlay--active__20Zpv","modal--active":"_Modal-module__modal--active__2MLWh"};
 
 var Modal = function Modal(_ref) {
   var children = _ref.children,
@@ -3174,19 +3222,19 @@ var Modal = function Modal(_ref) {
 
   function stateModal(elementModal, elementOverlay) {
     if (getModal) {
-      elementModal.classList.remove(css$n['modal--active']);
-      elementOverlay.classList.remove(css$n['overlay--active']);
+      elementModal.classList.remove(css$o['modal--active']);
+      elementOverlay.classList.remove(css$o['overlay--active']);
       setModal(false);
     } else {
-      elementModal.classList.add(css$n['modal--active']);
-      elementOverlay.classList.add(css$n['overlay--active']);
+      elementModal.classList.add(css$o['modal--active']);
+      elementOverlay.classList.add(css$o['overlay--active']);
       setModal(true);
     }
   }
 
   function closeModal(elementModal, elementOverlay) {
-    elementModal.classList.remove(css$n['modal--active']);
-    elementOverlay.classList.remove(css$n['overlay--active']);
+    elementModal.classList.remove(css$o['modal--active']);
+    elementOverlay.classList.remove(css$o['overlay--active']);
     setModal(false);
   }
 
@@ -3219,18 +3267,18 @@ var Modal = function Modal(_ref) {
     hasAriaLabel: dataButton.hasAriaLabel
   }), /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$n['c-modal-overlay'] + " ui-modal-overlay",
+    className: css$o['c-modal-overlay'] + " ui-modal-overlay",
     id: "overlay",
     onClick: handleModal
   }), /*#__PURE__*/React__default.createElement("div", {
     role: "dialog",
     ref: refModal,
-    className: css$n['c-modal'] + " ui-modal",
+    className: css$o['c-modal'] + " ui-modal",
     id: "modal"
   }, children || /*#__PURE__*/React__default.createElement("div", {
     className: "ui-modal-content"
   }, /*#__PURE__*/React__default.createElement("h3", null, " ", title, " "), /*#__PURE__*/React__default.createElement("p", null, " ", text, " ")), /*#__PURE__*/React__default.createElement("button", {
-    className: "" + css$n['c-modal__close-button'],
+    className: "" + css$o['c-modal__close-button'],
     onClick: handleModal,
     style: {
       cursor: 'pointer'
@@ -3257,7 +3305,7 @@ Modal.defaultProps = {
   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!'
 };
 
-var cssNavbar = {"menuContainer":"_1O8g7","ulMenu":"_3GtQQ","styleBtn":"_8TzwT","styleUlMenu":"_1J1dN","styleUlAcc":"_2luFu","styleUlHelp":"_3J7fz","styleLi":"_2FQig","stylelinks":"_1-rcw","styleLink":"_uX2AO","styleNumber":"_6Gdkr","styleSubLi":"_1t9Uz","styleBtns":"_pyjf0","segundoMenu":"_3okIe","positionUlRelative":"_MrthX","spanText":"_o6aML","iconRight":"_pORcv"};
+var cssNavbar = {"menuContainer":"_NavBar-module__menuContainer__1O8g7","menuResponsive":"_NavBar-module__menuResponsive__2t5N4","ulMenu":"_NavBar-module__ulMenu__3GtQQ","styleBtn":"_NavBar-module__styleBtn__8TzwT","styleUlMenu":"_NavBar-module__styleUlMenu__1J1dN","styleUlAcc":"_NavBar-module__styleUlAcc__2luFu","styleUlHelp":"_NavBar-module__styleUlHelp__3J7fz","styleLi":"_NavBar-module__styleLi__2FQig","stylelinks":"_NavBar-module__stylelinks__1-rcw","styleLink":"_NavBar-module__styleLink__uX2AO","styleNumber":"_NavBar-module__styleNumber__6Gdkr","styleSubLi":"_NavBar-module__styleSubLi__1t9Uz","styleBtns":"_NavBar-module__styleBtns__pyjf0","segundoMenu":"_NavBar-module__segundoMenu__3okIe","positionUlRelative":"_NavBar-module__positionUlRelative__MrthX","spanText":"_NavBar-module__spanText__o6aML","iconRight":"_NavBar-module__iconRight__pORcv","ulMenuAct":"_NavBar-module__ulMenuAct__1MnK5"};
 
 function NavBar(_ref) {
   var _ref$hrefInicio = _ref.hrefInicio,
@@ -3275,50 +3323,6 @@ function NavBar(_ref) {
       dropdownHelp = _useState3[0],
       setDropdownHelp = _useState3[1];
 
-  var svgMenu = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "48",
-    height: "48",
-    viewBox: "0 0 24 24"
-  }, ' ', /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), ' ', /*#__PURE__*/React__default.createElement("path", {
-    d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-  }), ' ');
-  var svgInicio = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "30",
-    height: "30",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"
-  }));
-  var svgAccesibility = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "48",
-    height: "48",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
-  }));
-  var svgHelp = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
-  }));
   var content = [{
     name: 'primero',
     url: '#'
@@ -3363,12 +3367,23 @@ function NavBar(_ref) {
     setState(!state);
   };
 
+  var _useState4 = React.useState(false),
+      menuResponsive = _useState4[0],
+      setMenuResponsive = _useState4[1];
+
+  console.log(menuResponsive);
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("nav", {
     className: cssNavbar['menuContainer'],
     "aria-label": "menu principal"
-  }, /*#__PURE__*/React__default.createElement("ul", {
+  }, /*#__PURE__*/React__default.createElement(Button, {
+    icon: "menu",
+    className: "" + cssNavbar.menuResponsive,
+    onClick: function onClick() {
+      !menuResponsive ? setMenuResponsive(true) : setMenuResponsive(false);
+    }
+  }), /*#__PURE__*/React__default.createElement("ul", {
     role: "list",
-    className: cssNavbar['ulMenu']
+    className: cssNavbar['ulMenu'] + " " + (menuResponsive === true && cssNavbar.ulMenuAct)
   }, /*#__PURE__*/React__default.createElement("li", {
     onClick: function onClick() {
       handleClickDropdown(dropdownMenu, setDropdownMenu);
@@ -3376,14 +3391,14 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement(Dropdown, {
     label: "Menu",
     svgHide: "true",
-    icon: svgMenu,
+    icon: "menu",
     addClass: cssNavbar['styleBtn'],
     ulClass: cssNavbar['styleUlMenu'],
     isExpanded: dropdownMenu,
     fnMenuExpanded: setDropdownMenu
   }, content)), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement(Link, {
     label: "Inicio",
-    icon: svgInicio,
+    icon: "home",
     addClass: cssNavbar['styleLink'],
     href: hrefInicio
   })), /*#__PURE__*/React__default.createElement("li", {
@@ -3393,7 +3408,7 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement(Dropdown, {
     label: "Accesibilidad",
     svgHide: "true",
-    icon: svgAccesibility,
+    icon: "accessibility_new",
     addClass: cssNavbar['styleBtn'],
     ulClass: cssNavbar['styleUlAcc'],
     isExpanded: dropdownAcc,
@@ -3403,37 +3418,13 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    "aria-hidden": "true",
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "22",
-    height: "22",
-    viewBox: "0 0 24 24",
-    focusable: "false"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M17 20c-.29 0-.56-.06-.76-.15-.71-.37-1.21-.88-1.71-2.38-.51-1.56-1.47-2.29-2.39-3-.79-.61-1.61-1.24-2.32-2.53C9.29 10.98 9 9.93 9 9c0-2.8 2.2-5 5-5s5 2.2 5 5h2c0-3.93-3.07-7-7-7S7 5.07 7 9c0 1.26.38 2.65 1.07 3.9.91 1.65 1.98 2.48 2.85 3.15.81.62 1.39 1.07 1.71 2.05.6 1.82 1.37 2.84 2.73 3.55A3.999 3.999 0 0021 18h-2c0 1.1-.9 2-2 2zM7.64 2.64L6.22 1.22C4.23 3.21 3 5.96 3 9s1.23 5.79 3.22 7.78l1.41-1.41C6.01 13.74 5 11.49 5 9s1.01-4.74 2.64-6.36zM11.5 9a2.5 2.5 0 005 0 2.5 2.5 0 00-5 0z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "hearing"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Asistencia"), /*#__PURE__*/React__default.createElement("span", {
-    "aria-hidden": "true",
-    className: 'Icon_Icon__1siX0' + " " + cssNavbar.iconRight
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    focusable: "false"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-  })))), /*#__PURE__*/React__default.createElement("ul", {
+  }, "Asistencia"), /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "chevron_right"
+  })), /*#__PURE__*/React__default.createElement("ul", {
     className: cssNavbar.segundoMenu + " " + cssNavbar.positionUlRelative
   }, /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
@@ -3464,33 +3455,13 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M7 16c.55 0 1 .45 1 1 0 1.1-.9 2-2 2-.17 0-.33-.02-.5-.05.31-.55.5-1.21.5-1.95 0-.55.45-1 1-1M18.67 3c-.26 0-.51.1-.71.29L9 12.25 11.75 15l8.96-8.96a.996.996 0 000-1.41l-1.34-1.34c-.2-.2-.45-.29-.7-.29zM7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "brush"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Contraste"), /*#__PURE__*/React__default.createElement("span", {
-    className: 'Icon_Icon__1siX0' + " " + cssNavbar.iconRight
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-  })))), /*#__PURE__*/React__default.createElement("ul", {
+  }, "Contraste"), /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "chevron_right"
+  })), /*#__PURE__*/React__default.createElement("ul", {
     className: cssNavbar.segundoMenu + " " + cssNavbar.positionUlRelative
   }, /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
@@ -3561,33 +3532,13 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "format_size"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Tama\xF1o de letra"), /*#__PURE__*/React__default.createElement("span", {
-    className: 'Icon_Icon__1siX0' + " " + cssNavbar.iconRight
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-  })))), /*#__PURE__*/React__default.createElement("ul", {
+  }, "Tama\xF1o de letra"), /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "chevron_right"
+  })), /*#__PURE__*/React__default.createElement("ul", {
     className: cssNavbar.segundoMenu + " " + cssNavbar.positionUlRelative
   }, /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
@@ -3615,34 +3566,18 @@ function NavBar(_ref) {
     className: "" + cssNavbar.spanText
   }, "Tama\xF1o de letra 3"))))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
-  }, /*#__PURE__*/React__default.createElement("button", {
-    name: "nightMode",
-    type: "button",
-    className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
-    className: "" + cssNavbar.spanText
-  }, "Modo Nocturno"))))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("li", {
+  }, /*#__PURE__*/React__default.createElement(DarkThemeToggle, {
+    addClass: cssNavbar['styleBtns']
+  })))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("li", {
     onClick: function onClick() {
       handleClickDropdown(dropdownHelp, setDropdownHelp);
     }
   }, /*#__PURE__*/React__default.createElement(Dropdown, {
     label: "Ayuda",
     svgHide: "true",
-    icon: svgHelp,
+    icon: "help",
     addClass: cssNavbar['styleBtn'],
-    ulClass: cssNavbar['styleUlAcc'],
+    ulClass: cssNavbar['styleUlHelp'],
     isExpanded: dropdownHelp,
     fnMenuExpanded: setDropdownHelp
   }, /*#__PURE__*/React__default.createElement("li", {
@@ -3650,100 +3585,50 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "description"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Bibliografia"))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "credit_card"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Cr\xE9ditos"))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0zm0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M20 7v10H4V7h16m0-2H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2zm0 3h2v2h-2zM8 8h2v2H8zm0 3h2v2H8zm-3 0h2v2H5zm0-3h2v2H5zm3 6h8v2H8zm6-3h2v2h-2zm0-3h2v2h-2zm3 3h2v2h-2zm0-3h2v2h-2z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "keyboard"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Atajos de teclado"))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "info"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Tour"))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     className: cssNavbar['styleBtns']
-  }, /*#__PURE__*/React__default.createElement("span", {
-    className: "Icon_Icon__1siX0 "
-  }, /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0V0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.488.488 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
-  }))), /*#__PURE__*/React__default.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "settings"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Especificaciones t\xE9cnicas")))))))));
 }
 
-var css$o = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
+var css$p = {"table":"_Table-module__table__3LoBn","table-content":"_Table-module__table-content__1W60s","table-content-item":"_Table-module__table-content-item__27m22","body-content":"_Table-module__body-content__2OoWj"};
 
 function Table(_ref) {
   var headLabels = _ref.headLabels,
@@ -3760,27 +3645,27 @@ function Table(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("table", {
-    className: css$o.table + " ui-table"
+    className: css$p.table + " ui-table"
   }, /*#__PURE__*/React__default.createElement("thead", null, /*#__PURE__*/React__default.createElement("tr", {
-    className: css$o['table-content'] + " ui-table-content"
+    className: css$p['table-content'] + " ui-table-content"
   }, headLabels.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("th", {
       key: index,
-      className: css$o['table-content-item'] + " ui-table-content-item",
+      className: css$p['table-content-item'] + " ui-table-content-item",
       scope: "col"
     }, item);
   }))), /*#__PURE__*/React__default.createElement("tbody", null, bodyContent.map(function (content, index) {
     return /*#__PURE__*/React__default.createElement("tr", {
       key: "content" + index,
-      className: css$o['table-content'] + " " + css$o['body-content'] + " ui-body-content"
+      className: css$p['table-content'] + " " + css$p['body-content'] + " ui-body-content"
     }, content.map(function (item, i) {
       return /*#__PURE__*/React__default.createElement(Fragment, null, item.isRowHeader ? /*#__PURE__*/React__default.createElement("th", {
         key: "item" + i,
-        className: css$o['table-content-item'] + " ui-body-content-item",
+        className: css$p['table-content-item'] + " ui-body-content-item",
         scope: "row"
       }, rowContent(item)) : /*#__PURE__*/React__default.createElement("td", {
         key: "item" + i,
-        className: css$o['table-content-item'] + " ui-body-content-item"
+        className: css$p['table-content-item'] + " ui-body-content-item"
       }, rowContent(item)));
     }));
   })));
@@ -3794,7 +3679,7 @@ Table.defaultProps = {
   bodyContent: [['Cell a1', 'Cell a2'], ['Cell b2', 'Cell b2']]
 };
 
-var css$p = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
+var css$q = {"c-scroll":"_TableGrid-module__c-scroll__2NOnb","c-gridTable":"_TableGrid-module__c-gridTable__37ybX","c-gridTable-head":"_TableGrid-module__c-gridTable-head__2mWnf","c-gridTable-body":"_TableGrid-module__c-gridTable-body__2IfP0","c-gridTable-body-item":"_TableGrid-module__c-gridTable-body-item__153aW","c-gridTable-head-item":"_TableGrid-module__c-gridTable-head-item__CzEks"};
 
 function TableGrid(_ref) {
   var headContent = _ref.headContent,
@@ -3802,27 +3687,27 @@ function TableGrid(_ref) {
       gridColumn = _ref.gridColumn;
   console.log(bodyContent);
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$p['c-scroll'] + " ui-scroll"
+    className: css$q['c-scroll'] + " ui-scroll"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$p['c-gridTable'] + " ui-gridTable"
+    className: css$q['c-gridTable'] + " ui-gridTable"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$p['c-gridTable-head'] + " ui-gridTable-head",
+    className: css$q['c-gridTable-head'] + " ui-gridTable-head",
     style: gridColumn
   }, headContent.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("div", {
-      className: css$p['c-gridTable-head-item'] + " ui-gridTable-head-item",
+      className: css$q['c-gridTable-head-item'] + " ui-gridTable-head-item",
       key: "head-" + index
     }, item.type === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
       nameIcon: item.label,
       addClass: item.addClass
     }) : /*#__PURE__*/React__default.createElement("span", null, item.label));
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$p['c-gridTable-body'] + " ui-gridTable-body",
+    className: css$q['c-gridTable-body'] + " ui-gridTable-body",
     style: gridColumn
   }, bodyContent.map(function (data) {
     return data.map(function (buttom, index) {
       return /*#__PURE__*/React__default.createElement("div", {
-        className: css$p['c-gridTable-body-item'] + " ui-gridTable-body-item",
+        className: css$q['c-gridTable-body-item'] + " ui-gridTable-body-item",
         key: "body-" + index
       }, buttom);
     });
@@ -3837,7 +3722,7 @@ TableGrid.defaultProps = {
   bodyContent: []
 };
 
-var css$q = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
+var css$r = {"TabsBar":"_Tabs-module__TabsBar__3ZvuE","TabsCont":"_Tabs-module__TabsCont__1Zp4v","TabsScroll":"_Tabs-module__TabsScroll__3KvVr","TabsArea":"_Tabs-module__TabsArea__2je_1","TabsContent":"_Tabs-module__TabsContent__3EyBN"};
 
 var _excluded$d = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
 var Tabs = React.forwardRef(function Tabs(props, ref) {
@@ -3914,12 +3799,12 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   };
 
   return /*#__PURE__*/React.createElement(Component, _extends({
-    className: css$q.TabsCont + " ui-Tabs-cont",
+    className: css$r.TabsCont + " ui-Tabs-cont",
     ref: ref
   }, other), /*#__PURE__*/React.createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/React.createElement("div", {
-    className: css$q.TabsArea + " ui-tabs-area",
+    className: css$r.TabsArea + " ui-tabs-area",
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -3929,7 +3814,7 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   }, children)));
 });
 
-var css$r = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselButtonContainer":"_DZmRD","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
+var css$s = {"carrousel":"_Carrousel-module__carrousel__1rlBL","carrouselInner":"_Carrousel-module__carrouselInner__1YPPV","carrouselItem":"_Carrousel-module__carrouselItem__3pMEX","carrouselButtonContainer":"_Carrousel-module__carrouselButtonContainer__DZmRD","carrouselControlPrev":"_Carrousel-module__carrouselControlPrev__1_yGr","carrouselControlNext":"_Carrousel-module__carrouselControlNext__YRcDS","carrouselControlNextIcon":"_Carrousel-module__carrouselControlNextIcon__1tZ89"};
 
 var Carrousel = function Carrousel(_ref, _ref2) {
   var childrenProp = _ref.children;
@@ -4023,24 +3908,24 @@ var Carrousel = function Carrousel(_ref, _ref2) {
   });
   return /*#__PURE__*/React__default.createElement("div", {
     id: "carouselExampleControls",
-    className: css$r.carrousel + " " + css$r.slide + " iu-slider",
+    className: css$s.carrousel + " " + css$s.slide + " iu-slider",
     "data-ride": "carousel"
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refCont,
-    className: css$r.carrouselInner + " ui-carrusel-inner",
+    className: css$s.carrouselInner + " ui-carrusel-inner",
     role: "group",
     "aria-roledescription": roleDescription
   }, children), /*#__PURE__*/React__default.createElement("div", {
-    className: "" + css$r.carrouselButtonContainer
+    className: "" + css$s.carrouselButtonContainer
   }, /*#__PURE__*/React__default.createElement("button", {
-    className: css$r.carrouselControlPrev + " ui-carrusel-control-prev",
+    className: css$s.carrouselControlPrev + " ui-carrusel-control-prev",
     "data-slide": "prev",
     onClick: handleClick,
     ref: refPrev,
     disabled: true,
     "aria-label": type + " anterior"
   }, backButton), /*#__PURE__*/React__default.createElement("button", {
-    className: css$r.carrouselControlNext + " ui-carrusel-control-next",
+    className: css$s.carrouselControlNext + " ui-carrusel-control-next",
     "data-slide": "next",
     onClick: handleClick,
     ref: refNext,
@@ -4052,13 +3937,14 @@ var Carrousel = function Carrousel(_ref, _ref2) {
   }, type, " ", Value + 1, " de ", children.length));
 };
 
-var css$s = {"Section":"_2biAj"};
+var css$t = {"Section":"_PanelSection-module__Section__2biAj"};
 
-var _excluded$e = ["children", "tabs"];
+var _excluded$e = ["children", "tabs", "FunctValue"];
 
 var PanelSection = function PanelSection(_ref) {
   var childrenProp = _ref.children,
       tabs = _ref.tabs,
+      FunctValue = _ref.FunctValue,
       others = _objectWithoutPropertiesLoose(_ref, _excluded$e);
 
   var _useState = React.useState(0),
@@ -4083,14 +3969,16 @@ var PanelSection = function PanelSection(_ref) {
     });
   });
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$s.Section
+    className: css$t.Section
   }, others), /*#__PURE__*/React__default.createElement(AsideSection, {
     value: value,
     onChange: handleChange
-  }, tabs && tabs.map(function (elem) {
+  }, tabs && tabs.map(function (elem, i) {
     return /*#__PURE__*/React__default.createElement(BtnSec, {
+      href: elem.url,
       label: elem.label,
-      key: elem.id
+      key: elem.id,
+      setValue: FunctValue
     });
   })), children);
 };
@@ -4148,19 +4036,19 @@ PanelTabs.defaultProps = {
   }]
 };
 
-var css$t = {"col":"_1QLy6"};
+var css$u = {"col":"_Col-module__col__1QLy6"};
 
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$t.col
+    className: css$u.col
   }, props));
 };
 
-var css$u = {"row":"_7DQjb"};
+var css$v = {"row":"_Row-module__row__7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$u.row
+    className: css$v.row
   }, props));
 };
 
@@ -4173,6 +4061,7 @@ exports.Button = Button;
 exports.Card = Card;
 exports.Carrousel = Carrousel;
 exports.Col = Col;
+exports.DarkThemeToggle = DarkThemeToggle;
 exports.Dropdown = Dropdown;
 exports.Graphics = Graphics;
 exports.Icon = Icon;

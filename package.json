@@ -62,6 +62,8 @@
     "dist"
   ],
   "dependencies": {
-    "react-google-charts": "^3.0.15"
+    "react-audio-player": "^0.17.0",
+    "react-google-charts": "^3.0.15",
+    "react-router-dom": "^6.2.1"
   }
 }

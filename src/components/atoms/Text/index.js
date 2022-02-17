@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import css from './Text.module.css'
 
-export const Text = ({ type, children, addClass, ...args }) => {
+export const Text = ({ type = 'p', children = 'hola', addClass, ...args }) => {
   const DefaultValue = {
     h1: 'h1',
     h2: 'h2',
@@ -17,6 +17,9 @@ export const Text = ({ type, children, addClass, ...args }) => {
   }
 
   const Component = DefaultValue[type]
+
+  console.log(Component)
+  console.log(type)
 
   return (
     <Component

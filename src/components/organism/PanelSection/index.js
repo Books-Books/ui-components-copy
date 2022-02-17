@@ -3,7 +3,12 @@ import { BtnSec } from '../../atoms'
 import { AsideSection } from '../../molecules'
 import css from './PanelSection.module.css'
 
-const PanelSection = ({ children: childrenProp, tabs, ...others }) => {
+const PanelSection = ({
+  children: childrenProp,
+  tabs,
+  FunctValue,
+  ...others
+}) => {
   const [value, setValue] = useState(0)
 
   const handleChange = (event, newValue) => {
@@ -29,7 +34,14 @@ const PanelSection = ({ children: childrenProp, tabs, ...others }) => {
     <div className={css.Section} {...others}>
       <AsideSection value={value} onChange={handleChange}>
         {tabs &&
-          tabs.map((elem) => <BtnSec label={elem.label} key={elem.id} />)}
+          tabs.map((elem, i) => (
+            <BtnSec
+              href={elem.url}
+              label={elem.label}
+              key={elem.id}
+              setValue={FunctValue}
+            />
+          ))}
       </AsideSection>
       {children}
     </div>
