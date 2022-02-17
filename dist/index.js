@@ -2,6 +2,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = require('react');
 var React__default = _interopDefault(React);
+var Draggable = _interopDefault(require('react-draggable'));
 var reactGoogleCharts = require('react-google-charts');
 
 function _extends() {
@@ -37,7 +38,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
-var css = {"BtnSec":"_BtnSec-module__BtnSec__2eAZu"};
+var css = {"BtnSec":"_2eAZu"};
 
 var _excluded = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass", "setValue", "url"];
 var BtnSec = React.forwardRef(function BtnSec(props, ref) {
@@ -88,8 +89,10 @@ var BtnSec = React.forwardRef(function BtnSec(props, ref) {
     onFocus: handleFocus,
     value: value + 1
   }, other), /*#__PURE__*/React__default.createElement("span", {
-    "class": "sr-only"
-  }, "Secci\xF3n ", label)));
+    className: "sr-only"
+  }, "Secci\xF3n ", label), /*#__PURE__*/React__default.createElement("span", {
+    "aria-hidden": "true"
+  }, label)));
 });
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
@@ -1193,9 +1196,9 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
-var base = {"ColorBase":"_Base-module__ColorBase__3AGk-"};
+var base = {"ColorBase":"_3AGk-"};
 
-var css$1 = {"Icon":"_Icon-module__Icon__3qt0u"};
+var css$1 = {"Icon":"_3qt0u"};
 
 var _excluded$1 = ["nameIcon", "addClass"];
 var Icon = function Icon(_ref) {
@@ -1215,10 +1218,10 @@ Icon.defaultProps = {
   addClass: ''
 };
 
-var css$2 = {"ButtonBase":"_Button-module__ButtonBase__bJEh3"};
+var css$2 = {"ButtonBase":"_bJEh3"};
 
 var _excluded$2 = ["styled", "label", "hasAriaLabel", "icon", "addClass", "disabled", "children"];
-var Button = function Button(_ref) {
+var Button$1 = function Button(_ref) {
   var styled = _ref.styled,
       label = _ref.label,
       hasAriaLabel = _ref.hasAriaLabel,
@@ -1238,21 +1241,458 @@ var Button = function Button(_ref) {
     nameIcon: icon
   }), !hasAriaLabel ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null));
 };
-Button.propTypes = {
+Button$1.propTypes = {
   styled: propTypes.oneOf(['primary', 'secondary', 'primary-outline', 'secondary-outline', 'primary-icon', 'secondary-icon', 'primary-icon-outline', 'secondary-icon-outline']),
   icon: propTypes.string,
   label: propTypes.string,
   onClick: propTypes.func,
   addClass: propTypes.string
 };
-Button.defaultProps = {
+Button$1.defaultProps = {
   styled: 'primary',
   addClass: '',
   onClick: undefined,
   hasAriaLabel: true
 };
 
-var css$3 = {"spanText":"_DarkThemeToggle-module__spanText__4KFeG"};
+var ContrastFilters = function ContrastFilters() {
+  return /*#__PURE__*/React__default.createElement("span", {
+    id: "hc_extension_svg_filters"
+  }, /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    version: "1.1",
+    height: "0"
+  }, /*#__PURE__*/React__default.createElement("defs", null, /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_off",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "0 1"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "0 1"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "0 1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_highcontrast",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    exponent: "3.0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    exponent: "3.0"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    exponent: "3.0"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_highcontrast_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    exponent: "0.33"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_grayscale",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feColorMatrix", {
+    type: "matrix",
+    values: "0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"
+  }), /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    exponent: "3"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    exponent: "3"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    exponent: "3"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_grayscale_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    exponent: "0.33"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_invert",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_invert_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "1 0"
+  })), /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    exponent: "1.7"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    exponent: "1.7"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    exponent: "1.7"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_yellow_on_black",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "3",
+    offset: "1"
+  })), /*#__PURE__*/React__default.createElement("feColorMatrix", {
+    type: "matrix",
+    values: "0.3 0.5 0.2 0 0 0.3 0.5 0.2 0 0 0 0 0 0 0 0 0 0 1 0"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_yellow_on_black_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "1 0"
+  })), /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    exponent: "0.33"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    exponent: "0.33"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_red_on_white",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999",
+    filterUnits: "objectBoundingBox",
+    primitiveUnits: "userSpaceOnUse",
+    "color-interpolation-filters": "sRGB"
+  }, /*#__PURE__*/React__default.createElement("feColorMatrix", {
+    type: "matrix",
+    values: "                        .33 .33 .33 0 0                        .33 .33 .33 0 0                        .33 .33 .33 0 0                        0 0 0 1 0",
+    "in": "SourceGraphic",
+    result: "colormatrix"
+  }), /*#__PURE__*/React__default.createElement("feComponentTransfer", {
+    "in": "colormatrix",
+    result: "componentTransfer"
+  }, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "0.97 0.52"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "1 0.03"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "0.98 0.06"
+  }), /*#__PURE__*/React__default.createElement("feFuncA", {
+    type: "table",
+    tableValues: "0 1"
+  })), /*#__PURE__*/React__default.createElement("feBlend", {
+    mode: "normal",
+    "in": "componentTransfer",
+    in2: "SourceGraphic",
+    result: "blend"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_red_on_white_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "0 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "0 0"
+  })), /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_green_on_blue",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999",
+    filterUnits: "objectBoundingBox",
+    primitiveUnits: "userSpaceOnUse",
+    "color-interpolation-filters": "sRGB"
+  }, /*#__PURE__*/React__default.createElement("feColorMatrix", {
+    type: "matrix",
+    values: ".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0",
+    "in": "SourceGraphic",
+    result: "colormatrix"
+  }), /*#__PURE__*/React__default.createElement("feComponentTransfer", {
+    "in": "colormatrix",
+    result: "componentTransfer"
+  }, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "0.09 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "1 0.16"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "0 1"
+  }), /*#__PURE__*/React__default.createElement("feFuncA", {
+    type: "table",
+    tableValues: "0 1"
+  })), /*#__PURE__*/React__default.createElement("feBlend", {
+    mode: "normal",
+    "in": "componentTransfer",
+    in2: "SourceGraphic",
+    result: "blend"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_green_on_blue_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "0 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "0 0"
+  })), /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_yellow_on_blue",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999",
+    filterUnits: "objectBoundingBox",
+    primitiveUnits: "userSpaceOnUse",
+    "color-interpolation-filters": "sRGB"
+  }, /*#__PURE__*/React__default.createElement("feColorMatrix", {
+    type: "matrix",
+    values: ".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0",
+    "in": "SourceGraphic",
+    result: "colormatrix"
+  }), /*#__PURE__*/React__default.createElement("feComponentTransfer", {
+    "in": "colormatrix",
+    result: "componentTransfer"
+  }, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "0.99 0.16"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "0 1"
+  }), /*#__PURE__*/React__default.createElement("feFuncA", {
+    type: "table",
+    tableValues: "0 1"
+  })), /*#__PURE__*/React__default.createElement("feBlend", {
+    mode: "normal",
+    "in": "componentTransfer",
+    in2: "SourceGraphic",
+    result: "blend"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_yellow_on_blue_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "0 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "0 0"
+  })), /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }))), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_white_on_black",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999",
+    filterUnits: "objectBoundingBox",
+    primitiveUnits: "userSpaceOnUse",
+    "color-interpolation-filters": "sRGB"
+  }, /*#__PURE__*/React__default.createElement("feColorMatrix", {
+    type: "matrix",
+    values: ".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0",
+    "in": "SourceGraphic",
+    result: "colormatrix"
+  }), /*#__PURE__*/React__default.createElement("feComponentTransfer", {
+    "in": "colormatrix",
+    result: "componentTransfer"
+  }, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "0.98 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncA", {
+    type: "table",
+    tableValues: "0 1"
+  })), /*#__PURE__*/React__default.createElement("feBlend", {
+    mode: "normal",
+    "in": "componentTransfer",
+    in2: "SourceGraphic",
+    result: "blend"
+  })), /*#__PURE__*/React__default.createElement("filter", {
+    id: "hc_extension_white_on_black_back",
+    x: "0",
+    y: "0",
+    width: "99999",
+    height: "99999"
+  }, /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "table",
+    tableValues: "1 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "table",
+    tableValues: "0 0"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "table",
+    tableValues: "0 0"
+  })), /*#__PURE__*/React__default.createElement("feComponentTransfer", null, /*#__PURE__*/React__default.createElement("feFuncR", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncG", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }), /*#__PURE__*/React__default.createElement("feFuncB", {
+    type: "gamma",
+    amplitude: "-1",
+    exponent: "5",
+    offset: "1"
+  }))))));
+};
+
+var css$3 = {"spanText":"_4KFeG"};
 
 var DarkThemeToggle = function DarkThemeToggle(_ref) {
   var addClass = _ref.addClass;
@@ -1289,7 +1729,7 @@ var DarkThemeToggle = function DarkThemeToggle(_ref) {
   }, "Modo Nocturno"));
 };
 
-var css$4 = {"c-collapsible-container-header":"_DropableItem-module__c-collapsible-container-header__1CW18","c-collapsible-container-body":"_DropableItem-module__c-collapsible-container-body__2ygtY","active":"_DropableItem-module__active__1xv7i","show":"_DropableItem-module__show__2moa5"};
+var css$4 = {"c-collapsible-container-header":"_1CW18","c-collapsible-container-body":"_2ygtY","active":"_1xv7i","show":"_2moa5"};
 
 var _excluded$3 = ["item", "index", "stateIcon", "addClass"];
 function AccordionItem(_ref) {
@@ -1341,7 +1781,7 @@ AccordionItem.defaultProps = {
   addClass: ''
 };
 
-var css$5 = {"dropdownContainer":"_Dropdown-module__dropdownContainer__fH-Dn","DropdownCont":"_Dropdown-module__DropdownCont__D5DjI","dropdownArrow":"_Dropdown-module__dropdownArrow__2SmiC","navItem":"_Dropdown-module__navItem__2UAjf","dropdownMenu":"_Dropdown-module__dropdownMenu__jT9p5","dropdownMenu-item":"_Dropdown-module__dropdownMenu-item__2SR1I","navLink":"_Dropdown-module__navLink__362sV","dropdownItem":"_Dropdown-module__dropdownItem__1JWTx"};
+var css$5 = {"dropdownContainer":"_fH-Dn","DropdownCont":"_D5DjI","dropdownArrow":"_2SmiC","navItem":"_2UAjf","dropdownMenu":"_jT9p5","dropdownMenu-item":"_2SR1I","navLink":"_362sV","dropdownItem":"_1JWTx"};
 
 var Dropdown = function Dropdown(_ref) {
   var _ref$icon = _ref.icon,
@@ -1381,7 +1821,7 @@ var Dropdown = function Dropdown(_ref) {
   }, [isExpanded]);
   return /*#__PURE__*/React__default.createElement("div", {
     className: css$5['dropdownContainer']
-  }, /*#__PURE__*/React__default.createElement(Button, {
+  }, /*#__PURE__*/React__default.createElement(Button$1, {
     hasAriaLabel: hasAriaLabel,
     "aria-expanded": Expanded,
     className: css$5.DropdownCont + " " + addClass + " ",
@@ -1730,7 +2170,7 @@ function uniqueId(prefix) {
 
 var uniqueId_1 = uniqueId;
 
-var css$6 = {"InputAction":"_InputAction-module__InputAction__xB2Ha","LabelStyled":"_InputAction-module__LabelStyled__1X4kF","TextFileName":"_InputAction-module__TextFileName__OaT0I"};
+var css$6 = {"InputAction":"_xB2Ha","LabelStyled":"_1X4kF","TextFileName":"_OaT0I"};
 
 var _excluded$4 = ["type", "styled", "label", "addClass"];
 var InputAction = function InputAction(_ref) {
@@ -1795,7 +2235,7 @@ InputAction.defaultProps = {
   onClick: undefined
 };
 
-var css$7 = {"InputStyled":"_InputControl-module__InputStyled__1isCe","InputCont":"_InputControl-module__InputCont__1YikN","CheckCont":"_InputControl-module__CheckCont__WN9au","CheckBg":"_InputControl-module__CheckBg__3z4b_","CheckLabel":"_InputControl-module__CheckLabel__10bHL","CheckTrack":"_InputControl-module__CheckTrack__2QBZ5","input-error":"_InputControl-module__input-error__8exJT","input-succes":"_InputControl-module__input-succes__3GadY"};
+var css$7 = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckBg":"_3z4b_","CheckLabel":"_10bHL","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
 
 var _excluded$5 = ["type", "label", "stateInput", "name", "addClass"];
 var InputControl = function InputControl(_ref) {
@@ -1829,7 +2269,7 @@ var InputControl = function InputControl(_ref) {
           setStateIcon('check');
         }
       } else {
-        setStateIcon('check');
+        setStateIcon('');
       }
     }
 
@@ -1887,7 +2327,7 @@ InputControl.defaultProps = {
   onClick: undefined
 };
 
-var css$8 = {"InputCont":"_InputField-module__InputCont__17byX","LabelStyle":"_InputField-module__LabelStyle__2zmtW","InputStyled":"_InputField-module__InputStyled__3_8sU","input-error":"_InputField-module__input-error__23iPI","input-succes":"_InputField-module__input-succes__1r2gj","deactive-border":"_InputField-module__deactive-border__2sE6F"};
+var css$8 = {"InputCont":"_17byX","LabelStyle":"_2zmtW","InputStyled":"_3_8sU","input-error":"_23iPI","input-succes":"_1r2gj","deactive-border":"_2sE6F"};
 
 var _excluded$6 = ["type", "label", "dataIcon", "styledInput", "addClass"];
 var InputField = function InputField(_ref) {
@@ -1999,7 +2439,7 @@ InputField.defaultProps = {
   addClass: ''
 };
 
-var css$9 = {"LinkCont":"_Link-module__LinkCont__2lFDP"};
+var css$9 = {"LinkCont":"_2lFDP"};
 
 var Link = function Link(_ref) {
   var label = _ref.label,
@@ -2027,7 +2467,7 @@ Link.defaultProps = {
   addClass: ''
 };
 
-var css$a = {"c-aud-btn":"_Multimedia-module__c-aud-btn__a9LbG","c-aud-btn-content":"_Multimedia-module__c-aud-btn-content__2E_hC","c-aud-secundary":"_Multimedia-module__c-aud-secundary__2uPDm"};
+var css$a = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
 
 function Multimedia(_ref) {
   var url = _ref.url,
@@ -2125,7 +2565,7 @@ Multimedia.defaultProps = {
   addClass: ''
 };
 
-var css$b = {"Panel":"_Panel-module__Panel__qaB0F","fadeIn":"_Panel-module__fadeIn__23_l4"};
+var css$b = {"Panel":"_qaB0F","fadeIn":"_23_l4"};
 
 var _excluded$7 = ["children", "value", "index", "addClass", "roleDescription"];
 var TabPanel = function TabPanel(props) {
@@ -2253,7 +2693,7 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
       children: diagnostic
     });
   });
-  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(Button, {
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(Button$1, {
     type: "button",
     onClick: runSpeechRecognition,
     label: action === 'record' ? 'Realizar grabación' : 'Detener grabación',
@@ -2263,7 +2703,7 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
   }, action === 'record' ? micOnIcon : micOffIcon), children && children);
 };
 
-var css$c = {"section":"_Section-module__section__Nahni","fadeInDown":"_Section-module__fadeInDown__BDs2n"};
+var css$c = {"section":"_Nahni","fadeInDown":"_BDs2n"};
 
 var _excluded$8 = ["children", "value", "index", "label", "addClass"];
 
@@ -2282,12 +2722,12 @@ var Section = function Section(_ref) {
     id: "simple-tabpanel-" + index,
     "aria-labelledby": "simple-tab-" + label
   }, other), /*#__PURE__*/React__default.createElement("h2", {
-    "class": "sr-only",
+    className: "sr-only",
     id: "simple-tab-" + label
   }, "Secci\xF3n ", label), children);
 };
 
-var css$d = {"SelectStyle":"_Select-module__SelectStyle__2NS2Z","SelectContainer":"_Select-module__SelectContainer__3AjWz","SelectAfter":"_Select-module__SelectAfter__2vUqP","SelectWrapper":"_Select-module__SelectWrapper__2BQM5","SelectLabel":"_Select-module__SelectLabel__1YqCo"};
+var css$d = {"SelectStyle":"_2NS2Z","SelectContainer":"_3AjWz","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5","SelectLabel":"_1YqCo"};
 
 var _excluded$9 = ["placeholder", "stateInput", "options", "addClass", "isLabelVisible", "label"];
 var Select = function Select(_ref) {
@@ -2344,7 +2784,7 @@ Select.defaultProps = {
   label: 'Selecciona la opción'
 };
 
-var css$e = {"TabsBtn":"_Tab-module__TabsBtn__2P1fM","TabsBtnContent":"_Tab-module__TabsBtnContent__293oo","TabsBtnContentLabel":"_Tab-module__TabsBtnContentLabel__h75tA","TabsBtnIndicator":"_Tab-module__TabsBtnIndicator__247Rk","TabsBtnIndicatorContent":"_Tab-module__TabsBtnIndicatorContent__21fWb"};
+var css$e = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
 
 var _excluded$a = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"];
 var Tab = React.forwardRef(function Tab(props, ref) {
@@ -2412,7 +2852,7 @@ Tab.defaultProps = {
   addClass: ''
 };
 
-var css$f = {"Typography":"_Text-module__Typography__2s-q8"};
+var css$f = {"Typography":"_2s-q8"};
 
 var _excluded$b = ["type", "children", "addClass"];
 var Text = function Text(_ref) {
@@ -2452,7 +2892,7 @@ Text.defaultProps = {
   addClass: ''
 };
 
-var css$g = {"TextareaCont":"_Textarea-module__TextareaCont__2hUyD","TextareaItem":"_Textarea-module__TextareaItem__1haMe","CountCont":"_Textarea-module__CountCont__34S0r"};
+var css$g = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
 
 var Textarea = function Textarea(_ref) {
   var id = _ref.id,
@@ -2513,7 +2953,7 @@ Textarea.defaultProps = {
   addClass: ''
 };
 
-var css$h = {"toggletip-container":"_Toggletip-module__toggletip-container__3Z4HX","toggletip-icon":"_Toggletip-module__toggletip-icon__hQ4M-","toggletip-content":"_Toggletip-module__toggletip-content__2SzZ3"};
+var css$h = {"toggletip-container":"_3Z4HX","toggletip-icon":"_hQ4M-","toggletip-content":"_2SzZ3"};
 
 var Toggletip = function Toggletip(_ref) {
   var content = _ref.content;
@@ -2540,7 +2980,7 @@ var Toggletip = function Toggletip(_ref) {
 
   return /*#__PURE__*/React__default.createElement("div", {
     className: css$h['toggletip-container']
-  }, /*#__PURE__*/React__default.createElement(Button, {
+  }, /*#__PURE__*/React__default.createElement(Button$1, {
     hasAriaLabel: "false",
     styled: "primary-icon",
     label: "",
@@ -2551,13 +2991,13 @@ var Toggletip = function Toggletip(_ref) {
     className: css$h['toggletip-icon'],
     "aria-hidden": "true"
   }, "i"), /*#__PURE__*/React__default.createElement("span", {
-    "class": "sr-only"
+    className: "sr-only"
   }, "M\xE1s informaci\xF3n")), /*#__PURE__*/React__default.createElement("div", {
     role: "status"
   }, toggletipContent));
 };
 
-var css$i = {"TooltipCont":"_Tooltip-module__TooltipCont__2fDQR","TooltipItem":"_Tooltip-module__TooltipItem__3KPt0"};
+var css$i = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
 
 var Tooltip = function Tooltip(_ref) {
   var children = _ref.children,
@@ -2573,11 +3013,114 @@ var Tooltip = function Tooltip(_ref) {
   }, content));
 };
 
-var css$j = {"c-vid":"_Video-module__c-vid__2uck7","c-vid-controls":"_Video-module__c-vid-controls__2yF4K","c-vid-controls-text":"_Video-module__c-vid-controls-text__2W8d_","progress-content":"_Video-module__progress-content__29s-a","progress":"_Video-module__progress__2vrVD","progress-bar":"_Video-module__progress-bar__5SxVn","c-vid-controls-volumn":"_Video-module__c-vid-controls-volumn__3e9Q1","c-vid-controls-volumn-item":"_Video-module__c-vid-controls-volumn-item__2YNZg"};
+var css$j = {"tour-help":"_1Rwnk","tour-number":"_1kC6K"};
+
+var TourHelpLayer = function TourHelpLayer(_ref) {
+  var _ref$width = _ref.width,
+      width = _ref$width === void 0 ? '200' : _ref$width,
+      _ref$height = _ref.height,
+      height = _ref$height === void 0 ? '100' : _ref$height,
+      _ref$top = _ref.top,
+      top = _ref$top === void 0 ? '100' : _ref$top,
+      _ref$left = _ref.left,
+      left = _ref$left === void 0 ? '4' : _ref$left,
+      _ref$number = _ref.number,
+      number = _ref$number === void 0 ? '1' : _ref$number;
+  var position = {
+    width: width + "px",
+    height: height + "px",
+    top: top + "px",
+    left: left + "px"
+  };
+  return /*#__PURE__*/React__default.createElement("div", {
+    style: position,
+    className: css$j['tour-help']
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: css$j['tour-number']
+  }, number));
+};
+
+var css$k = {"tour-modal":"_N_LRS","tour-progress":"_2_Rir","tour-progress-bar":"_2OnWP","tour-button-container":"_3Fkrw"};
+
+var TourModal = function TourModal(_ref) {
+  var _ref$top = _ref.top,
+      top = _ref$top === void 0 ? '100' : _ref$top,
+      _ref$left = _ref.left,
+      left = _ref$left === void 0 ? '300' : _ref$left,
+      _ref$description = _ref.description,
+      description = _ref$description === void 0 ? 'Este es el botón de menú' : _ref$description,
+      _ref$modalNumber = _ref.modalNumber,
+      modalNumber = _ref$modalNumber === void 0 ? 4 : _ref$modalNumber,
+      _ref$totalModals = _ref.totalModals,
+      totalModals = _ref$totalModals === void 0 ? 7 : _ref$totalModals,
+      nextTour = _ref.nextTour,
+      backTour = _ref.backTour,
+      endTour = _ref.endTour;
+  var size = {
+    top: top + "px",
+    left: left + "px"
+  };
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: css$k['tour-modal'],
+    role: "dialog",
+    style: size
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: "sr-only"
+  }, "Parte ", modalNumber, " de ", totalModals), /*#__PURE__*/React__default.createElement("div", {
+    "aria-hidden": "true",
+    className: css$k['tour-progress']
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: css$k['tour-progress-bar'],
+    style: {
+      transform: "scaleX(" + modalNumber / totalModals + ")"
+    }
+  })), /*#__PURE__*/React__default.createElement("p", {
+    className: css$k['tour-description']
+  }, description), /*#__PURE__*/React__default.createElement("div", {
+    className: css$k['tour-button-container']
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    onClick: endTour
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "close"
+  }), /*#__PURE__*/React__default.createElement("span", {
+    "class": "sr-only"
+  }, "Salir")), /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    disabled: modalNumber == 1 ? true : false,
+    onClick: backTour
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "arrow_left"
+  }), /*#__PURE__*/React__default.createElement("span", {
+    "class": "sr-only"
+  }, "Anterior")), /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    disabled: modalNumber == totalModals ? true : false,
+    onClick: nextTour
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "arrow_right"
+  }), /*#__PURE__*/React__default.createElement("span", {
+    "class": "sr-only"
+  }, "Siguiente"))));
+};
+
+var css$l = {"tour-overlay":"_DglW5"};
+
+var TourOverlay = function TourOverlay(endTour, endTourOnEsc) {
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: css$l['tour-overlay'],
+    onClick: endTour,
+    onKeyDown: endTourOnEsc
+  });
+};
+
+var css$m = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
 
 function Video(_ref) {
   var url = _ref.url,
       width = _ref.width,
+      title = _ref.title,
+      content = _ref.content,
       addClass = _ref.addClass;
   var playIcon = /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
@@ -2634,9 +3177,19 @@ function Video(_ref) {
   }), /*#__PURE__*/React__default.createElement("path", {
     d: "M22 3.41L16.71 8.7 20 12h-8V4l3.29 3.29L20.59 2 22 3.41zM3.41 22l5.29-5.29L12 20v-8H4l3.29 3.29L2 20.59 3.41 22z"
   }));
+  var subtitlesIcon = /*#__PURE__*/React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React__default.createElement("path", {
+    fill: "none",
+    d: "M0 0h24v24H0V0z"
+  }), /*#__PURE__*/React__default.createElement("path", {
+    d: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8z"
+  }));
 
   var _useState = React.useState('00:00'),
-      getDurationVideo = _useState[0],
       setDurationVideo = _useState[1];
 
   var _useState2 = React.useState('00:00'),
@@ -2786,8 +3339,10 @@ function Video(_ref) {
     video.volume = volume;
   }
 
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: css$j['c-vid'] + " " + addClass,
+  return /*#__PURE__*/React__default.createElement("figure", {
+    className: "" + css$m['c-vid-container']
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: css$m['c-vid'] + " " + addClass,
     ref: refCont,
     style: {
       maxWidth: width,
@@ -2802,24 +3357,12 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("source", {
     src: url
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$j['progress-content']
-  }, /*#__PURE__*/React__default.createElement("div", {
-    ref: refProgress,
-    className: css$j.progress,
-    onClick: handleProcessControl
-  }, /*#__PURE__*/React__default.createElement("div", {
-    ref: refProgressBar,
-    className: css$j['progress-bar'],
-    onChange: handleBarProgress
-  }))), /*#__PURE__*/React__default.createElement("div", {
-    className: css$j['c-vid-controls']
+    className: css$m['c-vid-controls']
   }, /*#__PURE__*/React__default.createElement("button", {
     "aria-label": getstateVideoPlay.label,
     onClick: handlePlay
-  }, getstateVideoPlay.icon), /*#__PURE__*/React__default.createElement("p", {
-    className: css$j['c-vid-controls-text']
-  }, /*#__PURE__*/React__default.createElement("span", null, getCurrentTiem), " / ", /*#__PURE__*/React__default.createElement("span", null, getDurationVideo)), /*#__PURE__*/React__default.createElement("div", {
-    className: css$j['c-vid-controls-volumn']
+  }, getstateVideoPlay.icon), /*#__PURE__*/React__default.createElement("div", {
+    className: css$m['c-vid-controls-volumn']
   }, /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "48",
@@ -2835,9 +3378,9 @@ function Video(_ref) {
   })), /*#__PURE__*/React__default.createElement("label", {
     "for": "volumeControl"
   }, /*#__PURE__*/React__default.createElement("span", {
-    "class": "sr-only"
+    className: "sr-only"
   }, "Controlar volumen"), /*#__PURE__*/React__default.createElement("input", {
-    className: css$j['c-vid-controls-volumn-item'],
+    className: css$m['c-vid-controls-volumn-item'],
     ref: refVolumn,
     id: "volumeControl",
     type: "range",
@@ -2847,10 +3390,26 @@ function Video(_ref) {
     value: getValueVolum,
     onChange: handleVolumn,
     "aria-valuetext": getValueVolum + "%"
+  }))), /*#__PURE__*/React__default.createElement("p", {
+    className: css$m['c-vid-controls-text']
+  }, /*#__PURE__*/React__default.createElement("span", null, getCurrentTiem)), /*#__PURE__*/React__default.createElement("div", {
+    className: css$m['progress-content']
+  }, /*#__PURE__*/React__default.createElement("div", {
+    ref: refProgress,
+    className: css$m.progress,
+    onClick: handleProcessControl
+  }, /*#__PURE__*/React__default.createElement("div", {
+    ref: refProgressBar,
+    className: css$m['progress-bar'],
+    onChange: handleBarProgress
   }))), /*#__PURE__*/React__default.createElement("button", {
+    "aria-label": "Subt\xEDtulos"
+  }, subtitlesIcon), /*#__PURE__*/React__default.createElement("button", {
     "aria-label": getStateScreen.label,
     onClick: hanldeFullScrenn
-  }, getStateScreen.icon)));
+  }, getStateScreen.icon))), /*#__PURE__*/React__default.createElement("figcaption", null, /*#__PURE__*/React__default.createElement(Text, {
+    type: "p"
+  }, /*#__PURE__*/React__default.createElement("strong", null, title, ":"), " ", content)));
 }
 Video.propTypes = {
   url: propTypes.string.isRequired,
@@ -2861,7 +3420,7 @@ Video.defaultProps = {
   addClass: ''
 };
 
-var css$k = {"c-side":"_AsideNav-module__c-side__3jq03","c-side-nav":"_AsideNav-module__c-side-nav__ORlc2","c-side-nav-item":"_AsideNav-module__c-side-nav-item__2VUuV","c-overlay":"_AsideNav-module__c-overlay__1ZsvR","position-left":"_AsideNav-module__position-left__2dAro","aside--active--left":"_AsideNav-module__aside--active--left__3yTuc","position-right":"_AsideNav-module__position-right__2GOdp","aside--active--right":"_AsideNav-module__aside--active--right__28cLO","overlay--active":"_AsideNav-module__overlay--active__IKRE0"};
+var css$n = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
 
 var AsideNav = function AsideNav(_ref) {
   var children = _ref.children,
@@ -2885,10 +3444,10 @@ var AsideNav = function AsideNav(_ref) {
     function locationAside() {
       if (location === 'right') {
         setLocationAside('aside--active--right');
-        $aside.classList.add(css$k['position-right']);
+        $aside.classList.add(css$n['position-right']);
       } else {
         setLocationAside('aside--active--left');
-        $aside.classList.add(css$k['position-left']);
+        $aside.classList.add(css$n['position-left']);
       }
     }
 
@@ -2897,12 +3456,12 @@ var AsideNav = function AsideNav(_ref) {
 
   function stateAside(elementModal, elementOverlay) {
     if (getStateAside) {
-      elementModal.classList.remove(css$k[getLocationAside]);
-      elementOverlay.classList.remove(css$k['overlay--active']);
+      elementModal.classList.remove(css$n[getLocationAside]);
+      elementOverlay.classList.remove(css$n['overlay--active']);
       setStateAside(false);
     } else {
-      elementModal.classList.add(css$k[getLocationAside]);
-      elementOverlay.classList.add(css$k['overlay--active']);
+      elementModal.classList.add(css$n[getLocationAside]);
+      elementOverlay.classList.add(css$n['overlay--active']);
       setStateAside(true);
     }
   }
@@ -2915,11 +3474,11 @@ var AsideNav = function AsideNav(_ref) {
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$k['c-overlay'] + " ui-overlay",
+    className: css$n['c-overlay'] + " ui-overlay",
     id: "overlay"
   }), /*#__PURE__*/React__default.createElement("div", {
     ref: refModal,
-    className: css$k['c-side'] + " ui-aside",
+    className: css$n['c-side'] + " ui-aside",
     id: "aside"
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "close",
@@ -2928,13 +3487,13 @@ var AsideNav = function AsideNav(_ref) {
       cursor: 'pointer'
     }
   }), children || /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("h2", null, content.title), /*#__PURE__*/React__default.createElement("ul", {
-    className: css$k['c-side-nav'] + " ui-aside-nav"
+    className: css$n['c-side-nav'] + " ui-aside-nav"
   }, content.list.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$k['c-side-nav-item'] + " ui-aside-nav-item",
+      className: css$n['c-side-nav-item'] + " ui-aside-nav-item",
       key: index
     }, item);
-  })))), /*#__PURE__*/React__default.createElement(Button, {
+  })))), /*#__PURE__*/React__default.createElement(Button$1, {
     label: dataButton.label,
     styled: dataButton.styled,
     onClick: handleAside
@@ -2958,7 +3517,7 @@ AsideNav.defaultProps = {
   location: 'left'
 };
 
-var css$l = {"AsideSection":"_AsideSection-module__AsideSection__37BVW"};
+var css$o = {"AsideSection":"_37BVW"};
 
 var _excluded$c = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value", "labelName"];
 var AsideSection = React.forwardRef(function Tabs(props, ref) {
@@ -3043,10 +3602,10 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
   }, other), /*#__PURE__*/React__default.createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/React__default.createElement("h2", {
-    "class": "sr-only",
+    className: "sr-only",
     id: "section-list"
   }, labelName), /*#__PURE__*/React__default.createElement("ul", (_React$createElement = {
-    className: css$l.AsideSection,
+    className: css$o.AsideSection,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -3056,7 +3615,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
   }, _React$createElement["aria-labelledby"] = "section-list", _React$createElement), children)));
 });
 
-var css$m = {"u-text":"_Card-module__u-text__16nIh","c-card":"_Card-module__c-card__1iLqk","c-card-image":"_Card-module__c-card-image__2zNmo","c-card-container":"_Card-module__c-card-container__1Z4zT"};
+var css$p = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
 
 var Card = function Card(_ref) {
   var width = _ref.width,
@@ -3065,30 +3624,30 @@ var Card = function Card(_ref) {
       supportingText = _ref.supportingText,
       buttons = _ref.buttons;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$m['c-card'] + " ui-card",
+    className: css$p['c-card'] + " ui-card",
     style: {
       width: width
     }
   }, image.state ? /*#__PURE__*/React__default.createElement("figure", {
-    className: css$m['c-card-image'] + " ui-card-img"
+    className: css$p['c-card-image'] + " ui-card-img"
   }, /*#__PURE__*/React__default.createElement("img", {
     src: image.url,
     alt: image.alt
   })) : /*#__PURE__*/React__default.createElement(React.Fragment, null), /*#__PURE__*/React__default.createElement("div", {
-    className: css$m['c-card-container'] + " ui-card-container"
+    className: css$p['c-card-container'] + " ui-card-container"
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-title"
   }, /*#__PURE__*/React__default.createElement("h3", null, content.title), /*#__PURE__*/React__default.createElement("p", {
-    className: css$m['u-text'] + " ui-text"
+    className: css$p['u-text'] + " ui-text"
   }, content.text)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("p", {
-    className: css$m['u-text'] + " ui-text-two"
+    className: css$p['u-text'] + " ui-text-two"
   }, supportingText)), buttons.state ? /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-buttons"
-  }, /*#__PURE__*/React__default.createElement(Button, {
+  }, /*#__PURE__*/React__default.createElement(Button$1, {
     label: buttons.first.label,
     styled: buttons.first.theme,
     icon: buttons.first.icon
-  }), /*#__PURE__*/React__default.createElement(Button, {
+  }), /*#__PURE__*/React__default.createElement(Button$1, {
     label: buttons.secundary.label,
     styled: buttons.secundary.theme,
     icon: buttons.secundary.icon
@@ -3115,7 +3674,50 @@ Card.defaultProps = {
   }
 };
 
-var css$n = {"c-collapsible":"_Dropable-module__c-collapsible__3W_Aj"};
+var css$q = {"draggable-video-container":"_1ZTow","draggable-video-button":"_EoBr8"};
+
+var DraggableVideo = function DraggableVideo(_ref) {
+  var url = _ref.url,
+      width = _ref.width;
+
+  var _useState = React.useState({
+    activeDrags: 0
+  }),
+      position = _useState[0],
+      setPosition = _useState[1];
+
+  var dragHandlers = {
+    onStart: function onStart() {
+      setPosition({
+        activeDrags: ++position.activeDrags
+      });
+    },
+    onStop: function onStop() {
+      setPosition({
+        activeDrags: --position.activeDrags
+      });
+    }
+  };
+  return /*#__PURE__*/React__default.createElement(Draggable, _extends({
+    handle: "strong"
+  }, dragHandlers), /*#__PURE__*/React__default.createElement("div", {
+    className: css$q['draggable-video-container'] + " box no-cursor"
+  }, /*#__PURE__*/React__default.createElement("strong", {
+    role: "presentation",
+    className: "cursor"
+  }, /*#__PURE__*/React__default.createElement("button", {
+    className: "" + css$q['draggable-video-button']
+  }, /*#__PURE__*/React__default.createElement(Icon, {
+    nameIcon: "open_with"
+  }), /*#__PURE__*/React__default.createElement("span", {
+    className: "sr-only"
+  }, "Mover en la pantalla"))), /*#__PURE__*/React__default.createElement(Video, {
+    url: url,
+    width: width
+  })));
+};
+
+var css$r = {"c-collapsible":"_3W_Aj"};
 
 var Accordion = function Accordion(_ref) {
   var content = _ref.content,
@@ -3134,13 +3736,13 @@ var Accordion = function Accordion(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("ul", {
-    className: css$n['c-collapsible'] + " ui-collapsible",
+    className: css$r['c-collapsible'] + " ui-collapsible",
     style: {
       width: width
     }
   }, content.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$n['c-collapsible-container'] + " ui-collapsible-container",
+      className: css$r['c-collapsible-container'] + " ui-collapsible-container",
       key: index,
       style: style
     }, /*#__PURE__*/React__default.createElement(AccordionItem, {
@@ -3191,13 +3793,62 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
-var css$o = {"c-modal":"_Modal-module__c-modal__6eOcM","c-modal-overlay":"_Modal-module__c-modal-overlay__1q2aa","c-modal__close-button":"_Modal-module__c-modal__close-button___SM4G","overlay--active":"_Modal-module__overlay--active__20Zpv","modal--active":"_Modal-module__modal--active__2MLWh"};
+var css$s = {"containerImg":"_1HoJe","styleTitle":"_ItKKc","styleText":"_3nIWV","containerText":"_3T4gJ"};
+
+var Image = function Image(_ref) {
+  var _ref$url = _ref.url,
+      url = _ref$url === void 0 ? 'prueba3' : _ref$url,
+      _ref$alt = _ref.alt,
+      alt = _ref$alt === void 0 ? 'Imagen de prueba.' : _ref$alt,
+      _ref$title = _ref.title,
+      title = _ref$title === void 0 ? 'Imagen 1.' : _ref$title,
+      typeImg = _ref.typeImg,
+      _ref$dataStyle = _ref.dataStyle,
+      dataStyle = _ref$dataStyle === void 0 ? '2' : _ref$dataStyle;
+
+  var _useState = React.useState(false),
+      error = _useState[0],
+      setError = _useState[1];
+
+  var onError = function onError(value) {
+    setError(value);
+  };
+
+  console.log(error);
+  var imgToSee = !error ? "./images/" + url + typeImg : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAABN2lDQ1BBZG9iZSBSR0IgKDE5OTgpAAAokZWPv0rDUBSHvxtFxaFWCOLgcCdRUGzVwYxJW4ogWKtDkq1JQ5ViEm6uf/oQjm4dXNx9AidHwUHxCXwDxamDQ4QMBYvf9J3fORzOAaNi152GUYbzWKt205Gu58vZF2aYAoBOmKV2q3UAECdxxBjf7wiA10277jTG+38yH6ZKAyNguxtlIYgK0L/SqQYxBMygn2oQD4CpTto1EE9AqZf7G1AKcv8ASsr1fBBfgNlzPR+MOcAMcl8BTB1da4Bakg7UWe9Uy6plWdLuJkEkjweZjs4zuR+HiUoT1dFRF8jvA2AxH2w3HblWtay99X/+PRHX82Vun0cIQCw9F1lBeKEuf1UYO5PrYsdwGQ7vYXpUZLs3cLcBC7dFtlqF8hY8Dn8AwMZP/fNTP8gAAAAJcEhZcwAAFxIAABcSAWef0lIAAAUZaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA2LjAtYzAwMiA3OS4xNjQ0ODgsIDIwMjAvMDcvMTAtMjI6MDY6NTMgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMi4wIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wMi0xMFQxNTozMzo1NC0wNTowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDItMTBUMTU6MzQ6MTMtMDU6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDItMTBUMTU6MzQ6MTMtMDU6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0iQWRvYmUgUkdCICgxOTk4KSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0MDZmNzg5Yy1mOTcyLTQ1ODItYmNlNC02MDJhOTUyZDMwNmYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDA2Zjc4OWMtZjk3Mi00NTgyLWJjZTQtNjAyYTk1MmQzMDZmIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6NDA2Zjc4OWMtZjk3Mi00NTgyLWJjZTQtNjAyYTk1MmQzMDZmIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MDZmNzg5Yy1mOTcyLTQ1ODItYmNlNC02MDJhOTUyZDMwNmYiIHN0RXZ0OndoZW49IjIwMjItMDItMTBUMTU6MzM6NTQtMDU6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMi4wIChNYWNpbnRvc2gpIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtD5YlQAACnHSURBVHic7d15lFzVfeDx3733varqvVut3hcZO4n3eM029sTjmDmZJcnYGRMnk/Vk8cx4ZhIvIKml1oYQIBBCPiwyAgOWjUAGzC5EMGBAxxgDYosBISQhCUmgtVd1V7337p0/qhvL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";
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("figure", null, /*#__PURE__*/React__default.createElement("div", {
+    className: css$s.containerImg,
+    "data-style": dataStyle
+  }, /*#__PURE__*/React__default.createElement("img", {
+    src: imgToSee,
+    onError: onError,
+    alt: alt,
+    "data-style-img": dataStyle
+  })), /*#__PURE__*/React__default.createElement("figcaption", null, /*#__PURE__*/React__default.createElement("div", {
+    className: css$s.containerText
+  }, /*#__PURE__*/React__default.createElement(Text, {
+    type: "p",
+    children: /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("b", null, title), " ", /*#__PURE__*/React__default.createElement("span", null, alt))
+  })))));
+};
+Image.defaultProps = {
+  typeImg: '.png'
+};
+
+var css$t = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD"};
 
 var Modal = function Modal(_ref) {
   var children = _ref.children,
-      dataButton = _ref.dataButton,
+      label = _ref.label,
+      styled = _ref.styled,
+      _ref$hasAriaLabel = _ref.hasAriaLabel,
+      hasAriaLabel = _ref$hasAriaLabel === void 0 ? false : _ref$hasAriaLabel,
       title = _ref.title,
-      text = _ref.text;
+      text = _ref.text,
+      _ref$hasImage = _ref.hasImage,
+      hasImage = _ref$hasImage === void 0 ? false : _ref$hasImage,
+      url = _ref.url,
+      alt = _ref.alt;
 
   var _useState = React.useState(false),
       getModal = _useState[0],
@@ -3205,36 +3856,22 @@ var Modal = function Modal(_ref) {
 
   var refModal = React.createRef();
   var refOverlay = React.createRef();
-  var modalIcon = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "48",
-    height: "48",
-    viewBox: "0 0 24 24",
-    "aria-hidden": "true",
-    className: "svg-icon",
-    focusable: "false"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    fill: "none",
-    d: "M0 0h24v24H0z"
-  }), /*#__PURE__*/React__default.createElement("path", {
-    d: "M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"
-  }));
 
   function stateModal(elementModal, elementOverlay) {
     if (getModal) {
-      elementModal.classList.remove(css$o['modal--active']);
-      elementOverlay.classList.remove(css$o['overlay--active']);
+      elementModal.classList.remove(css$t['modal--active']);
+      elementOverlay.classList.remove(css$t['overlay--active']);
       setModal(false);
     } else {
-      elementModal.classList.add(css$o['modal--active']);
-      elementOverlay.classList.add(css$o['overlay--active']);
+      elementModal.classList.add(css$t['modal--active']);
+      elementOverlay.classList.add(css$t['overlay--active']);
       setModal(true);
     }
   }
 
   function closeModal(elementModal, elementOverlay) {
-    elementModal.classList.remove(css$o['modal--active']);
-    elementOverlay.classList.remove(css$o['overlay--active']);
+    elementModal.classList.remove(css$t['modal--active']);
+    elementOverlay.classList.remove(css$t['overlay--active']);
     setModal(false);
   }
 
@@ -3259,26 +3896,33 @@ var Modal = function Modal(_ref) {
       document.removeEventListener('keydown', closeModalOnEsc, false);
     }
   }, [getModal]);
-  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(Button, {
-    label: dataButton.label,
-    styled: dataButton.styled,
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(React.Fragment, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
+    className: css$t['modal-button-image'],
     onClick: handleModal,
-    icon: modalIcon,
-    hasAriaLabel: dataButton.hasAriaLabel
-  }), /*#__PURE__*/React__default.createElement("div", {
+    "aria-label": label
+  }, /*#__PURE__*/React__default.createElement(Image, {
+    url: url,
+    alt: alt
+  })) : /*#__PURE__*/React__default.createElement(Button$1, {
+    label: label,
+    styled: styled,
+    onClick: handleModal,
+    icon: "",
+    hasAriaLabel: hasAriaLabel
+  })), /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$o['c-modal-overlay'] + " ui-modal-overlay",
+    className: css$t['c-modal-overlay'] + " ui-modal-overlay",
     id: "overlay",
     onClick: handleModal
   }), /*#__PURE__*/React__default.createElement("div", {
     role: "dialog",
     ref: refModal,
-    className: css$o['c-modal'] + " ui-modal",
+    className: css$t['c-modal'] + " ui-modal",
     id: "modal"
   }, children || /*#__PURE__*/React__default.createElement("div", {
     className: "ui-modal-content"
   }, /*#__PURE__*/React__default.createElement("h3", null, " ", title, " "), /*#__PURE__*/React__default.createElement("p", null, " ", text, " ")), /*#__PURE__*/React__default.createElement("button", {
-    className: "" + css$o['c-modal__close-button'],
+    className: "" + css$t['c-modal__close-button'],
     onClick: handleModal,
     style: {
       cursor: 'pointer'
@@ -3293,19 +3937,16 @@ var Modal = function Modal(_ref) {
 Modal.propTypes = {
   title: propTypes.string,
   text: propTypes.string,
-  children: propTypes.element,
-  dataButton: propTypes.object
+  children: propTypes.element
 };
 Modal.defaultProps = {
-  dataButton: {
-    label: 'modal',
-    stylde: 'primary'
-  },
+  label: 'modal',
+  stylde: 'primary',
   title: 'Titulo',
   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!'
 };
 
-var cssNavbar = {"menuContainer":"_NavBar-module__menuContainer__1O8g7","menuResponsive":"_NavBar-module__menuResponsive__2t5N4","ulMenu":"_NavBar-module__ulMenu__3GtQQ","styleBtn":"_NavBar-module__styleBtn__8TzwT","styleUlMenu":"_NavBar-module__styleUlMenu__1J1dN","styleUlAcc":"_NavBar-module__styleUlAcc__2luFu","styleUlHelp":"_NavBar-module__styleUlHelp__3J7fz","styleLi":"_NavBar-module__styleLi__2FQig","stylelinks":"_NavBar-module__stylelinks__1-rcw","styleLink":"_NavBar-module__styleLink__uX2AO","styleNumber":"_NavBar-module__styleNumber__6Gdkr","styleSubLi":"_NavBar-module__styleSubLi__1t9Uz","styleBtns":"_NavBar-module__styleBtns__pyjf0","segundoMenu":"_NavBar-module__segundoMenu__3okIe","positionUlRelative":"_NavBar-module__positionUlRelative__MrthX","spanText":"_NavBar-module__spanText__o6aML","iconRight":"_NavBar-module__iconRight__pORcv","ulMenuAct":"_NavBar-module__ulMenuAct__1MnK5"};
+var cssNavbar = {"menuContainer":"_1O8g7","menuResponsive":"_2t5N4","ulMenu":"_3GtQQ","styleBtn":"_8TzwT","styleUlMenu":"_1J1dN","styleUlAcc":"_2luFu","styleUlHelp":"_3J7fz","styleLi":"_2FQig","stylelinks":"_1-rcw","styleLink":"_uX2AO","styleNumber":"_6Gdkr","styleSubLi":"_1t9Uz","styleBtns":"_pyjf0","segundoMenu":"_3okIe","positionUlRelative":"_MrthX","spanText":"_o6aML","iconRight":"_pORcv","ulMenuAct":"_1MnK5"};
 
 function NavBar(_ref) {
   var _ref$hrefInicio = _ref.hrefInicio,
@@ -3322,6 +3963,10 @@ function NavBar(_ref) {
   var _useState3 = React.useState(false),
       dropdownHelp = _useState3[0],
       setDropdownHelp = _useState3[1];
+
+  var _useState4 = React.useState(''),
+      activeTheme = _useState4[0],
+      setActiveTheme = _useState4[1];
 
   var content = [{
     name: 'primero',
@@ -3367,11 +4012,54 @@ function NavBar(_ref) {
     setState(!state);
   };
 
-  var _useState4 = React.useState(false),
-      menuResponsive = _useState4[0],
-      setMenuResponsive = _useState4[1];
+  var changeTheme = function changeTheme(type) {
+    var html = document.querySelector('html');
 
-  console.log(menuResponsive);
+    switch (type) {
+      case '':
+        html.className = '';
+        break;
+
+      case 'highContrast':
+        html.className = 'high-contrast';
+        break;
+
+      case 'grayScale':
+        html.className = 'grayscale';
+        break;
+
+      case 'invertColors':
+        html.className = 'invert-colors';
+        break;
+
+      case 'yellowOverBlack':
+        html.className = 'yellow-on-black';
+        break;
+
+      case 'whiteOverRed':
+        html.className = 'red-on-white';
+        break;
+
+      case 'greenOverBlue':
+        html.className = 'green-on-blue';
+        break;
+
+      case 'yellowOverBlue':
+        html.className = 'yellow-on-blue';
+        break;
+
+      case 'whiteOverBlack':
+        html.className = 'white-on-black';
+        break;
+
+      default:
+        html.className = '';
+        break;
+    }
+
+    setActiveTheme(type);
+  };
+
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("nav", {
     className: cssNavbar['menuContainer'],
     "aria-label": "menu principal"
@@ -3466,68 +4154,103 @@ function NavBar(_ref) {
   }, /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == '' ? true : false,
+    onClick: function onClick() {
+      changeTheme('');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Sin tema"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    onClick: function onClick() {
+      changeTheme('grayScale');
+    },
+    "aria-pressed": activeTheme == 'grayScale' ? true : false
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: "" + cssNavbar.spanText
+  }, "Escala de grises"))), /*#__PURE__*/React__default.createElement("li", {
+    className: "" + cssNavbar.styleSubLi
+  }, /*#__PURE__*/React__default.createElement("button", {
+    type: "button",
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'highContrast' ? true : false,
+    onClick: function onClick() {
+      changeTheme('highContrast');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Alto contraste"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'invertColors' ? true : false,
+    onClick: function onClick() {
+      changeTheme('invertColors');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Invertir colores"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'yellowOverBlack' ? true : false,
+    onClick: function onClick() {
+      changeTheme('yellowOverBlack');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Amarillo sobre negro"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'whiteOverRed' ? true : false,
+    onClick: function onClick() {
+      changeTheme('whiteOverRed');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Blanco sobre rojo"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'greenOverBlue' ? true : false,
+    onClick: function onClick() {
+      changeTheme('greenOverBlue');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Verde sobre azul"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'yellowOverBlue' ? true : false,
+    onClick: function onClick() {
+      changeTheme('yellowOverBlue');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
   }, "Amarillo sobre azul"))), /*#__PURE__*/React__default.createElement("li", {
     className: "" + cssNavbar.styleSubLi
   }, /*#__PURE__*/React__default.createElement("button", {
-    name: "noTheme",
     type: "button",
-    className: cssNavbar['styleBtns']
+    className: cssNavbar['styleBtns'],
+    "aria-pressed": activeTheme == 'whiteOverBlack' ? true : false,
+    onClick: function onClick() {
+      changeTheme('whiteOverBlack');
+    }
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Blaco sobre negro"))))), /*#__PURE__*/React__default.createElement("li", {
+  }, "Blanco sobre negro"))))), /*#__PURE__*/React__default.createElement("li", {
     className: cssNavbar['styleLi']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
@@ -3625,10 +4348,10 @@ function NavBar(_ref) {
     nameIcon: "settings"
   }), /*#__PURE__*/React__default.createElement("span", {
     className: "" + cssNavbar.spanText
-  }, "Especificaciones t\xE9cnicas")))))))));
+  }, "Especificaciones t\xE9cnicas")))))))), /*#__PURE__*/React__default.createElement(ContrastFilters, null));
 }
 
-var css$p = {"table":"_Table-module__table__3LoBn","table-content":"_Table-module__table-content__1W60s","table-content-item":"_Table-module__table-content-item__27m22","body-content":"_Table-module__body-content__2OoWj"};
+var css$u = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
 
 function Table(_ref) {
   var headLabels = _ref.headLabels,
@@ -3645,27 +4368,27 @@ function Table(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("table", {
-    className: css$p.table + " ui-table"
+    className: css$u.table + " ui-table"
   }, /*#__PURE__*/React__default.createElement("thead", null, /*#__PURE__*/React__default.createElement("tr", {
-    className: css$p['table-content'] + " ui-table-content"
+    className: css$u['table-content'] + " ui-table-content"
   }, headLabels.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("th", {
       key: index,
-      className: css$p['table-content-item'] + " ui-table-content-item",
+      className: css$u['table-content-item'] + " ui-table-content-item",
       scope: "col"
     }, item);
   }))), /*#__PURE__*/React__default.createElement("tbody", null, bodyContent.map(function (content, index) {
     return /*#__PURE__*/React__default.createElement("tr", {
       key: "content" + index,
-      className: css$p['table-content'] + " " + css$p['body-content'] + " ui-body-content"
+      className: css$u['table-content'] + " " + css$u['body-content'] + " ui-body-content"
     }, content.map(function (item, i) {
       return /*#__PURE__*/React__default.createElement(Fragment, null, item.isRowHeader ? /*#__PURE__*/React__default.createElement("th", {
         key: "item" + i,
-        className: css$p['table-content-item'] + " ui-body-content-item",
+        className: css$u['table-content-item'] + " ui-body-content-item",
         scope: "row"
       }, rowContent(item)) : /*#__PURE__*/React__default.createElement("td", {
         key: "item" + i,
-        className: css$p['table-content-item'] + " ui-body-content-item"
+        className: css$u['table-content-item'] + " ui-body-content-item"
       }, rowContent(item)));
     }));
   })));
@@ -3679,7 +4402,7 @@ Table.defaultProps = {
   bodyContent: [['Cell a1', 'Cell a2'], ['Cell b2', 'Cell b2']]
 };
 
-var css$q = {"c-scroll":"_TableGrid-module__c-scroll__2NOnb","c-gridTable":"_TableGrid-module__c-gridTable__37ybX","c-gridTable-head":"_TableGrid-module__c-gridTable-head__2mWnf","c-gridTable-body":"_TableGrid-module__c-gridTable-body__2IfP0","c-gridTable-body-item":"_TableGrid-module__c-gridTable-body-item__153aW","c-gridTable-head-item":"_TableGrid-module__c-gridTable-head-item__CzEks"};
+var css$v = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
 
 function TableGrid(_ref) {
   var headContent = _ref.headContent,
@@ -3687,27 +4410,27 @@ function TableGrid(_ref) {
       gridColumn = _ref.gridColumn;
   console.log(bodyContent);
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$q['c-scroll'] + " ui-scroll"
+    className: css$v['c-scroll'] + " ui-scroll"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$q['c-gridTable'] + " ui-gridTable"
+    className: css$v['c-gridTable'] + " ui-gridTable"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$q['c-gridTable-head'] + " ui-gridTable-head",
+    className: css$v['c-gridTable-head'] + " ui-gridTable-head",
     style: gridColumn
   }, headContent.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("div", {
-      className: css$q['c-gridTable-head-item'] + " ui-gridTable-head-item",
+      className: css$v['c-gridTable-head-item'] + " ui-gridTable-head-item",
       key: "head-" + index
     }, item.type === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
       nameIcon: item.label,
       addClass: item.addClass
     }) : /*#__PURE__*/React__default.createElement("span", null, item.label));
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$q['c-gridTable-body'] + " ui-gridTable-body",
+    className: css$v['c-gridTable-body'] + " ui-gridTable-body",
     style: gridColumn
   }, bodyContent.map(function (data) {
     return data.map(function (buttom, index) {
       return /*#__PURE__*/React__default.createElement("div", {
-        className: css$q['c-gridTable-body-item'] + " ui-gridTable-body-item",
+        className: css$v['c-gridTable-body-item'] + " ui-gridTable-body-item",
         key: "body-" + index
       }, buttom);
     });
@@ -3722,7 +4445,7 @@ TableGrid.defaultProps = {
   bodyContent: []
 };
 
-var css$r = {"TabsBar":"_Tabs-module__TabsBar__3ZvuE","TabsCont":"_Tabs-module__TabsCont__1Zp4v","TabsScroll":"_Tabs-module__TabsScroll__3KvVr","TabsArea":"_Tabs-module__TabsArea__2je_1","TabsContent":"_Tabs-module__TabsContent__3EyBN"};
+var css$w = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
 
 var _excluded$d = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
 var Tabs = React.forwardRef(function Tabs(props, ref) {
@@ -3799,12 +4522,12 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   };
 
   return /*#__PURE__*/React.createElement(Component, _extends({
-    className: css$r.TabsCont + " ui-Tabs-cont",
+    className: css$w.TabsCont + " ui-Tabs-cont",
     ref: ref
   }, other), /*#__PURE__*/React.createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/React.createElement("div", {
-    className: css$r.TabsArea + " ui-tabs-area",
+    className: css$w.TabsArea + " ui-tabs-area",
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -3814,7 +4537,7 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   }, children)));
 });
 
-var css$s = {"carrousel":"_Carrousel-module__carrousel__1rlBL","carrouselInner":"_Carrousel-module__carrouselInner__1YPPV","carrouselItem":"_Carrousel-module__carrouselItem__3pMEX","carrouselButtonContainer":"_Carrousel-module__carrouselButtonContainer__DZmRD","carrouselControlPrev":"_Carrousel-module__carrouselControlPrev__1_yGr","carrouselControlNext":"_Carrousel-module__carrouselControlNext__YRcDS","carrouselControlNextIcon":"_Carrousel-module__carrouselControlNextIcon__1tZ89"};
+var css$x = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselButtonContainer":"_DZmRD","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
 
 var Carrousel = function Carrousel(_ref, _ref2) {
   var childrenProp = _ref.children;
@@ -3908,24 +4631,24 @@ var Carrousel = function Carrousel(_ref, _ref2) {
   });
   return /*#__PURE__*/React__default.createElement("div", {
     id: "carouselExampleControls",
-    className: css$s.carrousel + " " + css$s.slide + " iu-slider",
+    className: css$x.carrousel + " " + css$x.slide + " iu-slider",
     "data-ride": "carousel"
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refCont,
-    className: css$s.carrouselInner + " ui-carrusel-inner",
+    className: css$x.carrouselInner + " ui-carrusel-inner",
     role: "group",
     "aria-roledescription": roleDescription
   }, children), /*#__PURE__*/React__default.createElement("div", {
-    className: "" + css$s.carrouselButtonContainer
+    className: "" + css$x.carrouselButtonContainer
   }, /*#__PURE__*/React__default.createElement("button", {
-    className: css$s.carrouselControlPrev + " ui-carrusel-control-prev",
+    className: css$x.carrouselControlPrev + " ui-carrusel-control-prev",
     "data-slide": "prev",
     onClick: handleClick,
     ref: refPrev,
     disabled: true,
     "aria-label": type + " anterior"
   }, backButton), /*#__PURE__*/React__default.createElement("button", {
-    className: css$s.carrouselControlNext + " ui-carrusel-control-next",
+    className: css$x.carrouselControlNext + " ui-carrusel-control-next",
     "data-slide": "next",
     onClick: handleClick,
     ref: refNext,
@@ -3937,7 +4660,7 @@ var Carrousel = function Carrousel(_ref, _ref2) {
   }, type, " ", Value + 1, " de ", children.length));
 };
 
-var css$t = {"Section":"_PanelSection-module__Section__2biAj"};
+var css$y = {"Section":"_2biAj"};
 
 var _excluded$e = ["children", "tabs", "FunctValue"];
 
@@ -3969,7 +4692,7 @@ var PanelSection = function PanelSection(_ref) {
     });
   });
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$t.Section
+    className: css$y.Section
   }, others), /*#__PURE__*/React__default.createElement(AsideSection, {
     value: value,
     onChange: handleChange
@@ -4036,19 +4759,48 @@ PanelTabs.defaultProps = {
   }]
 };
 
-var css$u = {"col":"_Col-module__col__1QLy6"};
+var TourWindow = function TourWindow() {
+  var endTour = function endTour() {
+    console.log('Tour terminado');
+  };
+
+  var endTourOnEsc = function endTourOnEsc(e) {
+    if ((e.keyCode || e.which) === 27) {
+      console.log('Tour terminado con Esc');
+    }
+  };
+
+  var backTour = function backTour() {
+    console.log('Tour anterior');
+  };
+
+  var nextTour = function nextTour() {
+    console.log('Siguiente tour');
+  };
+
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(TourOverlay, {
+    endTour: endTour,
+    endTourOnEsc: endTourOnEsc
+  }), /*#__PURE__*/React__default.createElement(TourHelpLayer, null), /*#__PURE__*/React__default.createElement(TourModal, {
+    endTour: endTour,
+    backTour: backTour,
+    nextTour: nextTour
+  }));
+};
+
+var css$z = {"col":"_1QLy6"};
 
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$u.col
+    className: css$z.col
   }, props));
 };
 
-var css$v = {"row":"_Row-module__row__7DQjb"};
+var css$A = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$v.row
+    className: css$A.row
   }, props));
 };
 
@@ -4057,11 +4809,13 @@ exports.AccordionItem = AccordionItem;
 exports.AsideNav = AsideNav;
 exports.AsideSection = AsideSection;
 exports.BtnSec = BtnSec;
-exports.Button = Button;
+exports.Button = Button$1;
 exports.Card = Card;
 exports.Carrousel = Carrousel;
 exports.Col = Col;
+exports.ContrastFilters = ContrastFilters;
 exports.DarkThemeToggle = DarkThemeToggle;
+exports.DraggableVideo = DraggableVideo;
 exports.Dropdown = Dropdown;
 exports.Graphics = Graphics;
 exports.Icon = Icon;
@@ -4087,5 +4841,9 @@ exports.Text = Text;
 exports.Textarea = Textarea;
 exports.Toggletip = Toggletip;
 exports.Tooltip = Tooltip;
+exports.TourHelpLayer = TourHelpLayer;
+exports.TourModal = TourModal;
+exports.TourOverlay = TourOverlay;
+exports.TourWindow = TourWindow;
 exports.Video = Video;
 //# sourceMappingURL=index.js.map

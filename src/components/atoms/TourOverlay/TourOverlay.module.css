@@ -1,0 +1,14 @@
+.tour-overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0.8;
+  box-sizing: content-box;
+  z-index: 999999;
+  transition: all 0.3s ease-out;
+  background: -webkit-radial-gradient(
+    center,
+    ellipse farthest-corner,
+    rgba(0, 0, 0, 0.4) 0,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}

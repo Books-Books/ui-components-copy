@@ -4,6 +4,15 @@ import React, { useEffect, useState } from 'react'
 import { Icon } from '../icon'
 import css from './InputControl.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un input tipo checkbox, toggle o radio
+ * param { type, label, stateInput, name, addClass }
+ * - type: El tipo del input que se creará. Los valores son "radio", "checkbox" o "toggle"
+ * - label: etiqueta que describirá el elemento.
+ * - addClass: clase adicional que se necesite agregar al input
+ **/
+
 export const InputControl = ({
   type,
   label,
@@ -29,7 +38,7 @@ export const InputControl = ({
           setStateIcon('check')
         }
       } else {
-        setStateIcon('check')
+        setStateIcon('')
       }
     }
     function initInputIcon() {

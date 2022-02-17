@@ -1,6 +1,14 @@
 import React, { createRef, useState } from 'react'
 import css from './Carrousel.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un carrusel con los elementos que se pongan dentro de este componente
+ * param { roleDescription, type }
+ * - roleDescription: descripción del contenedor padre
+ * - type: descripción de los componentes hijos
+ **/
+
 export const Carrousel = (
   { children: childrenProp },
   { roleDescription = 'Slider', type = 'Slide' }
@@ -11,6 +19,7 @@ export const Carrousel = (
   const refNext = createRef()
   let childIndex = 0
 
+  // Ícono de ir a anterior
   const backButton = (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -26,6 +35,7 @@ export const Carrousel = (
     </svg>
   )
 
+  // Ícono de ir a siguiente
   const nextButton = (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -41,6 +51,7 @@ export const Carrousel = (
     </svg>
   )
 
+  // Agrega la navegación de los botones
   function handleClick({ target }) {
     const dataValue = target.dataset.slide
     const contChild = [...refCont.current.children]
@@ -69,6 +80,7 @@ export const Carrousel = (
     }
   }
 
+  // Rastrea la cantidad de elementos hijos
   const children = React.Children.map(childrenProp, (child) => {
     if (!React.isValidElement(child)) {
       return null

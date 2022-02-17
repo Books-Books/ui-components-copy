@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Button } from '../../atoms/Button'
+import { Button, ContrastFilters } from '../../atoms'
 import { DarkThemeToggle } from '../../atoms/DarkThemeToggle'
 import { Dropdown } from '../../atoms/Dropdown'
 import { Icon } from '../../atoms/icon'
@@ -13,6 +13,8 @@ export function NavBar({
   const [dropdownMenu, setDropdownMenu] = useState(false)
   const [dropdownAcc, setDropdownAcc] = useState(false)
   const [dropdownHelp, setDropdownHelp] = useState(false)
+  const [activeTheme, setActiveTheme] = useState('')
+  const [menuResponsive, setMenuResponsive] = useState(false)
 
   //Función para listar las rutas de la ova "props = contentOva"
   const content = [
@@ -70,8 +72,43 @@ export function NavBar({
     setState(!state)
   }
 
-  const [menuResponsive, setMenuResponsive] = useState(false)
-  console.log(menuResponsive)
+  const changeTheme = function (type) {
+    const html = document.querySelector('html')
+
+    switch (type) {
+      case '':
+        html.className = ''
+        break
+      case 'highContrast':
+        html.className = 'high-contrast'
+        break
+      case 'grayScale':
+        html.className = 'grayscale'
+        break
+      case 'invertColors':
+        html.className = 'invert-colors'
+        break
+      case 'yellowOverBlack':
+        html.className = 'yellow-on-black'
+        break
+      case 'whiteOverRed':
+        html.className = 'red-on-white'
+        break
+      case 'greenOverBlue':
+        html.className = 'green-on-blue'
+        break
+      case 'yellowOverBlue':
+        html.className = 'yellow-on-blue'
+        break
+      case 'whiteOverBlack':
+        html.className = 'white-on-black'
+        break
+      default:
+        html.className = ''
+        break
+    }
+    setActiveTheme(type)
+  }
 
   return (
     <Fragment>
@@ -183,18 +220,42 @@ export function NavBar({
                 >
                   <li className={`${cssNavbar.styleSubLi}`}>
                     <button
-                      name='noTheme'
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      aria-pressed={activeTheme == '' ? true : false}
+                      onClick={() => {
+                        changeTheme('')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>Sin tema</span>
                     </button>
                   </li>
+
                   <li className={`${cssNavbar.styleSubLi}`}>
                     <button
-                      name='noTheme'
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      onClick={() => {
+                        changeTheme('grayScale')
+                      }}
+                      aria-pressed={activeTheme == 'grayScale' ? true : false}
+                    >
+                      <span className={`${cssNavbar.spanText}`}>
+                        Escala de grises
+                      </span>
+                    </button>
+                  </li>
+
+                  <li className={`${cssNavbar.styleSubLi}`}>
+                    <button
+                      type='button'
+                      className={cssNavbar['styleBtns']}
+                      aria-pressed={
+                        activeTheme == 'highContrast' ? true : false
+                      }
+                      onClick={() => {
+                        changeTheme('highContrast')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Alto contraste
@@ -204,67 +265,102 @@ export function NavBar({
 
                   <li className={`${cssNavbar.styleSubLi}`}>
                     <button
-                      name='noTheme'
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      aria-pressed={
+                        activeTheme == 'invertColors' ? true : false
+                      }
+                      onClick={() => {
+                        changeTheme('invertColors')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Invertir colores
                       </span>
                     </button>
                   </li>
+
                   <li className={`${cssNavbar.styleSubLi}`}>
                     <button
-                      name='noTheme'
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      aria-pressed={
+                        activeTheme == 'yellowOverBlack' ? true : false
+                      }
+                      onClick={() => {
+                        changeTheme('yellowOverBlack')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Amarillo sobre negro
                       </span>
                     </button>
                   </li>
+
                   <li className={`${cssNavbar.styleSubLi}`}>
                     <button
-                      name='noTheme'
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      aria-pressed={
+                        activeTheme == 'whiteOverRed' ? true : false
+                      }
+                      onClick={() => {
+                        changeTheme('whiteOverRed')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Blanco sobre rojo
                       </span>
                     </button>
                   </li>
+
                   <li className={`${cssNavbar.styleSubLi}`}>
                     <button
-                      name='noTheme'
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      aria-pressed={
+                        activeTheme == 'greenOverBlue' ? true : false
+                      }
+                      onClick={() => {
+                        changeTheme('greenOverBlue')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Verde sobre azul
                       </span>
                     </button>
                   </li>
+
                   <li className={`${cssNavbar.styleSubLi}`}>
                     <button
-                      name='noTheme'
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      aria-pressed={
+                        activeTheme == 'yellowOverBlue' ? true : false
+                      }
+                      onClick={() => {
+                        changeTheme('yellowOverBlue')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
                         Amarillo sobre azul
                       </span>
                     </button>
                   </li>
+
                   <li className={`${cssNavbar.styleSubLi}`}>
                     <button
-                      name='noTheme'
                       type='button'
                       className={cssNavbar['styleBtns']}
+                      aria-pressed={
+                        activeTheme == 'whiteOverBlack' ? true : false
+                      }
+                      onClick={() => {
+                        changeTheme('whiteOverBlack')
+                      }}
                     >
                       <span className={`${cssNavbar.spanText}`}>
-                        Blaco sobre negro
+                        Blanco sobre negro
                       </span>
                     </button>
                   </li>
@@ -377,6 +473,7 @@ export function NavBar({
           </li>
         </ul>
       </nav>
+      <ContrastFilters />
     </Fragment>
   )
 }

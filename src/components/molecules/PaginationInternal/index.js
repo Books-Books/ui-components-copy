@@ -6,27 +6,27 @@ export const PaginationInternal = ({
   pagOva = [
     {
       id: 1,
-      label: '1',
+      label: '',
       url: '#'
     },
     {
       id: 2,
-      label: '2',
+      label: '',
       url: '#'
     },
     {
       id: 3,
-      label: '3',
+      label: '',
       url: '#'
     },
     {
       id: 4,
-      label: '4',
+      label: '',
       url: '#'
     },
     {
       id: 5,
-      label: '5',
+      label: '',
       url: '#'
     }
   ]

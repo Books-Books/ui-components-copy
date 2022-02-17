@@ -1,27 +1,32 @@
 import PropTypes from 'prop-types'
 import React, { createRef, Fragment, useEffect, useState } from 'react'
 import { Button } from '../../atoms/Button/index'
+import { Image } from '../../atoms/Image/index'
 import css from './Modal.module.css'
 
-export const Modal = ({ children, dataButton, title, text }) => {
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un modal que se puede cerrar al hacer clic en el botón, en el overlay que está por fuera o en al presionar la tecla Esc
+ * param { children, title, text }
+ * - children: elemento que va dentro del modal. Si no hay children, irá el contenido que se use en title y text.
+ * - title: título del modal
+ * - text: Nodos de texto dentro del modal.
+ **/
+
+export const Modal = ({
+  children,
+  label,
+  styled,
+  hasAriaLabel = false,
+  title,
+  text,
+  hasImage = false,
+  url,
+  alt
+}) => {
   const [getModal, setModal] = useState(false)
   const refModal = createRef()
   const refOverlay = createRef()
-
-  const modalIcon = (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      width='48'
-      height='48'
-      viewBox='0 0 24 24'
-      aria-hidden='true'
-      className='svg-icon'
-      focusable='false'
-    >
-      <path fill='none' d='M0 0h24v24H0z'></path>
-      <path d='M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z'></path>
-    </svg>
-  )
 
   // Abrir y cerrar el modal
   function stateModal(elementModal, elementOverlay) {
@@ -72,13 +77,25 @@ export const Modal = ({ children, dataButton, title, text }) => {
 
   return (
     <Fragment>
-      <Button
-        label={dataButton.label}
-        styled={dataButton.styled}
-        onClick={handleModal}
-        icon={modalIcon}
-        hasAriaLabel={dataButton.hasAriaLabel}
-      />
+      <>
+        {hasImage ? (
+          <button
+            className={css['modal-button-image']}
+            onClick={handleModal}
+            aria-label={label}
+          >
+            <Image url={url} alt={alt} />
+          </button>
+        ) : (
+          <Button
+            label={label}
+            styled={styled}
+            onClick={handleModal}
+            icon=''
+            hasAriaLabel={hasAriaLabel}
+          />
+        )}
+      </>
       <div
         ref={refOverlay}
         className={`${css['c-modal-overlay']} ui-modal-overlay`}
@@ -114,15 +131,12 @@ export const Modal = ({ children, dataButton, title, text }) => {
 Modal.propTypes = {
   title: PropTypes.string,
   text: PropTypes.string,
-  children: PropTypes.element,
-  dataButton: PropTypes.object
+  children: PropTypes.element
 }
 
 Modal.defaultProps = {
-  dataButton: {
-    label: 'modal',
-    stylde: 'primary'
-  },
+  label: 'modal',
+  stylde: 'primary',
   title: 'Titulo',
   text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!'
 }

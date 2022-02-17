@@ -1,6 +1,13 @@
 import React, { forwardRef } from 'react'
 import css from './BtnSec.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un botón que permite navegar entre secciones de un sitio.
+ * param { value }
+ * - label: etiqueta que se está usando el botón. Es un número que va a ser tanto la etiqueta como parte de la url a la que enviará
+ **/
+
 const BtnSec = forwardRef(function BtnSec(props, ref) {
   const {
     classes,
@@ -57,7 +64,8 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
         value={value + 1}
         {...other}
       >
-        <span class='sr-only'>Sección {label}</span>
+        <span className='sr-only'>Sección {label}</span>
+        <span aria-hidden='true'>{label}</span>
       </a>
     </li>
   )

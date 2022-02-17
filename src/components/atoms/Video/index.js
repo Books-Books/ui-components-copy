@@ -1,8 +1,17 @@
 import PropTypes from 'prop-types'
 import React, { createRef, useState } from 'react'
+import { Text } from '../Text'
 import css from './Video.module.css'
 
-function Video({ url, width, addClass }) {
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un reproductor de video
+ * param { url, width, addClass }
+ * - url: ruta del video que será reproducido.
+ * - width: ancho máximo del video.
+ * - addClass: clase adicional que se le agregue al reproductor.
+ **/
+function Video({ url, width, title, content, addClass }) {
   // Icons
 
   const playIcon = (
@@ -61,6 +70,18 @@ function Video({ url, width, addClass }) {
     >
       <path fill='none' d='M0 0H24V24H0z'></path>
       <path d='M22 3.41L16.71 8.7 20 12h-8V4l3.29 3.29L20.59 2 22 3.41zM3.41 22l5.29-5.29L12 20v-8H4l3.29 3.29L2 20.59 3.41 22z'></path>
+    </svg>
+  )
+
+  const subtitlesIcon = (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='48'
+      height='48'
+      viewBox='0 0 24 24'
+    >
+      <path fill='none' d='M0 0h24v24H0V0z'></path>
+      <path d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8z'></path>
     </svg>
   )
 
@@ -211,75 +232,82 @@ function Video({ url, width, addClass }) {
   }
 
   return (
-    <div
-      className={`${css['c-vid']} ${addClass}`}
-      ref={refCont}
-      style={{ maxWidth: width, minWidth: '320px' }}
-    >
-      <video
-        ref={refVideo}
-        onTimeUpdate={() => {
-          handleBarProgress()
-          handleTimeProcess()
-        }}
+    <figure className={`${css['c-vid-container']}`}>
+      <div
+        className={`${css['c-vid']} ${addClass}`}
+        ref={refCont}
+        style={{ maxWidth: width, minWidth: '320px' }}
       >
-        <source src={url} />
-      </video>
-      <div className={css['progress-content']}>
-        <div
-          ref={refProgress}
-          className={css.progress}
-          onClick={handleProcessControl}
+        <video
+          ref={refVideo}
+          onTimeUpdate={() => {
+            handleBarProgress()
+            handleTimeProcess()
+          }}
         >
-          <div
-            ref={refProgressBar}
-            className={css['progress-bar']}
-            onChange={handleBarProgress}
-          />
+          <source src={url} />
+        </video>
+        <div className={css['c-vid-controls']}>
+          <button aria-label={getstateVideoPlay.label} onClick={handlePlay}>
+            {getstateVideoPlay.icon}
+          </button>
+          <div className={css['c-vid-controls-volumn']}>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='48'
+              height='48'
+              viewBox='0 0 24 24'
+              aria-hidden='true'
+              focusable='false'
+            >
+              <path fill='none' d='M0 0h24v24H0z'></path>
+              <path d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'></path>
+            </svg>
+            <label for='volumeControl'>
+              <span className='sr-only'>Controlar volumen</span>
+              <input
+                className={css['c-vid-controls-volumn-item']}
+                ref={refVolumn}
+                id='volumeControl'
+                type='range'
+                min='0'
+                max='100'
+                step='5'
+                value={getValueVolum}
+                onChange={handleVolumn}
+                aria-valuetext={`${getValueVolum}%`}
+              />
+            </label>
+          </div>
+          <p className={css['c-vid-controls-text']}>
+            <span>{getCurrentTiem}</span>
+          </p>
+          <div className={css['progress-content']}>
+            <div
+              ref={refProgress}
+              className={css.progress}
+              onClick={handleProcessControl}
+            >
+              <div
+                ref={refProgressBar}
+                className={css['progress-bar']}
+                onChange={handleBarProgress}
+              />
+            </div>
+          </div>
+          <button aria-label='Subtítulos'>{subtitlesIcon}</button>
+          <button aria-label={getStateScreen.label} onClick={hanldeFullScrenn}>
+            {getStateScreen.icon}
+          </button>
+          {/* <Icon nameIcon={getStateScreen.icon} onClick={hanldeFullScrenn} /> */}
         </div>
       </div>
-      <div className={css['c-vid-controls']}>
-        <button aria-label={getstateVideoPlay.label} onClick={handlePlay}>
-          {getstateVideoPlay.icon}
-        </button>
-        {/* <Icon nameIcon={getstateVideoPlay.icon} onClick={handlePlay} /> */}
-        <p className={css['c-vid-controls-text']}>
-          <span>{getCurrentTiem}</span> / <span>{getDurationVideo}</span>
-        </p>
-        <div className={css['c-vid-controls-volumn']}>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='48'
-            height='48'
-            viewBox='0 0 24 24'
-            aria-hidden='true'
-            focusable='false'
-          >
-            <path fill='none' d='M0 0h24v24H0z'></path>
-            <path d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'></path>
-          </svg>
-          <label for='volumeControl'>
-            <span class='sr-only'>Controlar volumen</span>
-            <input
-              className={css['c-vid-controls-volumn-item']}
-              ref={refVolumn}
-              id='volumeControl'
-              type='range'
-              min='0'
-              max='100'
-              step='5'
-              value={getValueVolum}
-              onChange={handleVolumn}
-              aria-valuetext={`${getValueVolum}%`}
-            />
-          </label>
-        </div>
-        <button aria-label={getStateScreen.label} onClick={hanldeFullScrenn}>
-          {getStateScreen.icon}
-        </button>
-        {/* <Icon nameIcon={getStateScreen.icon} onClick={hanldeFullScrenn} /> */}
-      </div>
-    </div>
+      <figcaption>
+        <Text type='p'>
+          <strong>{title}:</strong> {content}
+        </Text>
+      </figcaption>
+    </figure>
   )
 }
 
