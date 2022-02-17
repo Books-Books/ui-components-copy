@@ -51,9 +51,9 @@ button {
   --minSizeBtnIcon: 40px;
 
   /* button variables */
-  --minWidthSizeBtn: 64px;
-  --minHeightSizeBtn: 2rem;
-  --fontSizeButton: 0.875rem;
+  --minWidthSizeBtn: 150px;
+  --minHeightSizeBtn: 2.25rem;
+  --fontSizeButton: 1.25rem;
   --paddingBtn: 0 8px 0 8px;
   --marginBtn: 5px;
   --borderRadiusBtn: 4px;

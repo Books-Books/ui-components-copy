@@ -7,7 +7,7 @@ export const Image = ({
   alt = 'Imagen de prueba.',
   title = 'Imagen 1.',
   typeImg,
-  dataStyle = '1',
+  dataStyle = '2',
   addClass
   //El dataStyle indica que diseño se requiere para el contenedor de la imagen: default,1,2,3,4.
 }) => {
