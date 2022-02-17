@@ -35,6 +35,10 @@ export function NavBar({
     {
       name: 'quinto',
       url: '#'
+    },
+    {
+      name: 'sexto',
+      url: '#'
     }
   ].map((enlaces, i) => {
     if (i < 9) {
