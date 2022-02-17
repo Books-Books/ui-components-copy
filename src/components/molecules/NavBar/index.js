@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { ContrastFilters } from '../../atoms'
+import { Button, ContrastFilters } from '../../atoms'
 import { DarkThemeToggle } from '../../atoms/DarkThemeToggle'
 import { Dropdown } from '../../atoms/Dropdown'
 import { Icon } from '../../atoms/icon'
@@ -14,6 +14,7 @@ export function NavBar({
   const [dropdownAcc, setDropdownAcc] = useState(false)
   const [dropdownHelp, setDropdownHelp] = useState(false)
   const [activeTheme, setActiveTheme] = useState('')
+  const [menuResponsive, setMenuResponsive] = useState(false)
 
   //Función para listar las rutas de la ova "props = contentOva"
   const content = [
