@@ -5,6 +5,27 @@ var React__default = _interopDefault(React);
 var Draggable = _interopDefault(require('react-draggable'));
 var reactGoogleCharts = require('react-google-charts');
 
+var AudioBar = function AudioBar(_ref) {
+  var id = _ref.id,
+      audio = _ref.audio,
+      formato = _ref.formato;
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
+    key: id
+  }, /*#__PURE__*/React__default.createElement("audio", {
+    controls: true,
+    oncontextmenu: "return false;",
+    controlslist: "nodownload"
+  }, /*#__PURE__*/React__default.createElement("source", {
+    src: audio,
+    type: formato
+  }), /*#__PURE__*/React__default.createElement("track", {
+    src: "",
+    kind: "captions",
+    srclang: "es",
+    label: "audio..."
+  }))));
+};
+
 function _extends() {
   _extends = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -1866,6 +1887,127 @@ Dropdown.defaultProps = {
   }]
 };
 
+var css$6 = {"Typography":"_2s-q8"};
+
+var _excluded$4 = ["type", "children", "addClass"];
+var Text = function Text(_ref) {
+  var _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'p' : _ref$type,
+      _ref$children = _ref.children,
+      children = _ref$children === void 0 ? 'hola' : _ref$children,
+      addClass = _ref.addClass,
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$4);
+
+  var DefaultValue = {
+    h1: 'h1',
+    h2: 'h2',
+    h3: 'h3',
+    h4: 'h4',
+    h5: 'h5',
+    h6: 'h6',
+    subtitle: 'h6',
+    caption: 'span',
+    p: 'p',
+    span: 'span'
+  };
+  var Component = DefaultValue[type];
+  console.log(Component);
+  console.log(type);
+  return /*#__PURE__*/React__default.createElement(Component, _extends({
+    className: css$6.Typography + " " + addClass,
+    type: type
+  }, args), children);
+};
+Text.propTypes = {
+  type: propTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle', 'caption', 'p', 'span']),
+  children: propTypes.node,
+  addClass: propTypes.string
+};
+Text.defaultProps = {
+  addClass: ''
+};
+
+var css$7 = {"containerImg":"_1HoJe","styleTitle":"_ItKKc","styleText":"_3nIWV","containerText":"_3T4gJ"};
+
+var Image = function Image(_ref) {
+  var _ref$url = _ref.url,
+      url = _ref$url === void 0 ? 'prueba3' : _ref$url,
+      _ref$alt = _ref.alt,
+      alt = _ref$alt === void 0 ? 'Imagen de prueba.' : _ref$alt,
+      _ref$title = _ref.title,
+      title = _ref$title === void 0 ? 'Imagen 1.' : _ref$title,
+      typeImg = _ref.typeImg,
+      _ref$dataStyle = _ref.dataStyle,
+      dataStyle = _ref$dataStyle === void 0 ? '2' : _ref$dataStyle;
+
+  var _useState = React.useState(false),
+      error = _useState[0],
+      setError = _useState[1];
+
+  var onError = function onError(value) {
+    setError(value);
+  };
+
+  var imgToSee = !error ? "" + url + typeImg : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAABN2lDQ1BBZG9iZSBSR0IgKDE5OTgpAAAokZWPv0rDUBSHvxtFxaFWCOLgcCdRUGzVwYxJW4ogWKtDkq1JQ5ViEm6uf/oQjm4dXNx9AidHwUHxCXwDxamDQ4QMBYvf9J3fORzOAaNi152GUYbzWKt205Gu58vZF2aYAoBOmKV2q3UAECdxxBjf7wiA10277jTG+38yH6ZKAyNguxtlIYgK0L/SqQYxBMygn2oQD4CpTto1EE9AqZf7G1AKcv8ASsr1fBBfgNlzPR+MOcAMcl8BTB1da4Bakg7UWe9Uy6plWdLuJkEkjweZjs4zuR+HiUoT1dFRF8jvA2AxH2w3HblWtay99X/+PRHX82Vun0cIQCw9F1lBeKEuf1UYO5PrYsdwGQ7vYXpUZLs3cLcBC7dFtlqF8hY8Dn8AwMZP/fNTP8gAAAAJcEhZcwAAFxIAABcSAWef0lIAAAUZaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA2LjAtYzAwMiA3OS4xNjQ0ODgsIDIwMjAvMDcvMTAtMjI6MDY6NTMgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMi4wIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wMi0xMFQxNTozMzo1NC0wNTowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDItMTBUMTU6MzQ6MTMtMDU6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDItMTBUMTU6MzQ6MTMtMDU6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0iQWRvYmUgUkdCICgxOTk4KSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0MDZmNzg5Yy1mOTcyLTQ1ODItYmNlNC02MDJhOTUyZDMwNmYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDA2Zjc4OWMtZjk3Mi00NTgyLWJjZTQtNjAyYTk1MmQzMDZmIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6NDA2Zjc4OWMtZjk3Mi00NTgyLWJjZTQtNjAyYTk1MmQzMDZmIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MDZmNzg5Yy1mOTcyLTQ1ODItYmNlNC02MDJhOTUyZDMwNmYiIHN0RXZ0OndoZW49IjIwMjItMDItMTBUMTU6MzM6NTQtMDU6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMi4wIChNYWNpbnRvc2gpIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtD5YlQAACnHSURBVHic7d15lFzVfeDx3733varqvVut3hcZO4n3eM029sTjmDmZJcnYGRMnk/Vk8cx4ZhIvIKml1oYQIBBCPiwyAgOWjUAGzC5EMGBAxxgDYosBISQhCUmgtVd1V7337p0/qhvL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";
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("figure", null, /*#__PURE__*/React__default.createElement("div", {
+    className: css$7.containerImg,
+    "data-style": dataStyle
+  }, /*#__PURE__*/React__default.createElement("img", {
+    src: imgToSee,
+    onError: onError,
+    alt: alt,
+    "data-style-img": dataStyle
+  })), /*#__PURE__*/React__default.createElement("figcaption", null, /*#__PURE__*/React__default.createElement("div", {
+    className: css$7.containerText
+  }, /*#__PURE__*/React__default.createElement(Text, {
+    type: "p",
+    children: /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("b", null, title), " ", /*#__PURE__*/React__default.createElement("span", null, alt))
+  })))));
+};
+Image.defaultProps = {
+  typeImg: '.png'
+};
+
+var downRight = "suaInferior~mjMKerbK.svg";
+
+var upRight = "suaSuperior~RNYLgYkE.svg";
+
+var css$8 = {"styleInit":"_13bif","imgUpRight":"_3rrlz","imgDownRight":"_1izl-","container":"_nFI4s","styleTitle":"_1qmO0","styleSubTitle":"_1aPYB","styleBtn":"_4kk0R"};
+
+var Inicio = function Inicio(_ref) {
+  var _ref$title = _ref.title,
+      title = _ref$title === void 0 ? 'Nombre del Ova' : _ref$title,
+      _ref$subTitle = _ref.subTitle,
+      subTitle = _ref$subTitle === void 0 ? 'Nombre del curso' : _ref$subTitle;
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("section", {
+    className: css$8.styleInit
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: css$8.imgUpRight
+  }, /*#__PURE__*/React__default.createElement("img", {
+    src: upRight,
+    alt: "Imagen sua superior derecha"
+  })), /*#__PURE__*/React__default.createElement("article", {
+    className: css$8.container
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: css$8.styleTitle
+  }, /*#__PURE__*/React__default.createElement("h3", null, title)), /*#__PURE__*/React__default.createElement("div", {
+    className: css$8.styleSubTitle
+  }, /*#__PURE__*/React__default.createElement("h4", null, subTitle)), /*#__PURE__*/React__default.createElement(Button, {
+    label: "Iniciar",
+    hasAriaLabel: false,
+    addClass: css$8.styleBtn,
+    onClick: function onClick() {
+      return console.log('accion del btn');
+    },
+    tabindex: 0
+  })), /*#__PURE__*/React__default.createElement("div", {
+    className: css$8.imgDownRight
+  }, /*#__PURE__*/React__default.createElement("img", {
+    src: downRight,
+    alt: "Imagen sua superior izquierda"
+  }))));
+};
+
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
 
@@ -2170,15 +2312,15 @@ function uniqueId(prefix) {
 
 var uniqueId_1 = uniqueId;
 
-var css$6 = {"InputAction":"_xB2Ha","LabelStyled":"_1X4kF","TextFileName":"_OaT0I"};
+var css$9 = {"InputAction":"_xB2Ha","LabelStyled":"_1X4kF","TextFileName":"_OaT0I"};
 
-var _excluded$4 = ["type", "styled", "label", "addClass"];
+var _excluded$5 = ["type", "styled", "label", "addClass"];
 var InputAction = function InputAction(_ref) {
   var type = _ref.type,
       styled = _ref.styled,
       label = _ref.label,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, _excluded$4);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$5);
 
   var id = uniqueId_1('ui-');
 
@@ -2211,11 +2353,11 @@ var InputAction = function InputAction(_ref) {
     d: "M10 2c-4.41 0-8 3.59-8 8s3.59 8 8 8c1.1 0 2-.9 2-2 0-.49-.18-.96-.51-1.34a.445.445 0 01-.1-.26c0-.22.18-.4.4-.4h1.42c2.65 0 4.8-2.15 4.8-4.8C18 5.23 14.41 2 10 2zm-4.5 8.75a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5-3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm4 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm2.5 3a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"
   }));
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("label", _extends({
-    className: base.ColorBase + " " + css$6.LabelStyled + " " + addClass,
+    className: base.ColorBase + " " + css$9.LabelStyled + " " + addClass,
     htmlFor: id,
     styled: styled
   }, args), /*#__PURE__*/React__default.createElement("input", {
-    className: css$6.InputAction,
+    className: css$9.InputAction,
     type: type,
     id: id
   }), type === 'color' ? colorIcon : uploadIcon, label !== '' ? /*#__PURE__*/React__default.createElement("span", null, label) : /*#__PURE__*/React__default.createElement(React.Fragment, null)));
@@ -2235,16 +2377,16 @@ InputAction.defaultProps = {
   onClick: undefined
 };
 
-var css$7 = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckBg":"_3z4b_","CheckLabel":"_10bHL","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
+var css$a = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckBg":"_3z4b_","CheckLabel":"_10bHL","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
 
-var _excluded$5 = ["type", "label", "stateInput", "name", "addClass"];
+var _excluded$6 = ["type", "label", "stateInput", "name", "addClass"];
 var InputControl = function InputControl(_ref) {
   var type = _ref.type,
       label = _ref.label,
       stateInput = _ref.stateInput,
       name = _ref.name,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, _excluded$5);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$6);
 
   var _useState = React.useState(false),
       check = _useState[0],
@@ -2261,10 +2403,10 @@ var InputControl = function InputControl(_ref) {
       if (stateInput) {
         if (stateInput === 'Error') {
           setStateIcon('close');
-          element.classList.add(css$7['input-error']);
+          element.classList.add(css$a['input-error']);
         } else if (stateInput === 'Succes') {
           setStateIcon('check');
-          element.classList.add(css$7['input-succes']);
+          element.classList.add(css$a['input-succes']);
         } else {
           setStateIcon('check');
         }
@@ -2282,13 +2424,13 @@ var InputControl = function InputControl(_ref) {
   });
   return /*#__PURE__*/React__default.createElement("label", _extends({
     htmlFor: id,
-    className: css$7.InputCont + " " + addClass,
+    className: css$a.InputCont + " " + addClass,
     inputMode: type
   }, args), /*#__PURE__*/React__default.createElement("div", {
-    className: css$7.CheckCont,
+    className: css$a.CheckCont,
     inputMode: type
   }, /*#__PURE__*/React__default.createElement("input", {
-    className: css$7.InputStyled,
+    className: css$a.InputStyled,
     "data-state": stateInput,
     inputMode: type,
     defaultChecked: check,
@@ -2296,9 +2438,9 @@ var InputControl = function InputControl(_ref) {
     id: id,
     name: name
   }), type === 'toggle' && /*#__PURE__*/React__default.createElement("div", {
-    className: css$7.CheckTrack
+    className: css$a.CheckTrack
   }), /*#__PURE__*/React__default.createElement("div", {
-    className: css$7.CheckBg,
+    className: css$a.CheckBg,
     inputMode: type,
     onClick: function onClick() {
       return setCheck(!check);
@@ -2308,7 +2450,7 @@ var InputControl = function InputControl(_ref) {
     nameIcon: getStateIcon,
     id: id + "ContentIcon"
   }))), /*#__PURE__*/React__default.createElement("span", {
-    className: css$7.CheckLabel
+    className: css$a.CheckLabel
   }, label));
 };
 InputControl.propTypes = {
@@ -2327,16 +2469,16 @@ InputControl.defaultProps = {
   onClick: undefined
 };
 
-var css$8 = {"InputCont":"_17byX","LabelStyle":"_2zmtW","InputStyled":"_3_8sU","input-error":"_23iPI","input-succes":"_1r2gj","deactive-border":"_2sE6F"};
+var css$b = {"InputCont":"_17byX","LabelStyle":"_2zmtW","InputStyled":"_3_8sU","input-error":"_23iPI","input-succes":"_1r2gj","deactive-border":"_2sE6F"};
 
-var _excluded$6 = ["type", "label", "dataIcon", "styledInput", "addClass"];
+var _excluded$7 = ["type", "label", "dataIcon", "styledInput", "addClass"];
 var InputField = function InputField(_ref) {
   var type = _ref.type,
       label = _ref.label,
       dataIcon = _ref.dataIcon,
       styledInput = _ref.styledInput,
       addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, _excluded$6);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$7);
 
   var id = uniqueId_1('ui-');
 
@@ -2354,7 +2496,7 @@ var InputField = function InputField(_ref) {
 
   React.useEffect(function () {
     function addClass(element, nameClass) {
-      element.classList.add(css$8[nameClass]);
+      element.classList.add(css$b[nameClass]);
     }
 
     function validateInput(content, input, label) {
@@ -2401,7 +2543,7 @@ var InputField = function InputField(_ref) {
 
   return /*#__PURE__*/React__default.createElement("label", _extends({
     inputMode: type,
-    className: css$8.InputCont + " " + addClass,
+    className: css$b.InputCont + " " + addClass,
     "data-status": isFocus || value !== '' ? 'active' : false,
     id: "contentLabel" + id,
     "state-input": styledInput
@@ -2409,14 +2551,14 @@ var InputField = function InputField(_ref) {
     nameIcon: dataIcon.nameIcon,
     "state-input": styledInput
   }) : /*#__PURE__*/React__default.createElement(React.Fragment, null), /*#__PURE__*/React__default.createElement("input", {
-    className: css$8.InputStyled,
+    className: css$b.InputStyled,
     type: type,
     onFocus: handleFocus,
     onBlur: handleBlur,
     onChange: handleChange,
     id: id
   }), type !== 'date' && /*#__PURE__*/React__default.createElement("span", {
-    className: css$8.LabelStyle,
+    className: css$b.LabelStyle,
     htmlFor: id,
     inputMode: type,
     id: "label-" + id,
@@ -2439,7 +2581,7 @@ InputField.defaultProps = {
   addClass: ''
 };
 
-var css$9 = {"LinkCont":"_2lFDP"};
+var css$c = {"LinkCont":"_2lFDP"};
 
 var Link = function Link(_ref) {
   var label = _ref.label,
@@ -2448,7 +2590,7 @@ var Link = function Link(_ref) {
       addClass = _ref.addClass,
       target = _ref.target;
   return /*#__PURE__*/React__default.createElement("a", {
-    className: css$9.LinkCont + " " + addClass,
+    className: css$c.LinkCont + " " + addClass,
     href: href,
     target: target
   }, icon && /*#__PURE__*/React__default.createElement(Icon, {
@@ -2467,7 +2609,39 @@ Link.defaultProps = {
   addClass: ''
 };
 
-var css$a = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
+var imageFile = "logo~lGYkQCle.svg";
+
+var imageFileColor = "logoColor~YdajiTZy.svg";
+
+var cssLogo = {"imgLogo":"_2oas0"};
+
+function Logo(_ref) {
+  var typeLogo = _ref.typeLogo,
+      addClass = _ref.addClass;
+
+  var setLogo = function setLogo(typeLogo) {
+    if (typeLogo == 'logoCover') {
+      return imageFile;
+    } else if (typeLogo == 'logoPage') {
+      return imageFileColor;
+    }
+  };
+
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
+    className: "" + addClass
+  }, /*#__PURE__*/React__default.createElement("img", {
+    src: setLogo(typeLogo),
+    className: cssLogo['imgLogo']
+  })));
+}
+Logo.propTypes = {
+  typeLogo: propTypes.string.isRequired
+};
+Logo.defaultProps = {
+  typeLogo: 'logoPage'
+};
+
+var css$d = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
 
 function Multimedia(_ref) {
   var url = _ref.url,
@@ -2549,10 +2723,10 @@ function Multimedia(_ref) {
   }), /*#__PURE__*/React__default.createElement("button", {
     id: "btnAudio",
     onClick: handlePlayPause,
-    className: css$a['c-aud-btn'] + " " + (isPrimary ? '' : css$a['c-aud-secundary']),
+    className: css$d['c-aud-btn'] + " " + (isPrimary ? '' : css$d['c-aud-secundary']),
     "aria-label": getStateBtnAudio ? 'Pausar' : 'Reproducir'
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$a['c-aud-btn-content'],
+    className: css$d['c-aud-btn-content'],
     "data-label": label ? 'string' : ''
   }, getIcon))));
 }
@@ -2565,9 +2739,9 @@ Multimedia.defaultProps = {
   addClass: ''
 };
 
-var css$b = {"Panel":"_qaB0F","fadeIn":"_23_l4"};
+var css$e = {"Panel":"_qaB0F","fadeIn":"_23_l4"};
 
-var _excluded$7 = ["children", "value", "index", "addClass", "roleDescription"];
+var _excluded$8 = ["children", "value", "index", "addClass", "roleDescription"];
 var TabPanel = function TabPanel(props) {
   var children = props.children,
       value = props.value,
@@ -2575,10 +2749,10 @@ var TabPanel = function TabPanel(props) {
       addClass = props.addClass,
       _props$roleDescriptio = props.roleDescription,
       roleDescription = _props$roleDescriptio === void 0 ? 'slide' : _props$roleDescriptio,
-      other = _objectWithoutPropertiesLoose(props, _excluded$7);
+      other = _objectWithoutPropertiesLoose(props, _excluded$8);
 
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$b.Panel + " " + addClass,
+    className: css$e.Panel + " " + addClass,
     role: "group",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
@@ -2703,9 +2877,9 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
   }, action === 'record' ? micOnIcon : micOffIcon), children && children);
 };
 
-var css$c = {"section":"_Nahni","fadeInDown":"_BDs2n"};
+var css$f = {"section":"_Nahni","fadeInDown":"_BDs2n"};
 
-var _excluded$8 = ["children", "value", "index", "label", "addClass"];
+var _excluded$9 = ["children", "value", "index", "label", "addClass"];
 
 var Section = function Section(_ref) {
   var children = _ref.children,
@@ -2713,10 +2887,10 @@ var Section = function Section(_ref) {
       index = _ref.index,
       label = _ref.label,
       addClass = _ref.addClass,
-      other = _objectWithoutPropertiesLoose(_ref, _excluded$8);
+      other = _objectWithoutPropertiesLoose(_ref, _excluded$9);
 
   return /*#__PURE__*/React__default.createElement("section", _extends({
-    className: css$c.section + " " + addClass,
+    className: css$f.section + " " + addClass,
     role: "tabpanel",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
@@ -2727,9 +2901,9 @@ var Section = function Section(_ref) {
   }, "Secci\xF3n ", label), children);
 };
 
-var css$d = {"SelectStyle":"_2NS2Z","SelectContainer":"_3AjWz","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5","SelectLabel":"_1YqCo"};
+var css$g = {"SelectStyle":"_2NS2Z","SelectContainer":"_3AjWz","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5","SelectLabel":"_1YqCo"};
 
-var _excluded$9 = ["placeholder", "stateInput", "options", "addClass", "isLabelVisible", "label"];
+var _excluded$a = ["placeholder", "stateInput", "options", "addClass", "isLabelVisible", "label"];
 var Select = function Select(_ref) {
   var placeholder = _ref.placeholder,
       stateInput = _ref.stateInput,
@@ -2738,22 +2912,22 @@ var Select = function Select(_ref) {
       _ref$isLabelVisible = _ref.isLabelVisible,
       isLabelVisible = _ref$isLabelVisible === void 0 ? 'true' : _ref$isLabelVisible,
       label = _ref.label,
-      args = _objectWithoutPropertiesLoose(_ref, _excluded$9);
+      args = _objectWithoutPropertiesLoose(_ref, _excluded$a);
 
   var name = uniqueId_1('ui-name-');
 
   return /*#__PURE__*/React__default.createElement("label", _extends({
-    className: css$d.SelectWrapper + " " + addClass,
+    className: css$g.SelectWrapper + " " + addClass,
     "data-state": stateInput
   }, args), /*#__PURE__*/React__default.createElement("span", {
-    className: css$d['SelectLabel'] + " " + (isLabelVisible ? '' : 'sr-only')
+    className: css$g['SelectLabel'] + " " + (isLabelVisible ? '' : 'sr-only')
   }, label), /*#__PURE__*/React__default.createElement("div", {
-    className: css$d['SelectContainer'],
+    className: css$g['SelectContainer'],
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement("select", {
     defaultValue: "",
     name: name,
-    className: css$d.SelectStyle,
+    className: css$g.SelectStyle,
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement("option", {
     disabled: true,
@@ -2764,7 +2938,7 @@ var Select = function Select(_ref) {
       value: i + 1
     }, elem);
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$d.SelectAfter,
+    className: css$g.SelectAfter,
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "arrow_drop_down"
@@ -2784,9 +2958,9 @@ Select.defaultProps = {
   label: 'Selecciona la opción'
 };
 
-var css$e = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
+var css$h = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
 
-var _excluded$a = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"];
+var _excluded$b = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"];
 var Tab = React.forwardRef(function Tab(props, ref) {
   var _props$disabled = props.disabled,
       disabled = _props$disabled === void 0 ? false : _props$disabled,
@@ -2800,7 +2974,7 @@ var Tab = React.forwardRef(function Tab(props, ref) {
       selectionFollowsFocus = props.selectionFollowsFocus,
       value = props.value,
       addClass = props.addClass,
-      other = _objectWithoutPropertiesLoose(props, _excluded$a);
+      other = _objectWithoutPropertiesLoose(props, _excluded$b);
 
   var handleClick = function handleClick(event) {
     if (!selected && onChange) {
@@ -2825,24 +2999,24 @@ var Tab = React.forwardRef(function Tab(props, ref) {
   return /*#__PURE__*/React.createElement("button", _extends({
     ref: ref,
     role: "tab",
-    className: css$e.TabsBtn + " " + addClass,
+    className: css$h.TabsBtn + " " + addClass,
     "aria-selected": selected,
     disabled: disabled,
     onClick: handleClick,
     onFocus: handleFocus,
     tabIndex: selected ? 0 : -1
   }, other), /*#__PURE__*/React.createElement("span", {
-    className: css$e.TabsBtnContent,
+    className: css$h.TabsBtnContent,
     "position-icon": positionIcon
   }, /*#__PURE__*/React.createElement(Icon, {
     "aria-hidden": "true",
     nameIcon: nameIcon
   }), ' ', /*#__PURE__*/React.createElement("span", {
-    className: css$e.TabsBtnContentLabel
+    className: css$h.TabsBtnContentLabel
   }, label), ' '), /*#__PURE__*/React.createElement("span", {
-    className: css$e.TabsBtnIndicator
+    className: css$h.TabsBtnIndicator
   }, /*#__PURE__*/React.createElement("span", {
-    className: css$e.TabsBtnIndicatorContent
+    className: css$h.TabsBtnIndicatorContent
   })));
 });
 Tab.propTypes = {
@@ -2852,47 +3026,7 @@ Tab.defaultProps = {
   addClass: ''
 };
 
-var css$f = {"Typography":"_2s-q8"};
-
-var _excluded$b = ["type", "children", "addClass"];
-var Text = function Text(_ref) {
-  var _ref$type = _ref.type,
-      type = _ref$type === void 0 ? 'p' : _ref$type,
-      _ref$children = _ref.children,
-      children = _ref$children === void 0 ? 'hola' : _ref$children,
-      addClass = _ref.addClass,
-      args = _objectWithoutPropertiesLoose(_ref, _excluded$b);
-
-  var DefaultValue = {
-    h1: 'h1',
-    h2: 'h2',
-    h3: 'h3',
-    h4: 'h4',
-    h5: 'h5',
-    h6: 'h6',
-    subtitle: 'h6',
-    caption: 'span',
-    p: 'p',
-    span: 'span'
-  };
-  var Component = DefaultValue[type];
-  console.log(Component);
-  console.log(type);
-  return /*#__PURE__*/React__default.createElement(Component, _extends({
-    className: css$f.Typography + " " + addClass,
-    type: type
-  }, args), children);
-};
-Text.propTypes = {
-  type: propTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle', 'caption', 'p', 'span']),
-  children: propTypes.node,
-  addClass: propTypes.string
-};
-Text.defaultProps = {
-  addClass: ''
-};
-
-var css$g = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
+var css$i = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
 
 var Textarea = function Textarea(_ref) {
   var id = _ref.id,
@@ -2925,20 +3059,20 @@ var Textarea = function Textarea(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$g.TextareaCont + " " + addClass
+    className: css$i.TextareaCont + " " + addClass
   }, /*#__PURE__*/React__default.createElement("label", {
     "for": id
   }, /*#__PURE__*/React__default.createElement("span", {
     className: isLabelVisible ? '' : 'sr-only'
   }, label), /*#__PURE__*/React__default.createElement("textarea", {
-    className: css$g.TextareaItem,
+    className: css$i.TextareaItem,
     rows: rows,
     placeholder: placeholder,
     onKeyPress: HandleChange,
     maxLength: MaxLength,
     id: id
   })), maxWords && /*#__PURE__*/React__default.createElement("span", {
-    className: css$g.CountCont
+    className: css$i.CountCont
   }, " ", Count + " / " + maxWords, " "));
 };
 Textarea.propTypes = {
@@ -2953,7 +3087,25 @@ Textarea.defaultProps = {
   addClass: ''
 };
 
-var css$h = {"toggletip-container":"_3Z4HX","toggletip-icon":"_hQ4M-","toggletip-content":"_2SzZ3"};
+var css$j = {"container":"_2sl0w","containerNumber":"_2kFEu","number":"_KxZbK","title":"_1-HyA"};
+
+var TitleSlide = function TitleSlide(_ref) {
+  var _ref$number = _ref.number,
+      number = _ref$number === void 0 ? '01.' : _ref$number,
+      _ref$title = _ref.title,
+      title = _ref$title === void 0 ? 'Título del slide' : _ref$title;
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("h1", {
+    className: css$j.container
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: css$j.containerNumber
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: css$j.number
+  }, /*#__PURE__*/React__default.createElement("span", null, number))), /*#__PURE__*/React__default.createElement("div", {
+    className: css$j.title
+  }, /*#__PURE__*/React__default.createElement("span", null, title))));
+};
+
+var css$k = {"toggletip-container":"_3Z4HX","toggletip-icon":"_hQ4M-","toggletip-content":"_2SzZ3"};
 
 var Toggletip = function Toggletip(_ref) {
   var content = _ref.content;
@@ -2966,7 +3118,7 @@ var Toggletip = function Toggletip(_ref) {
     toggletipContent == '' ? SetToggletipContent(
     /*#__PURE__*/
     React__default.createElement("div", {
-      className: css$h['toggletip-content']
+      className: css$k['toggletip-content']
     }, content)) : SetToggletipContent('');
   };
 
@@ -2979,7 +3131,7 @@ var Toggletip = function Toggletip(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$h['toggletip-container']
+    className: css$k['toggletip-container']
   }, /*#__PURE__*/React__default.createElement(Button, {
     hasAriaLabel: "false",
     styled: "primary-icon",
@@ -2988,7 +3140,7 @@ var Toggletip = function Toggletip(_ref) {
     onBlur: emptyToggletipContent,
     onKeyDown: emptyToggletipContentOnEsc
   }, /*#__PURE__*/React__default.createElement("span", {
-    className: css$h['toggletip-icon'],
+    className: css$k['toggletip-icon'],
     "aria-hidden": "true"
   }, "i"), /*#__PURE__*/React__default.createElement("span", {
     className: "sr-only"
@@ -2997,7 +3149,7 @@ var Toggletip = function Toggletip(_ref) {
   }, toggletipContent));
 };
 
-var css$i = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
+var css$l = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
 
 var Tooltip = function Tooltip(_ref) {
   var children = _ref.children,
@@ -3005,15 +3157,15 @@ var Tooltip = function Tooltip(_ref) {
       id = _ref.id,
       content = _ref.content;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$i.TooltipCont + " " + addClass
+    className: css$l.TooltipCont + " " + addClass
   }, children, /*#__PURE__*/React__default.createElement("div", {
     role: "tooltip",
-    className: css$i.TooltipItem,
+    className: css$l.TooltipItem,
     id: id
   }, content));
 };
 
-var css$j = {"tour-help":"_1Rwnk","tour-number":"_1kC6K"};
+var css$m = {"tour-help":"_1Rwnk","tour-number":"_1kC6K"};
 
 var TourHelpLayer = function TourHelpLayer(_ref) {
   var _ref$width = _ref.width,
@@ -3034,13 +3186,13 @@ var TourHelpLayer = function TourHelpLayer(_ref) {
   };
   return /*#__PURE__*/React__default.createElement("div", {
     style: position,
-    className: css$j['tour-help']
+    className: css$m['tour-help']
   }, /*#__PURE__*/React__default.createElement("span", {
-    className: css$j['tour-number']
+    className: css$m['tour-number']
   }, number));
 };
 
-var css$k = {"tour-modal":"_N_LRS","tour-progress":"_2_Rir","tour-progress-bar":"_2OnWP","tour-button-container":"_3Fkrw"};
+var css$n = {"tour-modal":"_N_LRS","tour-progress":"_2_Rir","tour-progress-bar":"_2OnWP","tour-button-container":"_3Fkrw"};
 
 var TourModal = function TourModal(_ref) {
   var _ref$top = _ref.top,
@@ -3061,23 +3213,23 @@ var TourModal = function TourModal(_ref) {
     left: left + "px"
   };
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$k['tour-modal'],
+    className: css$n['tour-modal'],
     role: "dialog",
     style: size
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "sr-only"
   }, "Parte ", modalNumber, " de ", totalModals), /*#__PURE__*/React__default.createElement("div", {
     "aria-hidden": "true",
-    className: css$k['tour-progress']
+    className: css$n['tour-progress']
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$k['tour-progress-bar'],
+    className: css$n['tour-progress-bar'],
     style: {
       transform: "scaleX(" + modalNumber / totalModals + ")"
     }
   })), /*#__PURE__*/React__default.createElement("p", {
-    className: css$k['tour-description']
+    className: css$n['tour-description']
   }, description), /*#__PURE__*/React__default.createElement("div", {
-    className: css$k['tour-button-container']
+    className: css$n['tour-button-container']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     onClick: endTour
@@ -3104,17 +3256,28 @@ var TourModal = function TourModal(_ref) {
   }, "Siguiente"))));
 };
 
-var css$l = {"tour-overlay":"_DglW5"};
+var css$o = {"tour-overlay":"_DglW5"};
 
 var TourOverlay = function TourOverlay(endTour, endTourOnEsc) {
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$l['tour-overlay'],
+    className: css$o['tour-overlay'],
     onClick: endTour,
     onKeyDown: endTourOnEsc
   });
 };
 
-var css$m = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
+var cssUser = {"colorTextUser":"_aG4HF"};
+
+function UserLogin(_ref) {
+  var addClass = _ref.addClass,
+      _ref$label = _ref.label,
+      label = _ref$label === void 0 ? 'Estudiante 01' : _ref$label;
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
+    className: cssUser.colorTextUser + " " + addClass
+  }, /*#__PURE__*/React__default.createElement("h3", null, label)));
+}
+
+var css$p = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
 
 function Video(_ref) {
   var url = _ref.url,
@@ -3340,9 +3503,9 @@ function Video(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("figure", {
-    className: "" + css$m['c-vid-container']
+    className: "" + css$p['c-vid-container']
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$m['c-vid'] + " " + addClass,
+    className: css$p['c-vid'] + " " + addClass,
     ref: refCont,
     style: {
       maxWidth: width,
@@ -3357,12 +3520,12 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("source", {
     src: url
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$m['c-vid-controls']
+    className: css$p['c-vid-controls']
   }, /*#__PURE__*/React__default.createElement("button", {
     "aria-label": getstateVideoPlay.label,
     onClick: handlePlay
   }, getstateVideoPlay.icon), /*#__PURE__*/React__default.createElement("div", {
-    className: css$m['c-vid-controls-volumn']
+    className: css$p['c-vid-controls-volumn']
   }, /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "48",
@@ -3380,7 +3543,7 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "sr-only"
   }, "Controlar volumen"), /*#__PURE__*/React__default.createElement("input", {
-    className: css$m['c-vid-controls-volumn-item'],
+    className: css$p['c-vid-controls-volumn-item'],
     ref: refVolumn,
     id: "volumeControl",
     type: "range",
@@ -3391,16 +3554,16 @@ function Video(_ref) {
     onChange: handleVolumn,
     "aria-valuetext": getValueVolum + "%"
   }))), /*#__PURE__*/React__default.createElement("p", {
-    className: css$m['c-vid-controls-text']
+    className: css$p['c-vid-controls-text']
   }, /*#__PURE__*/React__default.createElement("span", null, getCurrentTiem)), /*#__PURE__*/React__default.createElement("div", {
-    className: css$m['progress-content']
+    className: css$p['progress-content']
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgress,
-    className: css$m.progress,
+    className: css$p.progress,
     onClick: handleProcessControl
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgressBar,
-    className: css$m['progress-bar'],
+    className: css$p['progress-bar'],
     onChange: handleBarProgress
   }))), /*#__PURE__*/React__default.createElement("button", {
     "aria-label": "Subt\xEDtulos"
@@ -3420,7 +3583,7 @@ Video.defaultProps = {
   addClass: ''
 };
 
-var css$n = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
+var css$q = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
 
 var AsideNav = function AsideNav(_ref) {
   var children = _ref.children,
@@ -3444,10 +3607,10 @@ var AsideNav = function AsideNav(_ref) {
     function locationAside() {
       if (location === 'right') {
         setLocationAside('aside--active--right');
-        $aside.classList.add(css$n['position-right']);
+        $aside.classList.add(css$q['position-right']);
       } else {
         setLocationAside('aside--active--left');
-        $aside.classList.add(css$n['position-left']);
+        $aside.classList.add(css$q['position-left']);
       }
     }
 
@@ -3456,12 +3619,12 @@ var AsideNav = function AsideNav(_ref) {
 
   function stateAside(elementModal, elementOverlay) {
     if (getStateAside) {
-      elementModal.classList.remove(css$n[getLocationAside]);
-      elementOverlay.classList.remove(css$n['overlay--active']);
+      elementModal.classList.remove(css$q[getLocationAside]);
+      elementOverlay.classList.remove(css$q['overlay--active']);
       setStateAside(false);
     } else {
-      elementModal.classList.add(css$n[getLocationAside]);
-      elementOverlay.classList.add(css$n['overlay--active']);
+      elementModal.classList.add(css$q[getLocationAside]);
+      elementOverlay.classList.add(css$q['overlay--active']);
       setStateAside(true);
     }
   }
@@ -3474,11 +3637,11 @@ var AsideNav = function AsideNav(_ref) {
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$n['c-overlay'] + " ui-overlay",
+    className: css$q['c-overlay'] + " ui-overlay",
     id: "overlay"
   }), /*#__PURE__*/React__default.createElement("div", {
     ref: refModal,
-    className: css$n['c-side'] + " ui-aside",
+    className: css$q['c-side'] + " ui-aside",
     id: "aside"
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "close",
@@ -3487,10 +3650,10 @@ var AsideNav = function AsideNav(_ref) {
       cursor: 'pointer'
     }
   }), children || /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("h2", null, content.title), /*#__PURE__*/React__default.createElement("ul", {
-    className: css$n['c-side-nav'] + " ui-aside-nav"
+    className: css$q['c-side-nav'] + " ui-aside-nav"
   }, content.list.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$n['c-side-nav-item'] + " ui-aside-nav-item",
+      className: css$q['c-side-nav-item'] + " ui-aside-nav-item",
       key: index
     }, item);
   })))), /*#__PURE__*/React__default.createElement(Button, {
@@ -3517,7 +3680,7 @@ AsideNav.defaultProps = {
   location: 'left'
 };
 
-var css$o = {"AsideSection":"_37BVW"};
+var css$r = {"AsideSection":"_37BVW"};
 
 var _excluded$c = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value", "labelName"];
 var AsideSection = React.forwardRef(function Tabs(props, ref) {
@@ -3605,7 +3768,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
     className: "sr-only",
     id: "section-list"
   }, labelName), /*#__PURE__*/React__default.createElement("ul", (_React$createElement = {
-    className: css$o.AsideSection,
+    className: css$r.AsideSection,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -3615,7 +3778,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
   }, _React$createElement["aria-labelledby"] = "section-list", _React$createElement), children)));
 });
 
-var css$p = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
+var css$s = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
 
 var Card = function Card(_ref) {
   var width = _ref.width,
@@ -3624,23 +3787,23 @@ var Card = function Card(_ref) {
       supportingText = _ref.supportingText,
       buttons = _ref.buttons;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$p['c-card'] + " ui-card",
+    className: css$s['c-card'] + " ui-card",
     style: {
       width: width
     }
   }, image.state ? /*#__PURE__*/React__default.createElement("figure", {
-    className: css$p['c-card-image'] + " ui-card-img"
+    className: css$s['c-card-image'] + " ui-card-img"
   }, /*#__PURE__*/React__default.createElement("img", {
     src: image.url,
     alt: image.alt
   })) : /*#__PURE__*/React__default.createElement(React.Fragment, null), /*#__PURE__*/React__default.createElement("div", {
-    className: css$p['c-card-container'] + " ui-card-container"
+    className: css$s['c-card-container'] + " ui-card-container"
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-title"
   }, /*#__PURE__*/React__default.createElement("h3", null, content.title), /*#__PURE__*/React__default.createElement("p", {
-    className: css$p['u-text'] + " ui-text"
+    className: css$s['u-text'] + " ui-text"
   }, content.text)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("p", {
-    className: css$p['u-text'] + " ui-text-two"
+    className: css$s['u-text'] + " ui-text-two"
   }, supportingText)), buttons.state ? /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-buttons"
   }, /*#__PURE__*/React__default.createElement(Button, {
@@ -3674,7 +3837,7 @@ Card.defaultProps = {
   }
 };
 
-var css$q = {"draggable-video-container":"_1ZTow","draggable-video-button":"_EoBr8"};
+var css$t = {"draggable-video-container":"_1ZTow","draggable-video-button":"_EoBr8"};
 
 var DraggableVideo = function DraggableVideo(_ref) {
   var url = _ref.url,
@@ -3701,12 +3864,12 @@ var DraggableVideo = function DraggableVideo(_ref) {
   return /*#__PURE__*/React__default.createElement(Draggable, _extends({
     handle: "strong"
   }, dragHandlers), /*#__PURE__*/React__default.createElement("div", {
-    className: css$q['draggable-video-container'] + " box no-cursor"
+    className: css$t['draggable-video-container'] + " box no-cursor"
   }, /*#__PURE__*/React__default.createElement("strong", {
     role: "presentation",
     className: "cursor"
   }, /*#__PURE__*/React__default.createElement("button", {
-    className: "" + css$q['draggable-video-button']
+    className: "" + css$t['draggable-video-button']
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "open_with"
   }), /*#__PURE__*/React__default.createElement("span", {
@@ -3717,7 +3880,7 @@ var DraggableVideo = function DraggableVideo(_ref) {
   })));
 };
 
-var css$r = {"c-collapsible":"_3W_Aj"};
+var css$u = {"c-collapsible":"_3W_Aj"};
 
 var Accordion = function Accordion(_ref) {
   var content = _ref.content,
@@ -3736,13 +3899,13 @@ var Accordion = function Accordion(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("ul", {
-    className: css$r['c-collapsible'] + " ui-collapsible",
+    className: css$u['c-collapsible'] + " ui-collapsible",
     style: {
       width: width
     }
   }, content.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$r['c-collapsible-container'] + " ui-collapsible-container",
+      className: css$u['c-collapsible-container'] + " ui-collapsible-container",
       key: index,
       style: style
     }, /*#__PURE__*/React__default.createElement(AccordionItem, {
@@ -3793,49 +3956,7 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
-var css$s = {"containerImg":"_1HoJe","styleTitle":"_ItKKc","styleText":"_3nIWV","containerText":"_3T4gJ"};
-
-var Image = function Image(_ref) {
-  var _ref$url = _ref.url,
-      url = _ref$url === void 0 ? 'prueba3' : _ref$url,
-      _ref$alt = _ref.alt,
-      alt = _ref$alt === void 0 ? 'Imagen de prueba.' : _ref$alt,
-      _ref$title = _ref.title,
-      title = _ref$title === void 0 ? 'Imagen 1.' : _ref$title,
-      typeImg = _ref.typeImg,
-      _ref$dataStyle = _ref.dataStyle,
-      dataStyle = _ref$dataStyle === void 0 ? '2' : _ref$dataStyle;
-
-  var _useState = React.useState(false),
-      error = _useState[0],
-      setError = _useState[1];
-
-  var onError = function onError(value) {
-    setError(value);
-  };
-
-  console.log(error);
-  var imgToSee = !error ? "./images/" + url + typeImg : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAABN2lDQ1BBZG9iZSBSR0IgKDE5OTgpAAAokZWPv0rDUBSHvxtFxaFWCOLgcCdRUGzVwYxJW4ogWKtDkq1JQ5ViEm6uf/oQjm4dXNx9AidHwUHxCXwDxamDQ4QMBYvf9J3fORzOAaNi152GUYbzWKt205Gu58vZF2aYAoBOmKV2q3UAECdxxBjf7wiA10277jTG+38yH6ZKAyNguxtlIYgK0L/SqQYxBMygn2oQD4CpTto1EE9AqZf7G1AKcv8ASsr1fBBfgNlzPR+MOcAMcl8BTB1da4Bakg7UWe9Uy6plWdLuJkEkjweZjs4zuR+HiUoT1dFRF8jvA2AxH2w3HblWtay99X/+PRHX82Vun0cIQCw9F1lBeKEuf1UYO5PrYsdwGQ7vYXpUZLs3cLcBC7dFtlqF8hY8Dn8AwMZP/fNTP8gAAAAJcEhZcwAAFxIAABcSAWef0lIAAAUZaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA2LjAtYzAwMiA3OS4xNjQ0ODgsIDIwMjAvMDcvMTAtMjI6MDY6NTMgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMi4wIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wMi0xMFQxNTozMzo1NC0wNTowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDItMTBUMTU6MzQ6MTMtMDU6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDItMTBUMTU6MzQ6MTMtMDU6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0iQWRvYmUgUkdCICgxOTk4KSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0MDZmNzg5Yy1mOTcyLTQ1ODItYmNlNC02MDJhOTUyZDMwNmYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDA2Zjc4OWMtZjk3Mi00NTgyLWJjZTQtNjAyYTk1MmQzMDZmIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6NDA2Zjc4OWMtZjk3Mi00NTgyLWJjZTQtNjAyYTk1MmQzMDZmIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MDZmNzg5Yy1mOTcyLTQ1ODItYmNlNC02MDJhOTUyZDMwNmYiIHN0RXZ0OndoZW49IjIwMjItMDItMTBUMTU6MzM6NTQtMDU6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMi4wIChNYWNpbnRvc2gpIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtD5YlQAACnHSURBVHic7d15lFzVfeDx3733varqvVut3hcZO4n3eM029sTjmDmZJcnYGRMnk/Vk8cx4ZhIvIKml1oYQIBBCPiwyAgOWjUAGzC5EMGBAxxgDYosBISQhCUmgtVd1V7337p0/qhvL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";
-  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("figure", null, /*#__PURE__*/React__default.createElement("div", {
-    className: css$s.containerImg,
-    "data-style": dataStyle
-  }, /*#__PURE__*/React__default.createElement("img", {
-    src: imgToSee,
-    onError: onError,
-    alt: alt,
-    "data-style-img": dataStyle
-  })), /*#__PURE__*/React__default.createElement("figcaption", null, /*#__PURE__*/React__default.createElement("div", {
-    className: css$s.containerText
-  }, /*#__PURE__*/React__default.createElement(Text, {
-    type: "p",
-    children: /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("b", null, title), " ", /*#__PURE__*/React__default.createElement("span", null, alt))
-  })))));
-};
-Image.defaultProps = {
-  typeImg: '.png'
-};
-
-var css$t = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD"};
+var css$v = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD"};
 
 var Modal = function Modal(_ref) {
   var children = _ref.children,
@@ -3859,19 +3980,19 @@ var Modal = function Modal(_ref) {
 
   function stateModal(elementModal, elementOverlay) {
     if (getModal) {
-      elementModal.classList.remove(css$t['modal--active']);
-      elementOverlay.classList.remove(css$t['overlay--active']);
+      elementModal.classList.remove(css$v['modal--active']);
+      elementOverlay.classList.remove(css$v['overlay--active']);
       setModal(false);
     } else {
-      elementModal.classList.add(css$t['modal--active']);
-      elementOverlay.classList.add(css$t['overlay--active']);
+      elementModal.classList.add(css$v['modal--active']);
+      elementOverlay.classList.add(css$v['overlay--active']);
       setModal(true);
     }
   }
 
   function closeModal(elementModal, elementOverlay) {
-    elementModal.classList.remove(css$t['modal--active']);
-    elementOverlay.classList.remove(css$t['overlay--active']);
+    elementModal.classList.remove(css$v['modal--active']);
+    elementOverlay.classList.remove(css$v['overlay--active']);
     setModal(false);
   }
 
@@ -3897,7 +4018,7 @@ var Modal = function Modal(_ref) {
     }
   }, [getModal]);
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(React.Fragment, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
-    className: css$t['modal-button-image'],
+    className: css$v['modal-button-image'],
     onClick: handleModal,
     "aria-label": label
   }, /*#__PURE__*/React__default.createElement(Image, {
@@ -3911,18 +4032,18 @@ var Modal = function Modal(_ref) {
     hasAriaLabel: hasAriaLabel
   })), /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$t['c-modal-overlay'] + " ui-modal-overlay",
+    className: css$v['c-modal-overlay'] + " ui-modal-overlay",
     id: "overlay",
     onClick: handleModal
   }), /*#__PURE__*/React__default.createElement("div", {
     role: "dialog",
     ref: refModal,
-    className: css$t['c-modal'] + " ui-modal",
+    className: css$v['c-modal'] + " ui-modal",
     id: "modal"
   }, children || /*#__PURE__*/React__default.createElement("div", {
     className: "ui-modal-content"
   }, /*#__PURE__*/React__default.createElement("h3", null, " ", title, " "), /*#__PURE__*/React__default.createElement("p", null, " ", text, " ")), /*#__PURE__*/React__default.createElement("button", {
-    className: "" + css$t['c-modal__close-button'],
+    className: "" + css$v['c-modal__close-button'],
     onClick: handleModal,
     style: {
       cursor: 'pointer'
@@ -4355,7 +4476,151 @@ function NavBar(_ref) {
   }, "Especificaciones t\xE9cnicas")))))))), /*#__PURE__*/React__default.createElement(ContrastFilters, null));
 }
 
-var css$u = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
+var css$w = {"styleUl":"_16Ktm","active":"_3yufd","styleBtn":"_7n72D"};
+
+var Pagination = function Pagination(_ref) {
+  var _ref$pagOva = _ref.pagOva,
+      pagOva = _ref$pagOva === void 0 ? [{
+    url: '#1'
+  }, {
+    url: '#2'
+  }, {
+    url: '#3'
+  }, {
+    url: '#4'
+  }, {
+    url: '#5'
+  }, {
+    url: '#6'
+  }] : _ref$pagOva;
+
+  var _useState = React.useState(0),
+      currentPage = _useState[0],
+      setCurrentPage = _useState[1];
+
+  var nextPage = function nextPage() {
+
+    var next = pagOva.length > currentPage + 1 ? currentPage + 1 : currentPage;
+    setCurrentPage(next);
+  };
+
+  var prevPage = function prevPage() {
+
+    var prev = currentPage > 0 ? currentPage - 1 : currentPage;
+    setCurrentPage(prev);
+  };
+
+  var page = pagOva.map(function (item, i) {
+    return /*#__PURE__*/React__default.createElement("li", {
+      className: css$w.styleLi
+    }, /*#__PURE__*/React__default.createElement("a", {
+      key: window.self.crypto.randomUUID(),
+      href: item.url,
+      className: "" + (currentPage === i && css$w.active),
+      onClick: function onClick() {
+        setCurrentPage(i);
+      }
+    }, i + 1));
+  });
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("footer", null, /*#__PURE__*/React__default.createElement("ul", {
+    className: css$w.styleUl
+  }, /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement(Button, {
+    className: css$w.styleBtn,
+    onClick: prevPage,
+    icon: "chevron_left"
+  })), page, /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement(Button, {
+    className: css$w.styleBtn,
+    onClick: nextPage,
+    icon: "chevron_right"
+  })))));
+};
+
+var css$x = {"Section":"_2biAj"};
+
+var _excluded$d = ["children", "tabs", "FunctValue"];
+
+var PanelSection = function PanelSection(_ref) {
+  var childrenProp = _ref.children,
+      tabs = _ref.tabs,
+      FunctValue = _ref.FunctValue,
+      others = _objectWithoutPropertiesLoose(_ref, _excluded$d);
+
+  var _useState = React.useState(0),
+      value = _useState[0],
+      setValue = _useState[1];
+
+  var handleChange = function handleChange(event, newValue) {
+    setValue(newValue);
+  };
+
+  var childIndex = 0;
+  var children = React__default.Children.map(childrenProp, function (child) {
+    if (!React__default.isValidElement(child)) {
+      return null;
+    }
+
+    var childValue = child.props.value === undefined ? childIndex : child.props.value;
+    childIndex += 1;
+    return React__default.cloneElement(child, {
+      index: childValue,
+      value: value
+    });
+  });
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: css$x.Section
+  }, others), /*#__PURE__*/React__default.createElement(AsideSection, {
+    value: value,
+    onChange: handleChange
+  }, tabs && tabs.map(function (elem, i) {
+    return /*#__PURE__*/React__default.createElement(BtnSec, {
+      href: elem.url,
+      label: elem.label,
+      key: elem.id,
+      setValue: FunctValue
+    });
+  })), children);
+};
+
+var css$y = {"direccion":"_3mwMs"};
+
+var PaginationInternal = function PaginationInternal(_ref) {
+  var _ref$pagOva = _ref.pagOva,
+      pagOva = _ref$pagOva === void 0 ? [{
+    id: 1,
+    label: '',
+    url: '#'
+  }, {
+    id: 2,
+    label: '',
+    url: '#'
+  }, {
+    id: 3,
+    label: '',
+    url: '#'
+  }, {
+    id: 4,
+    label: '',
+    url: '#'
+  }, {
+    id: 5,
+    label: '',
+    url: '#'
+  }] : _ref$pagOva;
+
+  var _useState = React.useState(1),
+      currentPage = _useState[0],
+      setCurrentPage = _useState[1];
+
+  var length = pagOva.length;
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
+    className: css$y.direccion
+  }, /*#__PURE__*/React__default.createElement("span", null, currentPage, "/", length), /*#__PURE__*/React__default.createElement(PanelSection, {
+    tabs: pagOva,
+    FunctValue: setCurrentPage
+  })));
+};
+
+var css$z = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
 
 function Table(_ref) {
   var headLabels = _ref.headLabels,
@@ -4372,27 +4637,27 @@ function Table(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("table", {
-    className: css$u.table + " ui-table"
+    className: css$z.table + " ui-table"
   }, /*#__PURE__*/React__default.createElement("thead", null, /*#__PURE__*/React__default.createElement("tr", {
-    className: css$u['table-content'] + " ui-table-content"
+    className: css$z['table-content'] + " ui-table-content"
   }, headLabels.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("th", {
       key: index,
-      className: css$u['table-content-item'] + " ui-table-content-item",
+      className: css$z['table-content-item'] + " ui-table-content-item",
       scope: "col"
     }, item);
   }))), /*#__PURE__*/React__default.createElement("tbody", null, bodyContent.map(function (content, index) {
     return /*#__PURE__*/React__default.createElement("tr", {
       key: "content" + index,
-      className: css$u['table-content'] + " " + css$u['body-content'] + " ui-body-content"
+      className: css$z['table-content'] + " " + css$z['body-content'] + " ui-body-content"
     }, content.map(function (item, i) {
       return /*#__PURE__*/React__default.createElement(Fragment, null, item.isRowHeader ? /*#__PURE__*/React__default.createElement("th", {
         key: "item" + i,
-        className: css$u['table-content-item'] + " ui-body-content-item",
+        className: css$z['table-content-item'] + " ui-body-content-item",
         scope: "row"
       }, rowContent(item)) : /*#__PURE__*/React__default.createElement("td", {
         key: "item" + i,
-        className: css$u['table-content-item'] + " ui-body-content-item"
+        className: css$z['table-content-item'] + " ui-body-content-item"
       }, rowContent(item)));
     }));
   })));
@@ -4406,7 +4671,7 @@ Table.defaultProps = {
   bodyContent: [['Cell a1', 'Cell a2'], ['Cell b2', 'Cell b2']]
 };
 
-var css$v = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
+var css$A = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
 
 function TableGrid(_ref) {
   var headContent = _ref.headContent,
@@ -4414,27 +4679,27 @@ function TableGrid(_ref) {
       gridColumn = _ref.gridColumn;
   console.log(bodyContent);
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$v['c-scroll'] + " ui-scroll"
+    className: css$A['c-scroll'] + " ui-scroll"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$v['c-gridTable'] + " ui-gridTable"
+    className: css$A['c-gridTable'] + " ui-gridTable"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$v['c-gridTable-head'] + " ui-gridTable-head",
+    className: css$A['c-gridTable-head'] + " ui-gridTable-head",
     style: gridColumn
   }, headContent.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("div", {
-      className: css$v['c-gridTable-head-item'] + " ui-gridTable-head-item",
+      className: css$A['c-gridTable-head-item'] + " ui-gridTable-head-item",
       key: "head-" + index
     }, item.type === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
       nameIcon: item.label,
       addClass: item.addClass
     }) : /*#__PURE__*/React__default.createElement("span", null, item.label));
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$v['c-gridTable-body'] + " ui-gridTable-body",
+    className: css$A['c-gridTable-body'] + " ui-gridTable-body",
     style: gridColumn
   }, bodyContent.map(function (data) {
     return data.map(function (buttom, index) {
       return /*#__PURE__*/React__default.createElement("div", {
-        className: css$v['c-gridTable-body-item'] + " ui-gridTable-body-item",
+        className: css$A['c-gridTable-body-item'] + " ui-gridTable-body-item",
         key: "body-" + index
       }, buttom);
     });
@@ -4449,9 +4714,9 @@ TableGrid.defaultProps = {
   bodyContent: []
 };
 
-var css$w = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
+var css$B = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
 
-var _excluded$d = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
+var _excluded$e = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
 var Tabs = React.forwardRef(function Tabs(props, ref) {
   var ariaLabel = props['aria-label'],
       ariaLabelledBy = props['aria-labelledby'],
@@ -4463,7 +4728,7 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
       orientation = _props$orientation === void 0 ? 'horizontal' : _props$orientation,
       selectionFollowsFocus = props.selectionFollowsFocus,
       value = props.value,
-      other = _objectWithoutPropertiesLoose(props, _excluded$d);
+      other = _objectWithoutPropertiesLoose(props, _excluded$e);
 
   var valueToIndex = new Map();
   var tabsRef = React.useRef(null);
@@ -4526,12 +4791,12 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   };
 
   return /*#__PURE__*/React.createElement(Component, _extends({
-    className: css$w.TabsCont + " ui-Tabs-cont",
+    className: css$B.TabsCont + " ui-Tabs-cont",
     ref: ref
   }, other), /*#__PURE__*/React.createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/React.createElement("div", {
-    className: css$w.TabsArea + " ui-tabs-area",
+    className: css$B.TabsArea + " ui-tabs-area",
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -4541,7 +4806,7 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   }, children)));
 });
 
-var css$x = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselButtonContainer":"_DZmRD","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
+var css$C = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselButtonContainer":"_DZmRD","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
 
 var Carrousel = function Carrousel(_ref, _ref2) {
   var childrenProp = _ref.children;
@@ -4635,24 +4900,24 @@ var Carrousel = function Carrousel(_ref, _ref2) {
   });
   return /*#__PURE__*/React__default.createElement("div", {
     id: "carouselExampleControls",
-    className: css$x.carrousel + " " + css$x.slide + " iu-slider",
+    className: css$C.carrousel + " " + css$C.slide + " iu-slider",
     "data-ride": "carousel"
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refCont,
-    className: css$x.carrouselInner + " ui-carrusel-inner",
+    className: css$C.carrouselInner + " ui-carrusel-inner",
     role: "group",
     "aria-roledescription": roleDescription
   }, children), /*#__PURE__*/React__default.createElement("div", {
-    className: "" + css$x.carrouselButtonContainer
+    className: "" + css$C.carrouselButtonContainer
   }, /*#__PURE__*/React__default.createElement("button", {
-    className: css$x.carrouselControlPrev + " ui-carrusel-control-prev",
+    className: css$C.carrouselControlPrev + " ui-carrusel-control-prev",
     "data-slide": "prev",
     onClick: handleClick,
     ref: refPrev,
     disabled: true,
     "aria-label": type + " anterior"
   }, backButton), /*#__PURE__*/React__default.createElement("button", {
-    className: css$x.carrouselControlNext + " ui-carrusel-control-next",
+    className: css$C.carrouselControlNext + " ui-carrusel-control-next",
     "data-slide": "next",
     onClick: handleClick,
     ref: refNext,
@@ -4664,51 +4929,13 @@ var Carrousel = function Carrousel(_ref, _ref2) {
   }, type, " ", Value + 1, " de ", children.length));
 };
 
-var css$y = {"Section":"_2biAj"};
+var cssHeader = {"container":"_IFjB0"};
 
-var _excluded$e = ["children", "tabs", "FunctValue"];
-
-var PanelSection = function PanelSection(_ref) {
-  var childrenProp = _ref.children,
-      tabs = _ref.tabs,
-      FunctValue = _ref.FunctValue,
-      others = _objectWithoutPropertiesLoose(_ref, _excluded$e);
-
-  var _useState = React.useState(0),
-      value = _useState[0],
-      setValue = _useState[1];
-
-  var handleChange = function handleChange(event, newValue) {
-    setValue(newValue);
-  };
-
-  var childIndex = 0;
-  var children = React__default.Children.map(childrenProp, function (child) {
-    if (!React__default.isValidElement(child)) {
-      return null;
-    }
-
-    var childValue = child.props.value === undefined ? childIndex : child.props.value;
-    childIndex += 1;
-    return React__default.cloneElement(child, {
-      index: childValue,
-      value: value
-    });
-  });
-  return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$y.Section
-  }, others), /*#__PURE__*/React__default.createElement(AsideSection, {
-    value: value,
-    onChange: handleChange
-  }, tabs && tabs.map(function (elem, i) {
-    return /*#__PURE__*/React__default.createElement(BtnSec, {
-      href: elem.url,
-      label: elem.label,
-      key: elem.id,
-      setValue: FunctValue
-    });
-  })), children);
-};
+function Header(_ref) {
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("header", {
+    className: cssHeader.container
+  }, /*#__PURE__*/React__default.createElement(Logo, null), /*#__PURE__*/React__default.createElement(NavBar, null), /*#__PURE__*/React__default.createElement(UserLogin, null)));
+}
 
 var _excluded$f = ["tabs", "panels"];
 var PanelTabs = function PanelTabs(props) {
@@ -4792,19 +5019,19 @@ var TourWindow = function TourWindow() {
   }));
 };
 
-var css$z = {"col":"_1QLy6"};
+var css$D = {"col":"_1QLy6"};
 
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$z.col
+    className: css$D.col
   }, props));
 };
 
-var css$A = {"row":"_7DQjb"};
+var css$E = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$A.row
+    className: css$E.row
   }, props));
 };
 
@@ -4812,6 +5039,7 @@ exports.Accordion = Accordion;
 exports.AccordionItem = AccordionItem;
 exports.AsideNav = AsideNav;
 exports.AsideSection = AsideSection;
+exports.AudioBar = AudioBar;
 exports.BtnSec = BtnSec;
 exports.Button = Button;
 exports.Card = Card;
@@ -4822,14 +5050,20 @@ exports.DarkThemeToggle = DarkThemeToggle;
 exports.DraggableVideo = DraggableVideo;
 exports.Dropdown = Dropdown;
 exports.Graphics = Graphics;
+exports.Header = Header;
 exports.Icon = Icon;
+exports.Image = Image;
+exports.Inicio = Inicio;
 exports.InputAction = InputAction;
 exports.InputControl = InputControl;
 exports.InputField = InputField;
 exports.Link = Link;
+exports.Logo = Logo;
 exports.Modal = Modal;
 exports.Multimedia = Multimedia;
 exports.NavBar = NavBar;
+exports.Pagination = Pagination;
+exports.PaginationInternal = PaginationInternal;
 exports.PanelSection = PanelSection;
 exports.PanelTabs = PanelTabs;
 exports.RecognitionVoice = RecognitionVoice;
@@ -4843,11 +5077,13 @@ exports.TableGrid = TableGrid;
 exports.Tabs = Tabs;
 exports.Text = Text;
 exports.Textarea = Textarea;
+exports.TitleSlide = TitleSlide;
 exports.Toggletip = Toggletip;
 exports.Tooltip = Tooltip;
 exports.TourHelpLayer = TourHelpLayer;
 exports.TourModal = TourModal;
 exports.TourOverlay = TourOverlay;
 exports.TourWindow = TourWindow;
+exports.UserLogin = UserLogin;
 exports.Video = Video;
 //# sourceMappingURL=index.js.map
