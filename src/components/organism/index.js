@@ -1,4 +1,5 @@
 export * from './Carrousel'
+export * from './Header'
 export * from './PanelSection'
 export * from './PanelTabs'
 export * from './TourWindow'

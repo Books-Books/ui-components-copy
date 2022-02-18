@@ -2,6 +2,13 @@ import React from 'react'
 import { Fragment } from 'react-is'
 import css from './TitleSlide.module.css'
 
+/**
+ * Usuario: bb-frontend-6
+ * Descripción: Tiene como finalidad mostrar una barra con el número de la pagina y su titulo.
+ * param { typeLogo, addClass }
+ * - number: numero de la página.
+ * - title: titulo de la página.
+ **/
 export const TitleSlide = ({ number = '01.', title = 'Título del slide' }) => {
   return (
     <Fragment>

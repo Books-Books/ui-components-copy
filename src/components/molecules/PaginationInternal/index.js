@@ -2,6 +2,12 @@ import React, { Fragment, useState } from 'react'
 import { PanelSection } from '../../organism/PanelSection'
 import css from './PaginationInternal.module.css'
 
+/**
+ * Usuario: bb-frontend-6
+ * Descripción: Componente de paginacion interna que divide cada pagina de la Ova en sub paginas.
+ * param { pagOva }
+ * - pagOva: recibe el contenido "URL" de las divisiones de cada pagina.
+ **/
 export const PaginationInternal = ({
   pagOva = [
     {
