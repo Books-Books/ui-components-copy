@@ -10,7 +10,7 @@ Copia de UI Components para nuevos proyectos de la UNAD
 ## Install
 
 ```bash
-npm install --save ui-components
+npm install --save ui-components-sua
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ npm install --save ui-components
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'ui-components'
+import MyComponent from 'ui-components-sua'
 import 'ui-components/dist/index.css'
 
 class Example extends Component {

@@ -1,10 +1,5 @@
 import React from 'react'
 
-/**
- * Usuario: bb-frontend-7
- * Descripción: Añade un SVG que tiene varios filtros internos. Esto se usa para activar el cambio de temas de contraste en el menú de navgación.
- **/
-
 export const ContrastFilters = () => {
   return (
     <span id='hc_extension_svg_filters'>

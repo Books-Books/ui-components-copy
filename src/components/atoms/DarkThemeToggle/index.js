@@ -28,8 +28,11 @@ export const DarkThemeToggle = ({ addClass }) => {
     setPressed(false)
   }
 
+<<<<<<< HEAD
   // Cambia entre ambos modos
 
+=======
+>>>>>>> e2a74ce94855caf0ae78f858c00f92bc0122b23d
   const togglePressed = () => {
     document.body.classList.contains('light-theme')
       ? enableDarkMode()

@@ -2762,6 +2762,7 @@ var TabPanel = function TabPanel(props) {
   }, other), value === index && /*#__PURE__*/React__default.createElement("div", null, children));
 };
 
+<<<<<<< HEAD
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var speechRecognitionList = new SpeechGrammarList();
@@ -2877,6 +2878,8 @@ var RecognitionVoice = function RecognitionVoice(_ref) {
   }, action === 'record' ? micOnIcon : micOffIcon), children && children);
 };
 
+=======
+>>>>>>> e2a74ce94855caf0ae78f858c00f92bc0122b23d
 var css$f = {"section":"_Nahni","fadeInDown":"_BDs2n"};
 
 var _excluded$9 = ["children", "value", "index", "label", "addClass"];
@@ -3094,15 +3097,25 @@ var TitleSlide = function TitleSlide(_ref) {
       number = _ref$number === void 0 ? '01.' : _ref$number,
       _ref$title = _ref.title,
       title = _ref$title === void 0 ? 'Título del slide' : _ref$title;
+<<<<<<< HEAD
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("h1", {
+=======
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("section", {
+>>>>>>> e2a74ce94855caf0ae78f858c00f92bc0122b23d
     className: css$j.container
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$j.containerNumber
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$j.number
+<<<<<<< HEAD
   }, /*#__PURE__*/React__default.createElement("span", null, number))), /*#__PURE__*/React__default.createElement("div", {
     className: css$j.title
   }, /*#__PURE__*/React__default.createElement("span", null, title))));
+=======
+  }, /*#__PURE__*/React__default.createElement("h2", null, number))), /*#__PURE__*/React__default.createElement("div", {
+    className: css$j.title
+  }, /*#__PURE__*/React__default.createElement("h3", null, title))));
+>>>>>>> e2a74ce94855caf0ae78f858c00f92bc0122b23d
 };
 
 var css$k = {"toggletip-container":"_3Z4HX","toggletip-icon":"_hQ4M-","toggletip-content":"_2SzZ3"};
@@ -5066,7 +5079,10 @@ exports.Pagination = Pagination;
 exports.PaginationInternal = PaginationInternal;
 exports.PanelSection = PanelSection;
 exports.PanelTabs = PanelTabs;
+<<<<<<< HEAD
 exports.RecognitionVoice = RecognitionVoice;
+=======
+>>>>>>> e2a74ce94855caf0ae78f858c00f92bc0122b23d
 exports.Row = Row;
 exports.Section = Section;
 exports.Select = Select;
