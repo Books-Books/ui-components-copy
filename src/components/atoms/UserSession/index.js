@@ -1,5 +1,4 @@
-import React from 'react'
-import { Fragment } from 'react-is'
+import React, { Fragment } from 'react'
 import cssUser from './UserSession.module.css'
 
 /**

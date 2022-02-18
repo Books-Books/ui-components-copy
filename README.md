@@ -10,7 +10,7 @@ Copia de UI Components para nuevos proyectos de la UNAD
 ## Install
 
 ```bash
-npm install --save ui-components
+npm install --save ui-components-sua
 ```
 
 ## Usage
