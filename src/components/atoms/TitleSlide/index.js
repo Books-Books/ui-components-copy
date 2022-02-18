@@ -5,16 +5,16 @@ import css from './TitleSlide.module.css'
 export const TitleSlide = ({ number = '01.', title = 'Título del slide' }) => {
   return (
     <Fragment>
-      <section className={css.container}>
+      <h1 className={css.container}>
         <div className={css.containerNumber}>
           <div className={css.number}>
-            <h2>{number}</h2>
+            <span>{number}</span>
           </div>
         </div>
         <div className={css.title}>
-          <h3>{title}</h3>
+          <span>{title}</span>
         </div>
-      </section>
+      </h1>
     </Fragment>
   )
 }

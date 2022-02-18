@@ -2,6 +2,19 @@ import React from 'react'
 import { Icon } from '../icon/index'
 import css from './TourModal.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea el modal que describe el elemento que se necesita mostrar en el tour (funcionalidades pendientes)
+ * - top: posición inicial vertical del elemento (cambia dinámicamente dentro del componente WindowTour)
+ * - left: posición inicial horizontal del elemento (cambia dinámicamente dentro del componente WindowTour)
+ * - description: descripción del elemento (cambia dinámicamente dentro del componente WindowTour)
+ * - modalNumber: número del modal en el que se está (cambia dinámicamente dentro del componente WindowTour)
+ * - totalModals: total de modales a abrir
+ * - nextTour: función que se ejecuta para pasar al siguiente modal (cambia dinámicamente dentro del componente WindowTour)
+ * - backTour: función que se ejecuta para regresar al modal anterior (cambia dinámicamente dentro del componente WindowTour)
+ * - endTour: función que cierra la ventana de tour (cambia dinámicamente dentro del componente WindowTour)
+ **/
+
 export const TourModal = ({
   top = '100',
   left = '300',

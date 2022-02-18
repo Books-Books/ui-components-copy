@@ -9,6 +9,8 @@ import css from './Video.module.css'
  * param { url, width, addClass }
  * - url: ruta del video que será reproducido.
  * - width: ancho máximo del video.
+ * - title: título del caption del video.
+ * - content: descripción del caption del video.
  * - addClass: clase adicional que se le agregue al reproductor.
  **/
 function Video({ url, width, title, content, addClass }) {

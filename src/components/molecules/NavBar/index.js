@@ -68,6 +68,8 @@ export function NavBar({
     setState(!state)
   }
 
+  // Manejo de cambio de clases de acuerdo al tema
+
   const changeTheme = function (type) {
     const html = document.querySelector('html')
 

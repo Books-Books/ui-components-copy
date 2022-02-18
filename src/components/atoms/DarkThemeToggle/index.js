@@ -2,8 +2,17 @@ import React, { useState } from 'react'
 import { Icon } from '../icon'
 import css from './DarkThemeToggle.module.css'
 
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un botón que cambia entre el modo claro y oscuro del sitio
+ * param { addClass }
+ * - addClass: clase adicional que se le agregue al botón.
+ **/
+
 export const DarkThemeToggle = ({ addClass }) => {
   const [pressed, setPressed] = useState(false)
+
+  // Activa el modo oscuro
 
   function enableDarkMode() {
     document.body.classList.remove('light-theme')
@@ -18,6 +27,8 @@ export const DarkThemeToggle = ({ addClass }) => {
     document.body.classList.add('light-theme')
     setPressed(false)
   }
+
+  // Cambia entre ambos modos
 
   const togglePressed = () => {
     document.body.classList.contains('light-theme')
