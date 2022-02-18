@@ -2,4 +2,4 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { Inicio } from '.'
 
-storiesOf('Atoms/InicioFront', module).add('Init', () => <Inicio />)
+storiesOf('Atoms/Inicio', module).add('InicioPag', () => <Inicio />)

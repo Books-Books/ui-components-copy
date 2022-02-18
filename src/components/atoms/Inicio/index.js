@@ -4,11 +4,18 @@ import upRight from '../../../static/suaSuperior.svg'
 import { Button } from '../Button'
 import css from './Inicio.module.css'
 
+/**
+ * Usuario: bb-frontend-6
+ * Descripción: Invoca una porción de la página inicial con el botón de inicio.
+ * param { title, subTitle }
+ * - title: rebice un título para la pagina inicial.
+ * - subTitle: rebice un subtítulo para la pagina inicial.
+ * - addClass: para ingresar clases adicionales.
+ **/
 export const Inicio = ({
-  addClass,
   title = 'Nombre del Ova',
   subTitle = 'Nombre del curso',
-  action
+  addClass
 }) => {
   return (
     <Fragment>
@@ -27,7 +34,7 @@ export const Inicio = ({
             label='Iniciar'
             hasAriaLabel={false}
             addClass={css.styleBtn}
-            onClick={action}
+            onClick={() => console.log('accion del btn')}
             tabindex={0}
           />
         </article>

@@ -2,6 +2,12 @@ import React, { Fragment, useState } from 'react'
 import { Button } from '../../atoms/Button'
 import css from './Pagination.module.css'
 
+/**
+ * Usuario: bb-frontend-6
+ * Descripción: Componente de paginacion general de cada Ova en una barra inferior
+ * param { pagOva }
+ * - pagOva: recibe el contenido "URL" de la Ova para desplegar en el footer.
+ **/
 export const Pagination = ({
   pagOva = [
     { url: '#1' },

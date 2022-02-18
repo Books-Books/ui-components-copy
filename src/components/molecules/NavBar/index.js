@@ -6,6 +6,13 @@ import { Icon } from '../../atoms/icon'
 import { Link } from '../../atoms/Link'
 import cssNavbar from './NavBar.module.css'
 
+/**
+ * Usuario: bb-frontend-6
+ * Descripción: Menú que cuaneta con 4 acciones diferentes, la primera "Menú" lista todo el contenido de la ova en licks, "Inicio" redirige a la pagina principalm, "Accesibilidad" trae todas las configuraciones para la aceesibilidad del usuario, "Ayuda" despliega modales informativos.
+ * param { contentOva, hrefInicio }
+ * - contentOva: recibe el contenido "URL" de la Ova para desplegar en el menú.
+ * - hrefInicio: recibe la ruta del Inicio de la Ova.
+ **/
 export function NavBar({
   contentOva, //Se pasa el arreglo de objetos [{}]
   hrefInicio = '#' //Se pasa la url del Btn Inicio
