@@ -1,0 +1,63 @@
+.InputAction {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.LabelStyled svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  padding-right: 0.5ch;
+}
+
+.LabelStyled {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 0.125rem solid transparent;
+  min-width: var(--minWidthSizeBtn);
+  min-height: var(--minHeightSizeBtn);
+  padding: var(--paddingBtn);
+  color: var(--textColor);
+  font-family: inherit;
+  margin: var(--marginBtn);
+  border-radius: var(--borderRadiusBtn);
+  transition: background 0.5s ease;
+  cursor: pointer;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--fontSizeButton);
+  line-height: 2.25rem;
+  font-weight: 500;
+  letter-spacing: 0.0892857143em;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  overflow: visible;
+  vertical-align: middle;
+}
+
+.LabelStyled:focus-within {
+  outline: 0.1875rem solid var(--focus-color);
+  outline-offset: 0.1875rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .LabelStyled {
+    transition: background 0.5s linear, outline-offset 0.2s ease-in-out;
+  }
+}
+
+.TextFileName {
+  text-align: center;
+  box-shadow: var(--shadowSize) var(--primaryColorLight);
+  padding: 0.5rem;
+}

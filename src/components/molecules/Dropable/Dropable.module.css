@@ -1,0 +1,7 @@
+.c-collapsible {
+  max-width: var(--maxWidthDropable);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0rem 0.2rem var(--boxDropable);
+}

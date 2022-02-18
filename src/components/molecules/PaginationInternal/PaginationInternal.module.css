@@ -1,0 +1,9 @@
+.direccion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.direccion span {
+  color: var(--textColor);
+  letter-spacing: 5px;
+}

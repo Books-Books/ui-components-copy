@@ -1,0 +1,127 @@
+.c-vid-container figcaption {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.c-vid {
+  position: relative;
+  display: grid;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 0.625rem;
+  border: 0.0625rem solid var(--tertiaryColor);
+}
+
+.c-vid::before {
+  content: '';
+  position: absolute;
+  top: -1em;
+  right: -1em;
+  z-index: -1;
+  width: 6.875rem;
+  height: 6.875rem;
+  border-top: 0.25rem solid var(--tertiaryColor);
+  border-right: 0.25rem solid var(--tertiaryColor);
+}
+
+.c-vid svg {
+  color: currentColor;
+  forced-color-adjust: auto;
+}
+
+.c-vid video {
+  outline: none;
+  height: 100%;
+  width: calc(100% - 4px);
+}
+
+.c-vid-controls {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2.75rem 9.4375rem auto 1fr 2.75rem 2.75rem;
+  grid-gap: 0.5rem;
+  padding: 0 0.2rem;
+  background-color: var(--tertiaryColorLight);
+}
+
+.c-vid-controls button {
+  display: grid;
+  place-items: center;
+  padding: 0.2em;
+  height: 100%;
+  width: auto;
+  color: #fff;
+  border: 0.125rem solid transparent;
+  background-color: transparent;
+  border-radius: 3.2px;
+  cursor: pointer;
+  border-radius: 0.5em;
+}
+
+.c-vid-controls button:hover,
+.c-vid-controls button:focus {
+  background-color: var(--tertiaryColorDark);
+}
+
+.c-vid-controls button:focus {
+  outline: 0.0625rem solid whitesmoke;
+  outline-offset: -4px;
+}
+
+.c-vid-controls svg {
+  height: 2.375rem;
+  width: auto;
+  fill: currentColor;
+}
+
+.c-vid-controls-text {
+  margin: 0;
+}
+
+.c-vid-controls-text {
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress {
+  display: flex;
+  flex-basis: 100%;
+  height: 6px;
+  transition: height 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-bar {
+  width: 50%;
+  background-color: var(--secondaryColor);
+  flex: 0;
+  flex-basis: 0%;
+}
+
+.c-vid-controls-volumn {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.c-vid-controls-volumn label {
+  display: grid;
+}
+
+.c-vid-controls-volumn label:focus-within {
+  background-color: var(--tertiaryColorDark);
+}
+
+.c-vid-controls-volumn input {
+  background-color: #fff;
+}
+
+.c-vid-controls-volumn input:focus {
+  outline: 2px solid transparent;
+}
+
+.c-vid-controls-volumn-item[type='range'] {
+  width: 100%;
+  accent-color: var(--secondaryColor);
+}

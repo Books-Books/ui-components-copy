@@ -1,0 +1,75 @@
+.tour-modal {
+  box-sizing: content-box;
+  position: absolute;
+  visibility: visible;
+  padding: 0.625rem;
+  background-color: #fff;
+  line-height: 1.5;
+  min-width: 12.5rem;
+  max-width: 18.75rem;
+  border-radius: 0.1875rem;
+  box-shadow: 0 0 0 0.125rem #005c94 inset;
+  transition: opacity 0.1s ease-out;
+  z-index: 9999998;
+}
+
+.tour-progress {
+  box-sizing: content-box;
+  overflow: hidden;
+  height: 0.625rem;
+  margin: 0.625rem 0 0.3125rem 0;
+  border-radius: 0.25rem;
+  background-color: #ecf0f1;
+}
+
+.tour-progress-bar {
+  box-sizing: content-box;
+  float: left;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: var(--client-color, #08c);
+  transform: scaleX(0%);
+  transform-origin: left;
+}
+
+.tour-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tour-button-container button {
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: #08c;
+  border: 0.125rem solid transparent;
+  color: #ecf0f1;
+}
+
+.tour-button-container button:hover,
+.tour-button-container button:focus {
+  background-color: #005c94;
+}
+
+.tour-button-container button:focus {
+  outline: 0.125rem solid #ecf0f1;
+  outline-offset: -0.3125rem;
+}
+
+.tour-button-container button[disabled] {
+  background-color: var(--bgColorDisabled);
+  color: black;
+}
+
+.tour-button-container button[disabled]:hover {
+  cursor: not-allowed;
+}
+
+.tour-button-container span {
+  width: revert;
+  height: revert;
+  font-size: 1.3rem;
+}

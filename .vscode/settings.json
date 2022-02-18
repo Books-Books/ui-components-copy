@@ -1,0 +1,19 @@
+{
+  "eslint.format.enable": true,
+  "files.watcherExclude": {
+    "node_modules": true
+  },
+  "files.exclude": {
+    "**/node_modules/": true,
+    "**/.vscode/*": true
+  },
+  "git.autofetch": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  }
+}

@@ -1,0 +1,48 @@
+.draggable-video-container {
+  top: var(--top, 0);
+  left: var(--left, 0);
+  display: inline-block;
+  position: relative;
+  border: 0.1875rem solid var(--tertiaryColor);
+}
+
+.draggable-video-container figcaption {
+  display: none;
+}
+
+.draggable-video-container figure {
+  margin: 0;
+}
+
+.draggable-video-container figure > div {
+  padding: 0;
+}
+
+.draggable-video-container figure > div::before {
+  display: none;
+}
+
+.draggable-video-button {
+  position: absolute;
+  top: -0.1875rem;
+  right: -3rem;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  background-color: var(--tertiaryColor);
+  /* transform: translateY(-50%); */
+  border: 0.125rem solid transparent;
+  border-radius: 0 50% 50% 0;
+}
+
+.draggable-video-button span {
+  font-size: 1.8rem;
+  pointer-events: none;
+  color: white;
+}
+
+.draggable-video-button:focus {
+  outline: 0.1875rem solid var(--secondaryColor);
+  outline-offset: -0.1875rem;
+}
