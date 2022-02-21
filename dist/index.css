@@ -800,11 +800,13 @@ svg[hide='false'] {
 
 ._13bif {
   box-sizing: border-box;
-  height: 1080px;
-  max-width: 600px;
+  height: 100vh;
+  max-width: 45%;
   max-height: 1080px;
-  position: relative;
-  width: 600px;
+  position: absolute;
+  width: 40%;
+  top: 0;
+  right: 0;
 
   background: transparent
     linear-gradient(

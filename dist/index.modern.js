@@ -1975,9 +1975,10 @@ var Inicio = function Inicio(_ref) {
       _ref$title = _ref.title,
       title = _ref$title === void 0 ? 'Nombre del Ova' : _ref$title,
       _ref$subTitle = _ref.subTitle,
-      subTitle = _ref$subTitle === void 0 ? 'Nombre del curso' : _ref$subTitle;
+      subTitle = _ref$subTitle === void 0 ? 'Nombre del curso' : _ref$subTitle,
+      addClass = _ref.addClass;
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("section", {
-    className: css$8.styleInit
+    className: css$8.styleInit + " " + addClass
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$8.imgUpRight
   }, /*#__PURE__*/React__default.createElement("img", {

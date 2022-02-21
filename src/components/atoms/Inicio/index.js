@@ -25,7 +25,7 @@ export const Inicio = ({
 }) => {
   return (
     <Fragment>
-      <section className={css.styleInit}>
+      <section className={`${css.styleInit} ${addClass}`}>
         <div className={css.imgUpRight}>
           <img src={imgUp} alt={altUp} />
         </div>
