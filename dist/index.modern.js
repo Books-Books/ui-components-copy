@@ -1965,43 +1965,43 @@ Image.defaultProps = {
   typeImg: '.png'
 };
 
-var downRight = "suaInferior~mjMKerbK.svg";
-
-var upRight = "suaSuperior~RNYLgYkE.svg";
-
 var css$8 = {"styleInit":"_13bif","imgUpRight":"_3rrlz","imgDownRight":"_1izl-","container":"_nFI4s","styleTitle":"_1qmO0","styleSubTitle":"_1aPYB","styleBtn":"_4kk0R"};
 
 var Inicio = function Inicio(_ref) {
-  var _ref$title = _ref.title,
+  var imgUp = _ref.imgUp,
+      imgDown = _ref.imgDown,
+      altUp = _ref.altUp,
+      altDown = _ref.altDown,
+      _ref$title = _ref.title,
       title = _ref$title === void 0 ? 'Nombre del Ova' : _ref$title,
       _ref$subTitle = _ref.subTitle,
-      subTitle = _ref$subTitle === void 0 ? 'Nombre del curso' : _ref$subTitle;
+      subTitle = _ref$subTitle === void 0 ? 'Nombre del curso' : _ref$subTitle,
+      addClass = _ref.addClass;
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("section", {
-    className: css$8.styleInit
+    className: css$8.styleInit + " " + addClass
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$8.imgUpRight
   }, /*#__PURE__*/React__default.createElement("img", {
-    src: upRight,
-    alt: "Imagen sua superior derecha"
+    src: imgUp,
+    alt: altUp
   })), /*#__PURE__*/React__default.createElement("article", {
     className: css$8.container
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$8.styleTitle
-  }, /*#__PURE__*/React__default.createElement("h3", null, title)), /*#__PURE__*/React__default.createElement("div", {
+  }, /*#__PURE__*/React__default.createElement("h1", null, title)), /*#__PURE__*/React__default.createElement("div", {
     className: css$8.styleSubTitle
-  }, /*#__PURE__*/React__default.createElement("h4", null, subTitle)), /*#__PURE__*/React__default.createElement(Button, {
+  }, /*#__PURE__*/React__default.createElement("p", null, subTitle)), /*#__PURE__*/React__default.createElement(Button, {
     label: "Iniciar",
     hasAriaLabel: false,
     addClass: css$8.styleBtn,
     onClick: function onClick() {
       return console.log('accion del btn');
-    },
-    tabindex: 0
+    }
   })), /*#__PURE__*/React__default.createElement("div", {
     className: css$8.imgDownRight
   }, /*#__PURE__*/React__default.createElement("img", {
-    src: downRight,
-    alt: "Imagen sua superior izquierda"
+    src: imgDown,
+    alt: altDown
   }))));
 };
 
