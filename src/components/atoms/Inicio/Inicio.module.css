@@ -3,11 +3,11 @@
   height: 100vh;
   min-width: 500px;
   max-height: 1080px;
-  position: absolute;
   width: 32%;
-  top: 0;
-  right: 0;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
   background: #121e1eb3
     linear-gradient(
       180deg,
@@ -20,25 +20,17 @@
 }
 
 .imgUpRight {
-  position: absolute;
   width: 70%;
   height: 300px;
   z-index: 100;
-  right: 0;
-  top: 0;
 }
 .imgDownRight {
-  position: absolute;
   width: 45%;
-  height: 10.9375rem;
+  min-height: 10.25rem;
   z-index: 110;
-  bottom: 0;
-  right: 0;
 }
 .container {
-  position: absolute;
-  right: 97px;
-  top: 260px;
+  margin: 0 auto;
   text-align: center;
   width: 65%;
   z-index: 120;
