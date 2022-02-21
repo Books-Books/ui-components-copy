@@ -1,7 +1,7 @@
 .styleInit {
   box-sizing: border-box;
   height: 100vh;
-  max-width: 45%;
+  min-width: 520px;
   max-height: 1080px;
   position: absolute;
   width: 40%;
@@ -21,16 +21,16 @@
 
 .imgUpRight {
   position: absolute;
-  width: 520px;
-  height: 310px;
+  width: 70%;
+  height: 300px;
   z-index: 100;
   right: 0;
   top: 0;
 }
 .imgDownRight {
   position: absolute;
-  width: 300px;
-  height: 230px;
+  width: 40%;
+  height: 164px;
   z-index: 110;
   bottom: 0;
   right: 0;
@@ -38,7 +38,7 @@
 .container {
   position: absolute;
   right: 100px;
-  top: 435px;
+  top: 320px;
   text-align: center;
   width: 65%;
   z-index: 120;
