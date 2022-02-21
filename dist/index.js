@@ -1968,14 +1968,14 @@ Image.defaultProps = {
   typeImg: '.png'
 };
 
-var downRight = "suaInferior~mjMKerbK.svg";
-
-var upRight = "suaSuperior~RNYLgYkE.svg";
-
 var css$8 = {"styleInit":"_13bif","imgUpRight":"_3rrlz","imgDownRight":"_1izl-","container":"_nFI4s","styleTitle":"_1qmO0","styleSubTitle":"_1aPYB","styleBtn":"_4kk0R"};
 
 var Inicio = function Inicio(_ref) {
-  var _ref$title = _ref.title,
+  var imgUp = _ref.imgUp,
+      imgDown = _ref.imgDown,
+      altUp = _ref.altUp,
+      altDown = _ref.altDown,
+      _ref$title = _ref.title,
       title = _ref$title === void 0 ? 'Nombre del Ova' : _ref$title,
       _ref$subTitle = _ref.subTitle,
       subTitle = _ref$subTitle === void 0 ? 'Nombre del curso' : _ref$subTitle;
@@ -1984,8 +1984,8 @@ var Inicio = function Inicio(_ref) {
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$8.imgUpRight
   }, /*#__PURE__*/React__default.createElement("img", {
-    src: upRight,
-    alt: "Imagen sua superior derecha"
+    src: imgUp,
+    alt: altUp
   })), /*#__PURE__*/React__default.createElement("article", {
     className: css$8.container
   }, /*#__PURE__*/React__default.createElement("div", {
@@ -2003,8 +2003,8 @@ var Inicio = function Inicio(_ref) {
   })), /*#__PURE__*/React__default.createElement("div", {
     className: css$8.imgDownRight
   }, /*#__PURE__*/React__default.createElement("img", {
-    src: downRight,
-    alt: "Imagen sua superior izquierda"
+    src: imgDown,
+    alt: altDown
   }))));
 };
 
