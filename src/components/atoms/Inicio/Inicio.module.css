@@ -1,10 +1,10 @@
 .styleInit {
   box-sizing: border-box;
   height: 100vh;
-  min-width: 520px;
+  min-width: 500px;
   max-height: 1080px;
   position: absolute;
-  width: 40%;
+  width: 32%;
   top: 0;
   right: 0;
 
@@ -13,7 +13,7 @@
       180deg,
       #ffffff00 0%,
       rgb(88 144 172 / 20%) 23%,
-      rgb(2 41 60 / 30%) 100%,
+      rgb(2 41 60 / 70%) 100%,
       #ffffff 100%
     )
     0% 0% no-repeat padding-box;
@@ -29,16 +29,16 @@
 }
 .imgDownRight {
   position: absolute;
-  width: 40%;
-  height: 164px;
+  width: 45%;
+  height: 10.8125rem;
   z-index: 110;
   bottom: 0;
   right: 0;
 }
 .container {
   position: absolute;
-  right: 100px;
-  top: 320px;
+  right: 97px;
+  top: 260px;
   text-align: center;
   width: 65%;
   z-index: 120;
@@ -55,7 +55,7 @@
 }
 .styleSubTitle h4 {
   margin: 0 0 60px 0 !important;
-  font-size: 2.25rem;
+  font-size: 2rem;
 }
 .styleBtn {
   box-shadow: none !important;
@@ -64,7 +64,7 @@
   cursor: pointer;
   color: var(--thirdColor);
   display: block;
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: bold;
   letter-spacing: 0;
   min-width: 150px !important;
