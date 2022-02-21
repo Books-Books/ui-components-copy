@@ -1677,6 +1677,7 @@ svg[hide='false'] {
   grid-template-columns: min(30vw, 9.375rem) 1rem 1fr;
   grid-template-rows: 1fr;
   align-items: center;
+  max-width: 50rem;
 }
 
 ._2sl0w > * {
