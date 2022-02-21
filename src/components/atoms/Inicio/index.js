@@ -1,18 +1,24 @@
 import React, { Fragment } from 'react'
-import downRight from '../../../static/suaInferior.svg'
-import upRight from '../../../static/suaSuperior.svg'
 import { Button } from '../Button'
 import css from './Inicio.module.css'
 
 /**
  * Usuario: bb-frontend-6
  * Descripción: Invoca una porción de la página inicial con el botón de inicio.
- * param { title, subTitle }
+ * param { title, subTitle, imgUp, imgDown, altUp, altDown, addClass }
  * - title: rebice un título para la pagina inicial.
  * - subTitle: rebice un subtítulo para la pagina inicial.
+ * - imgUp: rebice la ruta de la img superior.
+ * - imgDown: rebice la ruta de la img inferior.
+ * - altUp: rebice el texto alt de la imagen superior.
+ * - altDown: rebice el texto alt de la imagen superior.
  * - addClass: para ingresar clases adicionales.
  **/
 export const Inicio = ({
+  imgUp,
+  imgDown,
+  altUp,
+  altDown,
   title = 'Nombre del Ova',
   subTitle = 'Nombre del curso',
   addClass
@@ -21,7 +27,7 @@ export const Inicio = ({
     <Fragment>
       <section className={css.styleInit}>
         <div className={css.imgUpRight}>
-          <img src={upRight} alt='Imagen sua superior derecha' />
+          <img src={imgUp} alt={altUp} />
         </div>
         <article className={css.container}>
           <div className={css.styleTitle}>
@@ -39,7 +45,7 @@ export const Inicio = ({
           />
         </article>
         <div className={css.imgDownRight}>
-          <img src={downRight} alt='Imagen sua superior izquierda' />
+          <img src={imgDown} alt={altDown} />
         </div>
       </section>
     </Fragment>
