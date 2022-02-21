@@ -31,17 +31,16 @@ export const Inicio = ({
         </div>
         <article className={css.container}>
           <div className={css.styleTitle}>
-            <h3>{title}</h3>
+            <h1>{title}</h1>
           </div>
           <div className={css.styleSubTitle}>
-            <h4>{subTitle}</h4>
+            <p>{subTitle}</p>
           </div>
           <Button
             label='Iniciar'
             hasAriaLabel={false}
             addClass={css.styleBtn}
             onClick={() => console.log('accion del btn')}
-            tabindex={0}
           />
         </article>
         <div className={css.imgDownRight}>

@@ -37,14 +37,14 @@
 .styleTitle {
   color: var(--secondaryColor);
 }
-.styleTitle h3 {
+.styleTitle h1 {
   margin: 14px 0 !important;
   font-size: 2.25rem;
 }
 .styleSubTitle {
   color: var(--thirdColor);
 }
-.styleSubTitle h4 {
+.styleSubTitle p {
   margin: 0 0 60px 0 !important;
   font-size: 2rem;
 }
@@ -62,7 +62,4 @@
   min-height: 60px !important;
   margin: 0 auto;
   text-transform: none;
-}
-.styleBtn:focus {
-  outline: none !important;
 }

@@ -837,14 +837,14 @@ svg[hide='false'] {
 ._1qmO0 {
   color: var(--secondaryColor);
 }
-._1qmO0 h3 {
+._1qmO0 h1 {
   margin: 14px 0 !important;
   font-size: 2.25rem;
 }
 ._1aPYB {
   color: var(--thirdColor);
 }
-._1aPYB h4 {
+._1aPYB p {
   margin: 0 0 60px 0 !important;
   font-size: 2rem;
 }
@@ -862,9 +862,6 @@ svg[hide='false'] {
   min-height: 60px !important;
   margin: 0 auto;
   text-transform: none;
-}
-._4kk0R:focus {
-  outline: none !important;
 }
 
 ._xB2Ha {

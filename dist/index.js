@@ -1991,16 +1991,15 @@ var Inicio = function Inicio(_ref) {
     className: css$8.container
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$8.styleTitle
-  }, /*#__PURE__*/React__default.createElement("h3", null, title)), /*#__PURE__*/React__default.createElement("div", {
+  }, /*#__PURE__*/React__default.createElement("h1", null, title)), /*#__PURE__*/React__default.createElement("div", {
     className: css$8.styleSubTitle
-  }, /*#__PURE__*/React__default.createElement("h4", null, subTitle)), /*#__PURE__*/React__default.createElement(Button, {
+  }, /*#__PURE__*/React__default.createElement("p", null, subTitle)), /*#__PURE__*/React__default.createElement(Button, {
     label: "Iniciar",
     hasAriaLabel: false,
     addClass: css$8.styleBtn,
     onClick: function onClick() {
       return console.log('accion del btn');
-    },
-    tabindex: 0
+    }
   })), /*#__PURE__*/React__default.createElement("div", {
     className: css$8.imgDownRight
   }, /*#__PURE__*/React__default.createElement("img", {
