@@ -48,14 +48,14 @@
 }
 .styleTitle h3 {
   margin: 14px 0 !important;
-  font-size: 2.625rem;
+  font-size: 2.25rem;
 }
 .styleSubTitle {
   color: var(--thirdColor);
 }
 .styleSubTitle h4 {
   margin: 0 0 60px 0 !important;
-  font-size: 2.1875rem;
+  font-size: 2.25rem;
 }
 .styleBtn {
   box-shadow: none !important;
@@ -64,7 +64,7 @@
   cursor: pointer;
   color: var(--thirdColor);
   display: block;
-  font-size: 2.1875rem;
+  font-size: 2.25rem;
   font-weight: bold;
   letter-spacing: 0;
   min-width: 150px !important;
