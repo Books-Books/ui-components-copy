@@ -433,8 +433,9 @@ html._2_x81 video {
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-size: var(--fontSizeButton);
-  line-height: 2.25rem;
+  /* font-size: var(--fontSizeButton); */
+  font-size: 1rem;
+  line-height: 1.5;
   font-weight: bold;
   /* letter-spacing: 0.0892857143em; */
   text-decoration: none;
@@ -705,6 +706,10 @@ svg[hide='false'] {
   box-sizing: border-box;
   padding: 10px;
   position: relative;
+}
+figure {
+  width: 80%;
+  margin-inline: auto;
 }
 
 ._1HoJe img {
@@ -1693,6 +1698,7 @@ svg[hide='false'] {
   grid-template-rows: 1fr;
   align-items: center;
   max-width: 46rem;
+  margin-block: 1rem 3rem;
 }
 
 ._2sl0w > * {
@@ -1720,7 +1726,7 @@ svg[hide='false'] {
   height: 100%;
 }
 ._KxZbK span {
-  font-size: 3.75rem;
+  font-size: 3rem;
   color: var(--thirdColor);
   margin: 0 20px 0 0;
 }
@@ -1736,7 +1742,7 @@ svg[hide='false'] {
   box-sizing: content-box;
 }
 ._1-HyA span {
-  font-size: 2rem;
+  font-size: 1.375rem;
   color: var(--tertiaryColor);
 }
 
