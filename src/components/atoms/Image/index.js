@@ -19,7 +19,8 @@ export const Image = ({
   title = 'Imagen 1.',
   typeImg,
   dataStyle = '2',
-  addClass
+  addClass,
+  width = 350
 }) => {
   const [error, setError] = useState(false)
   //funcion de error, al no conseguir la imagen cambia el estado
@@ -35,7 +36,11 @@ export const Image = ({
   return (
     <Fragment>
       <figure className={addClass}>
-        <div className={css.containerImg} data-style={dataStyle}>
+        <div
+          className={css.containerImg}
+          data-style={dataStyle}
+          style={`max-width:${width}px`}
+        >
           <img
             src={imgToSee}
             onError={onError}

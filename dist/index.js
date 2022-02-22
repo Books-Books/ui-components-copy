@@ -1939,7 +1939,9 @@ var Image = function Image(_ref) {
       typeImg = _ref.typeImg,
       _ref$dataStyle = _ref.dataStyle,
       dataStyle = _ref$dataStyle === void 0 ? '2' : _ref$dataStyle,
-      addClass = _ref.addClass;
+      addClass = _ref.addClass,
+      _ref$width = _ref.width,
+      width = _ref$width === void 0 ? 350 : _ref$width;
 
   var _useState = React.useState(false),
       error = _useState[0],
@@ -1954,7 +1956,8 @@ var Image = function Image(_ref) {
     className: addClass
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$7.containerImg,
-    "data-style": dataStyle
+    "data-style": dataStyle,
+    style: "max-width:" + width + "px"
   }, /*#__PURE__*/React__default.createElement("img", {
     src: imgToSee,
     onError: onError,
