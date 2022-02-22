@@ -34,7 +34,7 @@ export const Image = ({
 
   return (
     <Fragment>
-      <figure>
+      <figure className={addClass}>
         <div className={css.containerImg} data-style={dataStyle}>
           <img
             src={imgToSee}
