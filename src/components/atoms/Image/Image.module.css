@@ -10,7 +10,7 @@
 }
 .containerImg {
   margin: 0 auto;
-  max-width: 350px;
+  min-width: 350px;
 }
 @media (max-width: 480px) {
   .containerImg {
