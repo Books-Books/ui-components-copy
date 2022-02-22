@@ -749,6 +749,7 @@ svg[hide='false'] {
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  text-align: center;
 }
 [data-style='1']::before {
   content: '';
