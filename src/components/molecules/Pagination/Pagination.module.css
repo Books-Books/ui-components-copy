@@ -14,12 +14,13 @@
   font-size: 0.875rem;
   justify-content: center;
   width: 50px;
+  color: var(--textColor);
 }
 
 .styleUl li > a {
   align-items: center;
   border-radius: 50%;
-  color: var(--textColor);
+  color: inherit;
   display: inline-flex;
   text-decoration: none;
   width: 50px;
@@ -27,13 +28,12 @@
   /* border: 1px solid red; */
   justify-content: center;
 }
-.styleUl li > a:focus {
-  border: 3px solid var(--secondaryColor);
-  background-color: var(--fourthColor);
+.styleUl li :focus {
   font-weight: bold;
   color: var(--thirdColor);
 }
 .active {
+  border-radius: 50%;
   border: 3px solid var(--secondaryColor);
   background-color: var(--fourthColor);
   font-weight: bold;

@@ -4,6 +4,7 @@ var React = require('react');
 var React__default = _interopDefault(React);
 var Draggable = _interopDefault(require('react-draggable'));
 var reactGoogleCharts = require('react-google-charts');
+var uuid = require('uuid');
 
 var AudioBar = function AudioBar(_ref) {
   var id = _ref.id,
@@ -3963,7 +3964,8 @@ Modal.defaultProps = {
 var cssNavbar = {"menuContainer":"_1O8g7","menuResponsive":"_2t5N4","ulMenu":"_3GtQQ","styleBtn":"_8TzwT","styleUlMenu":"_1J1dN","styleUlAcc":"_2luFu","styleUlHelp":"_3J7fz","styleLi":"_2FQig","stylelinks":"_1-rcw","styleLink":"_uX2AO","styleNumber":"_6Gdkr","styleSubLi":"_1t9Uz","styleBtns":"_pyjf0","segundoMenu":"_3okIe","positionUlRelative":"_MrthX","spanText":"_o6aML","iconRight":"_pORcv","ulMenuAct":"_1MnK5"};
 
 function NavBar(_ref) {
-  var _ref$hrefInicio = _ref.hrefInicio,
+  var contentOva = _ref.contentOva,
+      _ref$hrefInicio = _ref.hrefInicio,
       hrefInicio = _ref$hrefInicio === void 0 ? '#' : _ref$hrefInicio;
 
   var _useState = React.useState(false),
@@ -3986,41 +3988,21 @@ function NavBar(_ref) {
       menuResponsive = _useState5[0],
       setMenuResponsive = _useState5[1];
 
-  var content = [{
+  var content = (contentOva || [{
     name: 'primero',
-    url: '#'
+    link: /*#__PURE__*/React__default.createElement("a", {
+      href: "#"
+    }, /*#__PURE__*/React__default.createElement("strong", null, "01 ."), /*#__PURE__*/React__default.createElement("span", null, "Primero"))
   }, {
     name: 'segundo',
-    url: '#'
-  }, {
-    name: 'tercero',
-    url: '#'
-  }, {
-    name: 'cuarto',
-    url: '#'
-  }, {
-    name: 'quinto',
-    url: '#'
-  }].map(function (enlaces, i) {
-    if (i < 9) {
-      return /*#__PURE__*/React__default.createElement("li", {
-        className: cssNavbar['styleLi']
-      }, /*#__PURE__*/React__default.createElement("a", {
-        href: enlaces.url,
-        className: cssNavbar['stylelinks']
-      }, /*#__PURE__*/React__default.createElement("span", {
-        className: cssNavbar['styleNumber']
-      }, "0" + (i + 1) + ".", " "), enlaces.name));
-    } else {
-      return /*#__PURE__*/React__default.createElement("li", {
-        className: cssNavbar['styleLi']
-      }, /*#__PURE__*/React__default.createElement("a", {
-        href: enlaces.url,
-        className: cssNavbar['stylelinks']
-      }, /*#__PURE__*/React__default.createElement("span", {
-        className: cssNavbar['styleNumber']
-      }, i + 1 + ".", " "), enlaces.name));
-    }
+    link: /*#__PURE__*/React__default.createElement("a", {
+      href: "#"
+    }, /*#__PURE__*/React__default.createElement("strong", null, "02 ."), /*#__PURE__*/React__default.createElement("span", null, "segundo"))
+  }]).map(function (enlaces, i) {
+    return /*#__PURE__*/React__default.createElement("li", {
+      key: uuid.v4(),
+      className: cssNavbar['styleLi']
+    }, enlaces.link);
   });
 
   var handleClickDropdown = function handleClickDropdown(state, setState) {
@@ -4405,15 +4387,12 @@ var Pagination = function Pagination(_ref) {
 
   var page = pagOva.map(function (item, i) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$w.styleLi
-    }, /*#__PURE__*/React__default.createElement("a", {
-      key: window.self.crypto.randomUUID(),
-      href: item.url,
+      key: uuid.v4(),
       className: "" + (currentPage === i && css$w.active),
       onClick: function onClick() {
         setCurrentPage(i);
       }
-    }, i + 1));
+    }, item.link ? item.link : /*#__PURE__*/React__default.createElement("a", null, i + 1));
   });
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("footer", null, /*#__PURE__*/React__default.createElement("ul", {
     className: css$w.styleUl
@@ -4825,9 +4804,12 @@ var Carrousel = function Carrousel(_ref, _ref2) {
 var cssHeader = {"container":"_IFjB0"};
 
 function Header(_ref) {
+  var paths = _ref.paths;
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("header", {
     className: cssHeader.container
-  }, /*#__PURE__*/React__default.createElement(Logo, null), /*#__PURE__*/React__default.createElement(NavBar, null), /*#__PURE__*/React__default.createElement(UserLogin, null)));
+  }, /*#__PURE__*/React__default.createElement(Logo, null), /*#__PURE__*/React__default.createElement(NavBar, {
+    contentOva: paths
+  }), /*#__PURE__*/React__default.createElement(UserLogin, null)));
 }
 
 var _excluded$f = ["tabs", "panels"];
