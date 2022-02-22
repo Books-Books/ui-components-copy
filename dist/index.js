@@ -2762,121 +2762,6 @@ var TabPanel = function TabPanel(props) {
   }, other), value === index && /*#__PURE__*/React__default.createElement("div", null, children));
 };
 
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-var speechRecognitionList = new SpeechGrammarList();
-var recognition = new SpeechRecognition();
-var RecognitionVoice = function RecognitionVoice(_ref) {
-  var setdata = _ref.setdata,
-      validate = _ref.validate,
-      childrenProp = _ref.children,
-      _ref$disabled = _ref.disabled,
-      disabled = _ref$disabled === void 0 ? '' : _ref$disabled,
-      _ref$styledButton = _ref.styledButton,
-      styledButton = _ref$styledButton === void 0 ? 'secondary-icon' : _ref$styledButton,
-      onRecord = _ref.onRecord;
-  var micOnIcon = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "48",
-    height: "48",
-    viewBox: "0 0 24 24",
-    "aria-hidden": "true",
-    className: "svg-icon",
-    focusable: "false"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    d: "M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15a.998.998 0 00-.98-.85c-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08a6.993 6.993 0 005.91-5.78c.1-.6-.39-1.14-1-1.14z"
-  }));
-  var micOffIcon = /*#__PURE__*/React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: "48",
-    height: "48",
-    viewBox: "0 0 24 24",
-    "aria-hidden": "true",
-    className: "svg-icon",
-    focusable: "false"
-  }, /*#__PURE__*/React__default.createElement("path", {
-    d: "M15 10.6V5c0-1.66-1.34-3-3-3-1.54 0-2.79 1.16-2.96 2.65L15 10.6zm3.08.4c-.41 0-.77.3-.83.71-.05.32-.12.64-.22.93l1.27 1.27c.3-.6.52-1.25.63-1.94a.857.857 0 00-.85-.97zM3.71 3.56a.996.996 0 000 1.41L9 10.27v.43c0 1.19.6 2.32 1.63 2.91.75.43 1.41.44 2.02.31l1.66 1.66c-.71.33-1.5.52-2.31.52-2.54 0-4.88-1.77-5.25-4.39a.839.839 0 00-.83-.71c-.52 0-.92.46-.85.97.46 2.96 2.96 5.3 5.93 5.75V20c0 .55.45 1 1 1s1-.45 1-1v-2.28a7.13 7.13 0 002.55-.9l3.49 3.49a.996.996 0 101.41-1.41L5.12 3.56a.996.996 0 00-1.41 0z"
-  }));
-
-  var _useState = React.useState('record'),
-      action = _useState[0],
-      setAction = _useState[1];
-
-  var _useState2 = React.useState(''),
-      diagnostic = _useState2[0],
-      setDiagnostic = _useState2[1];
-
-  var GRAMMAR = "#JSGF V1.0; grammar ; public <command> = " + (validate || '') + " ;";
-  var transcript;
-
-  recognition.onresult = function (_ref2) {
-    var results = _ref2.results;
-    transcript = results;
-  };
-
-  recognition.onnomatch = function (event) {
-    setDiagnostic("I didn't recognise that color.");
-  };
-
-  recognition.onerror = function (event) {
-    setDiagnostic('Error occurred in recognition: ' + event.error);
-  };
-
-  var runSpeechRecognition = function runSpeechRecognition() {
-    speechRecognitionList.addFromString(GRAMMAR, 1);
-    recognition.grammars = speechRecognitionList;
-    recognition.continuous = true;
-    recognition.lang = 'en-US';
-    recognition.interimResults = true;
-    recognition.maxAlternatives = 1;
-
-    if (action === 'record') {
-      recognition.start();
-      onRecord && onRecord(true);
-      setAction('listening');
-    } else {
-      onRecord && onRecord(false);
-      stopRecording();
-    }
-  };
-
-  var stopRecording = function stopRecording() {
-    if (transcript) {
-      var strText = '';
-      transcript = Array.from(transcript);
-      transcript.forEach(function (element) {
-        strText += element[0].transcript;
-      });
-      console.log('DESDE UI', strText);
-      setdata && setdata(strText);
-    }
-
-    recognition.stop();
-    setAction('record');
-  };
-
-  React.useEffect(function () {
-    GRAMMAR = "#JSGF V1.0; grammar ; public <command> = " + (validate || '') + " ;";
-  }, [validate]);
-  var children = React.Children.map(childrenProp, function (child) {
-    if (!React.isValidElement(child)) {
-      return null;
-    }
-
-    return React__default.cloneElement(child, {
-      children: diagnostic
-    });
-  });
-  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(Button, {
-    type: "button",
-    onClick: runSpeechRecognition,
-    label: action === 'record' ? 'Realizar grabación' : 'Detener grabación',
-    disabled: disabled,
-    styled: styledButton,
-    hasAriaLabel: true
-  }, action === 'record' ? micOnIcon : micOffIcon), children && children);
-};
-
 var css$f = {"section":"_Nahni","fadeInDown":"_BDs2n"};
 
 var _excluded$9 = ["children", "value", "index", "label", "addClass"];
@@ -5066,7 +4951,6 @@ exports.Pagination = Pagination;
 exports.PaginationInternal = PaginationInternal;
 exports.PanelSection = PanelSection;
 exports.PanelTabs = PanelTabs;
-exports.RecognitionVoice = RecognitionVoice;
 exports.Row = Row;
 exports.Section = Section;
 exports.Select = Select;
