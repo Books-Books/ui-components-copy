@@ -2238,13 +2238,21 @@ figure {
   box-shadow: var(--boxModal);
   z-index: 5;
   position: fixed;
-  transition: 0.4s;
-  top: -100vh;
-  left: 10vw;
-  right: 10vw;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 80vw;
+  margin-inline: auto;
   background-color: var(--backgroundModal);
   border-radius: 1em;
   border: 4px solid var(--secondaryColor);
+  transform: translate(-100vw, -50%);
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  ._6eOcM {
+    transition: 0.6s;
+  }
 }
 
 ._6eOcM::before {
@@ -2262,9 +2270,9 @@ figure {
   position: fixed;
   background-color: var(--colorOverlay);
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
+  width: 100vw;
+  height: 100vh;
   opacity: 0.6;
   z-index: 2;
   display: none;
@@ -2287,8 +2295,7 @@ figure {
 }
 
 ._2MLWh {
-  top: 50%;
-  transform: translateY(-50%);
+  transform: translate(0, -50%);
 }
 
 ._3cuWD {
