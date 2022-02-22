@@ -706,6 +706,12 @@ svg[hide='false'] {
   padding: 10px;
   position: relative;
 }
+
+._1HoJe img {
+  display: block;
+  max-width: 100%;
+}
+
 [data-style='1'] {
   border: solid 1px var(--tertiaryColor);
 }
