@@ -4,10 +4,9 @@
   border-radius: 0px 0px 20px 20px;
   box-sizing: border-box;
   display: flex;
-  height: 90px;
+  padding: 1em;
   justify-content: space-between;
   opacity: 1;
-  width: 700px;
 }
 .menuResponsive {
   color: var(--textColor);
@@ -16,6 +15,7 @@
 }
 .ulMenu {
   display: flex;
+  flex-flow: row;
   justify-content: center;
   align-items: center;
   padding: 0 30px;
@@ -59,9 +59,14 @@
 }
 .styleLi {
   cursor: pointer;
-  padding: 13px 20px;
-  height: 25px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  padding: 1em 3em;
+  min-height: 2em;
 }
+
+.styleLi:focus-within a,
 .styleLi:focus-within .stylelinks {
   outline: 0.1875rem solid transparent;
   outline-offset: 0.1875rem;
@@ -91,7 +96,8 @@
   outline: 0.1875rem solid black;
   outline-offset: 0.25rem;
 }
-.stylelinks {
+.stylelinks,
+.styleLi > a {
   display: block;
   text-decoration: none;
   color: black;
@@ -110,7 +116,9 @@
 .styleSubLi:focus-within {
   background-color: var(--tertiaryColor);
 }
+.styleLi:hover a,
 .styleLi:hover .stylelinks,
+.styleLi:focus-within a,
 .styleLi:focus-within .stylelinks {
   color: white;
 }

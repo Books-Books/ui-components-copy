@@ -11,12 +11,12 @@ import cssHeader from './Header.module.css'
  * - addClass: para agregar nuevas classes
  * - Nota: cada componente invocado recibe los parametros ya nombrados en cada uno de ellos.
  **/
-export function Header({ addClass }) {
+export function Header({ addClass, paths }) {
   return (
     <Fragment>
       <header className={cssHeader.container}>
         <Logo />
-        <NavBar />
+        <NavBar contentOva={paths}/>
         <UserLogin />
       </header>
     </Fragment>

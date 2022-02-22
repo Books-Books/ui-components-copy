@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react'
+import { v4 as uuid } from 'uuid';
 import { Button, ContrastFilters } from '../../atoms'
 import { DarkThemeToggle } from '../../atoms/DarkThemeToggle'
 import { Dropdown } from '../../atoms/Dropdown'
@@ -24,49 +25,15 @@ export function NavBar({
   const [menuResponsive, setMenuResponsive] = useState(false)
 
   //Función para listar las rutas de la ova "props = contentOva"
-  const content = [
-    {
-      name: 'primero',
-      url: '#'
-    },
-    {
-      name: 'segundo',
-      url: '#'
-    },
-    {
-      name: 'tercero',
-      url: '#'
-    },
-    {
-      name: 'cuarto',
-      url: '#'
-    },
-    {
-      name: 'quinto',
-      url: '#'
-    }
-  ].map((enlaces, i) => {
-    if (i < 9) {
-      //If para que los primeros enlaces contengan el 01 - 09
+  const content = (contentOva || [{ name: 'primero', link: <a href='#'><strong>01 .</strong><span>Primero</span></a> }, { name: 'segundo', link: <a href='#'><strong>02 .</strong><span>segundo</span></a> }])
+    .map((enlaces, i) => {
       return (
-        <li className={cssNavbar['styleLi']}>
-          <a href={enlaces.url} className={cssNavbar['stylelinks']}>
-            <span className={cssNavbar['styleNumber']}>{`0${i + 1}.`} </span>
-            {enlaces.name}
-          </a>
+        <li key={uuid()} className={cssNavbar['styleLi']}>
+          {enlaces.link}
         </li>
       )
-    } else {
-      return (
-        <li className={cssNavbar['styleLi']}>
-          <a href={enlaces.url} className={cssNavbar['stylelinks']}>
-            <span className={cssNavbar['styleNumber']}>{`${i + 1}.`} </span>
-            {enlaces.name}
-          </a>
-        </li>
-      )
-    }
-  })
+    })
+
   //funcion que cambia los estados de cada menú desplegable
   const handleClickDropdown = (state, setState) => {
     setDropdownMenu(false)

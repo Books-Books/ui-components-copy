@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react'
+import { v4 as uuid } from 'uuid';
 import { Button } from '../../atoms/Button'
 import css from './Pagination.module.css'
 
@@ -33,17 +34,12 @@ export const Pagination = ({
   }
 
   const page = pagOva.map((item, i) => (
-    <li className={css.styleLi}>
-      <a
-        key={window.self.crypto.randomUUID()}
-        href={item.url}
-        className={`${currentPage === i && css.active}`} //cuando hacemos el click en el enlace se activa el focus
-        onClick={() => {
-          setCurrentPage(i)
-        }}
-      >
-        {i + 1}
-      </a>
+    <li key={uuid()}
+      className={`${currentPage === i && css.active}`} 
+      onClick={() => {
+        setCurrentPage(i)
+      }}>
+        {item.link ? item.link : <a>{i + 1}</a>}
     </li>
   ))
 
