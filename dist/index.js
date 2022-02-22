@@ -1993,7 +1993,7 @@ var Inicio = function Inicio(_ref) {
     className: css$8.styleTitle
   }, /*#__PURE__*/React__default.createElement("h1", null, title)), /*#__PURE__*/React__default.createElement("div", {
     className: css$8.styleSubTitle
-  }, /*#__PURE__*/React__default.createElement("p", null, subTitle)), /*#__PURE__*/React__default.createElement(Button, {
+  }, /*#__PURE__*/React__default.createElement("p", null, /*#__PURE__*/React__default.createElement("strong", null, subTitle))), /*#__PURE__*/React__default.createElement(Button, {
     label: "Iniciar",
     hasAriaLabel: false,
     addClass: css$8.styleBtn,

@@ -34,7 +34,9 @@ export const Inicio = ({
             <h1>{title}</h1>
           </div>
           <div className={css.styleSubTitle}>
-            <p>{subTitle}</p>
+            <p>
+              <strong>{subTitle}</strong>
+            </p>
           </div>
           <Button
             label='Iniciar'
