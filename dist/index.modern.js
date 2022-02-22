@@ -1954,7 +1954,9 @@ var Image = function Image(_ref) {
   }, /*#__PURE__*/React__default.createElement("div", {
     className: css$7.containerImg,
     "data-style": dataStyle,
-    style: "max-width:" + width + "px"
+    style: {
+      maxWidth: width + "px"
+    }
   }, /*#__PURE__*/React__default.createElement("img", {
     src: imgToSee,
     onError: onError,

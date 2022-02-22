@@ -39,7 +39,7 @@ export const Image = ({
         <div
           className={css.containerImg}
           data-style={dataStyle}
-          style={`max-width:${width}px`}
+          style={{ maxWidth: `${width}px` }}
         >
           <img
             src={imgToSee}

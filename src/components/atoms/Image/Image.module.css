@@ -14,7 +14,6 @@ figure {
 }
 .containerImg {
   margin: 0 auto;
-  min-width: 350px;
 }
 @media (max-width: 480px) {
   .containerImg {
