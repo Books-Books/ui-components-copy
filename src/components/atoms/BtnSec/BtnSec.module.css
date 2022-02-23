@@ -30,10 +30,10 @@
   }
 }
 
-/* .BtnSec:focus {
+.BtnSec:focus {
   outline: 0.125rem solid #edb629;
   outline-offset: 0.1875rem;
-} */
+}
 
 .BtnSec[aria-selected='true'] {
   background: var(--thirdColor);

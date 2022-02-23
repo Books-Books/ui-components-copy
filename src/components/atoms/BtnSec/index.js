@@ -65,7 +65,6 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
         {...other}
       >
         <span className='sr-only'>Sección {label}</span>
-        <span aria-hidden='true'>{label}</span>
       </a>
     </li>
   )

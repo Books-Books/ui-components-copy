@@ -288,10 +288,10 @@ html._2_x81 video {
   }
 }
 
-/* .BtnSec:focus {
+._2eAZu:focus {
   outline: 0.125rem solid #edb629;
   outline-offset: 0.1875rem;
-} */
+}
 
 ._2eAZu[aria-selected='true'] {
   background: var(--thirdColor);

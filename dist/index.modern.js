@@ -109,9 +109,7 @@ var BtnSec = forwardRef(function BtnSec(props, ref) {
     value: value + 1
   }, other), /*#__PURE__*/React__default.createElement("span", {
     className: "sr-only"
-  }, "Secci\xF3n ", label), /*#__PURE__*/React__default.createElement("span", {
-    "aria-hidden": "true"
-  }, label)));
+  }, "Secci\xF3n ", label)));
 });
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
