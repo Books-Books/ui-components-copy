@@ -23,7 +23,7 @@ export const Modal = ({
   hasImage = false,
   url,
   alt,
-  title,
+  imgTitle,
   typeImg,
   dataStyle
 }) => {
@@ -91,7 +91,7 @@ export const Modal = ({
               url={url}
               alt={alt}
               dataStyle={dataStyle}
-              title={title}
+              title={imgTitle}
               typeImg={typeImg}
             />
           </button>

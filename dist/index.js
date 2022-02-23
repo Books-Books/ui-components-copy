@@ -3861,7 +3861,10 @@ var Modal = function Modal(_ref) {
       _ref$hasImage = _ref.hasImage,
       hasImage = _ref$hasImage === void 0 ? false : _ref$hasImage,
       url = _ref.url,
-      alt = _ref.alt;
+      alt = _ref.alt,
+      imgTitle = _ref.imgTitle,
+      typeImg = _ref.typeImg,
+      dataStyle = _ref.dataStyle;
 
   var _useState = React.useState(false),
       getModal = _useState[0],
@@ -3915,7 +3918,10 @@ var Modal = function Modal(_ref) {
     "aria-label": label
   }, /*#__PURE__*/React__default.createElement(Image, {
     url: url,
-    alt: alt
+    alt: alt,
+    dataStyle: dataStyle,
+    title: imgTitle,
+    typeImg: typeImg
   })) : /*#__PURE__*/React__default.createElement(Button, {
     label: label,
     styled: styled,
