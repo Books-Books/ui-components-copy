@@ -22,7 +22,10 @@ export const Modal = ({
   text,
   hasImage = false,
   url,
-  alt
+  alt,
+  title,
+  typeImg,
+  dataStyle
 }) => {
   const [getModal, setModal] = useState(false)
   const refModal = createRef()
@@ -84,7 +87,13 @@ export const Modal = ({
             onClick={handleModal}
             aria-label={label}
           >
-            <Image url={url} alt={alt} />
+            <Image
+              url={url}
+              alt={alt}
+              dataStyle={dataStyle}
+              title={title}
+              typeImg={typeImg}
+            />
           </button>
         ) : (
           <Button
