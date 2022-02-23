@@ -7,6 +7,9 @@ figure {
   width: 80%;
   margin-inline: auto;
 }
+img {
+  width: 100%;
+}
 
 .containerImg img {
   display: block;

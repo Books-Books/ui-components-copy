@@ -711,6 +711,9 @@ figure {
   width: 80%;
   margin-inline: auto;
 }
+img {
+  width: 100%;
+}
 
 ._1HoJe img {
   display: block;
