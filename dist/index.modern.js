@@ -3859,7 +3859,8 @@ var Modal = function Modal(_ref) {
       alt = _ref.alt,
       imgTitle = _ref.imgTitle,
       typeImg = _ref.typeImg,
-      dataStyle = _ref.dataStyle;
+      dataStyle = _ref.dataStyle,
+      width = _ref.width;
 
   var _useState = useState(false),
       getModal = _useState[0],
@@ -3916,7 +3917,8 @@ var Modal = function Modal(_ref) {
     alt: alt,
     dataStyle: dataStyle,
     title: imgTitle,
-    typeImg: typeImg
+    typeImg: typeImg,
+    width: width
   })) : /*#__PURE__*/React__default.createElement(Button, {
     label: label,
     styled: styled,
