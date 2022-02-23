@@ -1458,7 +1458,7 @@ var ContrastFilters = function ContrastFilters() {
     height: "99999",
     filterUnits: "objectBoundingBox",
     primitiveUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
+    colorInterpolationFilters: "sRGB"
   }, /*#__PURE__*/React__default.createElement("feColorMatrix", {
     type: "matrix",
     values: "                        .33 .33 .33 0 0                        .33 .33 .33 0 0                        .33 .33 .33 0 0                        0 0 0 1 0",
@@ -1522,7 +1522,7 @@ var ContrastFilters = function ContrastFilters() {
     height: "99999",
     filterUnits: "objectBoundingBox",
     primitiveUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
+    colorInterpolationFilters: "sRGB"
   }, /*#__PURE__*/React__default.createElement("feColorMatrix", {
     type: "matrix",
     values: ".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0",
@@ -1586,7 +1586,7 @@ var ContrastFilters = function ContrastFilters() {
     height: "99999",
     filterUnits: "objectBoundingBox",
     primitiveUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
+    colorInterpolationFilters: "sRGB"
   }, /*#__PURE__*/React__default.createElement("feColorMatrix", {
     type: "matrix",
     values: ".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0",
@@ -1650,7 +1650,7 @@ var ContrastFilters = function ContrastFilters() {
     height: "99999",
     filterUnits: "objectBoundingBox",
     primitiveUnits: "userSpaceOnUse",
-    "color-interpolation-filters": "sRGB"
+    colorInterpolationFilters: "sRGB"
   }, /*#__PURE__*/React__default.createElement("feColorMatrix", {
     type: "matrix",
     values: ".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0",
@@ -1907,8 +1907,6 @@ var Text = function Text(_ref) {
     span: 'span'
   };
   var Component = DefaultValue[type];
-  console.log(Component);
-  console.log(type);
   return /*#__PURE__*/React__default.createElement(Component, _extends({
     className: css$6.Typography + " " + addClass,
     type: type
@@ -1983,7 +1981,8 @@ var Inicio = function Inicio(_ref) {
       title = _ref$title === void 0 ? 'Nombre del Ova' : _ref$title,
       _ref$subTitle = _ref.subTitle,
       subTitle = _ref$subTitle === void 0 ? 'Nombre del curso' : _ref$subTitle,
-      addClass = _ref.addClass;
+      addClass = _ref.addClass,
+      handleBtnClick = _ref.handleBtnClick;
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("section", {
     className: css$8.styleInit + " " + addClass
   }, /*#__PURE__*/React__default.createElement("div", {
@@ -2001,9 +2000,7 @@ var Inicio = function Inicio(_ref) {
     label: "Iniciar",
     hasAriaLabel: false,
     addClass: css$8.styleBtn,
-    onClick: function onClick() {
-      return console.log('accion del btn');
-    }
+    onClick: handleBtnClick
   })), /*#__PURE__*/React__default.createElement("div", {
     className: css$8.imgDownRight
   }, /*#__PURE__*/React__default.createElement("img", {
@@ -2620,7 +2617,8 @@ var imageFileColor = "logoColor~YdajiTZy.svg";
 var cssLogo = {"imgLogo":"_2oas0"};
 
 function Logo(_ref) {
-  var typeLogo = _ref.typeLogo,
+  var src = _ref.src,
+      typeLogo = _ref.typeLogo,
       addClass = _ref.addClass;
 
   var setLogo = function setLogo(typeLogo) {
@@ -2634,7 +2632,7 @@ function Logo(_ref) {
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("div", {
     className: "" + addClass
   }, /*#__PURE__*/React__default.createElement("img", {
-    src: setLogo(typeLogo),
+    src: src ? src : setLogo(typeLogo),
     className: cssLogo['imgLogo']
   })));
 }

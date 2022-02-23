@@ -11,7 +11,7 @@ import cssLogo from './Logo.module.css'
  * - typeLogo: recibe dos tipos de logo "logoCover" o "logoPage"
  * - addClass: para ingresar clases adicionales.
  **/
-export function Logo({ typeLogo, addClass }) {
+export function Logo({ src, typeLogo, addClass }) {
   const setLogo = (typeLogo) => {
     if (typeLogo == 'logoCover') {
       return imageFile
@@ -22,7 +22,7 @@ export function Logo({ typeLogo, addClass }) {
   return (
     <Fragment>
       <div className={`${addClass}`}>
-        <img src={setLogo(typeLogo)} className={cssLogo['imgLogo']} />
+        <img src={src ? src : setLogo(typeLogo)} className={cssLogo['imgLogo']} />
       </div>
     </Fragment>
   )

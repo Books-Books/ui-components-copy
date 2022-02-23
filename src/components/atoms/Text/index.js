@@ -18,9 +18,6 @@ export const Text = ({ type = 'p', children = 'hola', addClass, ...args }) => {
 
   const Component = DefaultValue[type]
 
-  console.log(Component)
-  console.log(type)
-
   return (
     <Component
       className={`${css.Typography} ${addClass}`}

@@ -21,7 +21,8 @@ export const Inicio = ({
   altDown,
   title = 'Nombre del Ova',
   subTitle = 'Nombre del curso',
-  addClass
+  addClass,
+  handleBtnClick
 }) => {
   return (
     <Fragment>
@@ -42,7 +43,7 @@ export const Inicio = ({
             label='Iniciar'
             hasAriaLabel={false}
             addClass={css.styleBtn}
-            onClick={() => console.log('accion del btn')}
+            onClick={handleBtnClick}
           />
         </article>
         <div className={css.imgDownRight}>

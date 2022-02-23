@@ -178,7 +178,7 @@ export const ContrastFilters = () => {
             height='99999'
             filterUnits='objectBoundingBox'
             primitiveUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
             <feColorMatrix
               type='matrix'
@@ -240,7 +240,7 @@ export const ContrastFilters = () => {
             height='99999'
             filterUnits='objectBoundingBox'
             primitiveUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
             <feColorMatrix
               type='matrix'
@@ -302,7 +302,7 @@ export const ContrastFilters = () => {
             height='99999'
             filterUnits='objectBoundingBox'
             primitiveUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
             <feColorMatrix
               type='matrix'
@@ -364,7 +364,7 @@ export const ContrastFilters = () => {
             height='99999'
             filterUnits='objectBoundingBox'
             primitiveUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
             <feColorMatrix
               type='matrix'

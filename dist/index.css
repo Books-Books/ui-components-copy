@@ -1331,8 +1331,9 @@ img {
 }
 
 ._2oas0 {
-  width: 237px;
-  height: 75px;
+  width: 12rem;
+  max-width: 200px;
+  height: 100%;
 }
 
 ._a9LbG {
