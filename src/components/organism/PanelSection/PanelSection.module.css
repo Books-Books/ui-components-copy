@@ -1,6 +1,7 @@
 .Section {
   width: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column-reverse;
   /* gap: 1em; */
   grid-template: 1fr / auto 1fr;
   /* min-height: calc(100vh - 11rem); */
