@@ -25,7 +25,8 @@ export const Modal = ({
   alt,
   imgTitle,
   typeImg,
-  dataStyle
+  dataStyle,
+  width
 }) => {
   const [getModal, setModal] = useState(false)
   const refModal = createRef()
@@ -93,6 +94,7 @@ export const Modal = ({
               dataStyle={dataStyle}
               title={imgTitle}
               typeImg={typeImg}
+              width={width}
             />
           </button>
         ) : (
