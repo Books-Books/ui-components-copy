@@ -40,6 +40,7 @@
 }
 
 .CheckCont:focus-within .CheckBg {
+  --outline-color: var(--tertiaryColor);
   outline: 0.125rem solid var(--outline-color);
   outline-offset: 0.1875rem;
 }
@@ -156,8 +157,8 @@
 }
 
 .InputStyled:checked ~ .CheckBg {
-  border-color: var(--primaryColor);
-  background-color: var(--primaryColor);
+  border-color: var(--tertiaryColor);
+  background-color: var(--tertiaryColor);
 }
 
 .InputStyled:checked ~ .CheckBg span[aria-hidden='true'] {
@@ -181,9 +182,9 @@
 
 /* input succes */
 
-.input-succes {
+/* .input-succes {
   border-color: var(--tertiaryColor);
-}
+} */
 
 .InputStyled[data-state='Succes']:checked ~ .CheckBg {
   --outline-color: var(--coloSuccesInput);

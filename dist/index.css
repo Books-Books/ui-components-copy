@@ -997,6 +997,7 @@ img {
 }
 
 ._WN9au:focus-within ._3z4b_ {
+  --outline-color: var(--tertiaryColor);
   outline: 0.125rem solid var(--outline-color);
   outline-offset: 0.1875rem;
 }
@@ -1113,8 +1114,8 @@ img {
 }
 
 ._1isCe:checked ~ ._3z4b_ {
-  border-color: var(--primaryColor);
-  background-color: var(--primaryColor);
+  border-color: var(--tertiaryColor);
+  background-color: var(--tertiaryColor);
 }
 
 ._1isCe:checked ~ ._3z4b_ span[aria-hidden='true'] {
@@ -1138,9 +1139,9 @@ img {
 
 /* input succes */
 
-._3GadY {
+/* .input-succes {
   border-color: var(--tertiaryColor);
-}
+} */
 
 ._1isCe[data-state='Succes']:checked ~ ._3z4b_ {
   --outline-color: var(--coloSuccesInput);

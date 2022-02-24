@@ -2381,7 +2381,7 @@ InputAction.defaultProps = {
   onClick: undefined
 };
 
-var css$a = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckBg":"_3z4b_","CheckLabel":"_10bHL","CheckTrack":"_2QBZ5","input-error":"_8exJT","input-succes":"_3GadY"};
+var css$a = {"InputStyled":"_1isCe","InputCont":"_1YikN","CheckCont":"_WN9au","CheckBg":"_3z4b_","CheckLabel":"_10bHL","CheckTrack":"_2QBZ5","input-error":"_8exJT"};
 
 var _excluded$6 = ["type", "label", "stateInput", "name", "addClass"];
 var InputControl = function InputControl(_ref) {
