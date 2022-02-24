@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BtnSec } from '../../atoms'
+import { BtnSec, Button } from '../../atoms'
 import { AsideSection } from '../../molecules'
 import css from './PanelSection.module.css'
 
@@ -32,17 +32,41 @@ const PanelSection = ({
 
   return (
     <div className={css.Section} {...others}>
-      <AsideSection value={value} onChange={handleChange}>
-        {tabs &&
-          tabs.map((elem, i) => (
-            <BtnSec
-              href={elem.url}
-              label={elem.label}
-              key={elem.id}
-              setValue={FunctValue}
+      <div className={css.direccion}>
+        <span>
+          {
+            tabs?.length && `${value + 1}/${tabs.length}`
+          }
+        </span>
+        <div className={css["direccion-content"]}>
+          {
+            tabs && <Button
+              className={`${css.styleBtn} ${value > 0 && css.active}`}
+              onClick={() => { setValue(value => value - 1) }}
+              icon='chevron_left'
             />
-          ))}
-      </AsideSection>
+          }
+          <AsideSection value={value} onChange={handleChange}>
+            {tabs &&
+              tabs.map((elem, i) => (
+                <BtnSec
+                  href={elem.url}
+                  label={elem.label}
+                  key={elem.id}
+                  setValue={FunctValue}
+                  addClass={css.styleBtnSec}
+                />
+              ))}
+          </AsideSection>
+          {
+            tabs && <Button
+              className={`${css.styleBtn} ${(value + 1) < tabs.length && css.active}`}
+              onClick={() => { setValue(value => value + 1) }}
+              icon='chevron_right'
+            />
+          }
+        </div>
+      </div>
       {children}
     </div>
   )

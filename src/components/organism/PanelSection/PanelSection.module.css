@@ -8,9 +8,65 @@
   align-items: center;
   justify-items: center;
 }
+.direccion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.direccion > span {
+  color: var(--textColor);
+  letter-spacing: 1px;
+  margin-right: 10px;
+}
+.direccion-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+.styleBtn {
+  margin: 0px 10px;
+  background-color: var(--tertiaryColor) !important;
+  box-shadow: none !important;
+  border: none;
+  cursor: pointer;
+  color: var(--thirdColor);
+  border-radius: 50%;
+  width: 25px !important;
+  height: 25px !important;
+  padding-left: 0px;
+  visibility: hidden;
+}
+.styleBtn span{
+  font-size: 22px;
+  width: 27px;
+  color: var(--thirdColor);
+}
+
+.styleBtnSec{
+  margin: 0.5rem;
+}
+
+.active{
+  visibility: visible;
+}
 
 @media screen and (max-width: 30em) {
   .Section {
     grid-template: auto 1fr / 1fr;
+  }
+  
+}
+
+@media screen and (max-width: 599px) {
+  .direccion{
+    display: grid !important;
+    flex-flow: column;
+    text-align: center;
+  }
+  .direccion-content {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto;
+    gap: 0em;
   }
 }

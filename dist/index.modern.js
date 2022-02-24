@@ -4410,7 +4410,7 @@ var Pagination = function Pagination(_ref) {
   })))));
 };
 
-var css$x = {"Section":"_2biAj"};
+var css$x = {"Section":"_2biAj","direccion":"_2vXBH","direccion-content":"_2qKp9","styleBtn":"_3kPBa","styleBtnSec":"_3kaag","active":"_3C_KA"};
 
 var _excluded$d = ["children", "tabs", "FunctValue"];
 
@@ -4443,7 +4443,19 @@ var PanelSection = function PanelSection(_ref) {
   });
   return /*#__PURE__*/React__default.createElement("div", _extends({
     className: css$x.Section
-  }, others), /*#__PURE__*/React__default.createElement(AsideSection, {
+  }, others), /*#__PURE__*/React__default.createElement("div", {
+    className: css$x.direccion
+  }, /*#__PURE__*/React__default.createElement("span", null, (tabs === null || tabs === void 0 ? void 0 : tabs.length) && value + 1 + "/" + tabs.length), /*#__PURE__*/React__default.createElement("div", {
+    className: css$x["direccion-content"]
+  }, tabs && /*#__PURE__*/React__default.createElement(Button, {
+    className: css$x.styleBtn + " " + (value > 0 && css$x.active),
+    onClick: function onClick() {
+      setValue(function (value) {
+        return value - 1;
+      });
+    },
+    icon: "chevron_left"
+  }), /*#__PURE__*/React__default.createElement(AsideSection, {
     value: value,
     onChange: handleChange
   }, tabs && tabs.map(function (elem, i) {
@@ -4451,9 +4463,18 @@ var PanelSection = function PanelSection(_ref) {
       href: elem.url,
       label: elem.label,
       key: elem.id,
-      setValue: FunctValue
+      setValue: FunctValue,
+      addClass: css$x.styleBtnSec
     });
-  })), children);
+  })), tabs && /*#__PURE__*/React__default.createElement(Button, {
+    className: css$x.styleBtn + " " + (value + 1 < tabs.length && css$x.active),
+    onClick: function onClick() {
+      setValue(function (value) {
+        return value + 1;
+      });
+    },
+    icon: "chevron_right"
+  }))), children);
 };
 
 var css$y = {"direccion":"_3mwMs"};
