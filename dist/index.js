@@ -2648,11 +2648,15 @@ Logo.defaultProps = {
 
 var ModalButton = function ModalButton(_ref) {
   var openModal = _ref.openModal;
-  return /*#__PURE__*/React__default.createElement("button", {
+  return /*#__PURE__*/React__default.createElement(Fragment, null, /*#__PURE__*/React__default.createElement("button", {
     onClick: function onClick(event) {
       return openModal(event);
     }
-  }, "Abrir modal");
+  }, "Abrir modal"), /*#__PURE__*/React__default.createElement("div", {
+    role: "dialog",
+    id: "modalTest",
+    tabIndex: "0"
+  }, "Modal"));
 };
 
 var css$d = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
