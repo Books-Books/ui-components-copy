@@ -1,10 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { openModal } from '../../../helpers/openModal'
+import { Button } from '../Button'
 
-export const ModalButton = ({ id }) => {
+export const ModalButton = ({ label, id }) => {
   return (
-    <Fragment>
-      <button onClick={() => openModal(id)}>Abrir modal</button>
-    </Fragment>
+    <Button hasAriaLabel={false} label={label} onClick={() => openModal(id)} />
   )
 }

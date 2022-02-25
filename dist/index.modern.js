@@ -2644,18 +2644,21 @@ Logo.defaultProps = {
 };
 
 var openModal = function openModal(id) {
-  var modal = document.getElementById(id);
+  var modal = document.getElementById("modal" + id);
   modal.hidden = false;
   modal.focus();
 };
 
 var ModalButton = function ModalButton(_ref) {
-  var id = _ref.id;
-  return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("button", {
+  var label = _ref.label,
+      id = _ref.id;
+  return /*#__PURE__*/React__default.createElement(Button, {
+    hasAriaLabel: false,
+    label: label,
     onClick: function onClick() {
       return openModal(id);
     }
-  }, "Abrir modal"));
+  });
 };
 
 var css$d = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
