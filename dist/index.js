@@ -2646,7 +2646,8 @@ Logo.defaultProps = {
   typeLogo: 'logoPage'
 };
 
-var ModalButton = function ModalButton(openModal) {
+var ModalButton = function ModalButton(_ref) {
+  var openModal = _ref.openModal;
   return /*#__PURE__*/React__default.createElement("button", {
     onClick: function onClick(event) {
       return openModal(event);
