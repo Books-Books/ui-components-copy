@@ -2646,6 +2646,14 @@ Logo.defaultProps = {
   typeLogo: 'logoPage'
 };
 
+var ButtonModal = function ButtonModal(openModal) {
+  return /*#__PURE__*/React__default.createElement("button", {
+    onClick: function onClick(event) {
+      return openModal(event);
+    }
+  }, "Abrir modal");
+};
+
 var css$d = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
 
 function Multimedia(_ref) {
@@ -4944,6 +4952,7 @@ exports.AsideSection = AsideSection;
 exports.AudioBar = AudioBar;
 exports.BtnSec = BtnSec;
 exports.Button = Button;
+exports.ButtonModal = ButtonModal;
 exports.Card = Card;
 exports.Carrousel = Carrousel;
 exports.Col = Col;
