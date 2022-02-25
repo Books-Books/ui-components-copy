@@ -1,19 +1,10 @@
 import React, { Fragment } from 'react'
+import { openModal } from '../../../helpers/openModal'
 
-export const ModalButton = ({ openModal }) => {
-  const focusModal = function (id) {
-    document.getElementById(id).focus()
-  }
-
+export const ModalButton = (id) => {
   return (
     <Fragment>
-      <button
-        onClick={(event) => {
-          openModal(event), focusModal('modalTest')
-        }}
-      >
-        Abrir modal
-      </button>
+      <button onClick={() => openModal(id)}>Abrir modal</button>
     </Fragment>
   )
 }

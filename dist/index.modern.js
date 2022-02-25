@@ -2643,16 +2643,15 @@ Logo.defaultProps = {
   typeLogo: 'logoPage'
 };
 
-var ModalButton = function ModalButton(_ref) {
-  var openModal = _ref.openModal;
+var openModal = function openModal(id) {
+  document.getElementById(id).focus();
+  console.log('El modal ha sido abierto');
+};
 
-  var focusModal = function focusModal(id) {
-    document.getElementById(id).focus();
-  };
-
+var ModalButton = function ModalButton(id) {
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("button", {
-    onClick: function onClick(event) {
-      openModal(event), focusModal('modalTest');
+    onClick: function onClick() {
+      return openModal(id);
     }
   }, "Abrir modal"));
 };
