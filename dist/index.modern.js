@@ -2644,9 +2644,9 @@ Logo.defaultProps = {
 };
 
 var openModal = function openModal(id) {
-  debugger;
-  document.getElementById(id).focus();
-  console.log('El modal ha sido abierto');
+  var modal = document.getElementById(id);
+  modal.removeAttribute(hidden);
+  modal.focus();
 };
 
 var ModalButton = function ModalButton(_ref) {
