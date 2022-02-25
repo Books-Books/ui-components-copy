@@ -2644,11 +2644,13 @@ Logo.defaultProps = {
 };
 
 var openModal = function openModal(id) {
+  debugger;
   document.getElementById(id).focus();
   console.log('El modal ha sido abierto');
 };
 
-var ModalButton = function ModalButton(id) {
+var ModalButton = function ModalButton(_ref) {
+  var id = _ref.id;
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("button", {
     onClick: function onClick() {
       return openModal(id);
