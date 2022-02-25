@@ -2648,9 +2648,14 @@ Logo.defaultProps = {
 
 var ModalButton = function ModalButton(_ref) {
   var openModal = _ref.openModal;
-  return /*#__PURE__*/React__default.createElement(Fragment, null, /*#__PURE__*/React__default.createElement("button", {
+
+  var focusModal = function focusModal(id) {
+    document.getElementById(id).focus();
+  };
+
+  return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("button", {
     onClick: function onClick(event) {
-      return openModal(event);
+      openModal(event), focusModal('modalTest');
     }
   }, "Abrir modal"), /*#__PURE__*/React__default.createElement("div", {
     role: "dialog",
