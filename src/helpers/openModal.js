@@ -1,5 +1,5 @@
 export const openModal = function (id) {
   const modal = document.getElementById(id)
-  modal.removeAttribute(hidden)
+  modal.setAttribute(hidden, false)
   modal.focus()
 }
