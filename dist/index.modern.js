@@ -2645,7 +2645,7 @@ Logo.defaultProps = {
 
 var openModal = function openModal(id) {
   var modal = document.getElementById(id);
-  modal.setAttribute(hidden, false);
+  modal.hidden = false;
   modal.focus();
 };
 
