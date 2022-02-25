@@ -2657,11 +2657,7 @@ var ModalButton = function ModalButton(_ref) {
     onClick: function onClick(event) {
       openModal(event), focusModal('modalTest');
     }
-  }, "Abrir modal"), /*#__PURE__*/React__default.createElement("div", {
-    role: "dialog",
-    id: "modalTest",
-    tabIndex: "0"
-  }, "Modal"));
+  }, "Abrir modal"));
 };
 
 var css$d = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};

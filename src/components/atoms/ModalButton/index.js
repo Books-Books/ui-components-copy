@@ -14,9 +14,6 @@ export const ModalButton = ({ openModal }) => {
       >
         Abrir modal
       </button>
-      <div role='dialog' id='modalTest' tabIndex='0'>
-        Modal
-      </div>
     </Fragment>
   )
 }
