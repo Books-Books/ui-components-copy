@@ -2646,7 +2646,7 @@ Logo.defaultProps = {
   typeLogo: 'logoPage'
 };
 
-var ButtonModal = function ButtonModal(openModal) {
+var ModalButton = function ModalButton(openModal) {
   return /*#__PURE__*/React__default.createElement("button", {
     onClick: function onClick(event) {
       return openModal(event);
@@ -4952,7 +4952,6 @@ exports.AsideSection = AsideSection;
 exports.AudioBar = AudioBar;
 exports.BtnSec = BtnSec;
 exports.Button = Button;
-exports.ButtonModal = ButtonModal;
 exports.Card = Card;
 exports.Carrousel = Carrousel;
 exports.Col = Col;
@@ -4971,6 +4970,7 @@ exports.InputField = InputField;
 exports.Link = Link;
 exports.Logo = Logo;
 exports.Modal = Modal;
+exports.ModalButton = ModalButton;
 exports.Multimedia = Multimedia;
 exports.NavBar = NavBar;
 exports.Pagination = Pagination;
