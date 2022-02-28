@@ -709,22 +709,18 @@ svg[hide='false'] {
   padding: 10px;
   position: relative;
 }
-figure {
+._1HoJe figure {
   width: 80%;
   margin-inline: auto;
 }
-figcaption {
-  width: 70%;
-  min-width: 350px;
+._1HoJe figcaption {
   margin: 0 auto;
-}
-img {
-  width: 100%;
 }
 
 ._1HoJe img {
   display: block;
   max-width: 100%;
+  width: 100%;
 }
 ._1HoJe {
   margin: 0 auto;

@@ -3,22 +3,18 @@
   padding: 10px;
   position: relative;
 }
-figure {
+.containerImg figure {
   width: 80%;
   margin-inline: auto;
 }
-figcaption {
-  width: 70%;
-  min-width: 350px;
+.containerImg figcaption {
   margin: 0 auto;
-}
-img {
-  width: 100%;
 }
 
 .containerImg img {
   display: block;
   max-width: 100%;
+  width: 100%;
 }
 .containerImg {
   margin: 0 auto;
