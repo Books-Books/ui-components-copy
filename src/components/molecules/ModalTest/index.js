@@ -49,7 +49,7 @@ export const ModalTest = ({ children, id }) => {
         className={`${css['c-modal']} ui-modal`}
         id={`modal${id}`}
         tabIndex='0'
-        hidden
+        hidden={true}
       >
         {children}
         <button
