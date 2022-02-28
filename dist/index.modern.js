@@ -3886,7 +3886,7 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
-var ModalTest = function ModalTest(_ref) {
+var Modal = function Modal(_ref) {
   var children = _ref.children,
       id = _ref.id;
 
@@ -4908,5 +4908,5 @@ var Row = function Row(props) {
   }, props));
 };
 
-export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, ModalButton, ModalTest, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
+export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, ModalButton, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
 //# sourceMappingURL=index.modern.js.map

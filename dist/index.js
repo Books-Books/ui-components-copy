@@ -3889,7 +3889,7 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
-var ModalTest = function ModalTest(_ref) {
+var Modal = function Modal(_ref) {
   var children = _ref.children,
       id = _ref.id;
 
@@ -4935,8 +4935,8 @@ exports.InputControl = InputControl;
 exports.InputField = InputField;
 exports.Link = Link;
 exports.Logo = Logo;
+exports.Modal = Modal;
 exports.ModalButton = ModalButton;
-exports.ModalTest = ModalTest;
 exports.Multimedia = Multimedia;
 exports.NavBar = NavBar;
 exports.Pagination = Pagination;

@@ -10,7 +10,7 @@ import css from './Modal.module.css'
  * - text: Nodos de texto dentro del modal.
  **/
 
-export const ModalTest = ({ children, id }) => {
+export const Modal = ({ children, id }) => {
   const closeModal = function (id) {
     const modal = document.getElementById(`modal${id}`)
     const buttonModal = document.getElementById(`openModal${id}`)
