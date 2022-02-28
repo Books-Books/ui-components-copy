@@ -1427,6 +1427,7 @@ body._2XpJ5 {
   background-color: transparent;
   border-radius: min(10%, 3rem);
   padding: 1em;
+  cursor: pointer;
 }
 
 ._JfSL7:focus {

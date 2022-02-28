@@ -3,6 +3,7 @@
   background-color: transparent;
   border-radius: min(10%, 3rem);
   padding: 1em;
+  cursor: pointer;
 }
 
 .modal-button-image:focus {
