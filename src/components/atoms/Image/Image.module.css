@@ -3,11 +3,12 @@
   padding: 10px;
   position: relative;
 }
-.containerImg figure {
+.containerImg {
   width: 80%;
   margin-inline: auto;
 }
-figcaption {
+
+.containerImg figcaption {
   margin: 0 auto;
 }
 

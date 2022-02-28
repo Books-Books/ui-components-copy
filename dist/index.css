@@ -709,11 +709,12 @@ svg[hide='false'] {
   padding: 10px;
   position: relative;
 }
-._1HoJe figure {
+._1HoJe {
   width: 80%;
   margin-inline: auto;
 }
-figcaption {
+
+._1HoJe figcaption {
   margin: 0 auto;
 }
 
