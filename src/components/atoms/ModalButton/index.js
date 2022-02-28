@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import modalCss from '../../molecules/Modal/Modal.module.css'
+import modalCss from '../../molecules/ModalTest/ModalTest.module.css'
 import { Button, Image } from '../index'
 import css from './ModalButton.module.css'
 
