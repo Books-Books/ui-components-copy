@@ -43,6 +43,7 @@ export const ModalButton = ({
           <Image
             url={url}
             alt={alt}
+            title={title}
             typeImage={typeImage}
             dataStyle={dataStyle}
             width={width}

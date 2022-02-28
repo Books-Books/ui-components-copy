@@ -2673,6 +2673,7 @@ var ModalButton = function ModalButton(_ref) {
   }, label), /*#__PURE__*/React__default.createElement(Image, {
     url: url,
     alt: alt,
+    title: title,
     typeImage: typeImage,
     dataStyle: dataStyle,
     width: width,
