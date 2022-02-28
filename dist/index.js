@@ -2613,29 +2613,15 @@ Link.defaultProps = {
   addClass: ''
 };
 
-var imageFile = "logo~lGYkQCle.svg";
-
-var imageFileColor = "logoColor~YdajiTZy.svg";
-
 var cssLogo = {"imgLogo":"_2oas0"};
 
 function Logo(_ref) {
   var src = _ref.src,
-      typeLogo = _ref.typeLogo,
       addClass = _ref.addClass;
-
-  var setLogo = function setLogo(typeLogo) {
-    if (typeLogo == 'logoCover') {
-      return imageFile;
-    } else if (typeLogo == 'logoPage') {
-      return imageFileColor;
-    }
-  };
-
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
     className: "" + addClass
   }, /*#__PURE__*/React__default.createElement("img", {
-    src: src ? src : setLogo(typeLogo),
+    src: src,
     className: cssLogo['imgLogo']
   })));
 }
