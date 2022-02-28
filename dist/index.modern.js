@@ -2643,6 +2643,24 @@ Logo.defaultProps = {
   typeLogo: 'logoPage'
 };
 
+var openModal = function openModal(id) {
+  var modal = document.getElementById("modal" + id);
+  modal.hidden = false;
+  modal.focus();
+};
+
+var ModalButton = function ModalButton(_ref) {
+  var label = _ref.label,
+      id = _ref.id;
+  return /*#__PURE__*/React__default.createElement(Button, {
+    hasAriaLabel: false,
+    label: label,
+    onClick: function onClick() {
+      return openModal(id);
+    }
+  });
+};
+
 var css$d = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
 
 function Multimedia(_ref) {
@@ -4934,5 +4952,5 @@ var Row = function Row(props) {
   }, props));
 };
 
-export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
+export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, ModalButton, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
 //# sourceMappingURL=index.modern.js.map

@@ -2646,6 +2646,24 @@ Logo.defaultProps = {
   typeLogo: 'logoPage'
 };
 
+var openModal = function openModal(id) {
+  var modal = document.getElementById("modal" + id);
+  modal.hidden = false;
+  modal.focus();
+};
+
+var ModalButton = function ModalButton(_ref) {
+  var label = _ref.label,
+      id = _ref.id;
+  return /*#__PURE__*/React__default.createElement(Button, {
+    hasAriaLabel: false,
+    label: label,
+    onClick: function onClick() {
+      return openModal(id);
+    }
+  });
+};
+
 var css$d = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
 
 function Multimedia(_ref) {
@@ -4962,6 +4980,7 @@ exports.InputField = InputField;
 exports.Link = Link;
 exports.Logo = Logo;
 exports.Modal = Modal;
+exports.ModalButton = ModalButton;
 exports.Multimedia = Multimedia;
 exports.NavBar = NavBar;
 exports.Pagination = Pagination;
