@@ -2663,7 +2663,7 @@ var ModalButton = function ModalButton(_ref) {
     modal.focus();
   };
 
-  return /*#__PURE__*/React__default.createElement(Fragment, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
+  return /*#__PURE__*/React__default.createElement(Fragment$2, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
     className: css$d['.modal-button-image'],
     "aria-labelledby": "modalDescription" + id,
     "aria-description": "Abrir modal",

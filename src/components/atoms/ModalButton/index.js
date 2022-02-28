@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Button, Image } from '../index'
 import css from './ModalButton.module.css'
 
@@ -20,7 +20,7 @@ export const ModalButton = ({
   }
 
   return (
-    <>
+    <Fragment>
       {hasImage ? (
         <button
           className={css['.modal-button-image']}
@@ -50,6 +50,6 @@ export const ModalButton = ({
           addClass={addClass}
         />
       )}
-    </>
+    </Fragment>
   )
 }
