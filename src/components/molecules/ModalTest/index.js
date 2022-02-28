@@ -42,7 +42,6 @@ export const ModalTest = ({ children, id }) => {
         onClick={() => {
           closeModal(id)
         }}
-        onKeyDown={closeModalOnEsc(id)}
       />
       <div
         role='dialog'
@@ -50,6 +49,7 @@ export const ModalTest = ({ children, id }) => {
         id={`modal${id}`}
         tabIndex='0'
         hidden={true}
+        onKeyDown={closeModalOnEsc(id)}
       >
         {children}
         <button

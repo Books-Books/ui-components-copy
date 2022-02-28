@@ -4049,14 +4049,14 @@ var ModalTest = function ModalTest(_ref) {
     id: "modalOverlay" + id,
     onClick: function onClick() {
       closeModal(id);
-    },
-    onKeyDown: closeModalOnEsc(id)
+    }
   }), /*#__PURE__*/React__default.createElement("div", {
     role: "dialog",
     className: css$d['c-modal'] + " ui-modal",
     id: "modal" + id,
     tabIndex: "0",
-    hidden: true
+    hidden: true,
+    onKeyDown: closeModalOnEsc(id)
   }, children, /*#__PURE__*/React__default.createElement("button", {
     className: "" + css$d['c-modal__close-button'],
     onClick: function onClick() {
