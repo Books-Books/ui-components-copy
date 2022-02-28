@@ -4040,7 +4040,6 @@ var ModalTest = function ModalTest(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("div", {
-    ref: refOverlay,
     className: css$d['c-modal-overlay'] + " ui-modal-overlay",
     id: "modalOverlay" + id,
     onClick: function onClick() {
@@ -4048,7 +4047,6 @@ var ModalTest = function ModalTest(_ref) {
     }
   }), /*#__PURE__*/React__default.createElement("div", {
     role: "dialog",
-    ref: refModal,
     className: css$d['c-modal'] + " ui-modal",
     id: "modal" + id,
     tabIndex: "0",

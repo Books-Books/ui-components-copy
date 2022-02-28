@@ -36,7 +36,6 @@ export const ModalTest = ({ children, id }) => {
   return (
     <Fragment>
       <div
-        ref={refOverlay}
         className={`${css['c-modal-overlay']} ui-modal-overlay`}
         id={`modalOverlay${id}`}
         onClick={() => {
@@ -45,7 +44,6 @@ export const ModalTest = ({ children, id }) => {
       />
       <div
         role='dialog'
-        ref={refModal}
         className={`${css['c-modal']} ui-modal`}
         id={`modal${id}`}
         tabIndex='0'
