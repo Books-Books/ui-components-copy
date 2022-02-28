@@ -27,9 +27,9 @@ export const ModalTest = ({ children, id }) => {
   }
   // Hacer que se pueda salir del modal presionando la tecla Esc
 
-  function closeModalOnEsc(e) {
+  function closeModalOnEsc(e, id) {
     if ((e.keyCode || e.which) === 27) {
-      closeModal()
+      closeModal(id)
     }
   }
 
@@ -39,7 +39,7 @@ export const ModalTest = ({ children, id }) => {
         className={`${css['c-modal-overlay']} ui-modal-overlay`}
         id={`modalOverlay${id}`}
         onClick={() => {
-          closeModal()
+          closeModal(id)
         }}
       />
       <div
@@ -53,9 +53,9 @@ export const ModalTest = ({ children, id }) => {
         <button
           className={`${css['c-modal__close-button']}`}
           onClick={() => {
-            closeModal()
+            closeModal(id)
           }}
-          onKeyDown={closeModalOnEsc}
+          onKeyDown={closeModalOnEsc(id)}
           id={`closeModal${id}`}
         >
           <span aria-hidden='true'>&times;</span>

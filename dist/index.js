@@ -4036,9 +4036,9 @@ var ModalTest = function ModalTest(_ref) {
     modalOverlay.classList.remove(css$d['overlay--active']);
   };
 
-  function closeModalOnEsc(e) {
+  function closeModalOnEsc(e, id) {
     if ((e.keyCode || e.which) === 27) {
-      closeModal();
+      closeModal(id);
     }
   }
 
@@ -4046,7 +4046,7 @@ var ModalTest = function ModalTest(_ref) {
     className: css$d['c-modal-overlay'] + " ui-modal-overlay",
     id: "modalOverlay" + id,
     onClick: function onClick() {
-      closeModal();
+      closeModal(id);
     }
   }), /*#__PURE__*/React__default.createElement("div", {
     role: "dialog",
@@ -4057,9 +4057,9 @@ var ModalTest = function ModalTest(_ref) {
   }, children, /*#__PURE__*/React__default.createElement("button", {
     className: "" + css$d['c-modal__close-button'],
     onClick: function onClick() {
-      closeModal();
+      closeModal(id);
     },
-    onKeyDown: closeModalOnEsc,
+    onKeyDown: closeModalOnEsc(id),
     id: "closeModal" + id
   }, /*#__PURE__*/React__default.createElement("span", {
     "aria-hidden": "true"
