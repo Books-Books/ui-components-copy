@@ -31,6 +31,7 @@
 
 .DropdownCont[aria-expanded='true'] + .dropdownMenu {
   display: block;
+  height: auto;
 }
 
 .DropdownCont[aria-expanded='true'] .dropdownArrow {
@@ -75,6 +76,7 @@
 
 .navLink[aria-expanded='true'] + div[aria-labelledby] {
   display: block;
+  height: auto;
 }
 
 .dropdownItem {
