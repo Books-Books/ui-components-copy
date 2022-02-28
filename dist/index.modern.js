@@ -3900,7 +3900,7 @@ Graphics.propTypes = {
 
 var css$x = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD"};
 
-var Modal$1 = function Modal(_ref) {
+var Modal = function Modal(_ref) {
   var children = _ref.children,
       label = _ref.label,
       styled = _ref.styled,
@@ -4007,12 +4007,12 @@ var Modal$1 = function Modal(_ref) {
     className: "sr-only"
   }, "Cerrar modal"))));
 };
-Modal$1.propTypes = {
+Modal.propTypes = {
   title: propTypes.string,
   text: propTypes.string,
   children: propTypes.element
 };
-Modal$1.defaultProps = {
+Modal.defaultProps = {
   label: 'modal',
   stylde: 'primary',
   title: 'Titulo',
@@ -4065,9 +4065,6 @@ var ModalTest = function ModalTest(_ref) {
   }, "\xD7"), /*#__PURE__*/React__default.createElement("span", {
     className: "sr-only"
   }, "Cerrar modal"))));
-};
-Modal.propTypes = {
-  children: propTypes.element
 };
 
 var cssNavbar = {"menuContainer":"_1O8g7","menuResponsive":"_2t5N4","ulMenu":"_3GtQQ","styleBtn":"_8TzwT","styleUlMenu":"_1J1dN","styleUlAcc":"_2luFu","styleUlHelp":"_3J7fz","styleLi":"_2FQig","stylelinks":"_1-rcw","styleLink":"_uX2AO","styleNumber":"_6Gdkr","styleSubLi":"_1t9Uz","styleBtns":"_pyjf0","segundoMenu":"_3okIe","positionUlRelative":"_MrthX","spanText":"_o6aML","iconRight":"_pORcv","ulMenuAct":"_1MnK5"};
@@ -5040,5 +5037,5 @@ var Row = function Row(props) {
   }, props));
 };
 
-export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal$1 as Modal, ModalButton, ModalTest, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
+export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, ModalButton, ModalTest, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
 //# sourceMappingURL=index.modern.js.map

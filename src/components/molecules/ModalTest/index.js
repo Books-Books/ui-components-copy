@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { Fragment } from 'react'
 import css from './Modal.module.css'
 
@@ -67,8 +66,4 @@ export const ModalTest = ({ children, id }) => {
       </div>
     </Fragment>
   )
-}
-
-Modal.propTypes = {
-  children: PropTypes.element
 }
