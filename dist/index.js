@@ -2646,9 +2646,9 @@ Logo.defaultProps = {
   typeLogo: 'logoPage'
 };
 
-var css$d = {"c-modal":"_1sO7k","c-modal-overlay":"_14XQr","c-modal__close-button":"_17c8U","overlay--active":"_QxyL6","modal--active":"_3bX1O","modal-button-image":"_q_kHr"};
+var modalCss$1 = {"c-modal":"_1sO7k","c-modal-overlay":"_14XQr","c-modal__close-button":"_17c8U","overlay--active":"_QxyL6","modal--active":"_3bX1O","modal-button-image":"_q_kHr"};
 
-var css$e = {"modal-button-image":"_JfSL7"};
+var css$d = {"modal-button-image":"_JfSL7"};
 
 var ModalButton = function ModalButton(_ref) {
   var _ref$hasImage = _ref.hasImage,
@@ -2667,12 +2667,13 @@ var ModalButton = function ModalButton(_ref) {
     var modalOverlay = document.getElementById("modalOverlay" + id);
     modal.hidden = false;
     modal.focus();
-    modal.classList.add(css$d['modal--active']);
-    modalOverlay.classList.add(css$d['overlay--active']);
+    modal.classList.add(modalCss$1['modal--active']);
+    modalOverlay.classList.add(modalCss$1['overlay--active']);
+    document.body.classList.add(modalCss$1['has-modal']);
   };
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
-    className: css$e['modal-button-image'],
+    className: css$d['modal-button-image'],
     "aria-labelledby": "modalDescription" + id,
     "aria-description": "Abrir modal",
     onClick: function onClick() {
@@ -2701,7 +2702,7 @@ var ModalButton = function ModalButton(_ref) {
   }));
 };
 
-var css$f = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
+var css$e = {"c-aud-btn":"_a9LbG","c-aud-btn-content":"_2E_hC","c-aud-secundary":"_2uPDm"};
 
 function Multimedia(_ref) {
   var url = _ref.url,
@@ -2783,10 +2784,10 @@ function Multimedia(_ref) {
   }), /*#__PURE__*/React__default.createElement("button", {
     id: "btnAudio",
     onClick: handlePlayPause,
-    className: css$f['c-aud-btn'] + " " + (isPrimary ? '' : css$f['c-aud-secundary']),
+    className: css$e['c-aud-btn'] + " " + (isPrimary ? '' : css$e['c-aud-secundary']),
     "aria-label": getStateBtnAudio ? 'Pausar' : 'Reproducir'
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$f['c-aud-btn-content'],
+    className: css$e['c-aud-btn-content'],
     "data-label": label ? 'string' : ''
   }, getIcon))));
 }
@@ -2799,7 +2800,7 @@ Multimedia.defaultProps = {
   addClass: ''
 };
 
-var css$g = {"Panel":"_qaB0F","fadeIn":"_23_l4"};
+var css$f = {"Panel":"_qaB0F","fadeIn":"_23_l4"};
 
 var _excluded$8 = ["children", "value", "index", "addClass", "roleDescription"];
 var TabPanel = function TabPanel(props) {
@@ -2812,7 +2813,7 @@ var TabPanel = function TabPanel(props) {
       other = _objectWithoutPropertiesLoose(props, _excluded$8);
 
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$g.Panel + " " + addClass,
+    className: css$f.Panel + " " + addClass,
     role: "group",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
@@ -2822,7 +2823,7 @@ var TabPanel = function TabPanel(props) {
   }, other), value === index && /*#__PURE__*/React__default.createElement("div", null, children));
 };
 
-var css$h = {"section":"_Nahni","fadeInDown":"_BDs2n"};
+var css$g = {"section":"_Nahni","fadeInDown":"_BDs2n"};
 
 var _excluded$9 = ["children", "value", "index", "label", "addClass"];
 
@@ -2835,7 +2836,7 @@ var Section = function Section(_ref) {
       other = _objectWithoutPropertiesLoose(_ref, _excluded$9);
 
   return /*#__PURE__*/React__default.createElement("section", _extends({
-    className: css$h.section + " " + addClass,
+    className: css$g.section + " " + addClass,
     role: "tabpanel",
     hidden: value !== index,
     id: "simple-tabpanel-" + index,
@@ -2846,7 +2847,7 @@ var Section = function Section(_ref) {
   }, "Secci\xF3n ", label), children);
 };
 
-var css$i = {"SelectStyle":"_2NS2Z","SelectContainer":"_3AjWz","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5","SelectLabel":"_1YqCo"};
+var css$h = {"SelectStyle":"_2NS2Z","SelectContainer":"_3AjWz","SelectAfter":"_2vUqP","SelectWrapper":"_2BQM5","SelectLabel":"_1YqCo"};
 
 var _excluded$a = ["placeholder", "stateInput", "options", "addClass", "isLabelVisible", "label"];
 var Select = function Select(_ref) {
@@ -2862,17 +2863,17 @@ var Select = function Select(_ref) {
   var name = uniqueId_1('ui-name-');
 
   return /*#__PURE__*/React__default.createElement("label", _extends({
-    className: css$i.SelectWrapper + " " + addClass,
+    className: css$h.SelectWrapper + " " + addClass,
     "data-state": stateInput
   }, args), /*#__PURE__*/React__default.createElement("span", {
-    className: css$i['SelectLabel'] + " " + (isLabelVisible ? '' : 'sr-only')
+    className: css$h['SelectLabel'] + " " + (isLabelVisible ? '' : 'sr-only')
   }, label), /*#__PURE__*/React__default.createElement("div", {
-    className: css$i['SelectContainer'],
+    className: css$h['SelectContainer'],
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement("select", {
     defaultValue: "",
     name: name,
-    className: css$i.SelectStyle,
+    className: css$h.SelectStyle,
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement("option", {
     disabled: true,
@@ -2883,7 +2884,7 @@ var Select = function Select(_ref) {
       value: i + 1
     }, elem);
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$i.SelectAfter,
+    className: css$h.SelectAfter,
     "data-state": stateInput
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "arrow_drop_down"
@@ -2903,7 +2904,7 @@ Select.defaultProps = {
   label: 'Selecciona la opción'
 };
 
-var css$j = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
+var css$i = {"TabsBtn":"_2P1fM","TabsBtnContent":"_293oo","TabsBtnContentLabel":"_h75tA","TabsBtnIndicator":"_247Rk","TabsBtnIndicatorContent":"_21fWb"};
 
 var _excluded$b = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass"];
 var Tab = React.forwardRef(function Tab(props, ref) {
@@ -2944,24 +2945,24 @@ var Tab = React.forwardRef(function Tab(props, ref) {
   return /*#__PURE__*/React.createElement("button", _extends({
     ref: ref,
     role: "tab",
-    className: css$j.TabsBtn + " " + addClass,
+    className: css$i.TabsBtn + " " + addClass,
     "aria-selected": selected,
     disabled: disabled,
     onClick: handleClick,
     onFocus: handleFocus,
     tabIndex: selected ? 0 : -1
   }, other), /*#__PURE__*/React.createElement("span", {
-    className: css$j.TabsBtnContent,
+    className: css$i.TabsBtnContent,
     "position-icon": positionIcon
   }, /*#__PURE__*/React.createElement(Icon, {
     "aria-hidden": "true",
     nameIcon: nameIcon
   }), ' ', /*#__PURE__*/React.createElement("span", {
-    className: css$j.TabsBtnContentLabel
+    className: css$i.TabsBtnContentLabel
   }, label), ' '), /*#__PURE__*/React.createElement("span", {
-    className: css$j.TabsBtnIndicator
+    className: css$i.TabsBtnIndicator
   }, /*#__PURE__*/React.createElement("span", {
-    className: css$j.TabsBtnIndicatorContent
+    className: css$i.TabsBtnIndicatorContent
   })));
 });
 Tab.propTypes = {
@@ -2971,7 +2972,7 @@ Tab.defaultProps = {
   addClass: ''
 };
 
-var css$k = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
+var css$j = {"TextareaCont":"_2hUyD","TextareaItem":"_1haMe","CountCont":"_34S0r"};
 
 var Textarea = function Textarea(_ref) {
   var id = _ref.id,
@@ -3004,20 +3005,20 @@ var Textarea = function Textarea(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$k.TextareaCont + " " + addClass
+    className: css$j.TextareaCont + " " + addClass
   }, /*#__PURE__*/React__default.createElement("label", {
     "for": id
   }, /*#__PURE__*/React__default.createElement("span", {
     className: isLabelVisible ? '' : 'sr-only'
   }, label), /*#__PURE__*/React__default.createElement("textarea", {
-    className: css$k.TextareaItem,
+    className: css$j.TextareaItem,
     rows: rows,
     placeholder: placeholder,
     onKeyPress: HandleChange,
     maxLength: MaxLength,
     id: id
   })), maxWords && /*#__PURE__*/React__default.createElement("span", {
-    className: css$k.CountCont
+    className: css$j.CountCont
   }, " ", Count + " / " + maxWords, " "));
 };
 Textarea.propTypes = {
@@ -3032,7 +3033,7 @@ Textarea.defaultProps = {
   addClass: ''
 };
 
-var css$l = {"container":"_2sl0w","containerNumber":"_2kFEu","number":"_KxZbK","title":"_1-HyA"};
+var css$k = {"container":"_2sl0w","containerNumber":"_2kFEu","number":"_KxZbK","title":"_1-HyA"};
 
 var TitleSlide = function TitleSlide(_ref) {
   var _ref$number = _ref.number,
@@ -3040,17 +3041,17 @@ var TitleSlide = function TitleSlide(_ref) {
       _ref$title = _ref.title,
       title = _ref$title === void 0 ? 'Título del slide' : _ref$title;
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("h1", {
-    className: css$l.container
+    className: css$k.container
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$l.containerNumber
+    className: css$k.containerNumber
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$l.number
+    className: css$k.number
   }, /*#__PURE__*/React__default.createElement("span", null, number))), /*#__PURE__*/React__default.createElement("div", {
-    className: css$l.title
+    className: css$k.title
   }, /*#__PURE__*/React__default.createElement("span", null, title))));
 };
 
-var css$m = {"toggletip-container":"_3Z4HX","toggletip-icon":"_hQ4M-","toggletip-content":"_2SzZ3"};
+var css$l = {"toggletip-container":"_3Z4HX","toggletip-icon":"_hQ4M-","toggletip-content":"_2SzZ3"};
 
 var Toggletip = function Toggletip(_ref) {
   var content = _ref.content;
@@ -3063,7 +3064,7 @@ var Toggletip = function Toggletip(_ref) {
     toggletipContent == '' ? SetToggletipContent(
     /*#__PURE__*/
     React__default.createElement("div", {
-      className: css$m['toggletip-content']
+      className: css$l['toggletip-content']
     }, content)) : SetToggletipContent('');
   };
 
@@ -3076,7 +3077,7 @@ var Toggletip = function Toggletip(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$m['toggletip-container']
+    className: css$l['toggletip-container']
   }, /*#__PURE__*/React__default.createElement(Button, {
     hasAriaLabel: "false",
     styled: "primary-icon",
@@ -3085,7 +3086,7 @@ var Toggletip = function Toggletip(_ref) {
     onBlur: emptyToggletipContent,
     onKeyDown: emptyToggletipContentOnEsc
   }, /*#__PURE__*/React__default.createElement("span", {
-    className: css$m['toggletip-icon'],
+    className: css$l['toggletip-icon'],
     "aria-hidden": "true"
   }, "i"), /*#__PURE__*/React__default.createElement("span", {
     className: "sr-only"
@@ -3094,7 +3095,7 @@ var Toggletip = function Toggletip(_ref) {
   }, toggletipContent));
 };
 
-var css$n = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
+var css$m = {"TooltipCont":"_2fDQR","TooltipItem":"_3KPt0"};
 
 var Tooltip = function Tooltip(_ref) {
   var children = _ref.children,
@@ -3102,15 +3103,15 @@ var Tooltip = function Tooltip(_ref) {
       id = _ref.id,
       content = _ref.content;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$n.TooltipCont + " " + addClass
+    className: css$m.TooltipCont + " " + addClass
   }, children, /*#__PURE__*/React__default.createElement("div", {
     role: "tooltip",
-    className: css$n.TooltipItem,
+    className: css$m.TooltipItem,
     id: id
   }, content));
 };
 
-var css$o = {"tour-help":"_1Rwnk","tour-number":"_1kC6K"};
+var css$n = {"tour-help":"_1Rwnk","tour-number":"_1kC6K"};
 
 var TourHelpLayer = function TourHelpLayer(_ref) {
   var _ref$width = _ref.width,
@@ -3131,13 +3132,13 @@ var TourHelpLayer = function TourHelpLayer(_ref) {
   };
   return /*#__PURE__*/React__default.createElement("div", {
     style: position,
-    className: css$o['tour-help']
+    className: css$n['tour-help']
   }, /*#__PURE__*/React__default.createElement("span", {
-    className: css$o['tour-number']
+    className: css$n['tour-number']
   }, number));
 };
 
-var css$p = {"tour-modal":"_N_LRS","tour-progress":"_2_Rir","tour-progress-bar":"_2OnWP","tour-button-container":"_3Fkrw"};
+var css$o = {"tour-modal":"_N_LRS","tour-progress":"_2_Rir","tour-progress-bar":"_2OnWP","tour-button-container":"_3Fkrw"};
 
 var TourModal = function TourModal(_ref) {
   var _ref$top = _ref.top,
@@ -3158,23 +3159,23 @@ var TourModal = function TourModal(_ref) {
     left: left + "px"
   };
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$p['tour-modal'],
+    className: css$o['tour-modal'],
     role: "dialog",
     style: size
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "sr-only"
   }, "Parte ", modalNumber, " de ", totalModals), /*#__PURE__*/React__default.createElement("div", {
     "aria-hidden": "true",
-    className: css$p['tour-progress']
+    className: css$o['tour-progress']
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$p['tour-progress-bar'],
+    className: css$o['tour-progress-bar'],
     style: {
       transform: "scaleX(" + modalNumber / totalModals + ")"
     }
   })), /*#__PURE__*/React__default.createElement("p", {
-    className: css$p['tour-description']
+    className: css$o['tour-description']
   }, description), /*#__PURE__*/React__default.createElement("div", {
-    className: css$p['tour-button-container']
+    className: css$o['tour-button-container']
   }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
     onClick: endTour
@@ -3201,11 +3202,11 @@ var TourModal = function TourModal(_ref) {
   }, "Siguiente"))));
 };
 
-var css$q = {"tour-overlay":"_DglW5"};
+var css$p = {"tour-overlay":"_DglW5"};
 
 var TourOverlay = function TourOverlay(endTour, endTourOnEsc) {
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$q['tour-overlay'],
+    className: css$p['tour-overlay'],
     onClick: endTour,
     onKeyDown: endTourOnEsc
   });
@@ -3222,7 +3223,7 @@ function UserLogin(_ref) {
   }, /*#__PURE__*/React__default.createElement("h3", null, label)));
 }
 
-var css$r = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
+var css$q = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
 
 function Video(_ref) {
   var url = _ref.url,
@@ -3448,9 +3449,9 @@ function Video(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("figure", {
-    className: "" + css$r['c-vid-container']
+    className: "" + css$q['c-vid-container']
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$r['c-vid'] + " " + addClass,
+    className: css$q['c-vid'] + " " + addClass,
     ref: refCont,
     style: {
       maxWidth: width,
@@ -3465,12 +3466,12 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("source", {
     src: url
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$r['c-vid-controls']
+    className: css$q['c-vid-controls']
   }, /*#__PURE__*/React__default.createElement("button", {
     "aria-label": getstateVideoPlay.label,
     onClick: handlePlay
   }, getstateVideoPlay.icon), /*#__PURE__*/React__default.createElement("div", {
-    className: css$r['c-vid-controls-volumn']
+    className: css$q['c-vid-controls-volumn']
   }, /*#__PURE__*/React__default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     width: "48",
@@ -3488,7 +3489,7 @@ function Video(_ref) {
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "sr-only"
   }, "Controlar volumen"), /*#__PURE__*/React__default.createElement("input", {
-    className: css$r['c-vid-controls-volumn-item'],
+    className: css$q['c-vid-controls-volumn-item'],
     ref: refVolumn,
     id: "volumeControl",
     type: "range",
@@ -3499,16 +3500,16 @@ function Video(_ref) {
     onChange: handleVolumn,
     "aria-valuetext": getValueVolum + "%"
   }))), /*#__PURE__*/React__default.createElement("p", {
-    className: css$r['c-vid-controls-text']
+    className: css$q['c-vid-controls-text']
   }, /*#__PURE__*/React__default.createElement("span", null, getCurrentTiem)), /*#__PURE__*/React__default.createElement("div", {
-    className: css$r['progress-content']
+    className: css$q['progress-content']
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgress,
-    className: css$r.progress,
+    className: css$q.progress,
     onClick: handleProcessControl
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refProgressBar,
-    className: css$r['progress-bar'],
+    className: css$q['progress-bar'],
     onChange: handleBarProgress
   }))), /*#__PURE__*/React__default.createElement("button", {
     "aria-label": "Subt\xEDtulos"
@@ -3528,7 +3529,7 @@ Video.defaultProps = {
   addClass: ''
 };
 
-var css$s = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
+var css$r = {"c-side":"_3jq03","c-side-nav":"_ORlc2","c-side-nav-item":"_2VUuV","c-overlay":"_1ZsvR","position-left":"_2dAro","aside--active--left":"_3yTuc","position-right":"_2GOdp","aside--active--right":"_28cLO","overlay--active":"_IKRE0"};
 
 var AsideNav = function AsideNav(_ref) {
   var children = _ref.children,
@@ -3552,10 +3553,10 @@ var AsideNav = function AsideNav(_ref) {
     function locationAside() {
       if (location === 'right') {
         setLocationAside('aside--active--right');
-        $aside.classList.add(css$s['position-right']);
+        $aside.classList.add(css$r['position-right']);
       } else {
         setLocationAside('aside--active--left');
-        $aside.classList.add(css$s['position-left']);
+        $aside.classList.add(css$r['position-left']);
       }
     }
 
@@ -3564,12 +3565,12 @@ var AsideNav = function AsideNav(_ref) {
 
   function stateAside(elementModal, elementOverlay) {
     if (getStateAside) {
-      elementModal.classList.remove(css$s[getLocationAside]);
-      elementOverlay.classList.remove(css$s['overlay--active']);
+      elementModal.classList.remove(css$r[getLocationAside]);
+      elementOverlay.classList.remove(css$r['overlay--active']);
       setStateAside(false);
     } else {
-      elementModal.classList.add(css$s[getLocationAside]);
-      elementOverlay.classList.add(css$s['overlay--active']);
+      elementModal.classList.add(css$r[getLocationAside]);
+      elementOverlay.classList.add(css$r['overlay--active']);
       setStateAside(true);
     }
   }
@@ -3582,11 +3583,11 @@ var AsideNav = function AsideNav(_ref) {
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$s['c-overlay'] + " ui-overlay",
+    className: css$r['c-overlay'] + " ui-overlay",
     id: "overlay"
   }), /*#__PURE__*/React__default.createElement("div", {
     ref: refModal,
-    className: css$s['c-side'] + " ui-aside",
+    className: css$r['c-side'] + " ui-aside",
     id: "aside"
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "close",
@@ -3595,10 +3596,10 @@ var AsideNav = function AsideNav(_ref) {
       cursor: 'pointer'
     }
   }), children || /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("h2", null, content.title), /*#__PURE__*/React__default.createElement("ul", {
-    className: css$s['c-side-nav'] + " ui-aside-nav"
+    className: css$r['c-side-nav'] + " ui-aside-nav"
   }, content.list.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$s['c-side-nav-item'] + " ui-aside-nav-item",
+      className: css$r['c-side-nav-item'] + " ui-aside-nav-item",
       key: index
     }, item);
   })))), /*#__PURE__*/React__default.createElement(Button, {
@@ -3625,7 +3626,7 @@ AsideNav.defaultProps = {
   location: 'left'
 };
 
-var css$t = {"AsideSection":"_37BVW"};
+var css$s = {"AsideSection":"_37BVW"};
 
 var _excluded$c = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value", "labelName"];
 var AsideSection = React.forwardRef(function Tabs(props, ref) {
@@ -3713,7 +3714,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
     className: "sr-only",
     id: "section-list"
   }, labelName), /*#__PURE__*/React__default.createElement("ul", (_React$createElement = {
-    className: css$t.AsideSection,
+    className: css$s.AsideSection,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -3723,7 +3724,7 @@ var AsideSection = React.forwardRef(function Tabs(props, ref) {
   }, _React$createElement["aria-labelledby"] = "section-list", _React$createElement), children)));
 });
 
-var css$u = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
+var css$t = {"u-text":"_16nIh","c-card":"_1iLqk","c-card-image":"_2zNmo","c-card-container":"_1Z4zT"};
 
 var Card = function Card(_ref) {
   var width = _ref.width,
@@ -3732,23 +3733,23 @@ var Card = function Card(_ref) {
       supportingText = _ref.supportingText,
       buttons = _ref.buttons;
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$u['c-card'] + " ui-card",
+    className: css$t['c-card'] + " ui-card",
     style: {
       width: width
     }
   }, image.state ? /*#__PURE__*/React__default.createElement("figure", {
-    className: css$u['c-card-image'] + " ui-card-img"
+    className: css$t['c-card-image'] + " ui-card-img"
   }, /*#__PURE__*/React__default.createElement("img", {
     src: image.url,
     alt: image.alt
   })) : /*#__PURE__*/React__default.createElement(React.Fragment, null), /*#__PURE__*/React__default.createElement("div", {
-    className: css$u['c-card-container'] + " ui-card-container"
+    className: css$t['c-card-container'] + " ui-card-container"
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-title"
   }, /*#__PURE__*/React__default.createElement("h3", null, content.title), /*#__PURE__*/React__default.createElement("p", {
-    className: css$u['u-text'] + " ui-text"
+    className: css$t['u-text'] + " ui-text"
   }, content.text)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("p", {
-    className: css$u['u-text'] + " ui-text-two"
+    className: css$t['u-text'] + " ui-text-two"
   }, supportingText)), buttons.state ? /*#__PURE__*/React__default.createElement("div", {
     className: "c-card-container-buttons"
   }, /*#__PURE__*/React__default.createElement(Button, {
@@ -3782,7 +3783,7 @@ Card.defaultProps = {
   }
 };
 
-var css$v = {"draggable-video-container":"_1ZTow","draggable-video-button":"_EoBr8"};
+var css$u = {"draggable-video-container":"_1ZTow","draggable-video-button":"_EoBr8"};
 
 var DraggableVideo = function DraggableVideo(_ref) {
   var url = _ref.url,
@@ -3809,12 +3810,12 @@ var DraggableVideo = function DraggableVideo(_ref) {
   return /*#__PURE__*/React__default.createElement(Draggable, _extends({
     handle: "strong"
   }, dragHandlers), /*#__PURE__*/React__default.createElement("div", {
-    className: css$v['draggable-video-container'] + " box no-cursor"
+    className: css$u['draggable-video-container'] + " box no-cursor"
   }, /*#__PURE__*/React__default.createElement("strong", {
     role: "presentation",
     className: "cursor"
   }, /*#__PURE__*/React__default.createElement("button", {
-    className: "" + css$v['draggable-video-button']
+    className: "" + css$u['draggable-video-button']
   }, /*#__PURE__*/React__default.createElement(Icon, {
     nameIcon: "open_with"
   }), /*#__PURE__*/React__default.createElement("span", {
@@ -3825,7 +3826,7 @@ var DraggableVideo = function DraggableVideo(_ref) {
   })));
 };
 
-var css$w = {"c-collapsible":"_3W_Aj"};
+var css$v = {"c-collapsible":"_3W_Aj"};
 
 var Accordion = function Accordion(_ref) {
   var content = _ref.content,
@@ -3844,13 +3845,13 @@ var Accordion = function Accordion(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("ul", {
-    className: css$w['c-collapsible'] + " ui-collapsible",
+    className: css$v['c-collapsible'] + " ui-collapsible",
     style: {
       width: width
     }
   }, content.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("li", {
-      className: css$w['c-collapsible-container'] + " ui-collapsible-container",
+      className: css$v['c-collapsible-container'] + " ui-collapsible-container",
       key: index,
       style: style
     }, /*#__PURE__*/React__default.createElement(AccordionItem, {
@@ -3901,7 +3902,7 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
-var css$x = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD"};
+var css$w = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD","has-modal":"_2XpJ5"};
 
 var Modal = function Modal(_ref) {
   var children = _ref.children,
@@ -3930,19 +3931,19 @@ var Modal = function Modal(_ref) {
 
   function stateModal(elementModal, elementOverlay) {
     if (getModal) {
-      elementModal.classList.remove(css$x['modal--active']);
-      elementOverlay.classList.remove(css$x['overlay--active']);
+      elementModal.classList.remove(css$w['modal--active']);
+      elementOverlay.classList.remove(css$w['overlay--active']);
       setModal(false);
     } else {
-      elementModal.classList.add(css$x['modal--active']);
-      elementOverlay.classList.add(css$x['overlay--active']);
+      elementModal.classList.add(css$w['modal--active']);
+      elementOverlay.classList.add(css$w['overlay--active']);
       setModal(true);
     }
   }
 
   function closeModal(elementModal, elementOverlay) {
-    elementModal.classList.remove(css$x['modal--active']);
-    elementOverlay.classList.remove(css$x['overlay--active']);
+    elementModal.classList.remove(css$w['modal--active']);
+    elementOverlay.classList.remove(css$w['overlay--active']);
     setModal(false);
   }
 
@@ -3968,7 +3969,7 @@ var Modal = function Modal(_ref) {
     }
   }, [getModal]);
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement(React.Fragment, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
-    className: css$x['modal-button-image'],
+    className: css$w['modal-button-image'],
     onClick: handleModal,
     "aria-label": label
   }, /*#__PURE__*/React__default.createElement(Image, {
@@ -3987,18 +3988,18 @@ var Modal = function Modal(_ref) {
     hasAriaLabel: hasAriaLabel
   })), /*#__PURE__*/React__default.createElement("div", {
     ref: refOverlay,
-    className: css$x['c-modal-overlay'] + " ui-modal-overlay",
+    className: css$w['c-modal-overlay'] + " ui-modal-overlay",
     id: "overlay",
     onClick: handleModal
   }), /*#__PURE__*/React__default.createElement("div", {
     role: "dialog",
     ref: refModal,
-    className: css$x['c-modal'] + " ui-modal",
+    className: css$w['c-modal'] + " ui-modal",
     id: "modal"
   }, children || /*#__PURE__*/React__default.createElement("div", {
     className: "ui-modal-content"
   }, /*#__PURE__*/React__default.createElement("h3", null, " ", title, " "), /*#__PURE__*/React__default.createElement("p", null, " ", text, " ")), /*#__PURE__*/React__default.createElement("button", {
-    className: "" + css$x['c-modal__close-button'],
+    className: "" + css$w['c-modal__close-button'],
     onClick: handleModal,
     style: {
       cursor: 'pointer'
@@ -4032,8 +4033,9 @@ var ModalTest = function ModalTest(_ref) {
     var modalOverlay = document.getElementById("modalOverlay" + id);
     modal.hidden = true;
     buttonModal.focus();
-    modal.classList.remove(css$d['modal--active']);
-    modalOverlay.classList.remove(css$d['overlay--active']);
+    modal.classList.remove(css$w['modal--active']);
+    modalOverlay.classList.remove(css$w['overlay--active']);
+    document.body.classList.remove(modalCss['has-modal']);
   };
 
   function closeModalOnEsc(e, id) {
@@ -4043,23 +4045,23 @@ var ModalTest = function ModalTest(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
-    className: css$d['c-modal-overlay'] + " ui-modal-overlay",
+    className: css$w['c-modal-overlay'] + " ui-modal-overlay",
     id: "modalOverlay" + id,
     onClick: function onClick() {
       closeModal(id);
-    }
+    },
+    onKeyDown: closeModalOnEsc(id)
   }), /*#__PURE__*/React__default.createElement("div", {
     role: "dialog",
-    className: css$d['c-modal'] + " ui-modal",
+    className: css$w['c-modal'] + " ui-modal",
     id: "modal" + id,
     tabIndex: "0",
     hidden: true
   }, children, /*#__PURE__*/React__default.createElement("button", {
-    className: "" + css$d['c-modal__close-button'],
+    className: "" + css$w['c-modal__close-button'],
     onClick: function onClick() {
       closeModal(id);
     },
-    onKeyDown: closeModalOnEsc(id),
     id: "closeModal" + id
   }, /*#__PURE__*/React__default.createElement("span", {
     "aria-hidden": "true"
@@ -4458,7 +4460,7 @@ function NavBar(_ref) {
   }, "Especificaciones t\xE9cnicas")))))))), /*#__PURE__*/React__default.createElement(ContrastFilters, null));
 }
 
-var css$y = {"styleUl":"_16Ktm","active":"_3yufd","styleBtn":"_7n72D"};
+var css$x = {"styleUl":"_16Ktm","active":"_3yufd","styleBtn":"_7n72D"};
 
 var Pagination = function Pagination(_ref) {
   var _ref$pagOva = _ref.pagOva,
@@ -4495,26 +4497,26 @@ var Pagination = function Pagination(_ref) {
   var page = pagOva.map(function (item, i) {
     return /*#__PURE__*/React__default.createElement("li", {
       key: uuid.v4(),
-      className: "" + (currentPage === i && css$y.active),
+      className: "" + (currentPage === i && css$x.active),
       onClick: function onClick() {
         setCurrentPage(i);
       }
     }, item.link ? item.link : /*#__PURE__*/React__default.createElement("a", null, i + 1));
   });
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("footer", null, /*#__PURE__*/React__default.createElement("ul", {
-    className: css$y.styleUl
+    className: css$x.styleUl
   }, /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement(Button, {
-    className: css$y.styleBtn,
+    className: css$x.styleBtn,
     onClick: prevPage,
     icon: "chevron_left"
   })), page, /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement(Button, {
-    className: css$y.styleBtn,
+    className: css$x.styleBtn,
     onClick: nextPage,
     icon: "chevron_right"
   })))));
 };
 
-var css$z = {"Section":"_2biAj","direccion":"_2vXBH","direccion-content":"_2qKp9","styleBtn":"_3kPBa","styleBtnSec":"_3kaag","active":"_3C_KA"};
+var css$y = {"Section":"_2biAj","direccion":"_2vXBH","direccion-content":"_2qKp9","styleBtn":"_3kPBa","styleBtnSec":"_3kaag","active":"_3C_KA"};
 
 var _excluded$d = ["children", "tabs", "FunctValue"];
 
@@ -4546,13 +4548,13 @@ var PanelSection = function PanelSection(_ref) {
     });
   });
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$z.Section
+    className: css$y.Section
   }, others), /*#__PURE__*/React__default.createElement("div", {
-    className: css$z.direccion
+    className: css$y.direccion
   }, /*#__PURE__*/React__default.createElement("span", null, (tabs === null || tabs === void 0 ? void 0 : tabs.length) && value + 1 + "/" + tabs.length), /*#__PURE__*/React__default.createElement("div", {
-    className: css$z["direccion-content"]
+    className: css$y["direccion-content"]
   }, tabs && /*#__PURE__*/React__default.createElement(Button, {
-    className: css$z.styleBtn + " " + (value > 0 && css$z.active),
+    className: css$y.styleBtn + " " + (value > 0 && css$y.active),
     onClick: function onClick() {
       setValue(function (value) {
         return value - 1;
@@ -4568,10 +4570,10 @@ var PanelSection = function PanelSection(_ref) {
       label: elem.label,
       key: elem.id,
       setValue: FunctValue,
-      addClass: css$z.styleBtnSec
+      addClass: css$y.styleBtnSec
     });
   })), tabs && /*#__PURE__*/React__default.createElement(Button, {
-    className: css$z.styleBtn + " " + (value + 1 < tabs.length && css$z.active),
+    className: css$y.styleBtn + " " + (value + 1 < tabs.length && css$y.active),
     onClick: function onClick() {
       setValue(function (value) {
         return value + 1;
@@ -4581,7 +4583,7 @@ var PanelSection = function PanelSection(_ref) {
   }))), children);
 };
 
-var css$A = {"direccion":"_3mwMs"};
+var css$z = {"direccion":"_3mwMs"};
 
 var PaginationInternal = function PaginationInternal(_ref) {
   var _ref$pagOva = _ref.pagOva,
@@ -4613,14 +4615,14 @@ var PaginationInternal = function PaginationInternal(_ref) {
 
   var length = pagOva.length;
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
-    className: css$A.direccion
+    className: css$z.direccion
   }, /*#__PURE__*/React__default.createElement("span", null, currentPage, "/", length), /*#__PURE__*/React__default.createElement(PanelSection, {
     tabs: pagOva,
     FunctValue: setCurrentPage
   })));
 };
 
-var css$B = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
+var css$A = {"table":"_3LoBn","table-content":"_1W60s","table-content-item":"_27m22","body-content":"_2OoWj"};
 
 function Table(_ref) {
   var headLabels = _ref.headLabels,
@@ -4637,27 +4639,27 @@ function Table(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement("table", {
-    className: css$B.table + " ui-table"
+    className: css$A.table + " ui-table"
   }, /*#__PURE__*/React__default.createElement("thead", null, /*#__PURE__*/React__default.createElement("tr", {
-    className: css$B['table-content'] + " ui-table-content"
+    className: css$A['table-content'] + " ui-table-content"
   }, headLabels.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("th", {
       key: index,
-      className: css$B['table-content-item'] + " ui-table-content-item",
+      className: css$A['table-content-item'] + " ui-table-content-item",
       scope: "col"
     }, item);
   }))), /*#__PURE__*/React__default.createElement("tbody", null, bodyContent.map(function (content, index) {
     return /*#__PURE__*/React__default.createElement("tr", {
       key: "content" + index,
-      className: css$B['table-content'] + " " + css$B['body-content'] + " ui-body-content"
+      className: css$A['table-content'] + " " + css$A['body-content'] + " ui-body-content"
     }, content.map(function (item, i) {
       return /*#__PURE__*/React__default.createElement(Fragment, null, item.isRowHeader ? /*#__PURE__*/React__default.createElement("th", {
         key: "item" + i,
-        className: css$B['table-content-item'] + " ui-body-content-item",
+        className: css$A['table-content-item'] + " ui-body-content-item",
         scope: "row"
       }, rowContent(item)) : /*#__PURE__*/React__default.createElement("td", {
         key: "item" + i,
-        className: css$B['table-content-item'] + " ui-body-content-item"
+        className: css$A['table-content-item'] + " ui-body-content-item"
       }, rowContent(item)));
     }));
   })));
@@ -4671,7 +4673,7 @@ Table.defaultProps = {
   bodyContent: [['Cell a1', 'Cell a2'], ['Cell b2', 'Cell b2']]
 };
 
-var css$C = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
+var css$B = {"c-scroll":"_2NOnb","c-gridTable":"_37ybX","c-gridTable-head":"_2mWnf","c-gridTable-body":"_2IfP0","c-gridTable-body-item":"_153aW","c-gridTable-head-item":"_CzEks"};
 
 function TableGrid(_ref) {
   var headContent = _ref.headContent,
@@ -4679,27 +4681,27 @@ function TableGrid(_ref) {
       gridColumn = _ref.gridColumn;
   console.log(bodyContent);
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$C['c-scroll'] + " ui-scroll"
+    className: css$B['c-scroll'] + " ui-scroll"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$C['c-gridTable'] + " ui-gridTable"
+    className: css$B['c-gridTable'] + " ui-gridTable"
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: css$C['c-gridTable-head'] + " ui-gridTable-head",
+    className: css$B['c-gridTable-head'] + " ui-gridTable-head",
     style: gridColumn
   }, headContent.map(function (item, index) {
     return /*#__PURE__*/React__default.createElement("div", {
-      className: css$C['c-gridTable-head-item'] + " ui-gridTable-head-item",
+      className: css$B['c-gridTable-head-item'] + " ui-gridTable-head-item",
       key: "head-" + index
     }, item.type === 'icon' ? /*#__PURE__*/React__default.createElement(Icon, {
       nameIcon: item.label,
       addClass: item.addClass
     }) : /*#__PURE__*/React__default.createElement("span", null, item.label));
   })), /*#__PURE__*/React__default.createElement("div", {
-    className: css$C['c-gridTable-body'] + " ui-gridTable-body",
+    className: css$B['c-gridTable-body'] + " ui-gridTable-body",
     style: gridColumn
   }, bodyContent.map(function (data) {
     return data.map(function (buttom, index) {
       return /*#__PURE__*/React__default.createElement("div", {
-        className: css$C['c-gridTable-body-item'] + " ui-gridTable-body-item",
+        className: css$B['c-gridTable-body-item'] + " ui-gridTable-body-item",
         key: "body-" + index
       }, buttom);
     });
@@ -4714,7 +4716,7 @@ TableGrid.defaultProps = {
   bodyContent: []
 };
 
-var css$D = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
+var css$C = {"TabsBar":"_3ZvuE","TabsCont":"_1Zp4v","TabsScroll":"_3KvVr","TabsArea":"_2je_1","TabsContent":"_3EyBN"};
 
 var _excluded$e = ["aria-label", "aria-labelledby", "action", "children", "classes", "className", "component", "onChange", "orientation", "selectionFollowsFocus", "TabScrollButtonProps", "value"];
 var Tabs = React.forwardRef(function Tabs(props, ref) {
@@ -4791,12 +4793,12 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   };
 
   return /*#__PURE__*/React.createElement(Component, _extends({
-    className: css$D.TabsCont + " ui-Tabs-cont",
+    className: css$C.TabsCont + " ui-Tabs-cont",
     ref: ref
   }, other), /*#__PURE__*/React.createElement("div", {
     ref: tabsRef
   }, /*#__PURE__*/React.createElement("div", {
-    className: css$D.TabsArea + " ui-tabs-area",
+    className: css$C.TabsArea + " ui-tabs-area",
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     "aria-orientation": orientation === 'vertical' ? 'vertical' : null,
@@ -4806,7 +4808,7 @@ var Tabs = React.forwardRef(function Tabs(props, ref) {
   }, children)));
 });
 
-var css$E = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselButtonContainer":"_DZmRD","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
+var css$D = {"carrousel":"_1rlBL","carrouselInner":"_1YPPV","carrouselItem":"_3pMEX","carrouselButtonContainer":"_DZmRD","carrouselControlPrev":"_1_yGr","carrouselControlNext":"_YRcDS","carrouselControlNextIcon":"_1tZ89"};
 
 var Carrousel = function Carrousel(_ref, _ref2) {
   var childrenProp = _ref.children;
@@ -4900,24 +4902,24 @@ var Carrousel = function Carrousel(_ref, _ref2) {
   });
   return /*#__PURE__*/React__default.createElement("div", {
     id: "carouselExampleControls",
-    className: css$E.carrousel + " " + css$E.slide + " iu-slider",
+    className: css$D.carrousel + " " + css$D.slide + " iu-slider",
     "data-ride": "carousel"
   }, /*#__PURE__*/React__default.createElement("div", {
     ref: refCont,
-    className: css$E.carrouselInner + " ui-carrusel-inner",
+    className: css$D.carrouselInner + " ui-carrusel-inner",
     role: "group",
     "aria-roledescription": roleDescription
   }, children), /*#__PURE__*/React__default.createElement("div", {
-    className: "" + css$E.carrouselButtonContainer
+    className: "" + css$D.carrouselButtonContainer
   }, /*#__PURE__*/React__default.createElement("button", {
-    className: css$E.carrouselControlPrev + " ui-carrusel-control-prev",
+    className: css$D.carrouselControlPrev + " ui-carrusel-control-prev",
     "data-slide": "prev",
     onClick: handleClick,
     ref: refPrev,
     disabled: true,
     "aria-label": type + " anterior"
   }, backButton), /*#__PURE__*/React__default.createElement("button", {
-    className: css$E.carrouselControlNext + " ui-carrusel-control-next",
+    className: css$D.carrouselControlNext + " ui-carrusel-control-next",
     "data-slide": "next",
     onClick: handleClick,
     ref: refNext,
@@ -5022,19 +5024,19 @@ var TourWindow = function TourWindow() {
   }));
 };
 
-var css$F = {"col":"_1QLy6"};
+var css$E = {"col":"_1QLy6"};
 
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$F.col
+    className: css$E.col
   }, props));
 };
 
-var css$G = {"row":"_7DQjb"};
+var css$F = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$G.row
+    className: css$F.row
   }, props));
 };
 
