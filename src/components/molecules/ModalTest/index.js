@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import css from './Modal.module.css'
+import css from './ModalTest.module.css'
 
 /**
  * Usuario: bb-frontend-7

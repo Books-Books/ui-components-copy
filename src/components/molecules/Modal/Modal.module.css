@@ -56,6 +56,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
+  cursor: pointer;
 }
 
 .overlay--active {
@@ -76,4 +77,8 @@
 .modal-button-image:focus {
   outline: 0.1875rem solid var(--tertiaryColor);
   outline-offset: 0.375rem;
+}
+
+body.has-modal {
+  overflow: hidden;
 }
