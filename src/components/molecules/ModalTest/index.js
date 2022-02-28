@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment } from 'react'
 import css from './Modal.module.css'
 
 /**
@@ -31,13 +31,9 @@ export const ModalTest = ({ children, id }) => {
     }
   }
 
-  useEffect(() => {
-    if (setModal) {
-      document.addEventListener('keydown', closeModalOnEsc)
-    } else {
-      document.removeEventListener('keydown', closeModalOnEsc, false)
-    }
-  }, [])
+  document.body.addEventListener('keydown', function () {
+    closeModalOnEsc(e, id)
+  })
 
   return (
     <Fragment>
@@ -55,7 +51,7 @@ export const ModalTest = ({ children, id }) => {
         hidden={true}
         onKeyDown={closeModalOnEsc(id)}
       >
-        <div class='modal-start' tabIndex='0'></div>
+        <div className='modal-start' tabIndex='0'></div>
         {children}
         <button
           className={`${css['c-modal__close-button']}`}
