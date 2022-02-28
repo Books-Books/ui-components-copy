@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import css from '../Modal/Modal.module.css'
+import css from './Modal.module.css'
 
 /**
  * Usuario: bb-frontend-7
@@ -24,7 +24,7 @@ export const ModalTest = ({ children, id }) => {
 
     modal.classList.remove(css['modal--active'])
     modalOverlay.classList.remove(css['overlay--active'])
-    document.body.classList.remove(modalCss['has-modal'])
+    document.body.classList.remove(css['has-modal'])
   }
   // Hacer que se pueda salir del modal presionando la tecla Esc
 
