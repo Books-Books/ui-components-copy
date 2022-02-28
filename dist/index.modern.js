@@ -4036,14 +4036,14 @@ var ModalTest = function ModalTest(_ref) {
     document.body.classList.remove(css$d['has-modal']);
   };
 
-  function closeModalOnEsc(id) {
-    if ((event.keyCode || event.which) === 27) {
+  function closeModalOnEsc(e, id) {
+    if ((e.keyCode || e.which) === 27) {
       closeModal(id);
     }
   }
 
-  document.body.addEventListener('keydown', function () {
-    closeModalOnEsc(id);
+  document.body.addEventListener('keydown', function (e) {
+    closeModalOnEsc(e, id);
   });
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("div", {
     className: css$d['c-modal-overlay'] + " ui-modal-overlay",
