@@ -1,4 +1,4 @@
-import React__default, { Fragment as Fragment$2, forwardRef, useState, useEffect, createRef, createElement, useRef, Children, isValidElement, cloneElement } from 'react';
+import React__default, { Fragment as Fragment$2, forwardRef, useState, useEffect as useEffect$1, createRef, createElement, useRef, Children, isValidElement, cloneElement } from 'react';
 import Draggable from 'react-draggable';
 import { Chart } from 'react-google-charts';
 import { v4 } from 'uuid';
@@ -1833,7 +1833,7 @@ var Dropdown = function Dropdown(_ref) {
     if ((e.keyCode || e.which) === 27) SetExpanded(false);
   };
 
-  useEffect(function () {
+  useEffect$1(function () {
     SetExpanded(isExpanded);
   }, [isExpanded]);
   return /*#__PURE__*/React__default.createElement("div", {
@@ -2399,7 +2399,7 @@ var InputControl = function InputControl(_ref) {
 
   var id = uniqueId_1('ui-');
 
-  useEffect(function () {
+  useEffect$1(function () {
     function validateIcon(element) {
       if (stateInput) {
         if (stateInput === 'Error') {
@@ -2495,7 +2495,7 @@ var InputField = function InputField(_ref) {
       getStateInput = _useState3[0],
       setStateInput = _useState3[1];
 
-  useEffect(function () {
+  useEffect$1(function () {
     function addClass(element, nameClass) {
       element.classList.add(css$b[nameClass]);
     }
@@ -2661,9 +2661,10 @@ var ModalButton = function ModalButton(_ref) {
 
   var openModal = function openModal(id) {
     var modal = document.getElementById("modal" + id);
+    var modalFocus = modal.querySelector('.modal-start');
     var modalOverlay = document.getElementById("modalOverlay" + id);
     modal.hidden = false;
-    modal.focus();
+    modalFocus.focus();
     modal.classList.add(css$d['modal--active']);
     modalOverlay.classList.add(css$d['overlay--active']);
     document.body.classList.add(css$d['has-modal']);
@@ -3544,7 +3545,7 @@ var AsideNav = function AsideNav(_ref) {
 
   var refModal = createRef();
   var refOverlay = createRef();
-  useEffect(function () {
+  useEffect$1(function () {
     var $aside = refModal.current;
 
     function locationAside() {
@@ -3958,7 +3959,7 @@ var Modal = function Modal(_ref) {
     }
   }
 
-  useEffect(function () {
+  useEffect$1(function () {
     if (setModal) {
       document.addEventListener('keydown', closeModalOnEsc);
     } else {
@@ -4041,6 +4042,13 @@ var ModalTest = function ModalTest(_ref) {
     }
   }
 
+  useEffect(function () {
+    if (setModal) {
+      document.addEventListener('keydown', closeModalOnEsc);
+    } else {
+      document.removeEventListener('keydown', closeModalOnEsc, false);
+    }
+  }, []);
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("div", {
     className: css$d['c-modal-overlay'] + " ui-modal-overlay",
     id: "modalOverlay" + id,
@@ -4051,10 +4059,12 @@ var ModalTest = function ModalTest(_ref) {
     role: "dialog",
     className: css$d['c-modal'] + " ui-modal",
     id: "modal" + id,
-    tabIndex: "0",
     hidden: true,
     onKeyDown: closeModalOnEsc(id)
-  }, children, /*#__PURE__*/React__default.createElement("button", {
+  }, /*#__PURE__*/React__default.createElement("div", {
+    "class": "modal-start",
+    tabIndex: "0"
+  }), children, /*#__PURE__*/React__default.createElement("button", {
     className: "" + css$d['c-modal__close-button'],
     onClick: function onClick() {
       closeModal(id);

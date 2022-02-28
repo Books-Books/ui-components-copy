@@ -2664,9 +2664,10 @@ var ModalButton = function ModalButton(_ref) {
 
   var openModal = function openModal(id) {
     var modal = document.getElementById("modal" + id);
+    var modalFocus = modal.querySelector('.modal-start');
     var modalOverlay = document.getElementById("modalOverlay" + id);
     modal.hidden = false;
-    modal.focus();
+    modalFocus.focus();
     modal.classList.add(css$d['modal--active']);
     modalOverlay.classList.add(css$d['overlay--active']);
     document.body.classList.add(css$d['has-modal']);
@@ -4044,6 +4045,13 @@ var ModalTest = function ModalTest(_ref) {
     }
   }
 
+  useEffect(function () {
+    if (setModal) {
+      document.addEventListener('keydown', closeModalOnEsc);
+    } else {
+      document.removeEventListener('keydown', closeModalOnEsc, false);
+    }
+  }, []);
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
     className: css$d['c-modal-overlay'] + " ui-modal-overlay",
     id: "modalOverlay" + id,
@@ -4054,10 +4062,12 @@ var ModalTest = function ModalTest(_ref) {
     role: "dialog",
     className: css$d['c-modal'] + " ui-modal",
     id: "modal" + id,
-    tabIndex: "0",
     hidden: true,
     onKeyDown: closeModalOnEsc(id)
-  }, children, /*#__PURE__*/React__default.createElement("button", {
+  }, /*#__PURE__*/React__default.createElement("div", {
+    "class": "modal-start",
+    tabIndex: "0"
+  }), children, /*#__PURE__*/React__default.createElement("button", {
     className: "" + css$d['c-modal__close-button'],
     onClick: function onClick() {
       closeModal(id);

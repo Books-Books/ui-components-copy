@@ -16,10 +16,11 @@ export const ModalButton = ({
 }) => {
   const openModal = function (id) {
     const modal = document.getElementById(`modal${id}`)
+    const modalFocus = modal.querySelector('.modal-start')
     const modalOverlay = document.getElementById(`modalOverlay${id}`)
 
     modal.hidden = false
-    modal.focus()
+    modalFocus.focus()
 
     modal.classList.add(modalCss['modal--active'])
     modalOverlay.classList.add(modalCss['overlay--active'])

@@ -11,9 +11,6 @@ import css from './Modal.module.css'
  **/
 
 export const ModalTest = ({ children, id }) => {
-  // const refModal = createRef()
-  // const refOverlay = createRef()
-
   const closeModal = function (id) {
     const modal = document.getElementById(`modal${id}`)
     const buttonModal = document.getElementById(`openModal${id}`)
@@ -34,6 +31,14 @@ export const ModalTest = ({ children, id }) => {
     }
   }
 
+  useEffect(() => {
+    if (setModal) {
+      document.addEventListener('keydown', closeModalOnEsc)
+    } else {
+      document.removeEventListener('keydown', closeModalOnEsc, false)
+    }
+  }, [])
+
   return (
     <Fragment>
       <div
@@ -47,10 +52,10 @@ export const ModalTest = ({ children, id }) => {
         role='dialog'
         className={`${css['c-modal']} ui-modal`}
         id={`modal${id}`}
-        tabIndex='0'
         hidden={true}
         onKeyDown={closeModalOnEsc(id)}
       >
+        <div class='modal-start' tabIndex='0'></div>
         {children}
         <button
           className={`${css['c-modal__close-button']}`}
