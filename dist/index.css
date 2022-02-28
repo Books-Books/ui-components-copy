@@ -1343,8 +1343,8 @@ img {
 ._JfSL7 {
   border: 0.1875rem solid transparent;
   background-color: transparent;
-  border-radius: 10%;
-  padding: 0.5em;
+  border-radius: min(10%, 3rem);
+  padding: 1em;
 }
 
 ._JfSL7:focus {
