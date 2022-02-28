@@ -1,4 +1,4 @@
-import React__default, { Fragment as Fragment$2, forwardRef, useState, useEffect as useEffect$1, createRef, createElement, useRef, Children, isValidElement, cloneElement } from 'react';
+import React__default, { Fragment as Fragment$2, forwardRef, useState, useEffect, createRef, createElement, useRef, Children, isValidElement, cloneElement } from 'react';
 import Draggable from 'react-draggable';
 import { Chart } from 'react-google-charts';
 import { v4 } from 'uuid';
@@ -1833,7 +1833,7 @@ var Dropdown = function Dropdown(_ref) {
     if ((e.keyCode || e.which) === 27) SetExpanded(false);
   };
 
-  useEffect$1(function () {
+  useEffect(function () {
     SetExpanded(isExpanded);
   }, [isExpanded]);
   return /*#__PURE__*/React__default.createElement("div", {
@@ -2399,7 +2399,7 @@ var InputControl = function InputControl(_ref) {
 
   var id = uniqueId_1('ui-');
 
-  useEffect$1(function () {
+  useEffect(function () {
     function validateIcon(element) {
       if (stateInput) {
         if (stateInput === 'Error') {
@@ -2495,7 +2495,7 @@ var InputField = function InputField(_ref) {
       getStateInput = _useState3[0],
       setStateInput = _useState3[1];
 
-  useEffect$1(function () {
+  useEffect(function () {
     function addClass(element, nameClass) {
       element.classList.add(css$b[nameClass]);
     }
@@ -3545,7 +3545,7 @@ var AsideNav = function AsideNav(_ref) {
 
   var refModal = createRef();
   var refOverlay = createRef();
-  useEffect$1(function () {
+  useEffect(function () {
     var $aside = refModal.current;
 
     function locationAside() {
@@ -3959,7 +3959,7 @@ var Modal = function Modal(_ref) {
     }
   }
 
-  useEffect$1(function () {
+  useEffect(function () {
     if (setModal) {
       document.addEventListener('keydown', closeModalOnEsc);
     } else {

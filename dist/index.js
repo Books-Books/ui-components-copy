@@ -4045,7 +4045,7 @@ var ModalTest = function ModalTest(_ref) {
     }
   }
 
-  useEffect(function () {
+  React.useEffect(function () {
     if (setModal) {
       document.addEventListener('keydown', closeModalOnEsc);
     } else {
