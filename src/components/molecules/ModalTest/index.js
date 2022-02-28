@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import css from './Modal.module.css'
+import css from '../Modal/Modal.module.css'
 
 /**
  * Usuario: bb-frontend-7
@@ -24,6 +24,7 @@ export const ModalTest = ({ children, id }) => {
 
     modal.classList.remove(css['modal--active'])
     modalOverlay.classList.remove(css['overlay--active'])
+    document.body.classList.remove(modalCss['has-modal'])
   }
   // Hacer que se pueda salir del modal presionando la tecla Esc
 
@@ -41,6 +42,7 @@ export const ModalTest = ({ children, id }) => {
         onClick={() => {
           closeModal(id)
         }}
+        onKeyDown={closeModalOnEsc(id)}
       />
       <div
         role='dialog'
@@ -55,7 +57,6 @@ export const ModalTest = ({ children, id }) => {
           onClick={() => {
             closeModal(id)
           }}
-          onKeyDown={closeModalOnEsc(id)}
           id={`closeModal${id}`}
         >
           <span aria-hidden='true'>&times;</span>

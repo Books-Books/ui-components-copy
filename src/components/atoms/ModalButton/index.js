@@ -23,6 +23,7 @@ export const ModalButton = ({
 
     modal.classList.add(modalCss['modal--active'])
     modalOverlay.classList.add(modalCss['overlay--active'])
+    document.body.classList.add(modalCss['has-modal'])
   }
 
   return (
