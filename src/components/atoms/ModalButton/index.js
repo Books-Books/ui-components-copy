@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import modalCss from '../../molecules/ModalTest/Modal.module.css'
+import modalCss from '../../molecules/Modal/Modal.module.css'
 import { Button, Image } from '../index'
 import css from './ModalButton.module.css'
 
 export const ModalButton = ({
-  hasImage = true,
+  hasImage = false,
   label,
   id,
   url,

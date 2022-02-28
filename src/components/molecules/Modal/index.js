@@ -1,7 +1,4 @@
-import PropTypes from 'prop-types'
-import React, { createRef, Fragment, useEffect, useState } from 'react'
-import { Button } from '../../atoms/Button/index'
-import { Image } from '../../atoms/Image/index'
+import React, { Fragment } from 'react'
 import css from './Modal.module.css'
 
 /**
@@ -13,125 +10,55 @@ import css from './Modal.module.css'
  * - text: Nodos de texto dentro del modal.
  **/
 
-export const Modal = ({
-  children,
-  label,
-  styled,
-  hasAriaLabel = false,
-  title,
-  text,
-  hasImage = false,
-  url,
-  alt,
-  imgTitle,
-  typeImg,
-  dataStyle,
-  width,
-  addImageClass
-}) => {
-  const [getModal, setModal] = useState(false)
-  const refModal = createRef()
-  const refOverlay = createRef()
+export const Modal = ({ children, id }) => {
+  const closeModal = function (id) {
+    const modal = document.getElementById(`modal${id}`)
+    const buttonModal = document.getElementById(`openModal${id}`)
+    const modalOverlay = document.getElementById(`modalOverlay${id}`)
 
-  // Abrir y cerrar el modal
-  function stateModal(elementModal, elementOverlay) {
-    if (getModal) {
-      elementModal.classList.remove(css['modal--active'])
-      elementOverlay.classList.remove(css['overlay--active'])
-      setModal(false)
-    } else {
-      elementModal.classList.add(css['modal--active'])
-      elementOverlay.classList.add(css['overlay--active'])
-      setModal(true)
-    }
+    modal.hidden = true
+    buttonModal.focus()
+
+    modal.classList.remove(css['modal--active'])
+    modalOverlay.classList.remove(css['overlay--active'])
+    document.body.classList.remove(css['has-modal'])
   }
-
-  // Solo cerrar el modal (usado en la función closeModalOnEsc)
-
-  function closeModal(elementModal, elementOverlay) {
-    elementModal.classList.remove(css['modal--active'])
-    elementOverlay.classList.remove(css['overlay--active'])
-    setModal(false)
-  }
-
-  // Event listener para abrir y cerrar el modal
-
-  function handleModal() {
-    const $modal = refModal.current
-    const $overlay = refOverlay.current
-    stateModal($modal, $overlay)
-  }
-
   // Hacer que se pueda salir del modal presionando la tecla Esc
 
-  function closeModalOnEsc(e) {
+  function closeModalOnEsc(e, id) {
     if ((e.keyCode || e.which) === 27) {
-      const $modal = refModal.current
-      const $overlay = refOverlay.current
-      closeModal($modal, $overlay)
+      closeModal(id)
     }
   }
 
-  useEffect(() => {
-    if (setModal) {
-      document.addEventListener('keydown', closeModalOnEsc)
-    } else {
-      document.removeEventListener('keydown', closeModalOnEsc, false)
-    }
-  }, [getModal])
+  document.body.addEventListener('keydown', function (e) {
+    closeModalOnEsc(e, id)
+  })
 
   return (
     <Fragment>
-      <>
-        {hasImage ? (
-          <button
-            className={css['modal-button-image']}
-            onClick={handleModal}
-            aria-label={label}
-          >
-            <Image
-              url={url}
-              alt={alt}
-              dataStyle={dataStyle}
-              title={imgTitle}
-              typeImg={typeImg}
-              width={width}
-              addClass={addImageClass}
-            />
-          </button>
-        ) : (
-          <Button
-            label={label}
-            styled={styled}
-            onClick={handleModal}
-            icon=''
-            hasAriaLabel={hasAriaLabel}
-          />
-        )}
-      </>
       <div
-        ref={refOverlay}
         className={`${css['c-modal-overlay']} ui-modal-overlay`}
-        id='overlay'
-        onClick={handleModal}
+        id={`modalOverlay${id}`}
+        onClick={() => {
+          closeModal(id)
+        }}
       />
       <div
         role='dialog'
-        ref={refModal}
         className={`${css['c-modal']} ui-modal`}
-        id='modal'
+        id={`modal${id}`}
+        hidden={true}
+        onKeyDown={closeModalOnEsc(id)}
       >
-        {children || (
-          <div className='ui-modal-content'>
-            <h3> {title} </h3>
-            <p> {text} </p>
-          </div>
-        )}
+        <div className='modal-start' tabIndex='0'></div>
+        {children}
         <button
           className={`${css['c-modal__close-button']}`}
-          onClick={handleModal}
-          style={{ cursor: 'pointer' }}
-          onKeyDown={closeModalOnEsc}
+          onClick={() => {
+            closeModal(id)
+          }}
+          id={`closeModal${id}`}
         >
           <span aria-hidden='true'>&times;</span>
           <span className='sr-only'>Cerrar modal</span>
@@ -139,17 +66,4 @@ export const Modal = ({
       </div>
     </Fragment>
   )
-}
-
-Modal.propTypes = {
-  title: PropTypes.string,
-  text: PropTypes.string,
-  children: PropTypes.element
-}
-
-Modal.defaultProps = {
-  label: 'modal',
-  stylde: 'primary',
-  title: 'Titulo',
-  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, porro, ad nihil esse nemo eum, tenetur pariatur a exercitationem ab cumque est necessitatibus fuga tempore ipsum vitae dolores impedit quae!'
 }
