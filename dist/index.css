@@ -1420,6 +1420,11 @@ svg[hide='false'] {
   outline-offset: 0.375rem;
 }
 
+._2PG4F {
+  max-height: 75vh;
+  padding-bottom: 1em;
+  overflow-y: auto;
+}
 body._2XpJ5 {
   overflow: hidden;
 }

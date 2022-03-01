@@ -81,6 +81,11 @@
   outline-offset: 0.375rem;
 }
 
+.c-modal__content {
+  max-height: 75vh;
+  padding-bottom: 1em;
+  overflow-y: auto;
+}
 body.has-modal {
   overflow: hidden;
 }

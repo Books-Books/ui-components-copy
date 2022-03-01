@@ -2632,7 +2632,7 @@ Logo.defaultProps = {
   typeLogo: 'logoPage'
 };
 
-var css$d = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD","has-modal":"_2XpJ5"};
+var css$d = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD","c-modal__content":"_2PG4F","has-modal":"_2XpJ5"};
 
 var openModal = function openModal(id) {
   var modal = document.getElementById("modal" + id);
@@ -3928,7 +3928,9 @@ var Modal = function Modal(_ref) {
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "modal-start",
     tabIndex: "0"
-  }), children, /*#__PURE__*/React__default.createElement("button", {
+  }), /*#__PURE__*/React__default.createElement("div", {
+    className: css$d['c-modal__content']
+  }, children), /*#__PURE__*/React__default.createElement("button", {
     className: "" + css$d['c-modal__close-button'],
     onClick: function onClick() {
       closeModal(id);
