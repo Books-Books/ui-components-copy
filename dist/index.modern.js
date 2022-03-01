@@ -2643,7 +2643,8 @@ var ModalButton = function ModalButton(_ref) {
       typeImage = _ref.typeImage,
       dataStyle = _ref.dataStyle,
       width = _ref.width,
-      addClass = _ref.addClass;
+      addClass = _ref.addClass,
+      title = _ref.title;
 
   var openModal = function openModal(id) {
     var modal = document.getElementById("modal" + id);

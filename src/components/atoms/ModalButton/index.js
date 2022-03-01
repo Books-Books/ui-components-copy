@@ -12,7 +12,8 @@ export const ModalButton = ({
   typeImage,
   dataStyle,
   width,
-  addClass
+  addClass,
+  title
 }) => {
   const openModal = function (id) {
     const modal = document.getElementById(`modal${id}`)
