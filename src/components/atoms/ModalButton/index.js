@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { openModal } from '../../../helpers/'
+import { openModal } from '../../../helpers/openModal'
 import { Button, Image } from '../index'
 import css from './ModalButton.module.css'
 
