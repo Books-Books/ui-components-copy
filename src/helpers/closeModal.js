@@ -1,3 +1,5 @@
+import css from '../components/molecules/Modal/Modal.module.css'
+
 const closeModal = function (id) {
   const modal = document.getElementById(`modal${id}`)
   const buttonModal = document.getElementById(`openModal${id}`)

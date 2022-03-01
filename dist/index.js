@@ -3890,27 +3890,26 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
+var closeModal = function closeModal(id) {
+  var modal = document.getElementById("modal" + id);
+  var buttonModal = document.getElementById("openModal" + id);
+  var modalOverlay = document.getElementById("modalOverlay" + id);
+  modal.hidden = true;
+  buttonModal.focus();
+  modal.classList.remove(css$d['modal--active']);
+  modalOverlay.classList.remove(css$d['overlay--active']);
+  document.body.classList.remove(css$d['has-modal']);
+};
+
+var closeModalOnEsc = function closeModalOnEsc(e, id) {
+  if ((e.keyCode || e.which) === 27) {
+    closeModal(id);
+  }
+};
+
 var Modal = function Modal(_ref) {
   var children = _ref.children,
       id = _ref.id;
-
-  var closeModal = function closeModal(id) {
-    var modal = document.getElementById("modal" + id);
-    var buttonModal = document.getElementById("openModal" + id);
-    var modalOverlay = document.getElementById("modalOverlay" + id);
-    modal.hidden = true;
-    buttonModal.focus();
-    modal.classList.remove(css$d['modal--active']);
-    modalOverlay.classList.remove(css$d['overlay--active']);
-    document.body.classList.remove(css$d['has-modal']);
-  };
-
-  function closeModalOnEsc(e, id) {
-    if ((e.keyCode || e.which) === 27) {
-      closeModal(id);
-    }
-  }
-
   document.body.addEventListener('keydown', function (e) {
     closeModalOnEsc(e, id);
   });
