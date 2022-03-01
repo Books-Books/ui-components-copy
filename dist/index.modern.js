@@ -2642,7 +2642,8 @@ var ModalButton = function ModalButton(_ref) {
       alt = _ref.alt,
       typeImage = _ref.typeImage,
       dataStyle = _ref.dataStyle,
-      width = _ref.width,
+      _ref$width = _ref.width,
+      width = _ref$width === void 0 ? 350 : _ref$width,
       addClass = _ref.addClass,
       title = _ref.title;
 
@@ -2658,7 +2659,7 @@ var ModalButton = function ModalButton(_ref) {
   };
 
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
-    className: css$e['modal-button-image'],
+    className: css$e['modal-button-image'] + " " + addClass,
     "aria-labelledby": "modalDescription" + id,
     "aria-description": "Abrir modal",
     onClick: function onClick() {
@@ -2674,8 +2675,7 @@ var ModalButton = function ModalButton(_ref) {
     title: title,
     typeImage: typeImage,
     dataStyle: dataStyle,
-    width: width,
-    addClass: addClass
+    width: width
   })) : /*#__PURE__*/React__default.createElement(Button, {
     id: "openModal" + id,
     "aria-description": "Abrir modal",

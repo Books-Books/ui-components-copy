@@ -48,14 +48,16 @@
 
 .c-modal__close-button {
   position: absolute;
-  top: -0.8rem;
-  right: -0.8rem;
-  border-radius: 50%;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 3rem;
+  height: 3rem;
   background-color: var(--tertiaryColor);
   border: 0.125rem solid transparent;
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
+  border-radius: 50%;
   cursor: pointer;
 }
 

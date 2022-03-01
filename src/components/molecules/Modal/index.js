@@ -4,10 +4,9 @@ import css from './Modal.module.css'
 /**
  * Usuario: bb-frontend-7
  * Descripción: Crea un modal que se puede cerrar al hacer clic en el botón, en el overlay que está por fuera o en al presionar la tecla Esc
- * param { children, title, text }
- * - children: elemento que va dentro del modal. Si no hay children, irá el contenido que se use en title y text.
- * - title: título del modal
- * - text: Nodos de texto dentro del modal.
+ * param { children, id }
+ * - children: contenido del modal
+ * - id: número que identificará al botón | OBLIGATORIO
  **/
 
 export const Modal = ({ children, id }) => {
@@ -16,15 +15,19 @@ export const Modal = ({ children, id }) => {
     const buttonModal = document.getElementById(`openModal${id}`)
     const modalOverlay = document.getElementById(`modalOverlay${id}`)
 
+    // Agrega el atributo de hidden al modal y enfoca el botón que abre dicho modal
     modal.hidden = true
     buttonModal.focus()
 
+    // Oculta el modal
     modal.classList.remove(css['modal--active'])
     modalOverlay.classList.remove(css['overlay--active'])
+
+    // Regresa el scroll al cuerpo del sitio
     document.body.classList.remove(css['has-modal'])
   }
-  // Hacer que se pueda salir del modal presionando la tecla Esc
 
+  // Hacer que se pueda salir del modal presionando la tecla Esc
   function closeModalOnEsc(e, id) {
     if ((e.keyCode || e.which) === 27) {
       closeModal(id)
