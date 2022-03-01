@@ -1,3 +1,5 @@
+import modalCss from '../components/molecules/Modal/Modal.module.css'
+
 export const openModal = function (id) {
   const modal = document.getElementById(`modal${id}`)
   const modalFocus = modal.querySelector('.modal-start')

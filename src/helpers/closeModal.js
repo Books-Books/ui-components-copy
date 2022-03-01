@@ -16,12 +16,10 @@ const closeModal = function (id) {
 }
 
 // Hacer que se pueda salir del modal presionando la tecla Esc
-function closeModalOnEsc(e, id) {
+const closeModalOnEsc = function (e, id) {
   if ((e.keyCode || e.which) === 27) {
     closeModal(id)
   }
 }
 
-document.body.addEventListener('keydown', function (e) {
-  closeModalOnEsc(e, id)
-})
+export { closeModal, closeModalOnEsc }
