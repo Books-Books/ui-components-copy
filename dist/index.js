@@ -4900,17 +4900,25 @@ var TourWindow = function TourWindow() {
 
 var css$E = {"col":"_1QLy6"};
 
-var Col = function Col(props) {
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: css$E['col'] + " " + props.addClass
-  });
+var _excluded$g = ["addClass"];
+var Cow = function Cow(_ref) {
+  var addClass = _ref.addClass,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
+
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: css$E['col'] + " " + addClass
+  }, props));
 };
 
 var css$F = {"row":"_7DQjb"};
 
-var Row = function Row(props) {
+var _excluded$h = ["addClass"];
+var Row = function Row(_ref) {
+  var addClass = _ref.addClass,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
+
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$F.row
+    className: css$F['row'] + " " + addClass
   }, props));
 };
 
@@ -4923,8 +4931,8 @@ exports.BtnSec = BtnSec;
 exports.Button = Button;
 exports.Card = Card;
 exports.Carrousel = Carrousel;
-exports.Col = Col;
 exports.ContrastFilters = ContrastFilters;
+exports.Cow = Cow;
 exports.DarkThemeToggle = DarkThemeToggle;
 exports.DraggableVideo = DraggableVideo;
 exports.Dropdown = Dropdown;

@@ -4897,19 +4897,27 @@ var TourWindow = function TourWindow() {
 
 var css$E = {"col":"_1QLy6"};
 
-var Col = function Col(props) {
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: css$E['col'] + " " + props.addClass
-  });
+var _excluded$g = ["addClass"];
+var Cow = function Cow(_ref) {
+  var addClass = _ref.addClass,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
+
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: css$E['col'] + " " + addClass
+  }, props));
 };
 
 var css$F = {"row":"_7DQjb"};
 
-var Row = function Row(props) {
+var _excluded$h = ["addClass"];
+var Row = function Row(_ref) {
+  var addClass = _ref.addClass,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
+
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$F.row
+    className: css$F['row'] + " " + addClass
   }, props));
 };
 
-export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, ModalButton, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
+export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, ContrastFilters, Cow, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, ModalButton, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
 //# sourceMappingURL=index.modern.js.map
