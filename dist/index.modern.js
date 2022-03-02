@@ -4899,7 +4899,8 @@ var css$E = {"col":"_1QLy6"};
 
 var _excluded$g = ["addClass"];
 var Col = function Col(_ref) {
-  var addClass = _ref.addClass,
+  var _ref$addClass = _ref.addClass,
+      addClass = _ref$addClass === void 0 ? '' : _ref$addClass,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
 
   return /*#__PURE__*/React__default.createElement("div", _extends({
@@ -4911,7 +4912,8 @@ var css$F = {"row":"_7DQjb"};
 
 var _excluded$h = ["addClass"];
 var Row = function Row(_ref) {
-  var addClass = _ref.addClass,
+  var _ref$addClass = _ref.addClass,
+      addClass = _ref$addClass === void 0 ? '' : _ref$addClass,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
 
   return /*#__PURE__*/React__default.createElement("div", _extends({
