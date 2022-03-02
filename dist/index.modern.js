@@ -4899,7 +4899,7 @@ var css$E = {"col":"_1QLy6"};
 
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$E.col + " " + props.addClass
+    className: css$E['col'] + " " + props.addClass
   });
 };
 
@@ -4907,7 +4907,7 @@ var css$F = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
   return /*#__PURE__*/React__default.createElement("div", {
-    className: css$F.row + " " + props.addClass
+    className: css$F['row'] + " " + props.addClass
   });
 };
 
