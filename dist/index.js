@@ -4901,7 +4901,7 @@ var TourWindow = function TourWindow() {
 var css$E = {"col":"_1QLy6"};
 
 var _excluded$g = ["addClass"];
-var Cow = function Cow(_ref) {
+var Col = function Col(_ref) {
   var addClass = _ref.addClass,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
 
@@ -4931,8 +4931,8 @@ exports.BtnSec = BtnSec;
 exports.Button = Button;
 exports.Card = Card;
 exports.Carrousel = Carrousel;
+exports.Col = Col;
 exports.ContrastFilters = ContrastFilters;
-exports.Cow = Cow;
 exports.DarkThemeToggle = DarkThemeToggle;
 exports.DraggableVideo = DraggableVideo;
 exports.Dropdown = Dropdown;

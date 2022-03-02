@@ -4898,7 +4898,7 @@ var TourWindow = function TourWindow() {
 var css$E = {"col":"_1QLy6"};
 
 var _excluded$g = ["addClass"];
-var Cow = function Cow(_ref) {
+var Col = function Col(_ref) {
   var addClass = _ref.addClass,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
 
@@ -4919,5 +4919,5 @@ var Row = function Row(_ref) {
   }, props));
 };
 
-export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, ContrastFilters, Cow, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, ModalButton, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
+export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, ModalButton, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
 //# sourceMappingURL=index.modern.js.map
