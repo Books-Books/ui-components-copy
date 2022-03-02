@@ -4909,9 +4909,9 @@ var Col = function Col(props) {
 var css$F = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: css$F['row'] + " " + props.addClass
-  });
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: css$F.row
+  }, props));
 };
 
 exports.Accordion = Accordion;

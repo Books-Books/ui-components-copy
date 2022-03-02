@@ -4906,9 +4906,9 @@ var Col = function Col(props) {
 var css$F = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: css$F['row'] + " " + props.addClass
-  });
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: css$F.row
+  }, props));
 };
 
 export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, ModalButton, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
