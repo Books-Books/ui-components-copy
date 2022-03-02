@@ -627,6 +627,12 @@ svg[hide='false'] {
   display: block;
 }
 
+@media (max-width: 600px) {
+  ._fH-Dn {
+    position: static;
+  }
+}
+
 ._2s-q8 {
     margin: 0;
     font-family: inherit;
@@ -893,6 +899,7 @@ svg[hide='false'] {
 @media (max-width: 600px) {
   ._13bif {
     width: 100%;
+    min-width: unset;
   }
 }
 

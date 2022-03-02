@@ -99,3 +99,9 @@ svg[hide] {
 svg[hide='false'] {
   display: block;
 }
+
+@media (max-width: 600px) {
+  .dropdownContainer {
+    position: static;
+  }
+}

@@ -67,5 +67,6 @@
 @media (max-width: 600px) {
   .styleInit {
     width: 100%;
+    min-width: unset;
   }
 }
