@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
+import { openModal } from '../../../helpers/openModal'
 import { Button, Image } from '../index'
 import css from './ModalButton.module.css'
-
 /**
  * Usuario: bb-frontend-7
  * Descripción: Crea un botón que abre un modal
@@ -29,17 +29,6 @@ export const ModalButton = ({
   addClass,
   title
 }) => {
-  const openModal = function (id) {
-    const modal = document.getElementById(`modal${id}`)
-    const modalFocus = modal.querySelector('.modal-start')
-    const modalOverlay = document.getElementById(`modalOverlay${id}`)
-
-    modal.hidden = false
-    modalFocus.focus()
-    modal.classList.add(modalCss['modal--active'])
-    modalOverlay.classList.add(modalCss['overlay--active'])
-    document.body.classList.add(modalCss['has-modal'])
-  }
   return (
     <Fragment>
       {hasImage ? (
