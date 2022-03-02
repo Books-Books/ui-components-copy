@@ -627,6 +627,11 @@ svg[hide='false'] {
   display: block;
 }
 
+@media (max-width: 730px) {
+  ._fH-Dn {
+    position: static;
+  }
+}
 @media (max-width: 600px) {
   ._fH-Dn {
     position: static;
