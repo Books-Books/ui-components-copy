@@ -2634,6 +2634,17 @@ Logo.defaultProps = {
 
 var css$d = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD","c-modal__content":"_2PG4F","has-modal":"_2XpJ5"};
 
+var openModal = function openModal(id) {
+  var modal = document.getElementById("modal" + id);
+  var modalFocus = modal.querySelector('.modal-start');
+  var modalOverlay = document.getElementById("modalOverlay" + id);
+  modal.hidden = false;
+  modalFocus.focus();
+  modal.classList.add(css$d['modal--active']);
+  modalOverlay.classList.add(css$d['overlay--active']);
+  document.body.classList.add(css$d['has-modal']);
+};
+
 var css$e = {"modal-button-image":"_JfSL7"};
 
 var ModalButton = function ModalButton(_ref) {
@@ -2649,18 +2660,6 @@ var ModalButton = function ModalButton(_ref) {
       width = _ref$width === void 0 ? 350 : _ref$width,
       addClass = _ref.addClass,
       title = _ref.title;
-
-  var openModal = function openModal(id) {
-    var modal = document.getElementById("modal" + id);
-    var modalFocus = modal.querySelector('.modal-start');
-    var modalOverlay = document.getElementById("modalOverlay" + id);
-    modal.hidden = false;
-    modalFocus.focus();
-    modal.classList.add(modalCss['modal--active']);
-    modalOverlay.classList.add(modalCss['overlay--active']);
-    document.body.classList.add(modalCss['has-modal']);
-  };
-
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
     className: css$e['modal-button-image'] + " " + addClass,
     "aria-labelledby": "modalDescription" + id,
