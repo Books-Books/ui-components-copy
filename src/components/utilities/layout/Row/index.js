@@ -1,6 +1,6 @@
 import React from 'react'
 import css from './Row.module.css'
 
-export const Row = (props) => {
-  return <div className={css.row} {...props} />
+export const Row = ({ addClass = '', ...props }) => {
+  return <div className={`${css['row']} ${addClass}`} {...props} />
 }
