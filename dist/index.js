@@ -4900,22 +4900,18 @@ var TourWindow = function TourWindow() {
 
 var css$E = {"col":"_1QLy6"};
 
-var Col = function Col(_ref) {
-  var _ref$addClass = _ref.addClass,
-      addClass = _ref$addClass === void 0 ? 'false' : _ref$addClass;
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: css$E.col + " " + addClass
-  });
+var Col = function Col(props) {
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: css$E.col + " " + props.addClass
+  }, props));
 };
 
 var css$F = {"row":"_7DQjb"};
 
-var Row = function Row(_ref) {
-  var _ref$addClass = _ref.addClass,
-      addClass = _ref$addClass === void 0 ? 'false' : _ref$addClass;
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: css$F.row + " " + addClass
-  });
+var Row = function Row(props) {
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: css$F.row
+  }, props));
 };
 
 exports.Accordion = Accordion;

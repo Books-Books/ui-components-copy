@@ -4897,22 +4897,18 @@ var TourWindow = function TourWindow() {
 
 var css$E = {"col":"_1QLy6"};
 
-var Col = function Col(_ref) {
-  var _ref$addClass = _ref.addClass,
-      addClass = _ref$addClass === void 0 ? 'false' : _ref$addClass;
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: css$E.col + " " + addClass
-  });
+var Col = function Col(props) {
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: css$E.col + " " + props.addClass
+  }, props));
 };
 
 var css$F = {"row":"_7DQjb"};
 
-var Row = function Row(_ref) {
-  var _ref$addClass = _ref.addClass,
-      addClass = _ref$addClass === void 0 ? 'false' : _ref$addClass;
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: css$F.row + " " + addClass
-  });
+var Row = function Row(props) {
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: css$F.row
+  }, props));
 };
 
 export { Accordion, AccordionItem, AsideNav, AsideSection, AudioBar, BtnSec, Button, Card, Carrousel, Col, ContrastFilters, DarkThemeToggle, DraggableVideo, Dropdown, Graphics, Header, Icon, Image, Inicio, InputAction, InputControl, InputField, Link, Logo, Modal, ModalButton, Multimedia, NavBar, Pagination, PaginationInternal, PanelSection, PanelTabs, Row, Section, Select, Tab, TabPanel, Table, TableGrid, Tabs, Text, Textarea, TitleSlide, Toggletip, Tooltip, TourHelpLayer, TourModal, TourOverlay, TourWindow, UserLogin, Video };
