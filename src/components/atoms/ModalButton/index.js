@@ -1,7 +1,21 @@
 import React, { Fragment } from 'react'
-import modalCss from '../../molecules/Modal/Modal.module.css'
 import { Button, Image } from '../index'
 import css from './ModalButton.module.css'
+
+/**
+ * Usuario: bb-frontend-7
+ * Descripción: Crea un botón que abre un modal
+ * param { hasImage, label, id, url, title, alt, typeImage, dataStyle, width, addClass }
+ * - hasImage: determina si el botón va a tener una imagen o no. Por defecto es false
+ * - id: número que identificará al botón | OBLIGATORIO
+ * - label: etiqueta del botón | OBLIGATORIO
+ * - url: ruta de la imagen | Solo si hasImage = true
+ * - title: título del caption de la imagen | Solo si hasImage = true
+ * - typeImage: tipo de borde que llevará la imagen | Solo si hasImage = true
+ * - dataStyle: estilo de los bordes de la imagen | Solo si hasImage = true
+ * - width: ancho máximo en pixeles de la imagen, por defecto es 350 | Solo si hasImage = true
+ * - addClass: clase extra que se añadirá al botón
+ **/
 
 export const ModalButton = ({
   hasImage = false,
@@ -11,7 +25,7 @@ export const ModalButton = ({
   alt,
   typeImage,
   dataStyle,
-  width,
+  width = 350,
   addClass,
   title
 }) => {
@@ -30,7 +44,7 @@ export const ModalButton = ({
     <Fragment>
       {hasImage ? (
         <button
-          className={css['modal-button-image']}
+          className={`${css['modal-button-image']} ${addClass}`}
           aria-labelledby={`modalDescription${id}`}
           aria-description='Abrir modal'
           onClick={() => openModal(id)}
@@ -46,7 +60,6 @@ export const ModalButton = ({
             typeImage={typeImage}
             dataStyle={dataStyle}
             width={width}
-            addClass={addClass}
           />
         </button>
       ) : (

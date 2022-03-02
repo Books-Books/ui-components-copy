@@ -2632,7 +2632,18 @@ Logo.defaultProps = {
   typeLogo: 'logoPage'
 };
 
-var css$d = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD","has-modal":"_2XpJ5"};
+var css$d = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","modal-button-image":"_3cuWD","c-modal__content":"_2PG4F","has-modal":"_2XpJ5"};
+
+var openModal = function openModal(id) {
+  var modal = document.getElementById("modal" + id);
+  var modalFocus = modal.querySelector('.modal-start');
+  var modalOverlay = document.getElementById("modalOverlay" + id);
+  modal.hidden = false;
+  modalFocus.focus();
+  modal.classList.add(css$d['modal--active']);
+  modalOverlay.classList.add(css$d['overlay--active']);
+  document.body.classList.add(css$d['has-modal']);
+};
 
 var css$e = {"modal-button-image":"_JfSL7"};
 
@@ -2645,23 +2656,12 @@ var ModalButton = function ModalButton(_ref) {
       alt = _ref.alt,
       typeImage = _ref.typeImage,
       dataStyle = _ref.dataStyle,
-      width = _ref.width,
+      _ref$width = _ref.width,
+      width = _ref$width === void 0 ? 350 : _ref$width,
       addClass = _ref.addClass,
       title = _ref.title;
-
-  var openModal = function openModal(id) {
-    var modal = document.getElementById("modal" + id);
-    var modalFocus = modal.querySelector('.modal-start');
-    var modalOverlay = document.getElementById("modalOverlay" + id);
-    modal.hidden = false;
-    modalFocus.focus();
-    modal.classList.add(css$d['modal--active']);
-    modalOverlay.classList.add(css$d['overlay--active']);
-    document.body.classList.add(css$d['has-modal']);
-  };
-
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
-    className: css$e['modal-button-image'],
+    className: css$e['modal-button-image'] + " " + addClass,
     "aria-labelledby": "modalDescription" + id,
     "aria-description": "Abrir modal",
     onClick: function onClick() {
@@ -2677,8 +2677,7 @@ var ModalButton = function ModalButton(_ref) {
     title: title,
     typeImage: typeImage,
     dataStyle: dataStyle,
-    width: width,
-    addClass: addClass
+    width: width
   })) : /*#__PURE__*/React__default.createElement(Button, {
     id: "openModal" + id,
     "aria-description": "Abrir modal",
@@ -3891,27 +3890,26 @@ Graphics.propTypes = {
   options: propTypes.object.isRequired
 };
 
+var closeModal = function closeModal(id) {
+  var modal = document.getElementById("modal" + id);
+  var buttonModal = document.getElementById("openModal" + id);
+  var modalOverlay = document.getElementById("modalOverlay" + id);
+  modal.hidden = true;
+  buttonModal.focus();
+  modal.classList.remove(css$d['modal--active']);
+  modalOverlay.classList.remove(css$d['overlay--active']);
+  document.body.classList.remove(css$d['has-modal']);
+};
+
+var closeModalOnEsc = function closeModalOnEsc(e, id) {
+  if ((e.keyCode || e.which) === 27) {
+    closeModal(id);
+  }
+};
+
 var Modal = function Modal(_ref) {
   var children = _ref.children,
       id = _ref.id;
-
-  var closeModal = function closeModal(id) {
-    var modal = document.getElementById("modal" + id);
-    var buttonModal = document.getElementById("openModal" + id);
-    var modalOverlay = document.getElementById("modalOverlay" + id);
-    modal.hidden = true;
-    buttonModal.focus();
-    modal.classList.remove(css$d['modal--active']);
-    modalOverlay.classList.remove(css$d['overlay--active']);
-    document.body.classList.remove(css$d['has-modal']);
-  };
-
-  function closeModalOnEsc(e, id) {
-    if ((e.keyCode || e.which) === 27) {
-      closeModal(id);
-    }
-  }
-
   document.body.addEventListener('keydown', function (e) {
     closeModalOnEsc(e, id);
   });
@@ -3930,7 +3928,9 @@ var Modal = function Modal(_ref) {
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "modal-start",
     tabIndex: "0"
-  }), children, /*#__PURE__*/React__default.createElement("button", {
+  }), /*#__PURE__*/React__default.createElement("div", {
+    className: css$d['c-modal__content']
+  }, children), /*#__PURE__*/React__default.createElement("button", {
     className: "" + css$d['c-modal__close-button'],
     onClick: function onClick() {
       closeModal(id);
