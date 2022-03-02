@@ -69,7 +69,7 @@
     width: 100%;
     min-width: unset;
   }
-  .imgUpRight {
+  .imgUpRight img {
     display: none;
   }
 }
