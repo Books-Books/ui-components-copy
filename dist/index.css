@@ -906,6 +906,17 @@ svg[hide='false'] {
     width: 100%;
     min-width: unset;
   }
+  ._3rrlz {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  ._1qmO0 h1 {
+    font-size: 1.25rem;
+  }
+  ._1aPYB p {
+    font-size: 1.375rem;
+  }
 }
 
 ._xB2Ha {

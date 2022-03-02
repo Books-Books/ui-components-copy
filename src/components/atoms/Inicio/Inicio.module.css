@@ -69,4 +69,15 @@
     width: 100%;
     min-width: unset;
   }
+  .imgUpRight {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  .styleTitle h1 {
+    font-size: 1.25rem;
+  }
+  .styleSubTitle p {
+    font-size: 1.375rem;
+  }
 }
