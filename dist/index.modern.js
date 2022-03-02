@@ -4898,7 +4898,7 @@ var css$E = {"col":"_1QLy6"};
 
 var Col = function Col(props) {
   return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$E.col
+    className: css$E.col + " " + props.addClass
   }, props));
 };
 

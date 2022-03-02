@@ -22,12 +22,10 @@ export const ModalButton = ({
 
     modal.hidden = false
     modalFocus.focus()
-
     modal.classList.add(modalCss['modal--active'])
     modalOverlay.classList.add(modalCss['overlay--active'])
     document.body.classList.add(modalCss['has-modal'])
   }
-
   return (
     <Fragment>
       {hasImage ? (
