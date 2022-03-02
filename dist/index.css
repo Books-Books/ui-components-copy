@@ -890,6 +890,12 @@ svg[hide='false'] {
   text-transform: none;
 }
 
+@media (max-width: 600px) {
+  ._13bif {
+    width: 100%;
+  }
+}
+
 ._xB2Ha {
   position: absolute;
   width: 100%;

@@ -63,3 +63,9 @@
   margin: 0 auto;
   text-transform: none;
 }
+
+@media (max-width: 600px) {
+  .styleInit {
+    width: 100%;
+  }
+}
