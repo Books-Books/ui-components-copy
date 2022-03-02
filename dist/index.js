@@ -4901,17 +4901,17 @@ var TourWindow = function TourWindow() {
 var css$E = {"col":"_1QLy6"};
 
 var Col = function Col(props) {
-  return /*#__PURE__*/React__default.createElement("div", _extends({
+  return /*#__PURE__*/React__default.createElement("div", {
     className: css$E.col + " " + props.addClass
-  }, props));
+  });
 };
 
 var css$F = {"row":"_7DQjb"};
 
 var Row = function Row(props) {
-  return /*#__PURE__*/React__default.createElement("div", _extends({
-    className: css$F.row
-  }, props));
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: css$F.row + " " + props.addClass
+  });
 };
 
 exports.Accordion = Accordion;
