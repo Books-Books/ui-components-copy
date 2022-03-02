@@ -4898,7 +4898,8 @@ var TourWindow = function TourWindow() {
 var css$E = {"col":"_1QLy6"};
 
 var Col = function Col(_ref) {
-  var addClass = _ref.addClass;
+  var _ref$addClass = _ref.addClass,
+      addClass = _ref$addClass === void 0 ? '' : _ref$addClass;
   return /*#__PURE__*/React__default.createElement("div", {
     className: css$E.col + " " + addClass
   });
@@ -4907,7 +4908,8 @@ var Col = function Col(_ref) {
 var css$F = {"row":"_7DQjb"};
 
 var Row = function Row(_ref) {
-  var addClass = _ref.addClass;
+  var _ref$addClass = _ref.addClass,
+      addClass = _ref$addClass === void 0 ? '' : _ref$addClass;
   return /*#__PURE__*/React__default.createElement("div", {
     className: css$F.row + " " + addClass
   });
