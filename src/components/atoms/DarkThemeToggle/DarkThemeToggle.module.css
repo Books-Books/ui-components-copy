@@ -4,3 +4,13 @@
   font-size: 1rem;
   text-align: start;
 }
+@media (max-width: 923px) {
+  .spanText {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 500px) {
+  .spanText {
+    font-size: 0.75rem;
+  }
+}

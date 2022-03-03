@@ -471,6 +471,16 @@ html._2_x81 video {
   font-size: 1rem;
   text-align: start;
 }
+@media (max-width: 923px) {
+  ._4KFeG {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 500px) {
+  ._4KFeG {
+    font-size: 0.75rem;
+  }
+}
 
 ._1CW18 {
   border-top: 1px solid var(--colorBorderDropable);
