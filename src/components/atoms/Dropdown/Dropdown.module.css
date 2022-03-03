@@ -100,7 +100,7 @@ svg[hide='false'] {
   display: block;
 }
 
-@media (max-width: 730px) {
+@media (max-width: 800px) {
   .dropdownContainer {
     position: static;
   }
