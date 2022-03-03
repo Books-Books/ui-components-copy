@@ -115,3 +115,8 @@ svg[hide='false'] {
     padding: 0 10px;
   }
 }
+@media (max-width: 430px) {
+  .dropdownContainer {
+    padding: 0;
+  }
+}

@@ -642,6 +642,11 @@ svg[hide='false'] {
     padding: 0 10px;
   }
 }
+@media (max-width: 430px) {
+  ._fH-Dn {
+    padding: 0;
+  }
+}
 
 ._2s-q8 {
     margin: 0;
