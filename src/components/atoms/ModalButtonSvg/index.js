@@ -12,8 +12,8 @@ import css from './ModalButtonSvg.module.css'
  **/
 
 export const ModalButtonSvg = ({ label, id, addClass, children }) => {
-  const openModalWithSpace = function (id) {
-    if ((e.keyCode || e.which) === 32) {
+  const openModalWithSpace = function (e, id) {
+    if ((e.keyCode || e.which) === 32 || (e.keyCode || e.which) === 13) {
       openModal(id)
     }
   }
@@ -24,7 +24,7 @@ export const ModalButtonSvg = ({ label, id, addClass, children }) => {
       className={`${css['modal-button']} ${addClass}`}
       role='button'
       onClick={() => openModal(id)}
-      onKeyDown={() => openModalWithSpace(id)}
+      onKeyDown={(e) => openModalWithSpace(e, id)}
       aria-label={label}
       xLinkHref=''
     >
