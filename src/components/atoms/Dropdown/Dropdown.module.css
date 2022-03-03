@@ -110,7 +110,7 @@ svg[hide='false'] {
     position: static;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .dropdownContainer {
     padding: 0 10px;
   }
