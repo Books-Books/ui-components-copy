@@ -38,7 +38,7 @@
   border: solid 1px var(--secondaryColor);
 }
 [data-style-img='default'] {
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 .styleTitle {
