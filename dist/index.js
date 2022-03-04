@@ -2665,7 +2665,7 @@ var openModal = function openModal(e, id) {
   modal.classList.add(css$d['modal--active']);
   modalOverlay.classList.add(css$d['overlay--active']);
   document.body.classList.add(css$d['has-modal']);
-  createKeyboardTrap(e, id);
+  modal.addEventListener('keydown', createKeyboardTrap(e, id));
 };
 
 var css$e = {"modal-button-image":"_JfSL7"};
