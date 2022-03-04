@@ -11,6 +11,10 @@ export const createKeyboardTrap = function (e, id) {
   const firstFocusableElement = focusableElements[0]
   const lastFocusableElement = focusableElements[focusableElements.length - 1]
 
+  console.log(focusableElements)
+  console.log(firstFocusableElement)
+  console.log(lastFocusableElement)
+
   function trapTabKey(e) {
     if (e.keyCode === 9) {
       if (e.shiftKey) {
