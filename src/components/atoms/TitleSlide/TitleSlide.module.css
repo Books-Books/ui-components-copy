@@ -3,7 +3,6 @@
   grid-template-columns: min(30vw, 9.375rem) 1rem 1fr;
   grid-template-rows: 1fr;
   align-items: center;
-  max-width: 46rem;
   margin-block: 1rem 3rem;
 }
 
@@ -46,14 +45,15 @@
   height: calc(80% - 1.25rem);
   margin-block: 0.625rem;
   box-sizing: content-box;
+  width: fit-content;
 }
 .title span {
   font-size: 1.375rem;
   color: var(--tertiaryColor);
 }
 
-@media screen and (min-width: 48em) {
+/* @media screen and (min-width: 48em) {
   .title {
     min-width: 34.375rem;
   }
-}
+} */

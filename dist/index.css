@@ -1856,7 +1856,6 @@ body._2XpJ5 {
   grid-template-columns: min(30vw, 9.375rem) 1rem 1fr;
   grid-template-rows: 1fr;
   align-items: center;
-  max-width: 46rem;
   margin-block: 1rem 3rem;
 }
 
@@ -1899,17 +1898,20 @@ body._2XpJ5 {
   height: calc(80% - 1.25rem);
   margin-block: 0.625rem;
   box-sizing: content-box;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 ._1-HyA span {
   font-size: 1.375rem;
   color: var(--tertiaryColor);
 }
 
-@media screen and (min-width: 48em) {
-  ._1-HyA {
+/* @media screen and (min-width: 48em) {
+  .title {
     min-width: 34.375rem;
   }
-}
+} */
 
 ._3Z4HX {
   position: relative;
