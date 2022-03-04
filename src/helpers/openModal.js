@@ -2,12 +2,11 @@ import modalCss from '../components/molecules/Modal/Modal.module.css'
 
 export const openModal = function (id) {
   const modal = document.getElementById(`modal${id}`)
-  const modalFocus = modal.querySelector('.modal-start')
   const modalOverlay = document.getElementById(`modalOverlay${id}`)
 
   // Quita el atributo de hidden al modal y enfoca el div invisible dentro del modal que puede enfocarse con teclado.
   modal.hidden = false
-  modalFocus.focus()
+  modal.focus()
 
   // Muestra el modal
   modal.classList.add(modalCss['modal--active'])

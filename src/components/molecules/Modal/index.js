@@ -30,8 +30,8 @@ export const Modal = ({ children, id }) => {
         id={`modal${id}`}
         hidden={true}
         onKeyDown={closeModalOnEsc(id)}
+        tabIndex='-1'
       >
-        <div className='modal-start' tabIndex='0'></div>
         <div className={css['c-modal__content']}>{children}</div>
         <button
           className={`${css['c-modal__close-button']}`}
