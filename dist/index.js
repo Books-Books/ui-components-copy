@@ -2646,12 +2646,16 @@ var createKeyboardTrap = function createKeyboardTrap(e, id) {
   function trapTabKey(e) {
     if (e.keyCode === 9 && document.activeElement === lastFocusableElement) {
       firstFocusableElement.focus();
+      console.log('Ultimo');
     } else if (e.shiftKey && e.keyCode === 9 && document.activeElement === firstFocusableElement) {
       lastFocusableElement.focus();
+      console.log('Primero');
     }
   }
 
-  modal.addEventListener('keydown', trapTabKey(e));
+  document.addEventListener('keydown', function (e) {
+    return trapTabKey(e);
+  });
 };
 var openModal = function openModal(id) {
   var modal = document.getElementById("modal" + id);
@@ -2678,12 +2682,18 @@ var ModalButton = function ModalButton(_ref) {
       width = _ref$width === void 0 ? 350 : _ref$width,
       addClass = _ref.addClass,
       title = _ref.title;
+
+  var handleClick = function handleClick(e, id) {
+    openModal(id);
+    createKeyboardTrap(e, id);
+  };
+
   return /*#__PURE__*/React__default.createElement(React.Fragment, null, hasImage ? /*#__PURE__*/React__default.createElement("button", {
     className: css$e['modal-button-image'] + " " + addClass,
     "aria-labelledby": "modalDescription" + id,
     "aria-description": "Abrir modal",
     onClick: function onClick(e) {
-      openModal(id), createKeyboardTrap(e, id);
+      return handleClick(e, id);
     },
     id: "openModal" + id
   }, /*#__PURE__*/React__default.createElement("span", {
@@ -2702,7 +2712,7 @@ var ModalButton = function ModalButton(_ref) {
     hasAriaLabel: false,
     label: label,
     onClick: function onClick(e) {
-      openModal(id), createKeyboardTrap(e, id);
+      return handleClick(e, id);
     },
     addClass: addClass
   }));
