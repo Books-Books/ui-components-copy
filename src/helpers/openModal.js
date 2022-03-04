@@ -16,18 +16,30 @@ export const createKeyboardTrap = function (e, id) {
   console.log(lastFocusableElement)
 
   function trapTabKey(e) {
-    if (e.keyCode === 9) {
-      if (e.shiftKey) {
-        if (document.activeElement === firstFocusableElement) {
-          e.preventDefault
-          lastFocusableElement.focus()
-        }
-      } else {
-        if (document.activeElement === lastFocusableElement) {
-          e.preventDefault
-          firstFocusableElement.focus()
-        }
-      }
+    // if (e.keyCode === 9) {
+    //   if (e.shiftKey) {
+    //     if (document.activeElement === firstFocusableElement) {
+    //       console.log('Ultimo')
+    //     }
+    //   } else {
+    //     if (document.activeElement === lastFocusableElement) {
+    //       e.preventDefault
+    //       firstFocusableElement.focus()
+    //       console.log('Primero')
+    //     }
+    //   }
+    // }
+
+    if (e.keyCode === 9 && document.activeElement === lastFocusableElement) {
+      e.preventDefault
+      firstFocusableElement.focus()
+    } else if (
+      e.shiftKey &&
+      e.keyCode === 9 &&
+      document.activeElement === firstFocusableElement
+    ) {
+      e.preventDefault
+      lastFocusableElement.focus()
     }
   }
 
