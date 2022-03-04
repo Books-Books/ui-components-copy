@@ -1,5 +1,5 @@
 import React from 'react'
-import { openModal } from '../../../helpers/openModal'
+import { createKeyboardTrap, openModal } from '../../../helpers/openModal'
 import css from './ModalButtonSvg.module.css'
 
 /**
@@ -18,14 +18,17 @@ export const ModalButtonSvg = ({ label, id, addClass, children }) => {
     }
   }
 
+  const handleClick = function (e, id) {
+    openModal(id)
+    createKeyboardTrap(e, id)
+  }
+
   return (
     <a
       id={`openModal${id}`}
       className={`${css['modal-button']} ${addClass}`}
       role='button'
-      onClick={(e) => {
-        openModal(id), createKeyboardTrap(e, id)
-      }}
+      onClick={(e) => handleClick(e, id)}
       onKeyDown={(e) => openModalWithSpace(e, id)}
       aria-label={label}
       xLinkHref=''
