@@ -3240,7 +3240,7 @@ function UserLogin(_ref) {
     className: cssUser.colorTextUser + " " + addClass
   }, /*#__PURE__*/React__default.createElement("h3", null, /*#__PURE__*/React__default.createElement("span", {
     className: !showWelcome ? "" + cssUser.spanWelcome : ''
-  }, "Bienvenido:", ' '), label)));
+  }, "Bienvenido", ' '), label)));
 }
 
 var css$r = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};

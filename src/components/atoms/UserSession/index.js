@@ -18,7 +18,7 @@ export function UserLogin({
       <div className={`${cssUser.colorTextUser} ${addClass}`}>
         <h3>
           <span className={!showWelcome ? `${cssUser.spanWelcome}` : ''}>
-            Bienvenido:{' '}
+            Bienvenido{' '}
           </span>
           {label}
         </h3>
