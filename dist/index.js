@@ -2635,7 +2635,6 @@ Logo.defaultProps = {
 var css$d = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","c-modal__content":"_2PG4F","has-modal":"_2XpJ5"};
 
 var createKeyboardTrap = function createKeyboardTrap(id) {
-<<<<<<< HEAD
   var modal = document.getElementById("modal" + id);
   var focusableElements = [].concat(modal.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'));
   var firstFocusableElement = focusableElements[0];
@@ -2643,16 +2642,6 @@ var createKeyboardTrap = function createKeyboardTrap(id) {
   console.log(focusableElements);
   console.log(firstFocusableElement);
   console.log(lastFocusableElement);
-=======
-  var focusableElements = [].concat(document.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'));
-  var firstFocusableElement = focusableElements[0];
-  var lastFocusableElement = focusableElements[focusableElements.length - 1];
-  console.log({
-    focusableElements: focusableElements,
-    firstFocusableElement: firstFocusableElement,
-    lastFocusableElement: lastFocusableElement
-  });
->>>>>>> af7bab01d8f53f72858284b86896c2bfbd52ed16
 };
 
 var openModal = function openModal(id) {
