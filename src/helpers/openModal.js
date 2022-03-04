@@ -31,5 +31,5 @@ export const openModal = function (id) {
   // Elimina el scroll del cuerpo del sitio
   document.body.classList.add(modalCss['has-modal'])
 
-  createKeyboardTrap()
+  createKeyboardTrap(id)
 }

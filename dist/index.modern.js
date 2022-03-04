@@ -2649,7 +2649,7 @@ var openModal = function openModal(id) {
   modal.classList.add(css$d['modal--active']);
   modalOverlay.classList.add(css$d['overlay--active']);
   document.body.classList.add(css$d['has-modal']);
-  createKeyboardTrap();
+  createKeyboardTrap(id);
 };
 
 var css$e = {"modal-button-image":"_JfSL7"};
