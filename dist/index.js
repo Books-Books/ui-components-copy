@@ -2636,7 +2636,7 @@ var css$d = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-butto
 
 var createKeyboardTrap = function createKeyboardTrap(e, id) {
   var modal = document.getElementById("modal" + id);
-  var focusableElements = [].concat(modal.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed [tabindex="0"], [contenteditable]'));
+  var focusableElements = Array.from(modal.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed [tabindex="0"], [contenteditable]'));
   var firstFocusableElement = focusableElements[0];
   var lastFocusableElement = focusableElements[focusableElements.length - 1];
   console.log(focusableElements);

@@ -3,11 +3,11 @@ import modalCss from '../components/molecules/Modal/Modal.module.css'
 export const createKeyboardTrap = function (e, id) {
   const modal = document.getElementById(`modal${id}`)
 
-  const focusableElements = [
-    ...modal.querySelectorAll(
+  const focusableElements = Array.from(
+    modal.querySelectorAll(
       'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed [tabindex="0"], [contenteditable]'
     )
-  ]
+  )
   const firstFocusableElement = focusableElements[0]
   const lastFocusableElement = focusableElements[focusableElements.length - 1]
 
