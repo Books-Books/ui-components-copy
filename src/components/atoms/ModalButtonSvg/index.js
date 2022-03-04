@@ -23,7 +23,7 @@ export const ModalButtonSvg = ({ label, id, addClass, children }) => {
       id={`openModal${id}`}
       className={`${css['modal-button']} ${addClass}`}
       role='button'
-      onClick={() => openModal(id)}
+      onClick={(e) => openModal(e, id)}
       onKeyDown={(e) => openModalWithSpace(e, id)}
       aria-label={label}
       xLinkHref=''

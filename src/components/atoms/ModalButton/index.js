@@ -36,7 +36,7 @@ export const ModalButton = ({
           className={`${css['modal-button-image']} ${addClass}`}
           aria-labelledby={`modalDescription${id}`}
           aria-description='Abrir modal'
-          onClick={() => openModal(id)}
+          onClick={(e) => openModal(e, id)}
           id={`openModal${id}`}
         >
           <span className='sr-only' id={`modalDescription${id}`}>
@@ -57,7 +57,7 @@ export const ModalButton = ({
           aria-description='Abrir modal'
           hasAriaLabel={false}
           label={label}
-          onClick={() => openModal(id)}
+          onClick={(e) => openModal(e, id)}
           addClass={addClass}
         />
       )}
