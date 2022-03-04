@@ -21,11 +21,13 @@ export const createKeyboardTrap = function (e, id) {
         if (document.activeElement === firstFocusableElement) {
           e.preventDefault
           lastFocusableElement.focus()
+          console.log('Ultimo')
         }
       } else {
         if (document.activeElement === lastFocusableElement) {
           e.preventDefault
           firstFocusableElement.focus()
+          console.log('Primero')
         }
       }
     }

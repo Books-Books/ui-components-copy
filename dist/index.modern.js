@@ -2645,10 +2645,12 @@ var createKeyboardTrap = function createKeyboardTrap(e, id) {
       if (e.shiftKey) {
         if (document.activeElement === firstFocusableElement) {
           lastFocusableElement.focus();
+          console.log('Ultimo');
         }
       } else {
         if (document.activeElement === lastFocusableElement) {
           firstFocusableElement.focus();
+          console.log('Primero');
         }
       }
     }
