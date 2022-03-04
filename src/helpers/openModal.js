@@ -1,5 +1,21 @@
 import modalCss from '../components/molecules/Modal/Modal.module.css'
 
+const createKeyboardTrap = function (id) {
+  const focusableElements = [
+    ...document.querySelectorAll(
+      'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'
+    )
+  ]
+  const firstFocusableElement = focusableElements[0]
+  const lastFocusableElement = focusableElements[focusableElements.length - 1]
+
+  console.log({
+    focusableElements,
+    firstFocusableElement,
+    lastFocusableElement
+  })
+}
+
 export const openModal = function (id) {
   const modal = document.getElementById(`modal${id}`)
   const modalOverlay = document.getElementById(`modalOverlay${id}`)
@@ -14,4 +30,6 @@ export const openModal = function (id) {
 
   // Elimina el scroll del cuerpo del sitio
   document.body.classList.add(modalCss['has-modal'])
+
+  createKeyboardTrap()
 }

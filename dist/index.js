@@ -2634,6 +2634,17 @@ Logo.defaultProps = {
 
 var css$d = {"c-modal":"_6eOcM","c-modal-overlay":"_1q2aa","c-modal__close-button":"__SM4G","overlay--active":"_20Zpv","modal--active":"_2MLWh","c-modal__content":"_2PG4F","has-modal":"_2XpJ5"};
 
+var createKeyboardTrap = function createKeyboardTrap(id) {
+  var focusableElements = [].concat(document.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'));
+  var firstFocusableElement = focusableElements[0];
+  var lastFocusableElement = focusableElements[focusableElements.length - 1];
+  console.log({
+    focusableElements: focusableElements,
+    firstFocusableElement: firstFocusableElement,
+    lastFocusableElement: lastFocusableElement
+  });
+};
+
 var openModal = function openModal(id) {
   var modal = document.getElementById("modal" + id);
   var modalOverlay = document.getElementById("modalOverlay" + id);
@@ -2642,6 +2653,7 @@ var openModal = function openModal(id) {
   modal.classList.add(css$d['modal--active']);
   modalOverlay.classList.add(css$d['overlay--active']);
   document.body.classList.add(css$d['has-modal']);
+  createKeyboardTrap();
 };
 
 var css$e = {"modal-button-image":"_JfSL7"};
