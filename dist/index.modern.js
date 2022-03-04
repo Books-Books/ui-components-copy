@@ -2641,18 +2641,10 @@ var createKeyboardTrap = function createKeyboardTrap(e, id) {
   console.log(lastFocusableElement);
 
   function trapTabKey(e) {
-    if (e.keyCode === 9) {
-      if (e.shiftKey) {
-        if (document.activeElement === firstFocusableElement) {
-          lastFocusableElement.focus();
-          console.log('Ultimo');
-        }
-      } else {
-        if (document.activeElement === lastFocusableElement) {
-          firstFocusableElement.focus();
-          console.log('Primero');
-        }
-      }
+    if (e.keyCode === 9 && document.activeElement === lastFocusableElement) {
+      firstFocusableElement.focus();
+    } else if (e.shiftKey && e.keyCode === 9 && document.activeElement === firstFocusableElement) {
+      lastFocusableElement.focus();
     }
   }
 
