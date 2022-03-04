@@ -17,7 +17,7 @@ export const createKeyboardTrap = function (e, id) {
 
   function trapTabKey(e) {
     if (e.keyCode === 9 && document.activeElement === lastFocusableElement) {
-      e.preventDefault
+      e.preventDefault()
       firstFocusableElement.focus()
       console.log('Ultimo')
     } else if (
@@ -25,7 +25,7 @@ export const createKeyboardTrap = function (e, id) {
       e.keyCode === 9 &&
       document.activeElement === firstFocusableElement
     ) {
-      e.preventDefault
+      e.preventDefault()
       lastFocusableElement.focus()
       console.log('Primero')
     }
