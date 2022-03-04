@@ -16,23 +16,10 @@ export const createKeyboardTrap = function (e, id) {
   console.log(lastFocusableElement)
 
   function trapTabKey(e) {
-    // if (e.keyCode === 9) {
-    //   if (e.shiftKey) {
-    //     if (document.activeElement === firstFocusableElement) {
-    //       console.log('Ultimo')
-    //     }
-    //   } else {
-    //     if (document.activeElement === lastFocusableElement) {
-    //       e.preventDefault
-    //       firstFocusableElement.focus()
-    //       console.log('Primero')
-    //     }
-    //   }
-    // }
-
     if (e.keyCode === 9 && document.activeElement === lastFocusableElement) {
       e.preventDefault
       firstFocusableElement.focus()
+      console.log('Ultimo')
     } else if (
       e.shiftKey &&
       e.keyCode === 9 &&
@@ -40,10 +27,11 @@ export const createKeyboardTrap = function (e, id) {
     ) {
       e.preventDefault
       lastFocusableElement.focus()
+      console.log('Primero')
     }
   }
 
-  modal.addEventListener('keydown', trapTabKey(e))
+  document.addEventListener('keydown', (e) => trapTabKey(e))
 }
 
 export const openModal = function (id) {

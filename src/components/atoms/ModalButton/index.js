@@ -29,6 +29,10 @@ export const ModalButton = ({
   addClass,
   title
 }) => {
+  const handleClick = function (e, id) {
+    openModal(id)
+    createKeyboardTrap(e, id)
+  }
   return (
     <Fragment>
       {hasImage ? (
@@ -36,9 +40,7 @@ export const ModalButton = ({
           className={`${css['modal-button-image']} ${addClass}`}
           aria-labelledby={`modalDescription${id}`}
           aria-description='Abrir modal'
-          onClick={(e) => {
-            openModal(id), createKeyboardTrap(e, id)
-          }}
+          onClick={(e) => handleClick(e, id)}
           id={`openModal${id}`}
         >
           <span className='sr-only' id={`modalDescription${id}`}>
@@ -59,9 +61,7 @@ export const ModalButton = ({
           aria-description='Abrir modal'
           hasAriaLabel={false}
           label={label}
-          onClick={(e) => {
-            openModal(id), createKeyboardTrap(e, id)
-          }}
+          onClick={(e) => handleClick(e, id)}
           addClass={addClass}
         />
       )}
