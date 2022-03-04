@@ -23,7 +23,9 @@ export const ModalButtonSvg = ({ label, id, addClass, children }) => {
       id={`openModal${id}`}
       className={`${css['modal-button']} ${addClass}`}
       role='button'
-      onClick={(e) => openModal(e, id)}
+      onClick={(e) => {
+        openModal(id), createKeyboardTrap(e, id)
+      }}
       onKeyDown={(e) => openModalWithSpace(e, id)}
       aria-label={label}
       xLinkHref=''

@@ -2656,8 +2656,7 @@ var createKeyboardTrap = function createKeyboardTrap(e, id) {
 
   trapTabKey(e);
 };
-
-var openModal = function openModal(e, id) {
+var openModal = function openModal(id) {
   var modal = document.getElementById("modal" + id);
   var modalOverlay = document.getElementById("modalOverlay" + id);
   modal.hidden = false;
@@ -2665,7 +2664,6 @@ var openModal = function openModal(e, id) {
   modal.classList.add(css$d['modal--active']);
   modalOverlay.classList.add(css$d['overlay--active']);
   document.body.classList.add(css$d['has-modal']);
-  modal.addEventListener('keydown', createKeyboardTrap(e, id));
 };
 
 var css$e = {"modal-button-image":"_JfSL7"};
@@ -2688,7 +2686,7 @@ var ModalButton = function ModalButton(_ref) {
     "aria-labelledby": "modalDescription" + id,
     "aria-description": "Abrir modal",
     onClick: function onClick(e) {
-      return openModal(e, id);
+      openModal(id), createKeyboardTrap(e, id);
     },
     id: "openModal" + id
   }, /*#__PURE__*/React__default.createElement("span", {
@@ -2707,7 +2705,7 @@ var ModalButton = function ModalButton(_ref) {
     hasAriaLabel: false,
     label: label,
     onClick: function onClick(e) {
-      return openModal(e, id);
+      openModal(id), createKeyboardTrap(e, id);
     },
     addClass: addClass
   }));

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { openModal } from '../../../helpers/openModal'
+import { createKeyboardTrap, openModal } from '../../../helpers/openModal'
 import { Button, Image } from '../index'
 import css from './ModalButton.module.css'
 /**
@@ -36,7 +36,9 @@ export const ModalButton = ({
           className={`${css['modal-button-image']} ${addClass}`}
           aria-labelledby={`modalDescription${id}`}
           aria-description='Abrir modal'
-          onClick={(e) => openModal(e, id)}
+          onClick={(e) => {
+            openModal(id), createKeyboardTrap(e, id)
+          }}
           id={`openModal${id}`}
         >
           <span className='sr-only' id={`modalDescription${id}`}>
@@ -57,7 +59,9 @@ export const ModalButton = ({
           aria-description='Abrir modal'
           hasAriaLabel={false}
           label={label}
-          onClick={(e) => openModal(e, id)}
+          onClick={(e) => {
+            openModal(id), createKeyboardTrap(e, id)
+          }}
           addClass={addClass}
         />
       )}
