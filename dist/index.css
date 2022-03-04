@@ -2133,7 +2133,7 @@ body._2XpJ5 {
   border: 0.0625rem solid var(--tertiaryColor);
 }
 
-._2uck7::before {
+/* .c-vid::before {
   content: '';
   position: absolute;
   top: -1em;
@@ -2143,7 +2143,7 @@ body._2XpJ5 {
   height: 6.875rem;
   border-top: 0.25rem solid var(--tertiaryColor);
   border-right: 0.25rem solid var(--tertiaryColor);
-}
+} */
 
 ._2uck7 svg {
   color: currentColor;
