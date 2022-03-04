@@ -2636,9 +2636,6 @@ var createKeyboardTrap = function createKeyboardTrap(e, id) {
   var focusableElements = Array.from(modal.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed [tabindex="0"], [contenteditable]'));
   var firstFocusableElement = focusableElements[0];
   var lastFocusableElement = focusableElements[focusableElements.length - 1];
-  console.log(focusableElements);
-  console.log(firstFocusableElement);
-  console.log(lastFocusableElement);
 
   function trapTabKey(e) {
     if (e.keyCode === 9) {
@@ -2646,13 +2643,11 @@ var createKeyboardTrap = function createKeyboardTrap(e, id) {
         if (document.activeElement === firstFocusableElement) {
           e.preventDefault();
           lastFocusableElement.focus();
-          console.log('Ultimo');
         }
       } else {
         if (document.activeElement === lastFocusableElement) {
           e.preventDefault();
           firstFocusableElement.focus();
-          console.log('Primero');
         }
       }
     }
