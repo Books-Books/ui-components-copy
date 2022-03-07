@@ -1,4 +1,7 @@
 .colorTextUser {
   color: #005680;
-  font-size: 1.25rem;
+  font-size: 1rem;
+}
+.spanWelcome {
+  display: none;
 }

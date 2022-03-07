@@ -8,11 +8,20 @@ import cssUser from './UserSession.module.css'
  * - label: recibe un string con el nombre o dato del estudiante.
  * - addClass: para ingresar clases adicionales.
  **/
-export function UserLogin({ addClass, label = 'Estudiante 01' }) {
+export function UserLogin({
+  addClass,
+  label = 'Estudiante 01',
+  showWelcome = true
+}) {
   return (
     <Fragment>
       <div className={`${cssUser.colorTextUser} ${addClass}`}>
-        <h3>{label}</h3>
+        <h3>
+          <span className={!showWelcome ? `${cssUser.spanWelcome}` : ''}>
+            Bienvenido{' '}
+          </span>
+          {label}
+        </h3>
       </div>
     </Fragment>
   )

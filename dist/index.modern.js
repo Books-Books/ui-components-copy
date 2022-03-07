@@ -1822,8 +1822,15 @@ var Dropdown = function Dropdown(_ref) {
     Expanded ? SetExpanded(false) : SetExpanded(true);
   };
 
+  var main = document.querySelector('#main-content');
+
   var closeMenu = function closeMenu(e) {
+    console.log(e);
+
     if (e.relatedTarget === null) {
+      SetExpanded(false);
+      typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
+    } else if (e.relatedTarget === main) {
       SetExpanded(false);
       typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
     }
@@ -3228,15 +3235,19 @@ var TourOverlay = function TourOverlay(endTour, endTourOnEsc) {
   });
 };
 
-var cssUser = {"colorTextUser":"_aG4HF"};
+var cssUser = {"colorTextUser":"_aG4HF","spanWelcome":"_2jvqU"};
 
 function UserLogin(_ref) {
   var addClass = _ref.addClass,
       _ref$label = _ref.label,
-      label = _ref$label === void 0 ? 'Estudiante 01' : _ref$label;
+      label = _ref$label === void 0 ? 'Estudiante 01' : _ref$label,
+      _ref$showWelcome = _ref.showWelcome,
+      showWelcome = _ref$showWelcome === void 0 ? true : _ref$showWelcome;
   return /*#__PURE__*/React__default.createElement(Fragment$2, null, /*#__PURE__*/React__default.createElement("div", {
     className: cssUser.colorTextUser + " " + addClass
-  }, /*#__PURE__*/React__default.createElement("h3", null, label)));
+  }, /*#__PURE__*/React__default.createElement("h3", null, /*#__PURE__*/React__default.createElement("span", {
+    className: !showWelcome ? "" + cssUser.spanWelcome : ''
+  }, "Bienvenido", ' '), label)));
 }
 
 var css$r = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
