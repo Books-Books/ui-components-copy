@@ -2247,6 +2247,16 @@ body._2XpJ5 {
   accent-color: var(--secondaryColor);
 }
 
+._2uck7 video::cue {
+  visibility: visible;
+  color: white;
+  background-color: var(--tertiaryColor);
+}
+
+._2uck7 video._1RLrP::cue {
+  visibility: hidden;
+}
+
 ._3jq03 {
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: 1px solid var(--borderAside);

@@ -3250,7 +3250,7 @@ function UserLogin(_ref) {
   }, "Bienvenido", ' '), label)));
 }
 
-var css$r = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg"};
+var css$r = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4K","c-vid-controls-text":"_2W8d_","progress":"_2vrVD","progress-bar":"_5SxVn","c-vid-controls-volumn":"_3e9Q1","c-vid-controls-volumn-item":"_2YNZg","no-captions":"_1RLrP"};
 
 function Video(_ref) {
   var url = _ref.url,
@@ -3357,6 +3357,10 @@ function Video(_ref) {
   var refProgress = createRef();
   var refProgressBar = createRef();
   var refVolumn = createRef();
+
+  var _useState6 = useState(false),
+      captions = _useState6[0],
+      setCaptions = _useState6[1];
 
   function handlePlay() {
     var $video = refVideo.current;
@@ -3475,6 +3479,10 @@ function Video(_ref) {
     video.volume = volume;
   }
 
+  var handleCaptions = function handleCaptions() {
+    setCaptions(!captions);
+  };
+
   return /*#__PURE__*/React__default.createElement("figure", {
     className: "" + css$r['c-vid-container']
   }, /*#__PURE__*/React__default.createElement("div", {
@@ -3489,7 +3497,8 @@ function Video(_ref) {
     onTimeUpdate: function onTimeUpdate() {
       handleBarProgress();
       handleTimeProcess();
-    }
+    },
+    className: "" + (captions ? '' : css$r['no-captions'])
   }, /*#__PURE__*/React__default.createElement("source", {
     src: url
   })), /*#__PURE__*/React__default.createElement("div", {
@@ -3539,6 +3548,8 @@ function Video(_ref) {
     className: css$r['progress-bar'],
     onChange: handleBarProgress
   }))), /*#__PURE__*/React__default.createElement("button", {
+    "aria-pressed": captions,
+    onClick: handleCaptions,
     "aria-label": "Subt\xEDtulos"
   }, subtitlesIcon), /*#__PURE__*/React__default.createElement("button", {
     "aria-label": getStateScreen.label,
