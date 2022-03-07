@@ -105,6 +105,7 @@ function Video({ url, width, title, content, addClass }) {
   const refProgress = createRef()
   const refProgressBar = createRef()
   const refVolumn = createRef()
+  const [captions, setCaptions] = useState(false)
 
   // funcion de click del play
   function handlePlay() {
@@ -233,6 +234,10 @@ function Video({ url, width, title, content, addClass }) {
     video.volume = volume
   }
 
+  const handleCaptions = function () {
+    setCaptions(!captions)
+  }
+
   return (
     <figure className={`${css['c-vid-container']}`}>
       <div
@@ -246,6 +251,7 @@ function Video({ url, width, title, content, addClass }) {
             handleBarProgress()
             handleTimeProcess()
           }}
+          className={`${captions ? '' : css['no-captions']}`}
         >
           <source src={url} />
         </video>
@@ -297,11 +303,16 @@ function Video({ url, width, title, content, addClass }) {
               />
             </div>
           </div>
-          <button aria-label='Subtítulos'>{subtitlesIcon}</button>
+          <button
+            aria-pressed={captions}
+            onClick={handleCaptions}
+            aria-label='Subtítulos'
+          >
+            {subtitlesIcon}
+          </button>
           <button aria-label={getStateScreen.label} onClick={hanldeFullScrenn}>
             {getStateScreen.icon}
           </button>
-          {/* <Icon nameIcon={getStateScreen.icon} onClick={hanldeFullScrenn} /> */}
         </div>
       </div>
       <figcaption>

@@ -125,3 +125,13 @@
   width: 100%;
   accent-color: var(--secondaryColor);
 }
+
+.c-vid video::cue {
+  visibility: visible;
+  color: white;
+  background-color: var(--tertiaryColor);
+}
+
+.c-vid video.no-captions::cue {
+  visibility: hidden;
+}
