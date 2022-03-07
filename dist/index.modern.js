@@ -1823,9 +1823,13 @@ var Dropdown = function Dropdown(_ref) {
   };
 
   var closeMenu = function closeMenu(e) {
+    console.log(e);
+
     if (e.relatedTarget === null) {
       SetExpanded(false);
       typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
+    } else {
+      SetExpanded(false);
     }
   };
 

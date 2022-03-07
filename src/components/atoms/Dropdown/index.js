@@ -34,9 +34,12 @@ export const Dropdown = ({
 
   // Cierra el menú al hacer clic fuera del menú
   const closeMenu = (e) => {
+    console.log(e)
     if (e.relatedTarget === null) {
       SetExpanded(false)
       typeof fnMenuExpanded === 'function' && fnMenuExpanded(false)
+    } else {
+      SetExpanded(false)
     }
   }
 
