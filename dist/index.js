@@ -1826,7 +1826,6 @@ var Dropdown = function Dropdown(_ref) {
   };
 
   var main = document.querySelector('#main-content');
-  console.log(main);
 
   var closeMenu = function closeMenu(e) {
     console.log(e);
@@ -1834,6 +1833,8 @@ var Dropdown = function Dropdown(_ref) {
     if (e.relatedTarget === null) {
       SetExpanded(false);
       typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
+    } else if (e.relatedTarget === main) {
+      SetExpanded(false);
     }
   };
 
