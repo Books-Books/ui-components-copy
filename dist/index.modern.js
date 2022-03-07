@@ -1832,6 +1832,7 @@ var Dropdown = function Dropdown(_ref) {
       typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
     } else if (e.relatedTarget === main) {
       SetExpanded(false);
+      typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
     }
   };
 
