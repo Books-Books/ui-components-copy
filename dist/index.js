@@ -1832,7 +1832,7 @@ var Dropdown = function Dropdown(_ref) {
       SetExpanded(false);
       typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
     } else {
-      SetExpanded(false);
+      typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
     }
   };
 
