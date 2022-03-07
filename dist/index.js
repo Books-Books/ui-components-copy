@@ -1825,13 +1825,13 @@ var Dropdown = function Dropdown(_ref) {
     Expanded ? SetExpanded(false) : SetExpanded(true);
   };
 
+  var main = document.querySelector('#main-content');
+  console.log(main);
+
   var closeMenu = function closeMenu(e) {
     console.log(e);
 
     if (e.relatedTarget === null) {
-      SetExpanded(false);
-      typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
-    } else if (e.relatedTarget === main) {
       SetExpanded(false);
       typeof fnMenuExpanded === 'function' && fnMenuExpanded(false);
     }
