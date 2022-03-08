@@ -3254,7 +3254,8 @@ var css$r = {"c-vid-container":"_Wubjm","c-vid":"_2uck7","c-vid-controls":"_2yF4
 
 function Video(_ref) {
   var url = _ref.url,
-      width = _ref.width,
+      _ref$width = _ref.width,
+      width = _ref$width === void 0 ? 'unset' : _ref$width,
       title = _ref.title,
       content = _ref.content,
       addClass = _ref.addClass;
@@ -3489,8 +3490,7 @@ function Video(_ref) {
     className: css$r['c-vid'] + " " + addClass,
     ref: refCont,
     style: {
-      maxWidth: width,
-      minWidth: '320px'
+      maxWidth: width
     }
   }, /*#__PURE__*/React__default.createElement("video", {
     ref: refVideo,

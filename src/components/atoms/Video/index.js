@@ -13,7 +13,7 @@ import css from './Video.module.css'
  * - content: descripción del caption del video.
  * - addClass: clase adicional que se le agregue al reproductor.
  **/
-function Video({ url, width, title, content, addClass }) {
+function Video({ url, width = 'unset', title, content, addClass }) {
   // Icons
 
   const playIcon = (
@@ -243,7 +243,7 @@ function Video({ url, width, title, content, addClass }) {
       <div
         className={`${css['c-vid']} ${addClass}`}
         ref={refCont}
-        style={{ maxWidth: width, minWidth: '320px' }}
+        style={{ maxWidth: width }}
       >
         <video
           ref={refVideo}
