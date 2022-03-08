@@ -33,19 +33,19 @@ const PanelSection = ({
   return (
     <div className={css.Section} {...others}>
       <div className={css.direccion}>
-        <span>
-          {
-            tabs?.length && `${value + 1}/${tabs.length}`
-          }
-        </span>
-        <div className={css["direccion-content"]}>
-          {
-            tabs && <Button
+        <span>{tabs?.length && `${value + 1}/${tabs.length}`}</span>
+        <div className={css['direccion-content']}>
+          {tabs && (
+            <Button
               className={`${css.styleBtn} ${value > 0 && css.active}`}
-              onClick={() => { setValue(value => value - 1) }}
+              onClick={() => {
+                setValue((value) => value - 1)
+              }}
               icon='chevron_left'
+              hasAriaLabel={true}
+              label='Slide anterior'
             />
-          }
+          )}
           <AsideSection value={value} onChange={handleChange}>
             {tabs &&
               tabs.map((elem, i) => (
@@ -58,13 +58,19 @@ const PanelSection = ({
                 />
               ))}
           </AsideSection>
-          {
-            tabs && <Button
-              className={`${css.styleBtn} ${(value + 1) < tabs.length && css.active}`}
-              onClick={() => { setValue(value => value + 1) }}
+          {tabs && (
+            <Button
+              className={`${css.styleBtn} ${
+                value + 1 < tabs.length && css.active
+              }`}
+              onClick={() => {
+                setValue((value) => value + 1)
+              }}
               icon='chevron_right'
+              hasAriaLabel={true}
+              label='Slide siguiente'
             />
-          }
+          )}
         </div>
       </div>
       {children}

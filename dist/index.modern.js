@@ -62,40 +62,11 @@ var css = {"BtnSec":"_2eAZu"};
 var _excluded = ["classes", "className", "disabled", "fullWidth", "nameIcon", "positionIcon", "indicator", "label", "onChange", "onClick", "onFocus", "selected", "selectionFollowsFocus", "value", "addClass", "setValue", "url"];
 var BtnSec = forwardRef(function BtnSec(props, ref) {
   var label = props.label,
-      onChange = props.onChange,
-      onClick = props.onClick,
-      onFocus = props.onFocus,
       selected = props.selected,
-      selectionFollowsFocus = props.selectionFollowsFocus,
       value = props.value,
       addClass = props.addClass,
-      setValue = props.setValue,
       url = props.url,
       other = _objectWithoutPropertiesLoose(props, _excluded);
-
-  var handleClick = function handleClick(event) {
-    if (!selected && onChange) {
-      onChange(event, value);
-    }
-
-    if (onClick) {
-      onClick(event);
-    }
-
-    if (setValue) {
-      setValue(value + 1);
-    }
-  };
-
-  var handleFocus = function handleFocus(event) {
-    if (selectionFollowsFocus && !selected && onChange) {
-      onChange(event, value);
-    }
-
-    if (onFocus) {
-      onFocus(event);
-    }
-  };
 
   return /*#__PURE__*/React__default.createElement("li", {
     role: "presentation"
@@ -104,10 +75,10 @@ var BtnSec = forwardRef(function BtnSec(props, ref) {
     role: "tab",
     className: css.BtnSec + " " + addClass,
     "aria-selected": selected,
-    onClick: handleClick,
-    onFocus: handleFocus,
     value: value + 1
-  }, other), /*#__PURE__*/React__default.createElement("span", {
+  }, other, {
+    tabIndex: "0"
+  }), /*#__PURE__*/React__default.createElement("span", {
     className: "sr-only"
   }, "Secci\xF3n ", label)));
 });
@@ -4473,7 +4444,7 @@ var PanelSection = function PanelSection(_ref) {
   }, others), /*#__PURE__*/React__default.createElement("div", {
     className: css$y.direccion
   }, /*#__PURE__*/React__default.createElement("span", null, (tabs === null || tabs === void 0 ? void 0 : tabs.length) && value + 1 + "/" + tabs.length), /*#__PURE__*/React__default.createElement("div", {
-    className: css$y["direccion-content"]
+    className: css$y['direccion-content']
   }, tabs && /*#__PURE__*/React__default.createElement(Button, {
     className: css$y.styleBtn + " " + (value > 0 && css$y.active),
     onClick: function onClick() {
@@ -4481,7 +4452,9 @@ var PanelSection = function PanelSection(_ref) {
         return value - 1;
       });
     },
-    icon: "chevron_left"
+    icon: "chevron_left",
+    hasAriaLabel: true,
+    label: "Slide anterior"
   }), /*#__PURE__*/React__default.createElement(AsideSection, {
     value: value,
     onChange: handleChange
@@ -4500,7 +4473,9 @@ var PanelSection = function PanelSection(_ref) {
         return value + 1;
       });
     },
-    icon: "chevron_right"
+    icon: "chevron_right",
+    hasAriaLabel: true,
+    label: "Slide siguiente"
   }))), children);
 };
 

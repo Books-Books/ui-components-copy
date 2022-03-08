@@ -39,6 +39,7 @@
   display: grid;
   align-items: center;
   grid-template-columns: 2.75rem auto auto 1fr 2.75rem 2.75rem;
+  max-height: 3rem;
   max-width: 100%;
   grid-gap: 0.5rem;
   padding: 0 0.2rem;
