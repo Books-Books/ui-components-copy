@@ -54,19 +54,19 @@ const BtnSec = forwardRef(function BtnSec(props, ref) {
   }
   return (
     <li role='presentation'>
-      <a
-        href={url}
+      <button
+        // href={url}
         role='tab'
         className={`${css.BtnSec} ${addClass}`}
         aria-selected={selected}
-        // onClick={handleClick}
-        // onFocus={handleFocus}
+        onClick={handleClick}
+        onFocus={handleFocus}
         value={value + 1}
         {...other}
         tabIndex='0'
       >
         <span className='sr-only'>Sección {label}</span>
-      </a>
+      </button>
     </li>
   )
 })

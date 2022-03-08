@@ -23,6 +23,10 @@ export const PanelSections = () => (
   >
     <Section label='1'>
       <p>hola primero</p>
+      <button>A</button>
+      <button>A</button>
+      <button>A</button>
+      <button>A</button>
     </Section>
     <Section label='2'>
       <p>hola segundo</p>

@@ -18,6 +18,7 @@ const Section = ({ children, value, index, label, addClass, ...other }) => {
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${label}`}
       {...other}
+      tabIndex='-1'
     >
       <h2 className='sr-only' id={`simple-tab-${label}`}>
         Sección {label}
@@ -28,4 +29,3 @@ const Section = ({ children, value, index, label, addClass, ...other }) => {
 }
 
 export { Section }
-

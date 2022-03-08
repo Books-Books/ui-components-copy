@@ -32,6 +32,7 @@ const PanelSection = ({
 
   return (
     <div className={css.Section} {...others}>
+      {children}
       <div className={css.direccion}>
         <span>{tabs?.length && `${value + 1}/${tabs.length}`}</span>
         <div className={css['direccion-content']}>
@@ -73,7 +74,6 @@ const PanelSection = ({
           )}
         </div>
       </div>
-      {children}
     </div>
   )
 }
